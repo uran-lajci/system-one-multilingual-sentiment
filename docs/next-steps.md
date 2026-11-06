@@ -40,10 +40,7 @@ We run all five models on these 15,864 test items with one Choice question, the 
 
 A pilot run of Jev on 75,080 items, before we used the paper's exact samples, needed about 30.3 million input tokens, or about 404 per item. One run over the 15,864 items therefore needs about 6.4 million input tokens. That costs about USD 0.30 with Jev, USD 1.50 with Clef and USD 0.25 with Clef-flash. Laya runs locally for free.
 
-1. Write a batch runner that runs one model over the 10 test files and saves each item's prediction with the model version.
-2. Write a scorer that computes macro-F1 per language and compares it with the paper's five LLMs.
-3. Make `classify_sentiment.py` stop on an unknown model name, and check the names for Clef-flash and Laya-multilingual.
-4. Run the five models.
+We ran all five models on 6 November 2026. [results-zero-shot.md](results-zero-shot.md) gives the scores, the comparison and the commands to reproduce them.
 
 ## Open decisions
 
