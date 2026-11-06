@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "What is the sentiment of this text?",
+    "criteria": {
+      "positive": "The text is positive in tone.",
+      "neutral": "The text is neither positive nor negative in tone.",
+      "negative": "The text is negative in tone."
+    }
+  }
+}

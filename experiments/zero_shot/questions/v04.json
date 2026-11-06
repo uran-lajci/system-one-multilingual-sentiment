@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Read the text and decide which sentiment it expresses overall. Consider the text as a whole rather than individual words, and take irony, sarcasm and negation into account.",
+    "criteria": {
+      "positive": "The text as a whole conveys approval, praise, satisfaction, enthusiasm, gratitude, affection or another favorable stance. A text that mentions some drawbacks still counts as positive if the favorable stance clearly dominates.",
+      "neutral": "The text conveys no clear sentiment. This includes purely factual statements, questions, announcements and texts whose positive and negative parts roughly balance each other.",
+      "negative": "The text as a whole conveys criticism, complaint, anger, sadness, fear, disgust, disappointment or another unfavorable stance. A text that mentions some good points still counts as negative if the unfavorable stance clearly dominates."
+    }
+  }
+}

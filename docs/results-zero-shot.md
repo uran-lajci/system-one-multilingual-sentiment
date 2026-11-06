@@ -11,7 +11,7 @@ We compare with the five LLMs of Kastrati et al. (2026), evaluated **zero-shot**
 - **Same metric:** macro-F1 on the three labels, the unweighted mean of the per-class F1 scores, as in the paper.
 - **Different input format:** each kind of model gets its own format. The LLMs got one shared prompt, "Given a piece of text, classify its sentiment as negative, positive, or neutral. Return only a single word, either POSITIVE, NEGATIVE or NEUTRAL." The System One models got a Choice question with a description of each label, and return a probability for each label.
 
-We do not compare with the paper's few-shot LLM scores or with the SOTA column. A comparison with few-shot LLMs needs a few-shot run of the System One models, which comes after the conference.
+We do not compare with the paper's few-shot LLM scores or with the SOTA column. A comparison with few-shot LLMs needs a few-shot run of the System One models, which [next-steps.md](next-steps.md#few-shot-run) plans with the paper's three examples.
 
 ## Models
 
@@ -54,6 +54,35 @@ The mean is the unweighted mean over the 10 languages.
 - On the 7 languages whose test items did not change since the pilot run, Jev's scores moved by at most 0.6 points, for example Danish from 72.9 to 72.3. Jev is close to, but not fully, deterministic.
 - In 34 of the 15,864 items, Jev's probabilities tie at two decimals, such as 0.49, 0.49 and 0.02, and Jev picks one of the tied labels. We score Jev's own choice.
 
+## Question sensitivity
+
+On 6 and 7 November 2026 we ran the same five models on the same 10 test sets with 10 versions of the question: the original (`baseline`) and nine more (`v01` to `v09` in `experiments/zero_shot/questions/`). The nine were written in a separate Claude session that knew nothing about our results, and reviewed by hand. All ten are zero-shot: the same three labels, plain-text criteria and no examples. We select no version; the headline scores above stay those of the original question.
+
+10-language mean macro-F1 (%) per question version:
+
+| Version | Jev | Clef | Clef-flash | Laya | Laya-multilingual |
+|---|---:|---:|---:|---:|---:|
+| baseline | 63.2 | 55.3 | 50.3 | 39.2 | 32.5 |
+| v01 | 63.8 | 59.1 | 52.8 | 43.9 | 45.4 |
+| v02 | 62.4 | 50.6 | 48.8 | 41.8 | 37.3 |
+| v03 | 62.8 | 57.0 | 54.4 | 40.9 | 37.2 |
+| v04 | 61.7 | 51.1 | 51.7 | 25.9 | 29.9 |
+| v05 | 64.2 | 60.9 | 53.3 | 41.6 | 42.7 |
+| v06 | 62.9 | 42.0 | 39.9 | 36.6 | 42.1 |
+| v07 | 62.9 | 53.7 | 50.8 | 32.4 | 31.2 |
+| v08 | 63.4 | 50.7 | 51.7 | 37.8 | 34.6 |
+| v09 | 61.7 | 55.4 | 53.1 | 35.8 | 43.3 |
+| **Mean** | **62.9** | **53.6** | **50.7** | **37.6** | **37.6** |
+| **Minimum** | 61.7 | 42.0 | 39.9 | 25.9 | 29.9 |
+| **Maximum** | 64.2 | 60.9 | 54.4 | 43.9 | 45.4 |
+| **Spread** | 2.5 | 18.9 | 14.5 | 18.0 | 15.5 |
+
+- Jev hardly depends on the wording: all ten versions fall within 2.5 points. Its worst version (61.7) is still above DeepSeek (61.0), Gemini (60.5) and Mistral (54.3), and its best (64.2) is still below GPT-4o (65.8) and Claude (65.7). So Jev's rank, third of ten models, holds for every version.
+- Clef, Clef-flash, Laya and Laya-multilingual depend strongly on the wording, with spreads of 14.5 to 18.9 points. Clef ranges from below Mistral (42.0) to about Gemini's level (60.9).
+- Some versions hurt particular models: v06, which asks for the dominant emotional tone, lowers both Clef models by about 12 points against the mean of their other versions, and v04, the longest version, gives Laya its lowest score.
+- The original question is an ordinary version, not a lucky one. It ranks between 4th and 8th of the ten versions for each model.
+- Two runs stopped once with a passing error (Clef on v07, Clef-flash on v03). Both resumed and finished, and all 450 result files are complete. The Cloudflare `api-version` stayed `2026-10-01.epoch` throughout.
+
 ## Cost
 
 | Model | Input tokens | Cost |
@@ -63,14 +92,23 @@ The mean is the unweighted mean over the 10 languages.
 | Clef-flash | 3,290,131 | about USD 0.13 |
 | Laya, Laya-multilingual | – | free, local |
 
+The nine extra question versions cost about USD 11.80 in total:
+
+| Model | Input tokens | Cost |
+|---|---:|---:|
+| Jev | 59,489,256 | about USD 2.50 |
+| Clef | 33,497,859 | about USD 8.00 |
+| Clef-flash | 33,497,859 | about USD 1.30 |
+
 ## Files and how to reproduce
 
-- `results/zero_shot/<model>/<language>.csv`: one row per test item, with the row number, gold label, predicted label, the three probabilities, the model version and the date. The files hold no text.
-- `results/zero_shot/scores.csv`: the table above.
+- `results/zero_shot/<version>/<model>/<language>.csv`: one row per test item, with the row number, gold label, predicted label, the three probabilities, the model version and the date. `<version>` is `baseline` or `v01` to `v09`. The files hold no text.
+- `results/zero_shot/<version>/scores.csv`: the per-language table for one version, like the results table above for `baseline`.
+- `results/zero_shot/sensitivity.csv`: the question sensitivity table.
 
 ```
-uv run python -m experiments.zero_shot.classify_sentiment -m <model>    # jev-1.14.0, clef, clef-flash, laya or laya-multilingual
-uv run python -m experiments.zero_shot.score_predictions
+uv run python -m experiments.zero_shot.classify_sentiment -m <model> -q experiments/zero_shot/questions/<version>.json    # -q defaults to baseline.json
+uv run python -m experiments.zero_shot.score_predictions    # scores every question version, baseline included
 ```
 
 The runner skips a language whose results file already exists, so delete a model's folder before running it again.

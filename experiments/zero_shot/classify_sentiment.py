@@ -1,9 +1,10 @@
 """Run one System One model zero-shot over the 10 conference test sets and save each item's prediction.
 
-The script writes results/zero_shot/<model>/<language>.csv with the row number, the gold and predicted labels, the
-three probabilities and the model version, but no text, so the test text never leaves data/. A language whose file
-already exists is skipped, so a stopped run can be started again. With -n, it scores only the first n items of each
-test set and writes to results/smoke_<n>/ instead.
+The script writes results/zero_shot/<question>/<model>/<language>.csv, where <question> is the question file's name,
+such as baseline. Each file holds the row number, the gold and predicted labels, the three probabilities and the model
+version, but no text, so the test text never leaves data/. A language whose file already exists is skipped, so a
+stopped run can be started again. With -n, it scores only the first n items of each test set and writes to
+results/smoke_<n>/ instead.
 
 uv run python -m experiments.zero_shot.classify_sentiment -m jev-1.14.0
 """
@@ -48,11 +49,25 @@ Predictor = Callable[[list[str]], Awaitable[list[Prediction]]]
 
 
 def load_questions(path: str) -> Questions:
+    """Load a question file, and stop unless it is one zero-shot Choice question with our three labels as plain text."""
     with open(path, encoding='utf-8') as file:
         questions: object = json.load(file)
 
-    if not isinstance(questions, dict) or QUESTION_ID not in questions:
-        raise ValueError(f'No {QUESTION_ID!r} question in {path}')
+    error = f'{path} must hold one Choice question {QUESTION_ID!r} with plain-text criteria for {LABELS}'
+    if not isinstance(questions, dict) or len(questions) != 1:
+        raise ValueError(error)
+
+    question = questions.get(QUESTION_ID)
+    criteria = question.get('criteria') if isinstance(question, dict) else None
+    if (
+        not isinstance(question, dict)
+        or question.get('type') != 'choice'
+        or not isinstance(question.get('instructions'), str)
+        or not isinstance(criteria, dict)
+        or tuple(criteria) != LABELS
+        or not all(isinstance(text, str) for text in criteria.values())
+    ):
+        raise ValueError(error)
     return questions
 
 
@@ -140,7 +155,8 @@ def make_predictor(model: str, questions: Questions, concurrency: int) -> Predic
 async def main(model: str, concurrency: int, out: str, limit: int, questions_path: str) -> None:
     load_dotenv('.env')
     predict = make_predictor(model, load_questions(questions_path), concurrency)
-    out_dir = os.path.join(out, 'zero_shot' if limit == 0 else f'smoke_{limit}', model)
+    question_name = os.path.splitext(os.path.basename(questions_path))[0]
+    out_dir = os.path.join(out, 'zero_shot' if limit == 0 else f'smoke_{limit}', question_name, model)
     os.makedirs(out_dir, exist_ok=True)
     written, skipped = 0, []
 

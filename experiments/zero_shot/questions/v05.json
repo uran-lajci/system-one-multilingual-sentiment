@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "What is the sentiment polarity of the text?",
+    "criteria": {
+      "positive": "The text has positive polarity, meaning its evaluative content is favorable.",
+      "neutral": "The text has no polarity, meaning it contains little or no evaluative content.",
+      "negative": "The text has negative polarity, meaning its evaluative content is unfavorable."
+    }
+  }
+}

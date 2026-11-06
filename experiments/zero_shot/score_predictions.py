@@ -1,8 +1,9 @@
-"""Score each model's zero-shot predictions with macro-F1 and compare them with the paper's five LLMs.
+"""Score each model's zero-shot predictions with macro-F1, per question version and across versions.
 
-The script reads every <model>/<language>.csv in the results folder, computes macro-F1 (%) on the three labels per
-language, adds the mean over the 10 languages and the paper's zero-shot LLM scores, and writes scores.csv to the
-results folder.
+For every question folder in the results folder, such as baseline or v03, the script reads each
+<model>/<language>.csv, computes macro-F1 (%) on the three labels per language, adds the mean over the 10 languages
+and the paper's zero-shot LLM scores, and writes the table to <question>/scores.csv. It then writes sensitivity.csv
+with each model's 10-language mean for every version, and the mean, minimum and maximum across versions.
 
 uv run python -m experiments.zero_shot.score_predictions
 """
@@ -21,16 +22,17 @@ from experiments.zero_shot.classify_sentiment import (
     LAYA_REPOS,
 )
 
+MODEL_ORDER = [*JEV_MODELS, *CLEF_MODELS, *LAYA_REPOS]
 
-def main(results_dir: str, paper_scores: str) -> None:
-    order = [*JEV_MODELS, *CLEF_MODELS, *LAYA_REPOS]
-    models = [model for model in order if os.path.isdir(os.path.join(results_dir, model))]
+
+def score_question(question_dir: str, paper: pd.DataFrame) -> pd.DataFrame:
+    models = [model for model in MODEL_ORDER if os.path.isdir(os.path.join(question_dir, model))]
     scores = pd.DataFrame(index=pd.Index(list(CONFERENCE_TEST_FILES), name='language'), columns=models, dtype=float)
     items = pd.Series(0, index=scores.index, name='items')
 
     for model in models:
         for language in CONFERENCE_TEST_FILES:
-            path = os.path.join(results_dir, model, f'{language}.csv')
+            path = os.path.join(question_dir, model, f'{language}.csv')
             if not os.path.exists(path):
                 continue
             predictions = pd.read_csv(path)
@@ -39,15 +41,38 @@ def main(results_dir: str, paper_scores: str) -> None:
             )
             items[language] = max(items[language], len(predictions))
 
-    table = pd.concat([items, scores, pd.read_csv(paper_scores).set_index('language')], axis=1)
+    table = pd.concat([items, scores, paper], axis=1)
     table.loc['Mean'] = table.drop(columns='items').mean(skipna=False)
     table['items'] = items.reindex(table.index).fillna(items.sum()).astype(int)
+    table.round(1).to_csv(os.path.join(question_dir, 'scores.csv'))
+    return table
 
-    table.round(1).to_csv(os.path.join(results_dir, 'scores.csv'))
-    print(table.round(1).to_string())
-    missing = scores.isna().sum().sum()
-    missing_note = f'; {missing} model-language pairs have no predictions yet' if missing else ''
-    print(f'Scored {len(models)} models on {len(CONFERENCE_TEST_FILES)} languages{missing_note}; wrote scores.csv')
+
+def main(results_dir: str, paper_scores: str) -> None:
+    paper = pd.read_csv(paper_scores).set_index('language')
+    folders = [name for name in os.listdir(results_dir) if os.path.isdir(os.path.join(results_dir, name))]
+    questions = sorted(folders, key=lambda name: (name != 'baseline', name))
+
+    means = {}
+    for question in questions:
+        table = score_question(os.path.join(results_dir, question), paper)
+        means[question] = table.loc['Mean', [model for model in MODEL_ORDER if model in table.columns]]
+        print(f'{question}: wrote {question}/scores.csv')
+
+    per_version = pd.DataFrame(means).T
+    per_version = per_version[[model for model in MODEL_ORDER if model in per_version.columns]]
+    summary = pd.DataFrame(
+        {
+            'mean': per_version.mean(skipna=False),
+            'min': per_version.min(skipna=False),
+            'max': per_version.max(skipna=False),
+        }
+    ).T
+    sensitivity = pd.concat([per_version, summary])
+
+    sensitivity.round(1).to_csv(os.path.join(results_dir, 'sensitivity.csv'))
+    print(sensitivity.round(1).to_string())
+    print(f'Scored {len(questions)} question versions; wrote sensitivity.csv to {results_dir}')
 
 
 if __name__ == '__main__':

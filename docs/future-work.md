@@ -4,28 +4,22 @@
 
 ## After the conference
 
-The conference paper covers 10 languages, zero-shot. These steps extend the study to all 35 languages and to few-shot. The data for them is ready, except the training data still to download.
+The conference paper covers 10 languages, with hand-written zero-shot questions, few-shot with the paper's three examples, and instruction induction. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
 
 ### Zero-shot run on all 35 languages
 
 The same five models and the same question run on the other 25 test sets, so the study covers all 35 languages and 52,859 items.
 
-### Few-shot run
+### More few-shot runs
 
-All five models run again on the 52,859 test items, with five examples per label. The examples are English tweets, the same for all 35 languages, because some test languages have no training data.
+The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 10 languages. These runs extend it:
 
-We draw the examples at random, with a fixed seed, from `data/tsm/train/english.csv`. The question is the zero-shot question with one change. Each criterion becomes an object. `description` holds the zero-shot wording word for word, and `examples` holds the five tweets for that label. We add nothing else, such as a `not_for` field, so the examples are the only change. The key is `description` so that it comes before `examples`, since Clef sorts keys alphabetically.
+- **All 35 languages:** the same question with the paper's three examples on all 52,859 test items.
+- **Five train tweets per label:** we draw them at random, with a fixed seed, from `data/tsm/train/english.csv`. The examples stay English and the same for all 35 languages, because some test languages have no training data. Our paper must say that the LLMs saw one example per label and our models see five.
+- **Several draws:** we repeat the five-tweet run with 3 to 5 seeds and report the mean, minimum and maximum, as in the question sensitivity analysis. One draw alone does not show how much the score depends on which tweets we pick. We select no seed.
+- **Synthetic examples:** Claude writes five examples per label, so none comes from train data. Our paper must say they are synthetic.
 
-```json
-"positive": {
-  "description": "The text expresses a positive opinion, emotion or attitude.",
-  "examples": ["<tweet 1>", "<tweet 2>", "<tweet 3>", "<tweet 4>", "<tweet 5>"]
-}
-```
-
-Zero-shot used plain strings as criteria, so the object shape is a second, small difference from zero-shot. Our paper should say so.
-
-Kastrati et al. (2026) gave the LLMs one example per label, so the System One models see 15 examples and the LLMs see 3. We still compare with the paper's few-shot LLM column, but our paper must state this difference.
+The question shape stays as in the conference run: `description` holds the zero-shot wording word for word, and `examples` holds the tweets for that label.
 
 ### Fine-tune transformers on our splits
 
@@ -50,11 +44,13 @@ Experiments 2 to 6 are options for after the conference, not commitments.
 
 ### 2. Prompt ablation
 
-We write up to 10 versions of the instructions and criteria and measure how much the score changes between them. The zero-shot run uses a single version, so we do not yet know how sensitive the results are to wording. We run it on three datasets, one each for a low-, medium- and high-resource language.
+The conference paper now includes this as a sensitivity analysis with 10 versions on the 10 conference languages; see the "Question sensitivity" section of [next-steps.md](next-steps.md). After the conference, it can extend to the other 25 languages.
 
 The five LLMs were tested with one fixed prompt. If we try many versions for Jev, we should report the mean and spread across versions and choose the best version on validation data, never on test data.
 
 ### 3. Automatic tuning with Claude Code
+
+The conference paper includes a one-pass version without the validation loop; see the "Instruction induction" section of [next-steps.md](next-steps.md).
 
 We build a protocol in which Claude Code tunes the instructions and criteria by itself. It reads the model's errors on validation data, rewrites the question, scores it again and keeps the changes that help, which is what I did by hand for AlbAna. We develop the protocol in English, Albanian and Swedish, which we can judge as human readers, and then apply it unchanged to the other languages.
 

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Which emotional tone dominates this text?",
+    "criteria": {
+      "positive": "Pleasant emotions such as joy, amusement, love, pride or relief dominate the text, or the author approves of something.",
+      "neutral": "No emotion dominates, and the tone is calm, matter-of-fact or impersonal.",
+      "negative": "Unpleasant emotions such as anger, sadness, fear, disgust or frustration dominate the text, or the author disapproves of something."
+    }
+  }
+}
