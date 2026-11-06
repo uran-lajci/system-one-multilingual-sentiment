@@ -1,0 +1,60 @@
+[project]
+name = "system-one-multilingual-sentiment"
+version = "0.1.0"
+description = "Benchmark of System One models for three-class sentiment analysis across 35 languages"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "laya>=0.4.22",
+    "openpyxl>=3.1.5",
+    "pandas>=3.1.0",
+    "python-dotenv>=1.2.4",
+    "scikit-learn>=1.9.1",
+    "typesafe-sdk>=0.7.5",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "Q", "TID"]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"typing.Any".msg = "Use a precise type, or object and narrow it. See .claude/rules/python.md."
+"pathlib".msg = "Use os.path. See .claude/rules/python.md."
+"sys".msg = "Do not use sys. See .claude/rules/python.md."
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.mypy]
+python_version = "3.12"
+files = ["data_prep", "experiments"]  # add each new package folder here
+explicit_package_bases = true  # the package folders have no __init__.py, so mypy needs this to name their modules
+strict = true
+disallow_any_explicit = true
+
+[[tool.mypy.overrides]]
+module = "sklearn.*"
+ignore_missing_imports = true  # scikit-learn ships no type information
+
+[[tool.mypy.overrides]]
+module = "laya.*"
+ignore_missing_imports = true  # laya ships no type information
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["openpyxl"]  # pandas loads it to read the authors' .xlsx test samples
+
+[dependency-groups]
+dev = [
+    "deptry>=0.25.1",
+    "mypy>=2.4.1",
+    "pandas-stubs>=3.1.0.261029",
+    "ruff>=0.17.3",
+]

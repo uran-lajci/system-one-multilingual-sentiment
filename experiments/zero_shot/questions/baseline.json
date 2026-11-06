@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "What is the overall sentiment expressed by the author of text ?",
+    "criteria": {
+      "positive": "The text expresses a positive opinion, emotion or attitude.",
+      "neutral": "The text is factual or expresses neither a clearly positive nor a clearly negative sentiment.",
+      "negative": "The text expresses a negative opinion, emotion or attitude."
+    }
+  }
+}

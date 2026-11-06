@@ -149,6 +149,14 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
+# Office lock files
+.~lock.*
+
+# Datasets and papers are third-party files; data/actual_dataset_resources.md says where to get them
+data/*
+!data/actual_dataset_resources.md
+papers/
+
 # Environments
 .env
 .envrc
