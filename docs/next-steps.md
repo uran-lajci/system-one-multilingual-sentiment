@@ -120,7 +120,7 @@ uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01
 uv run python -m experiments.structured_tuning.classify_sentiment -q experiments/structured_tuning/questions/albanian_01.json -l Albanian
 ```
 
-We commit the prompts, the contexts, every message of each conversation, every version and the train row numbers of each development set. The English and Albanian logs name the paths these files had before we moved them, under `experiments/structured_induction/`.
+We commit the prompts, the contexts, every message of each conversation, every version and the train row numbers of each development set. For Bosnian, Croatian, Serbian and Swedish, the start questions, kept questions and run logs stay out of git, because they quote tweets from Mozetič et al. Only their predictions, which hold no text, are committed. The English and Albanian logs name the paths these files had before we moved them, under `experiments/structured_induction/`.
 
 English and Albanian were done on 8 November 2026. The other 6 languages are next, and each needs its context first. On English and Albanian, a tuning run cost about USD 2.50 to 3.50, mostly for Opus, and a test scoring up to USD 0.50.
 

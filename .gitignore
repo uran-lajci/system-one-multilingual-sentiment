@@ -226,3 +226,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# These files quote tweets from Mozetič et al., which we may not redistribute; they stay on disk only
+experiments/structured_tuning/start/questions/bosnian_*.json
+experiments/structured_tuning/start/questions/croatian_*.json
+experiments/structured_tuning/start/questions/serbian_*.json
+experiments/structured_tuning/start/questions/swedish_*.json
+experiments/structured_tuning/start/calls/bosnian_*.json
+experiments/structured_tuning/start/calls/croatian_*.json
+experiments/structured_tuning/start/calls/serbian_*.json
+experiments/structured_tuning/start/calls/swedish_*.json
+experiments/structured_tuning/questions/bosnian_*.json
+experiments/structured_tuning/questions/croatian_*.json
+experiments/structured_tuning/questions/serbian_*.json
+experiments/structured_tuning/questions/swedish_*.json
+experiments/structured_tuning/runs/bosnian_*/
+experiments/structured_tuning/runs/croatian_*/
+experiments/structured_tuning/runs/serbian_*/
+experiments/structured_tuning/runs/swedish_*/
