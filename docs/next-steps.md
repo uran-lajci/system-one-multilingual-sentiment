@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs five System One models on 10 languages, zero-shot and few-shot with the paper's three examples. It also tunes Jev's question for each of the 8 languages that have train and validation data. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper runs five System One models on 8 languages, zero-shot and few-shot with the paper's three examples. All 8 have train and validation data, and the paper also tunes Jev's question for each of them. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -14,15 +14,13 @@ The conference paper runs five System One models on 10 languages, zero-shot and 
 | Croatian | `lmr-sms/test/Croatian_ts2790.csv` | 2,790 |
 | Serbian | `lmr-sms/test/Serbian_ts2272.csv` | 2,272 |
 | Swedish | `lmr-sms/test/Swedish.csv` | 2,368 |
-| Norwegian | `lmr-sms/test/Norwegian.csv` | 1,847 |
-| Danish | `lmr-sms/test/Danish.csv` | 1,047 |
-| **Total** | | **15,864** |
+| **Total** | | **12,970** |
 
 The models are Jev, Clef, Clef-flash, Laya and Laya-multilingual. [background.md](background.md) gives the version of each.
 
 ## Zero-shot run
 
-We run all five models on these 15,864 test items with one Choice question, the same for every language, with no examples and no tuning. We compare the scores with the zero-shot scores of the five LLMs in [data-and-baselines.md](data-and-baselines.md).
+We run all five models on these 12,970 test items with one Choice question, the same for every language, with no examples and no tuning. We compare the scores with the zero-shot scores of the five LLMs in [data-and-baselines.md](data-and-baselines.md).
 
 ```json
 {
@@ -38,13 +36,13 @@ We run all five models on these 15,864 test items with one Choice question, the 
 }
 ```
 
-A pilot run of Jev on 75,080 items, before we used the paper's exact samples, needed about 30.3 million input tokens, or about 404 per item. One run over the 15,864 items therefore needs about 6.4 million input tokens. That costs about USD 0.30 with Jev, USD 1.50 with Clef and USD 0.25 with Clef-flash. Laya runs locally for free.
+A pilot run of Jev on 75,080 items, before we used the paper's exact samples, needed about 30.3 million input tokens, or about 404 per item. One run over the 12,970 items therefore needs about 5.2 million input tokens. That costs about USD 0.25 with Jev, USD 1.20 with Clef and USD 0.20 with Clef-flash. Laya runs locally for free.
 
-We ran all five models on 6 November 2026. [results-zero-shot.md](results-zero-shot.md) gives the scores, the comparison and the commands to reproduce them.
+We ran all five models on 6 November 2026, also on Norwegian and Danish, which the paper no longer reports. [results-zero-shot.md](results-zero-shot.md) gives the scores, the comparison and the commands to reproduce them.
 
 ## Few-shot run
 
-All five models run again on the same 10 test sets. The question is the baseline question plus the three examples that Kastrati et al. (2026) gave the LLMs, one per label. Our models and the LLMs then see the same examples, so we compare the scores directly with the paper's few-shot LLM column.
+All five models run again on the same 8 test sets. The question is the baseline question plus the three examples that Kastrati et al. (2026) gave the LLMs, one per label. Our models and the LLMs then see the same examples, so we compare the scores directly with the paper's few-shot LLM column.
 
 The paper kept the same three English examples for every dataset and language, and so do we. We copy them word for word from the paper. All three are tweets from `data/tsm/train/english.csv`, at lines 5, 33 and 37, and none is in a test set. The paper's text differs slightly from our train rows: it drops `#cincodemayo` from the positive example and adds a full stop to the neutral one.
 
@@ -73,7 +71,7 @@ The three examples add about 100 input tokens to each item. Zero-shot used 388 p
 
 Opus writes a structured question for each dataset from its train data, and then tunes it on Jev's errors on other train data. We pick the version on validation data, which Opus never sees, and score the test set once.
 
-This covers the 8 languages with train and validation data: English, German, French, Albanian, Bosnian, Croatian, Serbian and Swedish. Norwegian and Danish have neither, so the paper reports no tuned score for them.
+This covers all 8 languages.
 
 Only Jev is tuned. Clef and Laya may not accept JSON instructions, JSON criteria or three questions in one request. A tuned Jev has seen labelled data, so we compare it with zero-shot Jev and with the few-shot LLMs, not with the zero-shot LLMs. Our paper must say that Jev used 750 labelled train texts and the validation set, while the LLMs saw 3 examples.
 

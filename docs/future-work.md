@@ -4,19 +4,19 @@
 
 ## Explored before the conference
 
-Before we fixed the conference scope, we tried more methods on English and Albanian: instruction induction, per-dataset induction, iterative tuning on validation errors, and structured questions without tuning. We also ran a question sensitivity analysis with 10 question versions for all five models on the 10 conference languages. The code, results and notes are on the `exploratory-experiments` branch, at commit `c46f180`.
+Before we fixed the conference scope, we tried more methods on English and Albanian: instruction induction, per-dataset induction, iterative tuning on validation errors, and structured questions without tuning. We also ran a question sensitivity analysis with 10 question versions for all five models on 10 languages: the 8 conference languages, Norwegian and Danish. The code, results and notes are on the `exploratory-experiments` branch, at commit `c46f180`.
 
 ## After the conference
 
-The conference paper covers 10 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
+The conference paper covers 8 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
 
 ### Zero-shot run on all 35 languages
 
-The same five models and the same question run on the other 25 test sets, so the study covers all 35 languages and 52,859 items.
+The same five models and the same question run on the other 27 test sets, so the study covers all 35 languages and 52,859 items.
 
 ### More few-shot runs
 
-The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 10 languages. These runs extend it:
+The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 8 languages. These runs extend it:
 
 - **All 35 languages:** the same question with the paper's three examples on all 52,859 test items.
 - **Five train tweets per label:** we draw them at random, with a fixed seed, from `data/tsm/train/english.csv`. The examples stay English and the same for all 35 languages, because some test languages have no training data. Our paper must say that the LLMs saw one example per label and our models see five.
@@ -48,7 +48,7 @@ Experiments 2 to 6 are options for after the conference, not commitments.
 
 ### 2. Prompt ablation
 
-We ran this as a sensitivity analysis with 10 versions on the 10 conference languages; see [Explored before the conference](#explored-before-the-conference). It can come back as a robustness check, and extend to the other 25 languages.
+We ran this as a sensitivity analysis with 10 versions on 10 languages; see [Explored before the conference](#explored-before-the-conference). It can come back as a robustness check, and extend to the other 25 languages.
 
 The five LLMs were tested with one fixed prompt. If we try many versions for Jev, we should report the mean and spread across versions and choose the best version on validation data, never on test data.
 

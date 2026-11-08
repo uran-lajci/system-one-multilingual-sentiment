@@ -1,9 +1,10 @@
 """Score each model's zero-shot predictions with macro-F1, per question version and across versions.
 
 For every question folder in the results folder, such as baseline or v03, the script reads each
-<model>/<language>.csv, computes macro-F1 (%) on the three labels per language, adds the mean over the 10 languages
-and the paper's zero-shot LLM scores, and writes the table to <question>/scores.csv. It then writes sensitivity.csv
-with each model's 10-language mean for every version, and the mean, minimum and maximum across versions.
+<model>/<language>.csv, computes macro-F1 (%) on the three labels per language, adds the mean over the conference
+languages and the paper's LLM scores, and writes the table to <question>/scores.csv. With 2 or more question versions,
+it then writes sensitivity.csv with each model's mean for every version, and the mean, minimum and maximum across
+versions.
 
 uv run python -m experiments.zero_shot.score_predictions
 """
@@ -58,6 +59,10 @@ def main(results_dir: str, paper_scores: str) -> None:
         table = score_question(os.path.join(results_dir, question), paper)
         means[question] = table.loc['Mean', [model for model in MODEL_ORDER if model in table.columns]]
         print(f'{question}: wrote {question}/scores.csv')
+
+    if len(questions) < 2:
+        print(f'Scored {len(questions)} question version; wrote no sensitivity.csv, which needs 2 or more')
+        return
 
     per_version = pd.DataFrame(means).T
     per_version = per_version[[model for model in MODEL_ORDER if model in per_version.columns]]

@@ -1,6 +1,6 @@
 Conference paper:
 
-- Zero-shot evaluation of five System One models (Jev, Clef, Clef-flash, Laya, Laya-multilingual) on three-class sentiment analysis in 10 European languages: English, German, French, Albanian, Bosnian, Croatian, Serbian, Swedish, Norwegian and Danish.
+- Zero-shot evaluation of five System One models (Jev, Clef, Clef-flash, Laya, Laya-multilingual) on three-class sentiment analysis in 8 European languages: English, German, French, Albanian, Bosnian, Croatian, Serbian and Swedish.
 - Comparison on the same test items with five LLMs evaluated zero-shot by Kastrati et al. (2026).
 
 After the conference:

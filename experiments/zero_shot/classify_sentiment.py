@@ -1,4 +1,4 @@
-"""Run one System One model with one question file over the 10 conference test sets and save each item's prediction.
+"""Run one System One model with one question file over the 8 conference test sets and save each item's prediction.
 
 The question file must sit in experiments/<experiment>/questions/, and the script writes
 results/<experiment>/<question>/<model>/<language>.csv. <experiment> is, for example, zero_shot or few_shot, and
@@ -37,8 +37,6 @@ CONFERENCE_TEST_FILES = {
     'Croatian': 'data/lmr-sms/test/Croatian_ts2790.csv',
     'Serbian': 'data/lmr-sms/test/Serbian_ts2272.csv',
     'Swedish': 'data/lmr-sms/test/Swedish.csv',
-    'Norwegian': 'data/lmr-sms/test/Norwegian.csv',
-    'Danish': 'data/lmr-sms/test/Danish.csv',
 }
 
 JEV_MODELS = ('jev-1.14.0',)

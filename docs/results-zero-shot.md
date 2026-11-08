@@ -1,13 +1,13 @@
 # Zero-shot results for the conference paper
 
-On 6 November 2026 we ran five System One models zero-shot on the 10 conference languages, 15,864 test items in total. Every model got the same Choice question for every language, with no examples and no tuning. [next-steps.md](next-steps.md) gives the question.
+On 6 November 2026 we ran five System One models zero-shot on 10 languages. This file reports the 8 conference languages, 12,970 test items in total, and leaves out Norwegian and Danish, which have no train or validation data. Every model got the same Choice question for every language, with no examples and no tuning. [next-steps.md](next-steps.md) gives the question.
 
 ## What we compare against
 
 We compare with the five LLMs of Kastrati et al. (2026), evaluated **zero-shot**. We did not run the LLMs ourselves. Their scores come from the "Zero-Shot" rows of the paper's Tables 4 and 6, and `experiments/zero_shot/paper_scores.csv` holds them.
 
 - **LLMs:** gpt-4o-2024-08-06, gemini-2.0-flash, deepseek-chat (DeepSeek-V3), mistral-large-2411 and claude-3-7-sonnet-20250219.
-- **Same test items:** our 10 test files are the files the authors scored. For Bosnian, Croatian and Serbian, they are the 20% samples that Zenun Kastrati sent.
+- **Same test items:** our 8 test files are the files the authors scored. For Bosnian, Croatian and Serbian, they are the 20% samples that Zenun Kastrati sent.
 - **Same metric:** macro-F1 on the three labels, the unweighted mean of the per-class F1 scores, as in the paper.
 - **Different input format:** each kind of model gets its own format. The LLMs got one shared prompt, "Given a piece of text, classify its sentiment as negative, positive, or neutral. Return only a single word, either POSITIVE, NEGATIVE or NEUTRAL." The System One models got a Choice question with a description of each label, and return a probability for each label.
 
@@ -39,22 +39,22 @@ Macro-F1 (%), zero-shot. The five LLM columns are from Kastrati et al. (2026). B
 | Croatian | 2,790 | **56.9** | 40.1 | 36.6 | 25.0 | 23.7 | 50.5 | 55.1 | 56.3 | 37.6 | 53.5 |
 | Serbian | 2,272 | 52.5 | 49.7 | 47.9 | 29.4 | 30.7 | 58.1 | 50.1 | 47.6 | 45.9 | 57.1 |
 | Swedish | 2,368 | 61.4 | 68.7 | 61.0 | 49.8 | 37.3 | 78.7 | 72.9 | 69.1 | 66.4 | 76.7 |
-| Norwegian | 1,847 | 66.5 | 64.7 | 64.4 | 41.8 | 37.3 | 76.8 | 61.6 | 57.1 | 64.8 | 72.5 |
-| Danish | 1,047 | **72.3** | 56.0 | 50.6 | 38.2 | 28.5 | 68.7 | 66.3 | 69.0 | 58.7 | 72.1 |
-| **Mean** | **15,864** | **63.2** | **55.3** | **50.3** | **39.2** | **32.5** | **65.8** | **60.5** | **61.0** | **54.3** | **65.7** |
+| **Mean** | **12,970** | **61.7** | **54.1** | **48.5** | **39.0** | **32.4** | **64.0** | **59.7** | **60.4** | **52.4** | **64.1** |
 
-The mean is the unweighted mean over the 10 languages.
+The mean is the unweighted mean over the 8 languages.
 
 ## Observations
 
-- Jev ranks third of the ten models on the mean, behind GPT-4o and Claude and ahead of DeepSeek, Gemini and Mistral. It is the best model in Croatian and Danish, and ties Claude in Bosnian.
-- Clef scores about the same as Mistral. Clef-flash, Laya and Laya-multilingual score below all five LLMs.
-- Clef, Clef-flash, Laya and Laya-multilingual predict "neutral" far too often. About 37% of the test items are neutral, but they predict neutral for 67%, 74%, 76% and 86% of the items. Jev predicts it for 27%. This explains much of their lower scores.
-- Laya-multilingual scores below the English-only Laya in 8 of the 10 languages, although it was trained for many languages.
-- On the 7 languages whose test items did not change since the pilot run, Jev's scores moved by at most 0.6 points, for example Danish from 72.9 to 72.3. Jev is close to, but not fully, deterministic.
-- In 34 of the 15,864 items, Jev's probabilities tie at two decimals, such as 0.49, 0.49 and 0.02, and Jev picks one of the tied labels. We score Jev's own choice.
+- Jev ranks third of the ten models on the mean, behind Claude and GPT-4o and ahead of DeepSeek, Gemini and Mistral. It is the best model in Croatian, and ties Claude in Bosnian.
+- Clef scores slightly above Mistral. Clef-flash, Laya and Laya-multilingual score below all five LLMs.
+- Clef, Clef-flash, Laya and Laya-multilingual predict "neutral" far too often. About 34% of the test items are neutral, but they predict neutral for 65%, 73%, 75% and 85% of the items. Jev predicts it for 27%. This explains much of their lower scores.
+- Laya-multilingual scores below the English-only Laya in 6 of the 8 languages, although it was trained for many languages.
+- On the languages whose test items did not change since the pilot run, Jev's scores moved by at most 0.6 points. Jev is close to, but not fully, deterministic.
+- In 53 of the 12,970 items, two labels share Jev's highest probability at two decimals, such as 0.49, 0.49 and 0.02, and Jev picks one of the tied labels. We score Jev's own choice.
 
 ## Cost
+
+The costs are those of the whole run, on 10 languages.
 
 | Model | Input tokens | Cost |
 |---|---:|---:|
