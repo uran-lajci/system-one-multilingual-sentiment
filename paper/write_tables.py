@@ -2,12 +2,15 @@
 
 Table I lists the datasets with their test, train and validation sizes. Table II gives the zero-shot and few-shot
 macro-F1 of the three System One models and the five LLMs of Kastrati et al. (2026). Table III compares Jev with a
-tuned question against zero-shot Jev, few-shot Jev and the best LLM score on each language.
+tuned question against zero-shot Jev, few-shot Jev and the best LLM score on each language. Table IV gives the cost
+of our runs, from the recorded input tokens and the providers' prices.
 
 uv run python -m paper.write_tables
 """
 
 import argparse
+import glob
+import json
 import os
 
 import pandas as pd
@@ -40,6 +43,16 @@ DATASETS = {
 
 SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef', 'clef-flash': 'Clef-flash'}
 LLMS = {'gpt-4o': 'GPT-4o', 'gemini': 'Gemini', 'deepseek': 'DeepSeek', 'mistral': 'Mistral', 'claude': 'Claude'}
+
+# US$ per input token: typesafe.ai, and the Workers AI model pages of Clef and Clef-flash; neither charges for output
+INPUT_PRICES = {'jev-1.14.0': 0.042e-6, 'clef': 0.24e-6, 'clef-flash': 0.038e-6}
+# US$ per token for claude-opus-5-5: input, output, input written to the prompt cache, input read from it
+OPUS_PRICES = {
+    'input_tokens': 4e-6,
+    'output_tokens': 20e-6,
+    'cache_creation_input_tokens': 5e-6,
+    'cache_read_input_tokens': 0.2e-6,
+}
 
 
 def read_scores(path: str) -> dict[str, dict[str, float]]:
@@ -181,9 +194,77 @@ def tuned_table() -> str:
     )
 
 
+def tuning_costs() -> tuple[float, float, int]:
+    """The one-time tuning cost over all languages: Opus (start questions and rewrites), Jev, and Jev's input tokens."""
+    opus, jev_tokens = 0.0, 0
+    for language in CONFERENCE_TEST_FILES:
+        run_dir = f'results/structured_tuning/{language.lower()}_01'
+        with open(f'{run_dir}/opus_usage.json', encoding='utf-8') as file:
+            usage = json.load(file)
+        for step in ('start_question', 'tuning'):
+            opus += sum(usage[step][kind] * price for kind, price in OPUS_PRICES.items())
+        for path in glob.glob(f'{run_dir}/tuning/*.csv'):
+            jev_tokens += int(pd.read_csv(path)['input_tokens'].sum())
+    return opus, jev_tokens * INPUT_PRICES['jev-1.14.0'], jev_tokens
+
+
+def costs_table() -> str:
+    items = sum(len(read_csv_any_encoding(path)) for path in CONFERENCE_TEST_FILES.values())
+    rows = []
+    for setting, results in [('Zero-shot', 'results/zero_shot/baseline'), ('Few-shot', 'results/few_shot/baseline')]:
+        for model, name in SYSTEM_ONE.items():
+            tokens = sum(
+                int(pd.read_csv(f'{results}/{model}/{language}.csv')['input_tokens'].sum())
+                for language in CONFERENCE_TEST_FILES
+            )
+            cost = tokens * INPUT_PRICES[model]
+            label = setting if model == 'jev-1.14.0' else ''
+            rows.append(f'{label} & {name} & {tokens / 1e6:.1f} & {cost:.2f} & {1000 * cost / items:.3f} \\\\')
+        rows.append('\\midrule')
+    test_tokens = sum(
+        int(
+            pd.read_csv(f'results/structured_tuning/{language.lower()}_01/jev-1.14.0/{language}.csv')[
+                'input_tokens'
+            ].sum()
+        )
+        for language in CONFERENCE_TEST_FILES
+    )
+    test_cost = test_tokens * INPUT_PRICES['jev-1.14.0']
+    rows.append(f'Tuned & Jev & {test_tokens / 1e6:.1f} & {test_cost:.2f} & {1000 * test_cost / items:.3f} \\\\')
+    rows.append('\\midrule')
+    opus, jev, jev_tokens = tuning_costs()
+    rows.append(f'Tuning & Opus & & {opus:.2f} & \\\\')
+    rows.append(f' & Jev & {jev_tokens / 1e6:.1f} & {jev:.2f} & \\\\')
+    return '\n'.join(
+        [
+            '\\begin{table}[t]',
+            '\\centering',
+            '\\caption{Cost of our runs on the 12,970 test texts, and the one-time cost of tuning the questions of all '
+            'eight languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042, Clef '
+            'US\\$0.24 and Clef-flash US\\$0.038 for input, with output free; Claude Opus 5.5 US\\$4 for input and '
+            'US\\$20 for output.}',
+            '\\label{tab:costs}',
+            '\\setlength{\\tabcolsep}{4pt}',
+            '\\begin{tabular}{llrrr}',
+            '\\toprule',
+            'Run & Model & Tokens & US\\$ & US\\$ per 1,000 texts \\\\',
+            '\\midrule',
+            *rows,
+            '\\bottomrule',
+            '\\end{tabular}',
+            '\\end{table}',
+        ]
+    )
+
+
 def main(out_dir: str) -> None:
     os.makedirs(out_dir, exist_ok=True)
-    tables = {'datasets.tex': datasets_table(), 'zero_few_shot.tex': zero_few_shot_table(), 'tuned.tex': tuned_table()}
+    tables = {
+        'datasets.tex': datasets_table(),
+        'zero_few_shot.tex': zero_few_shot_table(),
+        'tuned.tex': tuned_table(),
+        'costs.tex': costs_table(),
+    }
     for name, table in tables.items():
         with open(os.path.join(out_dir, name), 'w', encoding='utf-8') as file:
             file.write(table + '\n')

@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\caption{Cost of our runs on the 12,970 test texts, and the one-time cost of tuning the questions of all eight languages. Input tokens are in millions. Prices per million tokens: Jev US\$0.042, Clef US\$0.24 and Clef-flash US\$0.038 for input, with output free; Claude Opus 5.5 US\$4 for input and US\$20 for output.}
+\label{tab:costs}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}
+\toprule
+Run & Model & Tokens & US\$ & US\$ per 1,000 texts \\
+\midrule
+Zero-shot & Jev & 5.0 & 0.21 & 0.016 \\
+ & Clef & 2.7 & 0.64 & 0.049 \\
+ & Clef-flash & 2.7 & 0.10 & 0.008 \\
+\midrule
+Few-shot & Jev & 6.6 & 0.28 & 0.022 \\
+ & Clef & 3.9 & 0.94 & 0.073 \\
+ & Clef-flash & 3.9 & 0.15 & 0.012 \\
+\midrule
+Tuned & Jev & 44.4 & 1.86 & 0.144 \\
+\midrule
+Tuning & Opus & & 31.42 & \\
+ & Jev & 751.6 & 31.57 & \\
+\bottomrule
+\end{tabular}
+\end{table}
