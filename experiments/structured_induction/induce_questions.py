@@ -1,7 +1,7 @@
 """Ask Opus to write a structured per-dataset question from labelled train texts, and save it in three label orders.
 
-Call n draws 50 texts per label from the train file with seed n, as instruction induction does, and sends them with the
-dataset's context from contexts.json. Opus answers with a question, a rule and, for each label, what, examples, cues and
+Call n draws 50 texts per label from the train file with seed n, and sends them with the dataset's context from
+contexts.json. Opus answers with a question, a rule and, for each label, what, examples, cues and
 not_for. The script writes the same question in each label order of OPTION_ORDERS to
 <out-dir>/questions/<prefix>_<n>.json and a log to <out-dir>/calls/<prefix>_<n>.json. The log holds the seed, the
 0-based row numbers of the drawn texts, the raw answer and every example that Opus did not copy word for word from them.
@@ -19,11 +19,11 @@ import re
 from typing import Final
 
 import anthropic
+import pandas as pd
 from dotenv import load_dotenv
 from typesafe_sdk import Questions
 
-from data_prep.files import read_csv_any_encoding, text_column
-from experiments.instruction_induction.induce_questions import draw_texts
+from data_prep.files import read_csv_any_encoding, sentiment_labels, text_column
 from experiments.zero_shot.classify_sentiment import LABELS
 
 OPTION_ORDERS = (
@@ -34,6 +34,7 @@ OPTION_ORDERS = (
 QUESTION_IDS = tuple(f'sentiment_{order[0]}_first' for order in OPTION_ORDERS)
 CRITERION_FIELDS = ('what', 'examples', 'cues', 'not_for')
 EFFORT: Final = 'medium'
+TEXTS_PER_LABEL = 50
 MAX_WORDS = 400
 MAX_EXAMPLES = 4
 MAX_ATTEMPTS = 3
@@ -65,6 +66,14 @@ ANSWER_SCHEMA: dict[str, object] = {
     'required': ['question', 'rule', 'criteria'],
     'additionalProperties': False,
 }
+
+
+def draw_texts(train_path: str, seed: int) -> 'pd.Series[str]':
+    """Draw TEXTS_PER_LABEL texts per label with this seed, shuffled with the same seed, as labels indexed by row."""
+    rows = read_csv_any_encoding(train_path)
+    labels = sentiment_labels(rows, train_path)
+    drawn = pd.concat([labels[labels == label].sample(TEXTS_PER_LABEL, random_state=seed) for label in LABELS])
+    return drawn.sample(frac=1, random_state=seed)
 
 
 def load_structured_questions(path: str) -> Questions:

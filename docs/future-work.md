@@ -2,9 +2,13 @@
 
 - Was the Jev model contaminated by the datasets
 
+## Explored before the conference
+
+Before we fixed the conference scope, we tried more methods on English and Albanian: instruction induction, per-dataset induction, iterative tuning on validation errors, and structured questions without tuning. We also ran a question sensitivity analysis with 10 question versions for all five models on the 10 conference languages. The code, results and notes are on the `exploratory-experiments` branch, at commit `c46f180`.
+
 ## After the conference
 
-The conference paper covers 10 languages, with hand-written zero-shot questions, few-shot with the paper's three examples, and instruction induction. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
+The conference paper covers 10 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
 
 ### Zero-shot run on all 35 languages
 
@@ -16,7 +20,7 @@ The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses t
 
 - **All 35 languages:** the same question with the paper's three examples on all 52,859 test items.
 - **Five train tweets per label:** we draw them at random, with a fixed seed, from `data/tsm/train/english.csv`. The examples stay English and the same for all 35 languages, because some test languages have no training data. Our paper must say that the LLMs saw one example per label and our models see five.
-- **Several draws:** we repeat the five-tweet run with 3 to 5 seeds and report the mean, minimum and maximum, as in the question sensitivity analysis. One draw alone does not show how much the score depends on which tweets we pick. We select no seed.
+- **Several draws:** we repeat the five-tweet run with 3 to 5 seeds and report the mean, minimum and maximum. One draw alone does not show how much the score depends on which tweets we pick. We select no seed.
 - **Synthetic examples:** Claude writes five examples per label, so none comes from train data. Our paper must say they are synthetic.
 
 The question shape stays as in the conference run: `description` holds the zero-shot wording word for word, and `examples` holds the tweets for that label.
@@ -44,13 +48,13 @@ Experiments 2 to 6 are options for after the conference, not commitments.
 
 ### 2. Prompt ablation
 
-The conference paper now includes this as a sensitivity analysis with 10 versions on the 10 conference languages; see the "Question sensitivity" section of [next-steps.md](next-steps.md). After the conference, it can extend to the other 25 languages.
+We ran this as a sensitivity analysis with 10 versions on the 10 conference languages; see [Explored before the conference](#explored-before-the-conference). It can come back as a robustness check, and extend to the other 25 languages.
 
 The five LLMs were tested with one fixed prompt. If we try many versions for Jev, we should report the mean and spread across versions and choose the best version on validation data, never on test data.
 
 ### 3. Automatic tuning with Claude Code
 
-The conference paper includes a version for Jev, with Opus as the tuner; see the "Iterative tuning" section of [next-steps.md](next-steps.md).
+The conference paper includes a version for Jev, with Opus as the tuner; see the "Structured iterative tuning" section of [next-steps.md](next-steps.md).
 
 We build a protocol in which Claude Code tunes the instructions and criteria by itself. It reads the model's errors on validation data, rewrites the question, scores it again and keeps the changes that help, which is what I did by hand for AlbAna. We develop the protocol in English, Albanian and Swedish, which we can judge as human readers, and then apply it unchanged to the other languages.
 

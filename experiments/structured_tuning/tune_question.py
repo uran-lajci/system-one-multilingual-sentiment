@@ -27,13 +27,12 @@ from sklearn.metrics import f1_score
 from typesafe_sdk import Questions
 
 from data_prep.files import read_csv_any_encoding, sentiment_labels, text_column
-from experiments.instruction_induction.induce_questions import draw_texts
-from experiments.iterative_tuning.tune_question import render_feedback
 from experiments.structured_induction.classify_sentiment import structured_predictor
 from experiments.structured_induction.induce_questions import (
     CRITERION_SCHEMA,
     EFFORT,
     QUESTION_IDS,
+    draw_texts,
     examples_not_copied,
     load_structured_questions,
     write_question_file,
@@ -58,6 +57,26 @@ TUNING_SCHEMA: dict[str, object] = {
     'required': ['analysis', 'question', 'rule', 'criteria'],
     'additionalProperties': False,
 }
+
+
+def render_feedback(template: str, version: int, table: pd.DataFrame, texts: list[str], macro_f1: float) -> str:
+    """Fill the feedback template with the macro-F1, the confusion matrix and one line per misclassified text."""
+    confusion = pd.crosstab(table['gold'], table['prediction']).reindex(index=LABELS, columns=LABELS, fill_value=0)
+    errors = table[table['gold'] != table['prediction']]
+    error_lines = [
+        f'<text label="{error["gold"]}" predicted="{error["prediction"]}" p_positive="{error["p_positive"]:.2f}" '
+        f'p_neutral="{error["p_neutral"]:.2f}" p_negative="{error["p_negative"]:.2f}">{texts[error["row"]]}</text>'
+        for error in errors.to_dict('records')
+    ]
+    return (
+        template.replace('{version}', str(version))
+        .replace('{next_version}', str(version + 1))
+        .replace('{items}', str(len(table)))
+        .replace('{macro_f1}', f'{macro_f1:.1f}')
+        .replace('{confusion}', confusion.to_string())
+        .replace('{errors}', str(len(errors)))
+        .replace('{error_lines}', '\n'.join(error_lines))
+    )
 
 
 def as_answer_json(path: str) -> str:
