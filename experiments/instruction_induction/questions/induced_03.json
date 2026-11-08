@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses in this short social-media post (tweet), considering tone, emotion, and attitude toward the topic. Posts may be in any language; judge the author's feeling, not just the topic.",
+    "criteria": {
+      "positive": "The author expresses enjoyment, excitement, enthusiasm, praise, gratitude, hope, affection, or happy anticipation (e.g., looking forward to an event, recommending or promoting something approvingly, celebrating a win, sharing good news), even if casual or mixed with slang.",
+      "neutral": "The post mainly informs, asks, reminds, or reports facts, schedules, or plans without clear emotional stance; or the feeling is mild, mixed, ambiguous, sarcastic without clear target, or only slightly wistful (e.g., minor envy, mild reluctance). Announcements, questions, and news-style statements usually fit here unless clearly celebratory or clearly about harm.",
+      "negative": "The author expresses anger, disgust, criticism, insult, contempt, frustration, disappointment, sadness, fear, or hostility, or reports violence, death, attacks, disputes, or bad news. Profanity used to complain, mocking people or groups, and political attacks count as negative."
+    }
+  }
+}

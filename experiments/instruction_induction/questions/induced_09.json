@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses in the text (tweet-style, any language). Focus on the author's own attitude or emotional tone toward the topic, event or people mentioned, not just whether the subject matter is good or bad news.",
+    "criteria": {
+      "positive": "The author conveys excitement, happiness, anticipation, praise, gratitude, admiration, amusement or approval, including upbeat news shared approvingly (wins, celebrations, birthdays, looking forward to an event). Mild enthusiasm or a pleased tone is enough.",
+      "neutral": "Mostly factual, informational or conversational: announcements, schedules, questions, reports, plans or observations without a clear positive or negative attitude, or with mixed, ironic or very weak feeling. Hypothetical worries or light jokes without real emotion also fit here.",
+      "negative": "The author conveys frustration, anger, sadness, disappointment, criticism, contempt, mockery, fear or hostility (including bigoted or insulting remarks), or complains about problems, failures, bad events, deaths or attacks. Sarcastic put-downs count as negative."
+    }
+  }
+}

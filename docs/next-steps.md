@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from English train data. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from train data. Opus writes one set from English train data for every language, and one set per dataset from that dataset's own train data. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -117,7 +117,34 @@ We commit the Opus prompt, the model ID, the date, the seeds, the row numbers of
 
 The 10 Opus calls send about 150 tweets each, so they cost little. The 10 induced questions cost about USD 12 for Jev, Clef and Clef-flash together, as the hand-written versions do. The 10 with examples cost more, because the three examples add about 100 input tokens to every item. Laya runs locally.
 
+## Per-dataset instruction induction
+
+Instruction induction gives every language the same questions, written from English train data. These questions cannot know each dataset's own labelling rules. In AlbAna, for example, neutral covers more than "no feeling". Calm criticism is neutral, and open mockery or distrust is negative. Banter that ranks towns by case counts is also neutral. A generic question would call calm criticism negative.
+
+Here Opus writes the questions for each dataset from that dataset's own train data. This runs after [instruction induction](#instruction-induction) and follows its method, with these changes:
+
+- **Train data:** for each dataset, call n draws 50 texts per label from that dataset's train file with seed n. 8 of the 10 languages have train data, with at least 1,070 texts per label: `tsm/train/` English, German and French, and `lmr-sms/train/` Albanian, Bosnian, Croatian, Serbian and Swedish.
+- **Boundary rules:** the prompt also asks Opus to state where the annotators draw the line between labels, as the AlbAna rules above do.
+- **Cue words:** the prompt asks for cue words in the text's language, each with its English meaning. In Albanian these could be `rrena` (lies), `urime` (congratulations) and `ma gjall` (cheering a town). The rest of the question stays in English.
+- **Norwegian and Danish:** they have no train data, so they get questions written for another dataset. See [Open decisions](#open-decisions).
+- **No version with examples:** we skip the version with the paper's three examples. The cue words already give examples in the text's language.
+
+This gives 80 question files, 10 for each of the 8 datasets.
+
+### Run and report
+
+All five models run each dataset's 10 questions on that dataset's test set. As before, each test set is scored once per question file, and we select no question.
+
+For each model, the 10 languages' questions from call n form one set. We report macro-F1 per language and the 10-language mean of each set, with the mean, minimum and maximum across the 10 sets. We compare them with the English-induced questions, with the baseline question and with the few-shot LLMs of Kastrati et al. (2026).
+
+Our models then get information about each dataset's labelling that the LLMs never had. Our paper must say so.
+
+We commit the same files as for instruction induction: the Opus prompt, the model ID, the date, the seeds, the row numbers of the sampled texts, Opus's raw answers and the 80 question files.
+
+The 80 Opus calls cost about USD 10. Each test set again gets 10 questions, so scoring costs about USD 12 for Jev, Clef and Clef-flash together. Cue words make the questions longer, so the real cost may be higher. Laya runs locally.
+
 ## Open decisions
 
 - **Venue and deadline:** we have not chosen the conference yet.
 - **SOTA column:** if the paper shows it, we must first settle what the Albanian SOTA of 72.1 measures. data-and-baselines.md and background.md describe it differently.
+- **Norwegian and Danish in per-dataset induction:** they have no train data. They could get the English questions, or the Swedish ones, since Swedish is close to both.

@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment or emotional tone the author expresses in the tweet: about their own situation, an upcoming event, a person, product or topic. Focus on the author's attitude, not just the topic; news-like or informational posts can still lean positive or negative depending on whether what they report is good or bad.",
+    "criteria": {
+      "positive": {
+        "description": "The author expresses happiness, excitement, anticipation, love, pride, praise, gratitude, blessing, or good wishes, or shares favourable news or promotion (new releases, events, achievements, upgrades). Mild enthusiasm about plans counts.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "Mainly factual, informational, or questioning, with no clear emotional lean: plans, logistics, requests, announcements, trivia, speculation, offers to sell, or mixed or ironic remarks where neither positive nor negative feeling dominates. Mild complaints or jokes without real emotional weight may also be neutral.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The author expresses disappointment, frustration, anger, sadness, anxiety, boredom, contempt, insults, criticism, hostility, or sarcasm toward someone or something, or reports bad news (violence, delays, failures, penalties, being unable to attend something).",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses in this short social-media post (any language). Focus on the author's own attitude, mood or emotional tone, not on whether the topic itself sounds good or bad. Sarcasm counts by its intended meaning.",
+    "criteria": {
+      "positive": {
+        "description": "The author conveys enthusiasm, excitement, happiness, praise, anticipation, good wishes, affection or pride, e.g. looking forward to an event, celebrating, cheering for a team, recommending or complimenting someone or something, promotional hype with upbeat tone.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The post is mainly informational, factual, a plain question or invitation without clear emotion, news headlines, scores, announcements, customer-service replies, or mixed/ambiguous tone where no clear positive or negative feeling dominates. Mild jokes or mild complaints without strong feeling also fit here.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The author conveys annoyance, anger, disappointment, sadness, frustration, criticism, insult, contempt, hostility, mockery or distress, e.g. complaining about missing out, condemning people or groups, wishing harm, ridiculing performances, or lamenting bad news.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

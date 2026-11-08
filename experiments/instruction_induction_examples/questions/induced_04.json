@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment or emotional tone the author expresses in the text (tweet-style posts, possibly in any language). Focus on the author's own feelings, attitude, or evaluation, including excitement, praise, complaints, frustration, or mockery, rather than on the topic itself.",
+    "criteria": {
+      "positive": {
+        "description": "The author conveys a favourable feeling: excitement, anticipation, enjoyment, praise, pride, congratulations, hope, or celebration of an achievement or upcoming event. Light humour or casual mentions of looking forward to something count as positive, even with mild profanity.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The text mainly states facts, news, schedules, scores, announcements, offers (e.g., selling tickets), questions, or observations without a clear emotional stance from the author, or with mixed or ambiguous feelings that do not lean clearly either way.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The author conveys an unfavourable feeling: complaints, frustration, disappointment, anger, sadness, fear, insults, sarcasm, criticism, or ridicule of people, products, or events. Reports of bad news, failures, or unpleasant experiences also count as negative.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

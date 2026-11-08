@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment or emotional tone the author expresses in the tweet-like text, considering excitement, praise, hope, complaints, anger, sadness, or reports of harmful events. The text may be in any language; judge its meaning, not its wording.",
+    "criteria": {
+      "positive": {
+        "description": "The author conveys enthusiasm, excitement, happiness, praise, admiration, gratitude, good wishes, or anticipation of something enjoyable (e.g., looking forward to an event, celebrating a win or birthday, promoting a show approvingly, complimenting someone). Upbeat promotional announcements count as positive.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The text mainly states facts, news, schedules, questions, or observations without clear emotional stance from the author, or the feeling is mixed or ambiguous. Plain event listings, sports stats, factual recaps, and casual questions belong here.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The author conveys disappointment, frustration, anger, sadness, criticism, mockery, insults, threats, or hostility, or the text reports violence, death, conflict, disputes, or other bad news. Complaints about missing out, delays, things going wrong, or criticism of people, groups, or religions count as negative.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

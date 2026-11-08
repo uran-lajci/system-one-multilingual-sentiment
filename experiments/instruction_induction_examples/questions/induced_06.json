@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses or the text conveys: the emotional tone toward the events, people, or things mentioned. Consider sarcasm, complaints, excitement, and implied attitudes, not just keywords. Applies to texts in any language.",
+    "criteria": {
+      "positive": {
+        "description": "Text conveys happiness, excitement, anticipation, praise, pride, enthusiasm, or good news (e.g., promoting a fun upcoming event, celebrating a win or achievement, loving a film, looking forward to something, favorable outcomes even if phrased jokingly or as mockery of a rival).",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "Text is mainly informational, factual, logistical, or a question/announcement without clear emotional stance (news headlines, schedules, plans, sales, scores, weather), or contains mixed or very mild feelings that don't tip clearly either way, including light sarcasm without real complaint.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "Text conveys frustration, disappointment, anger, sadness, insult, criticism, fear, or reports harmful events (violence, terrorism, injuries, cancellations, losses, bigotry). Includes complaints, mocking or derisive remarks, sarcasm aimed at criticizing, dark jokes, and worried or pessimistic predictions.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

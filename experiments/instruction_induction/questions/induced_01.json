@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses in this short social-media post (tweet), considering tone, emotion, and attitude toward the topic, events, or people mentioned. Ignore incidental words like 'may', ordinal dates, or event names unless they carry feeling.",
+    "criteria": {
+      "positive": "The author conveys happiness, excitement, anticipation, praise, admiration, affection, gratitude, well-wishes, or celebration (e.g., looking forward to an event, calling something the best, greetings like happy holidays, condolences/prayers offered warmly, promoting something enthusiastically).",
+      "neutral": "The post mainly shares information, news, announcements, questions, logistics, or casual observations without clear positive or negative emotion; mild jokes or mixed/ambiguous remarks with no dominant feeling also count.",
+      "negative": "The author conveys disappointment, annoyance, anger, sadness, boredom, criticism, insults, mockery, sarcasm, complaints, inability to attend something, or hostility toward a person, group, or situation."
+    }
+  }
+}

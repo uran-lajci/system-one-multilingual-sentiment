@@ -5,7 +5,7 @@ results/<experiment>/<question>/<model>/<language>.csv. <experiment> is, for exa
 <question> is the question file's name, such as baseline. Each file holds the row number, the gold and predicted labels,
 the three probabilities and the model version, but no text, so the test text never leaves data/. A language whose file
 already exists is skipped, so a stopped run can be started again. With -n, it scores only the first n items of each
-test set and writes to results/smoke_<n>/<experiment>/ instead.
+test set and writes to results/smoke_<n>/<experiment>/ instead. With -l, it runs only the named languages.
 
 uv run python -m experiments.zero_shot.classify_sentiment -m jev-1.14.0
 """
@@ -169,7 +169,7 @@ def make_predictor(model: str, questions: Questions, concurrency: int) -> Predic
     raise ValueError(f'Unknown model {model!r}; use one of {JEV_MODELS + CLEF_MODELS + tuple(LAYA_REPOS)}')
 
 
-async def main(model: str, concurrency: int, out: str, limit: int, questions_path: str) -> None:
+async def main(model: str, concurrency: int, out: str, limit: int, questions_path: str, languages: list[str]) -> None:
     load_dotenv('.env')
     questions_dir = os.path.dirname(os.path.abspath(questions_path))
     if os.path.basename(questions_dir) != 'questions':
@@ -183,7 +183,8 @@ async def main(model: str, concurrency: int, out: str, limit: int, questions_pat
     os.makedirs(out_dir, exist_ok=True)
     written, skipped = 0, []
 
-    for language, path in CONFERENCE_TEST_FILES.items():
+    for language in languages:
+        path = CONFERENCE_TEST_FILES[language]
         out_path = os.path.join(out_dir, f'{language}.csv')
         if os.path.exists(out_path):
             skipped.append(language)
@@ -214,6 +215,9 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--out', default='results')
     parser.add_argument('-n', '--limit', type=int, default=0)
     parser.add_argument('-q', '--questions-path', default='experiments/zero_shot/questions/baseline.json')
+    parser.add_argument(
+        '-l', '--languages', nargs='+', choices=list(CONFERENCE_TEST_FILES), default=list(CONFERENCE_TEST_FILES)
+    )
 
     args = parser.parse_args()
-    asyncio.run(main(args.model, args.concurrency, args.out, args.limit, args.questions_path))
+    asyncio.run(main(args.model, args.concurrency, args.out, args.limit, args.questions_path, args.languages))
