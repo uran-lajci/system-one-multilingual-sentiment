@@ -35,7 +35,7 @@ quote-style = "single"
 
 [tool.mypy]
 python_version = "3.12"
-files = ["data_prep", "experiments"]  # add each new package folder here
+files = ["data_prep", "experiments", "paper"]  # add each new package folder here
 explicit_package_bases = true  # the package folders have no __init__.py, so mypy needs this to name their modules
 strict = true
 disallow_any_explicit = true

@@ -1,0 +1,10 @@
+# LaTeX build files; latexmk recreates them
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+main.pdf

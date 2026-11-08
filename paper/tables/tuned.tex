@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\caption{Macro-F1 (\%) of Jev zero-shot (ZS), few-shot (FS) and with the tuned question, against the highest score any of the five LLMs reached on that language, zero-shot or few-shot. Bold marks a tuned score above the best LLM score.}
+\label{tab:tuned}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrlr}
+\toprule
+ & \multicolumn{3}{c}{Jev} & \multicolumn{2}{c}{Best LLM} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Language & ZS & FS & Tuned & Score & Model & $\Delta$ \\
+\midrule
+English & 68.0 & 68.7 & 70.6 & 73.3 & Claude ZS & $-2.7$ \\
+German & 73.3 & 74.4 & \textbf{79.9} & 77.2 & Claude FS & $+2.7$ \\
+French & 63.7 & 62.4 & 65.5 & 66.3 & Mistral FS & $-0.8$ \\
+Albanian & 58.2 & 58.2 & \textbf{73.5} & 70.2 & GPT-4o FS & $+3.3$ \\
+Bosnian & 59.2 & 59.6 & \textbf{68.7} & 64.4 & Claude FS & $+4.3$ \\
+Croatian & 56.9 & 56.9 & \textbf{64.3} & 63.5 & Mistral FS & $+0.8$ \\
+Serbian & 52.5 & 53.4 & 56.8 & 59.1 & GPT-4o FS & $-2.3$ \\
+Swedish & 61.4 & 62.4 & 59.7 & 79.6 & GPT-4o FS & $-19.9$ \\
+\midrule
+Mean & 61.7 & 62.0 & 67.4 & 69.2 & & $-1.8$ \\
+\bottomrule
+\end{tabular}
+\end{table}
