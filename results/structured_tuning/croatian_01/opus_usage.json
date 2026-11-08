@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-5-5",
+  "start_question": {
+    "input_tokens": 10752,
+    "output_tokens": 1194,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "calls": 1
+  },
+  "tuning": {
+    "input_tokens": 60,
+    "output_tokens": 33148,
+    "cache_creation_input_tokens": 1254635,
+    "cache_read_input_tokens": 759386,
+    "calls": 15
+  }
+}
