@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the author expresses in this tweet (SemEval-style Twitter sentiment). Focus on the author's own attitude or emotional tone, not just the topic; dark news topics usually count as negative even when reported factually, while plain event info, schedules and news headlines without evaluative tone are neutral.",
+    "criteria": {
+      "positive": "Author expresses excitement, enjoyment, praise, pride, anticipation or good news: 'happiest', 'can't wait', 'love', 'best', 'awesome', 'cutest', 'thrilled', 'proud', 'worth it', 'great start', '#Blessings', ':D', exclamation-heavy promotion of events ('be sure to watch', 'who's going?!'). Upbeat announcements (tours, wins, achievements) and celebratory gloating at rivals count as positive.",
+      "neutral": "Factual reports, schedules, logistics, questions, plans, or ads with no clear feeling: game scores, weather forecasts, ticket sales, 'going to X tomorrow', 'were you able to register', news headlines on politics/sports. Mild sarcasm, light jokes, or mixed/ambivalent remarks ('not emotionally ready', 'almost cried' about fandom) with no strong stance also go here.",
+      "negative": "Author expresses frustration, disappointment, anger, sadness, criticism, mockery or worry: 'frustrated', 'disappointed', 'sucks', 'idiot', 'stupid', 'cancelled', 'not ok', 'sadly', 'going to miss', ':(', '</3', 'argh'. Also tweets centered on violence, terrorism, attacks, racism, injuries, losses, or hostile political/religious statements, plus sarcastic digs and complaints even if phrased jokingly."
+    }
+  }
+}

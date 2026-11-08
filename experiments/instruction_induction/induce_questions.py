@@ -1,7 +1,7 @@
 """Ask Opus to write one Choice question per call from labelled train texts, and save each question with a call log.
 
 Call n draws 50 texts per label from the train file with seed n, shuffles them with the same seed, and sends them in
-the prompt. The script writes <out-dir>/questions/induced_<n>.json and <out-dir>/calls/induced_<n>.json. The log holds
+the prompt. The script writes <out-dir>/questions/<prefix>_<n>.json and <out-dir>/calls/<prefix>_<n>.json. The log holds
 the seed, the 0-based row numbers of the drawn texts, the model, the date, the token counts and Opus's raw answer, but
 no text. A call whose question file already exists is skipped. If an answer fails the format check of load_questions,
 the call is repeated with the same seed.
@@ -50,7 +50,7 @@ def draw_texts(train_path: str, seed: int) -> 'pd.Series[str]':
     return drawn.sample(frac=1, random_state=seed)
 
 
-def main(model: str, train_path: str, prompt_path: str, out_dir: str, calls: int) -> None:
+def main(model: str, train_path: str, prompt_path: str, out_dir: str, calls: int, name_prefix: str) -> None:
     load_dotenv('.env')
     client = anthropic.Anthropic(max_retries=5)
     with open(prompt_path, encoding='utf-8') as file:
@@ -62,7 +62,7 @@ def main(model: str, train_path: str, prompt_path: str, out_dir: str, calls: int
     written, skipped = 0, []
 
     for seed in range(1, calls + 1):
-        name = f'induced_{seed:02d}'
+        name = f'{name_prefix}_{seed:02d}'
         question_path = os.path.join(out_dir, 'questions', f'{name}.json')
         if os.path.exists(question_path):
             skipped.append(name)
@@ -134,6 +134,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--prompt-path', default='experiments/instruction_induction/prompt.md')
     parser.add_argument('-o', '--out-dir', default='experiments/instruction_induction')
     parser.add_argument('-n', '--calls', type=int, default=10)
+    parser.add_argument('-x', '--name-prefix', default='induced')
 
     args = parser.parse_args()
-    main(args.model, args.train_path, args.prompt_path, args.out_dir, args.calls)
+    main(args.model, args.train_path, args.prompt_path, args.out_dir, args.calls, args.name_prefix)

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the tweet's author expresses toward the event, person, or situation they mention (these are tweets with dates, named entities, sports, TV, politics). Pick the label for the author's dominant attitude, not for topic words alone.",
+    "criteria": {
+      "positive": "The author shows enthusiasm, praise, excitement, gratitude, hope, or anticipation, even mild. This includes promotional invitations and hype ('hurry up', 'be sure to watch', 'can't wait'), cheering for a team ('Go Bulls'), and good wishes. Cues: love, awesome, fantastic, bless, proud, happy, perfect, pretty nice, best, cool, pleasantly surprised, :) and !!. Sarcastic or odd jokes whose surface tone is upbeat still count as positive.",
+      "neutral": "Mostly factual or informational: news headlines, schedules, job ads, stat lines, questions, opinions on sports tactics, trivia, or plain reports of what someone did. Also mixed or ambivalent tweets where no clear feeling dominates, including light complaints mixed with humor ('she's rotten lol'), envy, or wishes. Mild strategic criticism ('should not have been pitching') and mild worry stay neutral when they are framed analytically.",
+      "negative": "The author expresses annoyance, disappointment, anger, fear, contempt, sadness, or criticism, or reports a bad event. This includes insults toward public figures ('losers', 'sucks', 'cheater'), personal bummers ('missed the game', 'have school tomorrow', '#fml', '#boring'), and frustration with services. Cues: sucks, damn, hurt, frustrating, scary, mad, ridiculous, annoyed, bummed, worst, shameful, FUCK OFF, :(, #killmenow. Sarcastic jabs at politicians count as negative."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the tweet's author expresses or conveys (their attitude, mood, or the emotional tone of the event described). Many tweets mention dates, events, or celebrities; label by the evaluative tone, not the topic. Plain announcements and questions are neutral unless they carry enthusiasm or promotion.",
+    "criteria": {
+      "positive": "Author shows enthusiasm, excitement, liking, hope, gratitude, praise, or promotes an event/tickets in an upbeat way. Cues: 'thrilled', 'perfect', 'amazing', 'epic', 'lucky', 'yasssss', 'good luck', 'happy', 'favourite', 'can't wait', 'win!', 'thank you', 'don't miss', giveaway/ticket offers, 'hopefully', 'may God bless'. Mild positive leaning (looks interesting, really cool) counts as positive.",
+      "neutral": "Factual reports, schedules, announcements, questions, or remarks with no clear emotional slant, or mixed/ambivalent feelings (e.g., envy of others going, mild reluctance, wry jokes, missing a show while noting a reason). Includes news-style sports/celebrity updates, selling a ticket at face value, reminders, and political statements stated flatly without insults. When positive and negative cues balance or the tone is light/observational, choose neutral.",
+      "negative": "Author expresses anger, disgust, sadness, disappointment, criticism, mockery, insults, or fear, OR the text reports violent/tragic/harmful events (attacks, deaths, protests, disputes, massacres). Cues: 'sucks', 'wtf', 'shit', 'bullshit', 'fucked up', 'sad', 'bummed', ':(', 'ugly', 'boring', 'shameful', 'frightening', 'ruin', 'crashes', 'not working', sarcastic jabs at politicians or celebrities, wishing harm on someone."
+    }
+  }
+}
