@@ -30,7 +30,7 @@ Answers and diffs must be small enough for a human to read and review fully. Lon
 
 ## The study
 
-This repository benchmarks System One models on three-class sentiment analysis. It compares them with the LLM and SOTA scores in Kastrati et al. (2026), in `papers/`. The conference paper runs five models on 8 languages, zero-shot and few-shot with the paper's three examples. It also tunes Jev's question on each of them (`docs/next-steps.md`). The 35-language work and the other few-shot runs wait until after it (`docs/future-work.md`). The study plan is in `docs/`. The README lists the repository layout and which files are the test sets.
+This repository benchmarks System One models on three-class sentiment analysis. It compares them with the LLM and SOTA scores in Kastrati et al. (2026), in `papers/`. The conference paper runs three System One models on 8 languages, zero-shot and few-shot with the paper's three examples. It also tunes Jev's question on each of them (`docs/next-steps.md`). The 35-language work and the other few-shot runs wait until after it (`docs/future-work.md`). The study plan is in `docs/`. The README lists the repository layout and which files are the test sets.
 
 - Choose questions and tune them on train and validation data only. Score each test set once, at the end.
 - Report macro-F1 on the three labels, so scores compare directly with the paper.

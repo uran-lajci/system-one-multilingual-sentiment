@@ -4,7 +4,7 @@
 
 ## Explored before the conference
 
-Before we fixed the conference scope, we tried more methods on English and Albanian: instruction induction, per-dataset induction, iterative tuning on validation errors, and structured questions without tuning. We also ran a question sensitivity analysis with 10 question versions for all five models on 10 languages: the 8 conference languages, Norwegian and Danish. The code, results and notes are on the `exploratory-experiments` branch, at commit `c46f180`.
+Before we fixed the conference scope, we tried more methods on English and Albanian: instruction induction, per-dataset induction, iterative tuning on validation errors, and structured questions without tuning. We also ran Laya and Laya-multilingual zero-shot and few-shot, and a question sensitivity analysis with 10 question versions for five System One models on 10 languages: the 8 conference languages, Norwegian and Danish. The code, results and notes are on the `exploratory-experiments` branch, at commit `c46f180`.
 
 ## After the conference
 
@@ -12,7 +12,7 @@ The conference paper covers 8 languages, with zero-shot, few-shot with the paper
 
 ### Zero-shot run on all 35 languages
 
-The same five models and the same question run on the other 27 test sets, so the study covers all 35 languages and 52,859 items.
+The same three models and the same question run on the other 27 test sets, so the study covers all 35 languages and 52,859 items.
 
 ### More few-shot runs
 

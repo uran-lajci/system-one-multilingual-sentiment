@@ -30,15 +30,13 @@ A Choice question has two parts we can change: the **instructions**, which ask t
 
 ## Models
 
-The conference paper uses five System One models. [Jev](https://typesafe.ai/) was the first to be published. [Clef](https://huggingface.co/Cloudflare/clef) and [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) are open-weight models from Cloudflare, a large one and a smaller, faster one. [Laya](https://huggingface.co/convaiinnovations/laya) and [Laya-multilingual](https://huggingface.co/convaiinnovations/laya-multilingual) are small open-weight models, one for English and one for 100+ languages.
+The conference paper uses three System One models. [Jev](https://typesafe.ai/) was the first to be published. [Clef](https://huggingface.co/Cloudflare/clef) and [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) are open-weight models from Cloudflare, a large one and a smaller, faster one.
 
 | Model | Maker | Access | Version | Question types |
 |---|---|---|---|---|
 | Jev | TypeSafe AI | Commercial API | jev-1.14.0, pinned so results stay reproducible | Noul, Choice, Score, Box |
 | Clef | Cloudflare | Open weights, Apache 2.0; we call it through Cloudflare Workers AI | revision `cfddda0` on Hugging Face; 27B parameters, fine-tuned from Qwen3.8-27B | Noul, Choice, Score |
 | Clef-flash | Cloudflare | Open weights, Apache 2.0; we call it through Cloudflare Workers AI | revision `fb4417d` on Hugging Face; 9B parameters, fine-tuned from Qwen3.5-9B | Noul, Choice, Score |
-| Laya | Convai Innovations | Open weights, Apache 2.0 | laya 0.4.22, 421M parameters, ModernBERT-large | Noul, Choice, Score |
-| Laya-multilingual | Convai Innovations | Open weights, Apache 2.0 | laya 0.4.22, 322M parameters, mmBERT-base, 100+ languages | Noul, Choice, Score |
 
 Cloudflare Workers AI has no dated snapshots of Clef, so its models may change without a new name. The table names the Hugging Face revisions that were current when we ran: Clef `cfddda043dd190ef3b01cff449d5ee8cff1e8ec6` and Clef-flash `fb4417d31c1d0f9e7e77f1141b40aaede7491e00`, both from 30 October 2026. With every prediction, we also save the response's `model` field, its `api-version` header (`2026-10-01.epoch` on 6 November 2026) and the date. If the header changes during a run, the model may have changed.
 

@@ -20,10 +20,9 @@ from experiments.zero_shot.classify_sentiment import (
     CONFERENCE_TEST_FILES,
     JEV_MODELS,
     LABELS,
-    LAYA_REPOS,
 )
 
-MODEL_ORDER = [*JEV_MODELS, *CLEF_MODELS, *LAYA_REPOS]
+MODEL_ORDER = [*JEV_MODELS, *CLEF_MODELS]
 
 
 def score_question(question_dir: str, paper: pd.DataFrame) -> pd.DataFrame:

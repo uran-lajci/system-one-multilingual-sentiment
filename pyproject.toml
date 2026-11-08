@@ -6,7 +6,6 @@ requires-python = ">=3.12,<3.13"
 dependencies = [
     "anthropic>=2.6.0",
     "httpx>=0.28.1",
-    "laya>=0.4.22",
     "openpyxl>=3.1.5",
     "pandas>=3.1.0",
     "python-dotenv>=1.2.4",
@@ -44,10 +43,6 @@ disallow_any_explicit = true
 [[tool.mypy.overrides]]
 module = "sklearn.*"
 ignore_missing_imports = true  # scikit-learn ships no type information
-
-[[tool.mypy.overrides]]
-module = "laya.*"
-ignore_missing_imports = true  # laya ships no type information
 
 [tool.deptry.per_rule_ignores]
 DEP002 = ["openpyxl"]  # pandas loads it to read the authors' .xlsx test samples

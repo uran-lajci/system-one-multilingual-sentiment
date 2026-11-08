@@ -18,7 +18,6 @@ import os
 from collections.abc import Awaitable, Callable
 
 import httpx
-import laya
 import pandas as pd
 from dotenv import load_dotenv
 from typesafe_sdk import AsyncTypeSafeClient, ChoiceAnswer, Questions, RetryPolicy
@@ -41,7 +40,6 @@ CONFERENCE_TEST_FILES = {
 
 JEV_MODELS = ('jev-1.14.0',)
 CLEF_MODELS = ('clef', 'clef-flash')
-LAYA_REPOS = {'laya': 'convaiinnovations/laya', 'laya-multilingual': 'convaiinnovations/laya-multilingual'}
 
 Prediction = dict[str, str | float | int | None]
 Predictor = Callable[[list[str]], Awaitable[list[Prediction]]]
@@ -142,29 +140,12 @@ def clef_predictor(model: str, questions: Questions, concurrency: int) -> Predic
     return lambda texts: gather_limited(texts, concurrency, predict_one)
 
 
-def laya_predictor(model: str, questions: Questions) -> Predictor:
-    repo = LAYA_REPOS[model]
-    revision = laya.PINNED_REVISIONS[repo]
-    agent = laya.load(repo, revision=revision, device='cuda')
-    version = f'{repo}@{revision} (laya {laya.__version__})'
-
-    async def predict(texts: list[str]) -> list[Prediction]:
-        results = await asyncio.to_thread(agent.predict_batch, texts, questions, batch_size=64)
-        return [
-            to_prediction(ChoiceAnswer.model_validate(r['answers'][QUESTION_ID]), version, None, None) for r in results
-        ]
-
-    return predict
-
-
 def make_predictor(model: str, questions: Questions, concurrency: int) -> Predictor:
     if model in JEV_MODELS:
         return jev_predictor(model, questions, concurrency)
     if model in CLEF_MODELS:
         return clef_predictor(model, questions, concurrency)
-    if model in LAYA_REPOS:
-        return laya_predictor(model, questions)
-    raise ValueError(f'Unknown model {model!r}; use one of {JEV_MODELS + CLEF_MODELS + tuple(LAYA_REPOS)}')
+    raise ValueError(f'Unknown model {model!r}; use one of {JEV_MODELS + CLEF_MODELS}')
 
 
 async def main(model: str, concurrency: int, out: str, limit: int, questions_path: str, languages: list[str]) -> None:
