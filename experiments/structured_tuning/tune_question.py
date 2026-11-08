@@ -5,12 +5,12 @@ development set holds --dev-size other train texts, drawn at random with the sam
 proportions. Jev scores each version with the first label order only, on the development and the validation set. Opus
 reads only the development results and writes the next version, until it has written --iterations new versions. The
 script keeps the version with the highest validation macro-F1, the earlier one on a tie, and copies it to
-<out-dir>/questions/<name>.json for scoring on test with structured_induction.classify_sentiment. <out-dir>/runs/<name>/
+<out-dir>/questions/<name>.json for scoring on test with classify_sentiment. <out-dir>/runs/<name>/
 holds every version, the conversation and a log, and <results-dir>/<name>/ holds the predictions. A run whose kept
 question already exists is skipped; a stopped run starts again from version 0.
 
 uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 \\
-    -q experiments/structured_induction/questions/albanian_01.json
+    -q experiments/structured_tuning/start/questions/albanian_01.json
 """
 
 import argparse
@@ -27,8 +27,8 @@ from sklearn.metrics import f1_score
 from typesafe_sdk import Questions
 
 from data_prep.files import read_csv_any_encoding, sentiment_labels, text_column
-from experiments.structured_induction.classify_sentiment import structured_predictor
-from experiments.structured_induction.induce_questions import (
+from experiments.structured_tuning.classify_sentiment import structured_predictor
+from experiments.structured_tuning.induce_questions import (
     CRITERION_SCHEMA,
     EFFORT,
     QUESTION_IDS,
@@ -162,11 +162,11 @@ async def main(
     load_dotenv('.env')
     client = anthropic.AsyncAnthropic(max_retries=5)
     here = os.path.dirname(__file__)
-    with open(os.path.join(here, 'prompt.md'), encoding='utf-8') as file:
+    with open(os.path.join(here, 'tuning_prompt.md'), encoding='utf-8') as file:
         first_template = file.read()
     with open(os.path.join(here, 'feedback.md'), encoding='utf-8') as file:
         feedback_template = file.read()
-    with open(os.path.join(here, '..', 'structured_induction', 'contexts.json'), encoding='utf-8') as file:
+    with open(os.path.join(here, 'contexts.json'), encoding='utf-8') as file:
         context = json.load(file)[language]['context']
 
     train = read_csv_any_encoding(train_path)

@@ -79,7 +79,7 @@ Only Jev is tuned. Clef and Laya may not accept JSON instructions, JSON criteria
 
 ### The input
 
-- **State:** a JSON object with `context` and `text`. `context` describes the dataset in one to three sentences: its source, its time and its language. We write it from the dataset's paper, not from labelled data. The contexts are in `experiments/structured_induction/contexts.json`, which so far holds English and Albanian.
+- **State:** a JSON object with `context` and `text`. `context` describes the dataset in one to three sentences: its source, its time and its language. We write it from the dataset's paper, not from labelled data. The contexts are in `experiments/structured_tuning/contexts.json`, which so far holds English and Albanian.
 - **Instructions:** a JSON object with `question` and `rule`. `rule` says where the annotators draw the line between the labels.
 - **Criteria:** one JSON object per label with `what`, `examples`, `cues` and `not_for`.
   - `what` describes the texts that get the label.
@@ -114,15 +114,15 @@ The validation sets of English, German and French hold about 324 texts each. Pic
 
 ### Commands, logs and cost
 
-The code and outputs are in `experiments/structured_induction/`, `experiments/structured_tuning/` and `results/structured_tuning/`. For Albanian run 1:
+The code and outputs are in `experiments/structured_tuning/` and `results/structured_tuning/`. The start questions and their Opus logs are in `experiments/structured_tuning/start/`, and the kept questions in `experiments/structured_tuning/questions/`. For Albanian run 1:
 
 ```bash
-uv run python -m experiments.structured_induction.induce_questions -l Albanian -t data/lmr-sms/train/Albanian.csv -x albanian -n 5
-uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 -q experiments/structured_induction/questions/albanian_01.json
-uv run python -m experiments.structured_induction.classify_sentiment -q experiments/structured_tuning/questions/albanian_01.json -l Albanian
+uv run python -m experiments.structured_tuning.induce_questions -l Albanian -t data/lmr-sms/train/Albanian.csv -x albanian -n 5
+uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 -q experiments/structured_tuning/start/questions/albanian_01.json
+uv run python -m experiments.structured_tuning.classify_sentiment -q experiments/structured_tuning/questions/albanian_01.json -l Albanian
 ```
 
-We commit the prompts, the contexts, every message of each conversation, every version and the train row numbers of each development set.
+We commit the prompts, the contexts, every message of each conversation, every version and the train row numbers of each development set. The English and Albanian logs name the paths these files had before we moved them, under `experiments/structured_induction/`.
 
 English and Albanian were done on 8 November 2026. The other 6 languages are next, and each needs its context first. A language costs about USD 13 to 19 for tuning, mostly for Opus, and up to USD 2 for the test scoring.
 

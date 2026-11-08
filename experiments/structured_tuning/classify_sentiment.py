@@ -8,8 +8,8 @@ with the row number, the gold label, both predictions, the averaged probabilitie
 but no text. A file that already exists is skipped. With -n, it scores only the first n items and writes to
 results/smoke_<n>/<experiment>/ instead. The question file must sit in experiments/<experiment>/questions/.
 
-uv run python -m experiments.structured_induction.classify_sentiment \\
-    -q experiments/structured_induction/questions/english_01.json
+uv run python -m experiments.structured_tuning.classify_sentiment \\
+    -q experiments/structured_tuning/questions/english_01.json
 """
 
 import argparse
@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 from typesafe_sdk import AsyncTypeSafeClient, Questions, RetryPolicy
 
 from data_prep.files import read_csv_any_encoding, sentiment_labels, text_column
-from experiments.structured_induction.induce_questions import load_structured_questions
+from experiments.structured_tuning.induce_questions import load_structured_questions
 from experiments.zero_shot.classify_sentiment import (
     CONFERENCE_TEST_FILES,
     LABELS,

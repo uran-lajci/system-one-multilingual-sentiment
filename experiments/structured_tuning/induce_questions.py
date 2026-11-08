@@ -8,7 +8,7 @@ not_for. The script writes the same question in each label order of OPTION_ORDER
 A call whose question file already exists is skipped. If an answer fails the format check, the call is repeated with
 the same seed.
 
-uv run python -m experiments.structured_induction.induce_questions
+uv run python -m experiments.structured_tuning.induce_questions
 """
 
 import argparse
@@ -183,7 +183,7 @@ def write_question_file(answer: dict[str, object], path: str) -> int:
 def main(model: str, language: str, train_path: str, out_dir: str, calls: int, name_prefix: str) -> None:
     load_dotenv('.env')
     client = anthropic.Anthropic(max_retries=5)
-    with open(os.path.join(os.path.dirname(__file__), 'prompt.md'), encoding='utf-8') as file:
+    with open(os.path.join(os.path.dirname(__file__), 'induction_prompt.md'), encoding='utf-8') as file:
         template = file.read()
     with open(os.path.join(os.path.dirname(__file__), 'contexts.json'), encoding='utf-8') as file:
         context = json.load(file)[language]['context']
@@ -270,7 +270,7 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--model', default='claude-opus-5-5')
     parser.add_argument('-l', '--language', default='English')
     parser.add_argument('-t', '--train-path', default='data/tsm/train/english.csv')
-    parser.add_argument('-o', '--out-dir', default='experiments/structured_induction')
+    parser.add_argument('-o', '--out-dir', default='experiments/structured_tuning/start')
     parser.add_argument('-n', '--calls', type=int, default=10)
     parser.add_argument('-x', '--name-prefix', default='english')
 
