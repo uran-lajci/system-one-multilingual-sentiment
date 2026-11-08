@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Decide whether the tweet carries an explicit positive or negative stance, through feeling words, emoticons, eager hype, the author's own praise or put-down, or a clearly good or bad event. If there is no such signal, choose neutral, even if the author talks about themselves. Exclamation marks alone are not a signal.",
+    "criteria": {
+      "positive": "Positive feeling or praise: love, like, fun, best, perfect, brilliant, impressed, amazing, hope, pray, blessings, celebrate, can't wait, :). Includes hedged praise of the author's own experience, confident praise or defense of someone, optimistic predictions for a favored player or team, and eager anticipation of the author's own concert, show or outing (let's go!). Also eager promotions (check it out, come support, please share, get your tickets now, win), condolences that bless someone, and completed successes: titles, records, historic firsts, or a player beating an opponent to reach a final.",
+      "neutral": "No stance signal. Covers flat plans, event notices, ticket sales, spam, requests even with a thanks or <3, fan campaigns (we want you here!!!, trending pushes, 'X sounds like the move'), scores and in-progress game updates, trivia, questions and speculation. Also hedged judgments about shows or public figures, headlines reporting criticism (worst offense, bad reputation, most disliked, correction), wry sports snark (implode, padding numbers, could be worse), mockery softened by laughter, comic fan-drama or self-hyperbole (Nooo, not ready, I'm dead, scared :S), and matter-of-fact mishaps or apologies.",
+      "negative": "Negative feeling: sad, hate, annoyed, ugh, wtf, damn, bad mood, can't sleep, going to die, miss, sucks, disappointed, :(. Also the author's own put-downs: belittling comparisons, mocking remarks about someone's looks or fans, sarcastic labels, cynical rhetorical questions about politicians, complaints, insults, and hostile political or religious arguments. Also news of real harm: deaths, attacks, missile strikes, riots, bombings, crimes, charges, scandals, injuries, deficits, product failures."
+    }
+  }
+}

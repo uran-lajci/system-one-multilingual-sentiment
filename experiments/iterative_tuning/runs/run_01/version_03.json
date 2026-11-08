@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment of the tweet: the author's own expressed feeling, or, for news-style headlines, the clear valence of the reported event. Neutral is the default for informational, logistical, speculative or joking tweets. Choose positive or negative only when a feeling or a clearly good or bad event is explicit.",
+    "criteria": {
+      "positive": "The author explicitly shows enthusiasm, love, praise, gratitude, enjoyment, hope or excitement. Cues: 'can't wait', 'so excited', 'love', 'perfect', 'I will celebrate', 'Happy...', '<3', ':-)'. Also:\n- Prayers, blessings and condolences ('RIP', 'rest in peace', 'prayers for').\n- Hyped promotions with giveaways, prizes or a strongly upbeat tone.\n- Headlines about clear wins, titles, achievements or celebrations.",
+      "neutral": "The default. Includes:\n- News or reports without a clearly good or bad event, and speculative headlines ('may', '...').\n- Plain event notices with date, place, 'RSVP' or 'register'.\n- Spammy free offers, questions, polls, rumors, trivia, and fan pleas or requests.\n- Plans stated without feeling words.\n- Sports updates and mild opinions.\n- Wry or detached commentary on public figures, teams or companies.\n- Hyperbolic jokes and light grumbles about small mishaps ('lmao', 'I'm dead', 'not ready', 'Nooo').",
+      "negative": "The author clearly expresses disappointment, sadness, frustration, boredom, dread or missing out ('sucks', 'disappointed', "
+    }
+  }
+}

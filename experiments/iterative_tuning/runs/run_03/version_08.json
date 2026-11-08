@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the tweet's author expresses or conveys: their attitude toward what they mention, their mood, or the clear good/bad nature of reported news. Label by evaluative tone, not topic; dates, events and celebrities alone are neutral.",
+    "criteria": {
+      "positive": "Author clearly shows enthusiasm, liking, approval, hope, gratitude or praise (impressed, sounds perfect, love, can't wait, :) ), defends or compliments someone, eagerly plans to enjoy something, or promotes/invites with upbeat wording (celebrate, win, who wants tickets, don't miss, come support, please share). Also notable achievements (won the title, reaches the final, history made), condolences with prayers or blessings (RIP, may God bless), well-wishing.",
+      "neutral": "Factual reports, trivia, wire-style news and routine scores without cheering; event, meetup, broadcast or interview notices giving logistics (register, RSVP, 6pm, on air); 'now watching/listening' updates; spam; questions; fan chants, requests or pleas to celebrities; hedged or comparative takes (may be, could be, more X than Y); slang about where to go; excited live play-by-play, player-stat remarks and sports quips. Also jokes, banter, fangirl hyperbole (lol, lmao, I'm dead, not ready), joking fear about a movie, envy of others at an event, minor mishaps told matter-of-factly, wry corrections, and mixed feelings that balance.",
+      "negative": "Author sincerely shows displeasure: anger, sadness, disappointment, disgust, dread, boredom or contempt, including real complaints about their situation (going to die, ugh, I miss, not because I enjoy it), grumbling about products or services, sarcastic or insinuating criticism (#justsaying), pointed political/religious criticism or challenging rhetorical questions, insults, wishing harm. Also reports of bad events: attacks, deaths, crimes, charges, arrests, losses, scandals, injuries, product defects or failures."
+    }
+  }
+}

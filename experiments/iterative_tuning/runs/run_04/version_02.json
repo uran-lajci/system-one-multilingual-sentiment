@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the sentiment the tweet's author conveys toward the topic or their own situation, including feelings that are implied rather than stated. Topic words (dates, names, 'may', ordinals) do not count. Choose neutral only when the author shows no leaning either way.",
+    "criteria": {
+      "positive": "The author enjoys, likes or looks forward to something. This includes personal plans for fun things (concerts, movies, games, holidays, treats) such as 'going to see X tomorrow', 'can't wait', 'fast forward to', 'celebrate all day', 'perfect night'. It also includes praise, admiration, gratitude, congratulations, hope, warm wishes and prayers of support, cheerful humor, and the author cheering for a win or good news.",
+      "neutral": "Impersonal announcements, event listings, sign-ups and registrations, promos, and spam. Also news headlines and sports scores or results stated without the author's own reaction. Also questions asking for information, trivia, memes, incoherent text, and routine logistics with no stated liking. Also playful hyperbolic gripes ('I'm dead', 'lmao', 'not ready', 'Nooo') about fandom or minor mishaps.",
+      "negative": "The author dislikes, criticizes or complains, either openly ('sucks', 'disappointed', 'hate', 'sad', 'miss') or by implication. Implied forms include sarcastic jabs at people, accusing or rhetorical questions ('why did they...', 'don't know why they haven't...'), grudging remarks and mockery. Also reports of harmful events: attacks, deaths, crimes, arrests, losses, deficits, things breaking."
+    }
+  }
+}

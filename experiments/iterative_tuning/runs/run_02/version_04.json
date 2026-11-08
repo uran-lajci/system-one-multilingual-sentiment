@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the feeling the tweet's author conveys (about events, people, plans, products), not the topic. Use positive or negative when there is a clear emotional or evaluative cue, even a calm one; otherwise neutral.",
+    "criteria": {
+      "positive": "Excitement, enjoyment, praise, love, hope or gratitude, loud or calm: 'can't wait', 'hyped', 'love', 'best', 'perfect night', 'for sure going to', 'congrats', 'good luck', 'I hope', ':)'. Ticket giveaways and promos pushing people to get tickets, win or support. Reports of a win, victory or title ('beats', 'won', 'history made'). Sympathy, prayers, RIP wishes. Upbeat teasing.",
+      "neutral": "Facts and headlines without harm or victory, schedules, ads, spam, and event or sign-up notices stated informationally. Casual plans or suggestions without feeling ('X is the move tomorrow'). Plain questions, requests to celebrities, trivia, speculation. Wry jokes and banter without real hostility. Laughing slang ('I'm dead', 'lmao'). Headlines reporting someone else's opinion. Truly mixed or mild opinions. Choose neutral when no clear cue exists.",
+      "negative": "Anger, disappointment, sadness, frustration, dread, contempt or hostility: 'WTF', 'sucks', 'hate', 'worst', 'disappointed', 'so sad', 'I miss', ':(' or ':-/' complaints. Dread about tasks ('going to die', 'not in the state of mind'). Insults, profanity aimed at someone, sarcastic or pointed digs and skeptical rhetorical questions about people, politics or religion. Headlines about harm: attacks, missiles, bombings, deaths, funerals, injuries, crime charges, deficits, product defects."
+    }
+  }
+}

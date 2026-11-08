@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment of the tweet: the author's attitude, or for news and promotions, whether the content is clearly good or bad. Choose neutral only when there is no clear lean either way.",
+    "criteria": {
+      "positive": "Excitement, enjoyment, praise, love, gratitude, hope or eager anticipation. Covers plans to attend concerts, films, games or holidays; inviting or hyped promotions (come join, come celebrate, support us, free, win, get your tickets, check it out); and good news such as wins, titles, records, achievements and celebrations. Cues: can't wait, excited, love, best, perfect, wow, well done, hope, thank you, :), <3, !!!.",
+      "neutral": "Plain information with no clear good or bad lean: logistics, dry schedules, questions, speculation, predictions, trivia, quotes, role-play or garbled text. Also covers hyperbolic jokes about oneself (lmao, I'm dead as in laughing), playful teasing, and remarks that mix good and bad or hedge without a dominant feeling.",
+      "negative": "Frustration, disappointment, sadness, boredom, dread, anger, contempt or insults, including sarcastic put-downs, complaints, missing out, and dislike ('not cause I enjoy it', 'going to die', misses better times). Also covers news of bad events: deaths, funerals, attacks, missiles, bombings, arrests, charges, scandals, losses, deficits, injuries and product failures. Includes hostile political or religious arguments. Cues: sad, mad, hate, worst, sucks, damn, FML, insensitive, :(."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the sentiment the tweet's author conveys, either their own feeling or the clearly good or bad nature of what they report. Topic words (dates, names, 'may', ordinals) and bare '!' or 'lol' do not count. If there is no clear leaning, choose neutral.",
+    "criteria": {
+      "positive": "Explicit positive feeling: excitement ('can't wait', 'fast forward to', 'celebrate', 'perfect night', 'for sure going'), love, praise, pride, gratitude, hope, warm wishes or prayers. Also festive greetings, holidays and birthday wishes. Also the author inviting people to join their own event or outing ('come with us', 'come support', 'let's go'), or happily indulging in a favorite thing. Also eager anticipation of releases. Also completed good outcomes: a champion wins or reaches a final, a title, record, history made, someone delighted. Also promotions pushing tickets, prizes or free items ('get your tickets now').",
+      "neutral": "Bare plans, logistics or casual status updates ('now watching', 'sounds like the move'). Also plain event listings, routine meetings, info sessions and sign-ups. Also questions, requests, fan pleas, trivia, jokes, memes, spam and incoherent text. Also in-progress game updates, speculative headlines or opinions ('may', 'I think'), mild comparisons and wire-style celebrity news. Also comic jabs at public figures or companies ('Bwahaha', 'clear as mud'). Also minor hiccups reported with a workaround or apology. Also fandom melodrama or mock gripes ('lol', 'I'm dead', 'not ready', 'v sad', 'Nooo').",
+      "negative": "Earnest frustration, anger, disappointment, sadness, fear, insult or criticism ('sucks', 'disappointed', 'hate', 'shameful', 'NOOO' at news, 'miss'). Short grumbles or digs also count ('don't know why they haven't...', mocking a day or person, 'no talent'), as do pointed arguments or accusing rhetorical questions. Also reports of harmful events: attacks, deaths, funerals, crimes, people charged or bailed, crashes, deficits, devices breaking, conflict."
+    }
+  }
+}

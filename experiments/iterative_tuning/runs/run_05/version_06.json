@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Decide whether the tweet carries an explicit positive or negative feeling, through feeling words, emoticons, eager hype, or a clearly good or bad event. If there is no such explicit signal, choose neutral, even if the author is talking about themselves. Exclamation marks alone are not a signal.",
+    "criteria": {
+      "positive": "Explicit positive feeling: love, like, fun, perfect, best, brilliant, impressed, amazing, cool, hope, pray, blessings, celebrate, can't wait, fast forward to, excited, wow, :). Also eager promotions (check it out, come support, come celebrate, get your tickets now, win), condolences that bless or praise someone, and completed successes such as titles won, finals reached, records or historic firsts.",
+      "neutral": "No explicit feeling. Covers flat plans, event notices (meeting, RSVP, register, info session, on air at 5pm), selling tickets, spam offering free items, requests even with a passing thanks or <3, news headlines, scores and in-progress game updates, trivia, questions and speculation. Also hedged or comparative opinions ('may be the best', 'more real than'), jokes, comic hyperbole (I'm dead, lol, lmao, not ready), wry sports snark, and policy or business headlines whose negative words describe no real harm.",
+      "negative": "Explicit negative feeling: sad, hate, annoyed, ugh, ACK, wtf, damn, bad mood, can't sleep, going to die, miss, sucks, insensitive, disappointed, :(. Also insults, mocking jabs at people, hostile political or religious arguments, and real harm: deaths, attacks, missiles, bombings, riots, crimes, charges, arrests, scandals, injuries, deficits and product failures."
+    }
+  }
+}

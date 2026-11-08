@@ -50,7 +50,7 @@ The five LLMs were tested with one fixed prompt. If we try many versions for Jev
 
 ### 3. Automatic tuning with Claude Code
 
-The conference paper includes a one-pass version without the validation loop; see the "Instruction induction" section of [next-steps.md](next-steps.md).
+The conference paper includes a version for Jev, with Opus as the tuner; see the "Iterative tuning" section of [next-steps.md](next-steps.md).
 
 We build a protocol in which Claude Code tunes the instructions and criteria by itself. It reads the model's errors on validation data, rewrites the question, scores it again and keeps the changes that help, which is what I did by hand for AlbAna. We develop the protocol in English, Albanian and Swedish, which we can judge as human readers, and then apply it unchanged to the other languages.
 

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment of the tweet: the author's own attitude (including implied criticism, sarcasm or anticipation), or, for news-style headlines, the clear valence of the reported event. Use neutral when there is no discernible stance either way.",
+    "criteria": {
+      "positive": "Enthusiasm, love, praise, gratitude, enjoyment, hope, prayers, RIP condolences, or excited anticipation ('can't wait', 'this time tomorrow I'll be...!', 'fast forward to', 'for sure going to', 'let's go', <3). Also:\n- Favourable predictions or defending someone.\n- Calls to action for events or opportunities ('come support', 'come with us!!', 'get your tickets now', 'please share', giveaways, 'interested in...?').\n- Headlines about clear wins, titles, achievements or celebrations.",
+      "neutral": "No discernible stance. Includes:\n- Plain facts, routine or speculative news, and dry notices (date, place, RSVP).\n- Neutral questions, polls, rumors, trivia, fan pleas to celebrities, and spammy offers.\n- Sports play-by-play, and plans stated flatly.\n- Light self-deprecating jokes about trivial mishaps ('lmao', 'I'm dead', 'not ready') and wry quips without real criticism.",
+      "negative": "Includes:\n- Disappointment, sadness, frustration, boredom, dread, or missing out ('sucks', 'disappointed', 'going to die', 'NOOOO', ':(').\n- Criticism, disapproval, skepticism, mockery, sarcasm or judgment of people, politicians, groups, products or decisions, even when phrased calmly or as a rhetorical question ('insensitive', 'why would...', 'was he really...?', '#justsaying').\n- Headlines reporting clearly bad events: attacks, deaths, injuries, arrests, defects, deficits, scandals."
+    }
+  }
+}

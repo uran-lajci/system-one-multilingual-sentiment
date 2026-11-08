@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Decide which way the tweet's author leans (favorable, unfavorable, or no slant) toward the events, people, plans or products mentioned. Even mild cues count; choose neutral only when the text carries no evaluative slant.",
+    "criteria": {
+      "positive": "Any favorable lean: excitement, eagerness or anticipation about plans and events ('can't wait', 'for sure going', 'fast forward to', 'come with us!!'). Promotions and invitations urging people to attend, buy, win or support. Hopes and good wishes, praise, love, fandom, thanks, ':)' or ':D'. Approving reports of wins, records or milestones. Sympathy, prayers and RIP messages. Upbeat teasing.",
+      "neutral": "No evaluative slant: plain news headlines or facts without good or bad framing, schedules, scores reported flatly, spam and job ads stated dryly, plain questions, speculation, trivia, and random or garbled text. Also tweets whose positive and negative cues truly cancel out.",
+      "negative": "Any unfavorable lean: complaints, annoyance, boredom, dread or tiredness ('going to die', 'not ready', 'I miss', ':(', ':-/', 'ugh'). Disappointment, sadness, criticism, mockery or sarcastic digs at people, groups or products. Political or religious attacks and insults. News centered on harm: attacks, bombings, deaths, funerals, injuries, crime, losses or deficits, scandals."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the tweet's overall sentiment from the author's tone and, for news or promotions, whether the content is clearly good or bad. Weak, routine, wry or mixed signals count as neutral; reserve positive and negative for strong, unmistakable ones.",
+    "criteria": {
+      "positive": "Strong enthusiasm, love, praise, gratitude, hope or blessings: can't wait, so excited, love, perfect, impressed, well done, check it out!!!, prayers, RIP with warm words. Covers hyped promotions offering prizes or freebies or urging people to come celebrate or support, eager anticipation of a concert or show, and completed big successes (won the title, reached the final, record, No.1).",
+      "neutral": "Routine notices (meeting at 6pm, RSVP, register, sign up, on air at 5pm), plain plans ('going to X Friday'), mid-game sports updates, births and birthdays reported as news, questions, requests, trivia, speculation, and mild or hedged opinions ('may be the best'). Also wry sports or pop-culture snark, headlines about controversies, apologies, corrections or business moves, comic self-complaints (not ready, I'm dead, procrastinating, minor mishaps), and mixed tweets.",
+      "negative": "Real harm or bad outcomes: deaths, funerals, attacks, missiles, bombings, crimes, charges, deficits, injuries, product failures. Also sincere frustration, sadness, dread, boredom, contempt or insults aimed at people or groups, bitter sarcasm, hostile political or religious arguments, and genuine complaints (hate, worst, sucks, damn, insensitive, :()."
+    }
+  }
+}

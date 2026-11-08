@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the sentiment of the tweet. If the author voices any personal feeling or opinion, even a mild one, choose its direction. For impersonal content (news, notices, sports updates, trivia), choose neutral unless the event is clearly good or clearly bad.",
+    "criteria": {
+      "positive": "The author shows enjoyment, liking, hope, prayer, praise, admiration, defense of someone, amusement or anticipation, even mildly: fun, perfect, liked, impressed, brilliant, hope, let's go, can't wait, wow, :). Includes plans to attend or watch something the author looks forward to. Also hyped promotions ('come join', 'get your tickets now!', free, win) and news of clear successes such as titles, finals, records or historic moments.",
+      "neutral": "Impersonal or flat content with no personal lean: news headlines, routine notices with time and place (meeting, RSVP, register), sports scores and play-by-play, trivia, questions, requests, speculation and garbled text. Also wry spectator commentary about athletes or celebrities, reports of controversies without the author's own judgment, and tweets where good and bad feelings balance out.",
+      "negative": "The author shows annoyance, sadness, dread, boredom, a bad mood, stress, missing something, dislike, cynicism or mockery, even mildly: ugh, ACK, wtf, damn, can't sleep, going to die, not in the mood, worse, insensitive, :(. Includes insults, sarcastic jabs, hostile political or religious arguments, and news of clearly bad events such as deaths, attacks, bombings, crimes, arrests, scandals, deficits, injuries or failures."
+    }
+  }
+}

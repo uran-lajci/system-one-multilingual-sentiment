@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the overall sentiment the tweet's author expresses: their attitude, mood or evaluation toward the topic or their own situation. Look past topic words (dates, names, 'may', ordinals) and judge the feeling conveyed; plain reporting with no evident stance is neutral.",
+    "criteria": {
+      "positive": "Author shows excitement, anticipation, pride, praise, enjoyment or congratulations, including upbeat plans or announcements (concerts, shows, games tomorrow), celebratory achievements or records, fond memories, and playful humor (lol, xD). Cues: 'can't wait', 'excited', 'living for', 'great', 'amazing', 'proud', 'happy', 'congratulations', 'good deal', 'YUM', 'loved', '!!!', ':D'. Mild teasing still counts as positive if the tone is cheerful.",
+      "neutral": "Factual reporting, scores and stats, schedules, event listings, ticket sales, questions, or detached commentary with no clear emotional stance. This includes dry observations, mild irony, or sardonic political remarks without explicit emotion words, and plain statements of what someone watched or did. Cues: dates and times, 'scheduled', 'presents', 'selling tickets', 'random fact', neutral headlines.",
+      "negative": "Author expresses frustration, anger, disappointment, sadness, fear, insults or criticism, including complaints about mishaps (closed shops, getting lost, cancelled shows, missed events), contempt for people or groups, and negative news framing (crash, meltdown, racist, slow gains). Cues: 'sucks', 'bad', 'worse', 'shite', 'bullshit', 'pissed', 'asshole', 'shameful', 'scared', 'disaster', 'C'mon', 'not ok', 'unfortunately', 'painful'. Self-deprecation or sarcastic complaint ('drama drama drama', 'I'm a loser', 'addicted') counts as negative."
+    }
+  }
+}

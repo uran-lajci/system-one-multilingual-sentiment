@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from train data. Opus writes one set from English train data for every language, and one set per dataset from that dataset's own train data. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from train data. Opus writes one set from English train data for every language, and one set per dataset from that dataset's own train data. Opus then tunes the per-dataset questions for Jev on validation data. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -142,6 +142,39 @@ Our models then get information about each dataset's labelling that the LLMs nev
 We commit the same files as for instruction induction: the Opus prompt, the model ID, the date, the seeds, the row numbers of the sampled texts, Opus's raw answers and the 80 question files.
 
 The 80 Opus calls cost about USD 10. Each test set again gets 10 questions, so scoring costs about USD 12 for Jev, Clef and Clef-flash together. Cue words make the questions longer, so the real cost may be higher. Laya runs locally.
+
+## Iterative tuning
+
+The induced questions come from one pass over train data, and Opus never sees how Jev answers them. Here Opus also reads Jev's errors on validation data and rewrites the question, up to 10 times. Only then do we score the test set, once.
+
+We start with English. We decide on the other 7 languages with validation data after we see the English result. Norwegian and Danish have no validation data, so they cannot be tuned.
+
+### The loop
+
+Each run is one conversation with `claude-opus-5-5`, with effort `medium`. The conversation sees train and validation data only, and never a test set or a test score. Run r starts from the per-dataset question `english_0r.json`, which Opus wrote from train data with seed r.
+
+1. Score the current question with `jev-1.14.0` on `data/tsm/validation/english.csv` (324 items).
+2. Send Opus the macro-F1, the confusion matrix and every misclassified text, with its gold label, Jev's label and Jev's three probabilities.
+3. Opus writes an error analysis, then a new question.
+4. Repeat from step 1 until Opus has written 10 new questions.
+
+Every run makes all 10 rewrites, so the 5 runs stay comparable. The new questions keep the format: one Choice question with plain-text criteria for positive, neutral and negative. Each stays under 300 words and quotes no whole text. If a question fails the format check of `load_questions`, Opus gets the error and writes it again.
+
+### Selection and test
+
+A run scores 11 questions on validation: the start question and the 10 rewrites. We keep the one with the highest validation macro-F1, and on a tie, the earlier one. Jev then scores that question once on the English test set.
+
+We do 5 runs, starting from `english_01` to `english_05`. We report each run's validation curve, the validation and test score of each kept question, and the mean, minimum and maximum test score over the 5 runs.
+
+Opus reads the validation errors, and we select on the same 324 items. The validation score of a kept question is therefore optimistic, and only the test score counts. Our paper must say that the tuning used validation data for both.
+
+Only Jev is tuned. A tuned Jev has seen labelled data, so we compare it with zero-shot Jev and with the few-shot LLMs of Kastrati et al. (2026), not with the zero-shot LLMs.
+
+### Logs and cost
+
+We commit the prompt, the model ID, the date, every message of each conversation and every question with its validation score. TSM is public, so the English logs may hold validation texts. For datasets we may not share, the logs hold row numbers instead of texts.
+
+A run scores 11 questions on 324 validation items with Jev, which costs about USD 0.15. Opus reads a longer conversation at each turn, so a run costs about USD 1.50 for Opus. The 5 runs cost about USD 8, and the 5 test scorings cost about USD 0.15.
 
 ## Open decisions
 

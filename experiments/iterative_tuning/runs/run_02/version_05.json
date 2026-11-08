@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the feeling the tweet's author conveys (about events, people, plans, products), not the topic. Use positive or negative when there is a clear emotional or evaluative cue, even a calm one; otherwise neutral.",
+    "criteria": {
+      "positive": "Excitement, enjoyment, praise, love, hope or gratitude, loud or calm: 'can't wait', 'hyped', 'love', 'best', 'perfect night', 'for sure going to', 'congrats', 'good luck', 'I hope', ':)'. Ticket giveaways and promos pushing people to get tickets, win or support. Reports of a win, victory or title. Sympathy, prayers, RIP wishes. Upbeat teasing.",
+      "neutral": "Facts, headlines (including ones merely reporting criticism or controversy), schedules, ads, spam, and informational event notices. Casual plans ('X is the move tomorrow'). Questions, trivia, speculation. Pleas or requests to celebrities and fan campaigns ('we want you in...', 'please sing...', 'let's trend'). Wry, ironic commentary on athletes, shows or politicians without real contempt. Minor mishaps told matter-of-factly or with a laugh ('computer broke', 'lmao', 'I'm dead', a busy shift). Fan overwhelm ('not ready for this album'). Truly mixed opinions. Choose neutral when no clear cue exists.",
+      "negative": "Anger, disappointment, sadness, frustration, dread, contempt or hostility: 'WTF', 'sucks', 'hate', 'worst', 'disappointed', 'I miss', ':(' or ':-/' complaints. Dread about tasks ('going to die', 'not in the state of mind'). Insults, profanity aimed at someone, contemptuous sarcasm or mockery, and hostile rhetorical questions about people, politics or religion. Headlines about harm: attacks, missiles, bombings, deaths, funerals, injuries, crime charges, deficits, product defects."
+    }
+  }
+}

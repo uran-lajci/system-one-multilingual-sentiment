@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Judge the sentiment the tweet's author conveys, either their own feeling or the clearly good or bad nature of what they report. Topic words (dates, names, 'may', ordinals) do not count, and neither do exclamation marks or 'lol' on their own. When there is no clear positive or negative feeling or evaluation, choose neutral.",
+    "criteria": {
+      "positive": "Explicit positive feeling or evaluation: excitement in words ('can't wait', 'excited', 'love', 'amazing', 'great', 'proud', 'congrats', 'hope'), praise of a person or thing, gratitude, or warm wishes. Also reports of good outcomes: wins, titles, records, achievements, historic or hopeful events. Also promotional invitations or giveaways ('get your tickets now', 'who wants tickets', 'join us').",
+      "neutral": "Plain plans, schedules and logistics ('going to the game Friday', 'watching X tonight'), even when the activity is fun. Also questions, requests or fan pleas, trivia, jokes, memes, spam and incoherent text. Also wry or sarcastic commentary without a strong emotion. Also lighthearted self-deprecation or mock complaints marked by 'lol', 'lmao', 'I'm dead' or 'haha'. Also news or facts with no clearly good or bad outcome. If excitement or annoyance is only implied, use neutral.",
+      "negative": "Genuine frustration, anger, disappointment, sadness, fear, insult or harsh criticism ('sucks', 'disappointed', 'hate', 'shameful', 'v sad', 'miss'), including pointed arguments against someone's view. Also reports of harmful events: attacks, missiles, deaths and funerals, crimes and arrests, crashes, losses, deficits, things breaking."
+    }
+  }
+}
