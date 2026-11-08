@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment clearly praise or thank (positive), clearly attack with hostility (negative), or do neither (neutral)?",
+      "rule": "Neutral is the default: complaints about careless citizens, calls for lockdown or masks, skeptical questions about tests, forecasts of rising cases, political remarks, and jokes or cheering about city rankings are neutral unless they contain explicit hostility. Negative needs open hostility: saying the Institute lies or fakes numbers, insults, vulgar curses, scornful mockery of officials, or real despair. Any explicit thanks, praise, blessing or recovery wish makes a comment positive, even alongside criticism or worry. Bare hopes without thanks or praise stay neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "The default for tags, numbers, questions, requests, advice, complaints about citizens or measures, lockdown demands, forecasts, politics, sarcasm and jokes without insult or a lying accusation.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Pse nuk futet Prizereni n’karantine? (Why isn't Prizren put in quarantine?)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), Ishalla (hopefully), per marakli (worth worrying about)",
+        "not_for": "Saying the Institute lies or deceives, insults and vulgar curses are negative. Thanks inside a complaint is positive."
+      },
+      "positive": {
+        "what": "Thanks, praise or admiration for the Institute, doctors or a person; blessings; recovery wishes. Mixed criticism or worry does not cancel it.",
+        "examples": [
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Tash keta e marrin ne qafe gjyshin,gjyshen,prindin gruan shtatzan edhe femijet,e juve instiut ju lumte per punen qe po bani (Now these will infect grandparents and children, but you, Institute, well done for your work)",
+          "Supper (Super)"
+        ],
+        "cues": "falemnderit/flm (thanks), ju lumt (well done), bravo, hallall, respekt (respect), ju pafsha haren (bless you), sherim te shpejt (quick recovery), Zoti na ruajt (God protect us)",
+        "not_for": "League-style cheering ('ma gjall' (faster), 'Perpara Prishtina' (Forward Prishtina)) is neutral. Bare hopes without thanks or praise are neutral."
+      },
+      "negative": {
+        "what": "Explicit hostility: lying or faked-number accusations, insults, vulgar curses, contemptuous mockery of the admin or ministers, real despair.",
+        "examples": [
+          "hajde rren hajde mos i rreni popllin (come on, liar, don't lie to the people)",
+          "+77 rrena (+77 lies)",
+          "Situata nën Kontroll o minister ZEZA (Situation under control, minister, DISASTER)"
+        ],
+        "cues": "rren/rrena (lie), mashtrim (deceit), budall (stupid), turp (shame) at the Institute, tmer (horror), zeza (disaster)",
+        "not_for": "Doubtful questions, complaints about people ignoring masks, and gloomy forecasts without insult are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment clearly praise or thank (positive), clearly attack with hostility (negative), or do neither (neutral)?",
+      "rule": "Neutral is the default: complaints about careless citizens, calls for lockdown or masks, skeptical questions about tests, forecasts of rising cases, political remarks, and jokes or cheering about city rankings are neutral unless they contain explicit hostility. Negative needs open hostility: saying the Institute lies or fakes numbers, insults, vulgar curses, scornful mockery of officials, or real despair. Any explicit thanks, praise, blessing or recovery wish makes a comment positive, even alongside criticism or worry. Bare hopes without thanks or praise stay neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Thanks, praise or admiration for the Institute, doctors or a person; blessings; recovery wishes. Mixed criticism or worry does not cancel it.",
+        "examples": [
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Tash keta e marrin ne qafe gjyshin,gjyshen,prindin gruan shtatzan edhe femijet,e juve instiut ju lumte per punen qe po bani (Now these will infect grandparents and children, but you, Institute, well done for your work)",
+          "Supper (Super)"
+        ],
+        "cues": "falemnderit/flm (thanks), ju lumt (well done), bravo, hallall, respekt (respect), ju pafsha haren (bless you), sherim te shpejt (quick recovery), Zoti na ruajt (God protect us)",
+        "not_for": "League-style cheering ('ma gjall' (faster), 'Perpara Prishtina' (Forward Prishtina)) is neutral. Bare hopes without thanks or praise are neutral."
+      },
+      "negative": {
+        "what": "Explicit hostility: lying or faked-number accusations, insults, vulgar curses, contemptuous mockery of the admin or ministers, real despair.",
+        "examples": [
+          "hajde rren hajde mos i rreni popllin (come on, liar, don't lie to the people)",
+          "+77 rrena (+77 lies)",
+          "Situata nën Kontroll o minister ZEZA (Situation under control, minister, DISASTER)"
+        ],
+        "cues": "rren/rrena (lie), mashtrim (deceit), budall (stupid), turp (shame) at the Institute, tmer (horror), zeza (disaster)",
+        "not_for": "Doubtful questions, complaints about people ignoring masks, and gloomy forecasts without insult are neutral."
+      },
+      "neutral": {
+        "what": "The default for tags, numbers, questions, requests, advice, complaints about citizens or measures, lockdown demands, forecasts, politics, sarcasm and jokes without insult or a lying accusation.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Pse nuk futet Prizereni n’karantine? (Why isn't Prizren put in quarantine?)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), Ishalla (hopefully), per marakli (worth worrying about)",
+        "not_for": "Saying the Institute lies or deceives, insults and vulgar curses are negative. Thanks inside a complaint is positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment clearly praise or thank (positive), clearly attack with hostility (negative), or do neither (neutral)?",
+      "rule": "Neutral is the default: complaints about careless citizens, calls for lockdown or masks, skeptical questions about tests, forecasts of rising cases, political remarks, and jokes or cheering about city rankings are neutral unless they contain explicit hostility. Negative needs open hostility: saying the Institute lies or fakes numbers, insults, vulgar curses, scornful mockery of officials, or real despair. Any explicit thanks, praise, blessing or recovery wish makes a comment positive, even alongside criticism or worry. Bare hopes without thanks or praise stay neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Explicit hostility: lying or faked-number accusations, insults, vulgar curses, contemptuous mockery of the admin or ministers, real despair.",
+        "examples": [
+          "hajde rren hajde mos i rreni popllin (come on, liar, don't lie to the people)",
+          "+77 rrena (+77 lies)",
+          "Situata nën Kontroll o minister ZEZA (Situation under control, minister, DISASTER)"
+        ],
+        "cues": "rren/rrena (lie), mashtrim (deceit), budall (stupid), turp (shame) at the Institute, tmer (horror), zeza (disaster)",
+        "not_for": "Doubtful questions, complaints about people ignoring masks, and gloomy forecasts without insult are neutral."
+      },
+      "neutral": {
+        "what": "The default for tags, numbers, questions, requests, advice, complaints about citizens or measures, lockdown demands, forecasts, politics, sarcasm and jokes without insult or a lying accusation.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Pse nuk futet Prizereni n’karantine? (Why isn't Prizren put in quarantine?)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), Ishalla (hopefully), per marakli (worth worrying about)",
+        "not_for": "Saying the Institute lies or deceives, insults and vulgar curses are negative. Thanks inside a complaint is positive."
+      },
+      "positive": {
+        "what": "Thanks, praise or admiration for the Institute, doctors or a person; blessings; recovery wishes. Mixed criticism or worry does not cancel it.",
+        "examples": [
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Tash keta e marrin ne qafe gjyshin,gjyshen,prindin gruan shtatzan edhe femijet,e juve instiut ju lumte per punen qe po bani (Now these will infect grandparents and children, but you, Institute, well done for your work)",
+          "Supper (Super)"
+        ],
+        "cues": "falemnderit/flm (thanks), ju lumt (well done), bravo, hallall, respekt (respect), ju pafsha haren (bless you), sherim te shpejt (quick recovery), Zoti na ruajt (God protect us)",
+        "not_for": "League-style cheering ('ma gjall' (faster), 'Perpara Prishtina' (Forward Prishtina)) is neutral. Bare hopes without thanks or praise are neutral."
+      }
+    }
+  }
+}

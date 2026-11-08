@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feelings or through whether the reported news is good or bad?",
+      "rule": "Judge the valence of the content, not just emotion words. Wins, records, honors, successes and promotional invitations are positive; delays, problems, defeats, penalties, injuries, attacks and scandals are negative. Routine personal plans, status updates, questions, plain stats, and playful or exaggerated grumbling about trivial things are neutral. A smiley, 'lol' or one dramatic phrase alone should not decide the label."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Routine plans, status updates, questions, stats without good or bad framing, and jokey or exaggerated complaints about trivial things.",
+        "examples": [
+          "Purples and Football at Baby A's with my Aunt and Cousin. ready to see my JETS play on monday ;)",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment.",
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?"
+        ],
+        "cues": "going to, tomorrow, who's down, anyone, lol, haha, schedules",
+        "not_for": "News of a clear success or a promo hyping an event (positive); reports of delays, problems or attacks (negative)."
+      },
+      "positive": {
+        "what": "Clear praise, love, excitement or pride; good news such as victories, records, awards or successes; promotions hyping an event or product.",
+        "examples": [
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv...",
+          "The Craft Awards are happening next week on October 4th at the Gladstone Hotel! Invite all your friends and get..."
+        ],
+        "cues": "beats, tops, makes history, honored, join us, don't miss, can't wait, love, proud",
+        "not_for": "Ordinary plans with a smiley or 'lol' (neutral); excitement about someone losing or being hated (negative)."
+      },
+      "negative": {
+        "what": "Real complaints, insults, hostility, sadness or fear, and reports of bad events such as delays, problems, failures, penalties, injuries or attacks.",
+        "examples": [
+          "SimCity delayed it’s availability",
+          "Problems for Newcastle Utd with new sponsor as star players may oppose Wonga's loans on religious ethical grounds",
+          "2nd time going to Dunkin today and there closed. Like no this is not ok"
+        ],
+        "cues": "delayed, problems, penalty, fumble, hate, sucks, fuck, sad, boo, attack",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); condolences expressing warmth (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feelings or through whether the reported news is good or bad?",
+      "rule": "Judge the valence of the content, not just emotion words. Wins, records, honors, successes and promotional invitations are positive; delays, problems, defeats, penalties, injuries, attacks and scandals are negative. Routine personal plans, status updates, questions, plain stats, and playful or exaggerated grumbling about trivial things are neutral. A smiley, 'lol' or one dramatic phrase alone should not decide the label."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Clear praise, love, excitement or pride; good news such as victories, records, awards or successes; promotions hyping an event or product.",
+        "examples": [
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv...",
+          "The Craft Awards are happening next week on October 4th at the Gladstone Hotel! Invite all your friends and get..."
+        ],
+        "cues": "beats, tops, makes history, honored, join us, don't miss, can't wait, love, proud",
+        "not_for": "Ordinary plans with a smiley or 'lol' (neutral); excitement about someone losing or being hated (negative)."
+      },
+      "negative": {
+        "what": "Real complaints, insults, hostility, sadness or fear, and reports of bad events such as delays, problems, failures, penalties, injuries or attacks.",
+        "examples": [
+          "SimCity delayed it’s availability",
+          "Problems for Newcastle Utd with new sponsor as star players may oppose Wonga's loans on religious ethical grounds",
+          "2nd time going to Dunkin today and there closed. Like no this is not ok"
+        ],
+        "cues": "delayed, problems, penalty, fumble, hate, sucks, fuck, sad, boo, attack",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); condolences expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Routine plans, status updates, questions, stats without good or bad framing, and jokey or exaggerated complaints about trivial things.",
+        "examples": [
+          "Purples and Football at Baby A's with my Aunt and Cousin. ready to see my JETS play on monday ;)",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment.",
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?"
+        ],
+        "cues": "going to, tomorrow, who's down, anyone, lol, haha, schedules",
+        "not_for": "News of a clear success or a promo hyping an event (positive); reports of delays, problems or attacks (negative)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feelings or through whether the reported news is good or bad?",
+      "rule": "Judge the valence of the content, not just emotion words. Wins, records, honors, successes and promotional invitations are positive; delays, problems, defeats, penalties, injuries, attacks and scandals are negative. Routine personal plans, status updates, questions, plain stats, and playful or exaggerated grumbling about trivial things are neutral. A smiley, 'lol' or one dramatic phrase alone should not decide the label."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Real complaints, insults, hostility, sadness or fear, and reports of bad events such as delays, problems, failures, penalties, injuries or attacks.",
+        "examples": [
+          "SimCity delayed it’s availability",
+          "Problems for Newcastle Utd with new sponsor as star players may oppose Wonga's loans on religious ethical grounds",
+          "2nd time going to Dunkin today and there closed. Like no this is not ok"
+        ],
+        "cues": "delayed, problems, penalty, fumble, hate, sucks, fuck, sad, boo, attack",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); condolences expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Routine plans, status updates, questions, stats without good or bad framing, and jokey or exaggerated complaints about trivial things.",
+        "examples": [
+          "Purples and Football at Baby A's with my Aunt and Cousin. ready to see my JETS play on monday ;)",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment.",
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?"
+        ],
+        "cues": "going to, tomorrow, who's down, anyone, lol, haha, schedules",
+        "not_for": "News of a clear success or a promo hyping an event (positive); reports of delays, problems or attacks (negative)."
+      },
+      "positive": {
+        "what": "Clear praise, love, excitement or pride; good news such as victories, records, awards or successes; promotions hyping an event or product.",
+        "examples": [
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv...",
+          "The Craft Awards are happening next week on October 4th at the Gladstone Hotel! Invite all your friends and get..."
+        ],
+        "cues": "beats, tops, makes history, honored, join us, don't miss, can't wait, love, proud",
+        "not_for": "Ordinary plans with a smiley or 'lol' (neutral); excitement about someone losing or being hated (negative)."
+      }
+    }
+  }
+}

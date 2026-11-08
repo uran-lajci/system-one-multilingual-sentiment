@@ -1,0 +1,116 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry an upbeat evaluation, a critical or unhappy one, or no evaluation at all?",
+      "rule": "Look for the author's evaluative wording. Upbeat words or emoticons (good, best, fun, love, :), <3) with no complaint make it positive. Critical judgments, setbacks, disappointment (:(, bummed), annoyance or sarcastic attacks make it negative. Neutral: logistics, bare invitations, event hype without praise words ('don't miss', 'place to be', 'retweet if'), questions, stats, jokes, tactical sports second-guessing, laughed-off hassles, and third-person headlines (debates, arrests, markets) unless they report violence or deaths (negative) or clear achievements (positive)."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "No evaluation: logistics, ads, invitations, questions, stats, headlines, jokes, tactical sports talk, laughed-off hassles.",
+        "examples": [
+          "So .... Who's up for seeing Ant-Man with me on Saturday? 2:30pm showing. Let me know!",
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "I could be going to digi tomorrow but I thought I was supposed to be seeing the girls but they cancelled lmao"
+        ],
+        "cues": "who's going, don't miss, should have started, slams, reports, scores, lmao",
+        "not_for": "Praise or warmth makes it positive; an insult, harsh judgment, :( or real frustration makes it negative."
+      },
+      "positive": {
+        "what": "Upbeat feeling or praise: excitement, affection, hope for a team, warm sales pitches, fun plans, achievements.",
+        "examples": [
+          "Jason Aldean&amp;Kenny Chesney tickets for sale. Concert is the 29th. Good seats for a really good price. Text me asap for more info!!",
+          "We always mess up when we get the chance to go up the table when Atleti or Barca mess up. PLEASE WIN TOMORROW :) @user"
+        ],
+        "cues": "good, best, fun, can't wait, love, see you there, :), <3, Happy [day]",
+        "not_for": "Event ads, 'who's going?' and dry score lines are neutral."
+      },
+      "negative": {
+        "what": "Criticism, contempt, complaints, disappointment, setbacks, sarcastic attacks, sadness, or news of violence or deaths.",
+        "examples": [
+          "\"Caitlyn Jenner may not be \"\"down\"\" with gay marriage, but she should really understand that people are gonna see that as hypocritical.\"",
+          "I'm slightly bummed the Foo Fighters are playing Friday night of ACL rather than Sunday. I'm pretty much not gonna care the other 2 days.",
+          "A Thursday night with no Waterloo road on! #boring"
+        ],
+        "cues": "hypocritical, bitter, racist, you just hate, bummed, dang it, :(, argh, #boring, killed",
+        "not_for": "Strong words used in excitement are positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry an upbeat evaluation, a critical or unhappy one, or no evaluation at all?",
+      "rule": "Look for the author's evaluative wording. Upbeat words or emoticons (good, best, fun, love, :), <3) with no complaint make it positive. Critical judgments, setbacks, disappointment (:(, bummed), annoyance or sarcastic attacks make it negative. Neutral: logistics, bare invitations, event hype without praise words ('don't miss', 'place to be', 'retweet if'), questions, stats, jokes, tactical sports second-guessing, laughed-off hassles, and third-person headlines (debates, arrests, markets) unless they report violence or deaths (negative) or clear achievements (positive)."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Upbeat feeling or praise: excitement, affection, hope for a team, warm sales pitches, fun plans, achievements.",
+        "examples": [
+          "Jason Aldean&amp;Kenny Chesney tickets for sale. Concert is the 29th. Good seats for a really good price. Text me asap for more info!!",
+          "We always mess up when we get the chance to go up the table when Atleti or Barca mess up. PLEASE WIN TOMORROW :) @user"
+        ],
+        "cues": "good, best, fun, can't wait, love, see you there, :), <3, Happy [day]",
+        "not_for": "Event ads, 'who's going?' and dry score lines are neutral."
+      },
+      "negative": {
+        "what": "Criticism, contempt, complaints, disappointment, setbacks, sarcastic attacks, sadness, or news of violence or deaths.",
+        "examples": [
+          "\"Caitlyn Jenner may not be \"\"down\"\" with gay marriage, but she should really understand that people are gonna see that as hypocritical.\"",
+          "I'm slightly bummed the Foo Fighters are playing Friday night of ACL rather than Sunday. I'm pretty much not gonna care the other 2 days.",
+          "A Thursday night with no Waterloo road on! #boring"
+        ],
+        "cues": "hypocritical, bitter, racist, you just hate, bummed, dang it, :(, argh, #boring, killed",
+        "not_for": "Strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "No evaluation: logistics, ads, invitations, questions, stats, headlines, jokes, tactical sports talk, laughed-off hassles.",
+        "examples": [
+          "So .... Who's up for seeing Ant-Man with me on Saturday? 2:30pm showing. Let me know!",
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "I could be going to digi tomorrow but I thought I was supposed to be seeing the girls but they cancelled lmao"
+        ],
+        "cues": "who's going, don't miss, should have started, slams, reports, scores, lmao",
+        "not_for": "Praise or warmth makes it positive; an insult, harsh judgment, :( or real frustration makes it negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry an upbeat evaluation, a critical or unhappy one, or no evaluation at all?",
+      "rule": "Look for the author's evaluative wording. Upbeat words or emoticons (good, best, fun, love, :), <3) with no complaint make it positive. Critical judgments, setbacks, disappointment (:(, bummed), annoyance or sarcastic attacks make it negative. Neutral: logistics, bare invitations, event hype without praise words ('don't miss', 'place to be', 'retweet if'), questions, stats, jokes, tactical sports second-guessing, laughed-off hassles, and third-person headlines (debates, arrests, markets) unless they report violence or deaths (negative) or clear achievements (positive)."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Criticism, contempt, complaints, disappointment, setbacks, sarcastic attacks, sadness, or news of violence or deaths.",
+        "examples": [
+          "\"Caitlyn Jenner may not be \"\"down\"\" with gay marriage, but she should really understand that people are gonna see that as hypocritical.\"",
+          "I'm slightly bummed the Foo Fighters are playing Friday night of ACL rather than Sunday. I'm pretty much not gonna care the other 2 days.",
+          "A Thursday night with no Waterloo road on! #boring"
+        ],
+        "cues": "hypocritical, bitter, racist, you just hate, bummed, dang it, :(, argh, #boring, killed",
+        "not_for": "Strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "No evaluation: logistics, ads, invitations, questions, stats, headlines, jokes, tactical sports talk, laughed-off hassles.",
+        "examples": [
+          "So .... Who's up for seeing Ant-Man with me on Saturday? 2:30pm showing. Let me know!",
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "I could be going to digi tomorrow but I thought I was supposed to be seeing the girls but they cancelled lmao"
+        ],
+        "cues": "who's going, don't miss, should have started, slams, reports, scores, lmao",
+        "not_for": "Praise or warmth makes it positive; an insult, harsh judgment, :( or real frustration makes it negative."
+      },
+      "positive": {
+        "what": "Upbeat feeling or praise: excitement, affection, hope for a team, warm sales pitches, fun plans, achievements.",
+        "examples": [
+          "Jason Aldean&amp;Kenny Chesney tickets for sale. Concert is the 29th. Good seats for a really good price. Text me asap for more info!!",
+          "We always mess up when we get the chance to go up the table when Atleti or Barca mess up. PLEASE WIN TOMORROW :) @user"
+        ],
+        "cues": "good, best, fun, can't wait, love, see you there, :), <3, Happy [day]",
+        "not_for": "Event ads, 'who's going?' and dry score lines are neutral."
+      }
+    }
+  }
+}

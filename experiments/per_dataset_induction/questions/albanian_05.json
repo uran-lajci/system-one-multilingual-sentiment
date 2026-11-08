@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo dialect) Facebook comments on COVID-19 daily case updates from Kosovo's public health institute (IKSHP). Judge the overall attitude the commenter expresses toward the situation, the institute/government, or the public.",
+    "criteria": {
+      "positive": "Praise, gratitude, congratulations, blessings, prayers or optimism: wishing recovery, thanking doctors/IKSHP, celebrating recoveries or falling cases, hope that things improve. Includes short pious or friendly phrases and constructive appeals to follow the rules. Cues: urime (congratulations), shërim të shpejt (quick recovery), ju lumtë/hallall (well done), respekt, bravo, mashalla (God has willed it), inshallah/ishalla (God willing), Zoti ju ndihmoftë (God help you), Allahu i sheroft (may God heal), po sherohen (they're recovering), naten e mir (good night).",
+      "neutral": "Factual statistics, questions, requests for information (e.g. which village/municipality), tagging friends' names, joking about which city 'leads' as if it were a game, suggestions or calls for measures (masks, quarantine, reopening nurseries) without hostility or despair, and mixed comments weighing pros and cons. Cues: a…? (question), qitne listen (publish the list), duhet (should), karantin, luja (play), statistikat (statistics).",
+      "negative": "Distrust, accusations of lies or manipulation, insults, anger at government/institute or at 'ignorant' people, complaints about testing, timing or numbers, fear and despair, and sarcasm (even sarcastic 'mashalla' or cheering a city on as cases rise). Cues: rrena/rrenë (lies), mashtrim (fraud), spo ju besoj (I don't believe you), ska virus (there's no virus), injorant, budall (stupid), tmer (horror), hajgare (a joke/farce), lodh (tired of), Zoti ju mallkoft (God curse you)."
+    }
+  }
+}

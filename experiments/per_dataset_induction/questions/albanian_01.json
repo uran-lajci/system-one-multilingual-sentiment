@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo Gheg dialect) Facebook comments on the National Institute of Public Health's daily COVID-19 case posts. Judge the commenter's overall attitude toward the institute, the health workers or the situation, and pick the label that best fits.",
+    "criteria": {
+      "positive": "The comment praises, thanks, blesses, or expresses hope or relief, for example about falling numbers or more recoveries. Cues: bravo, respekt/rrespekte (respect), ju lumt/te lumte (well done), falemnderit/flm (thanks), Zoti na ndihmoft/ruajt (God help/protect us), inshallah, mashallah, hajr/perhajr (good fortune), sherim (get well), paska ra numri (the number has dropped), super lajm (great news). Count it as positive when praise is mixed with criticism of politics or the public, or when it is a short remark that the numbers are improving.",
+      "neutral": "The comment has no clear evaluative stance. This includes tagging names only, links, raw statistics, questions about numbers or locations, requests for more detail, jokes or banter between users, remarks about which town leads, and calm advice such as rrini ne shpi (stay home) or mbani distancen (keep your distance). Even a mildly critical question about missing data stays neutral if it is not accusatory.",
+      "negative": "The comment accuses the institute or government of lying or manipulating figures, insults, or expresses fear, anger or despair about deaths and rising cases. Cues: rrena/rreni (lies/you lie), mashtroni (you deceive), sharp blame on the public, politics, gatherings or Bajram, sarcasm about the admin making up numbers, tmer (horror), keq (bad), a jeni normal (are you crazy), turp (shame)."
+    }
+  }
+}

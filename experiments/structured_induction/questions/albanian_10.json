@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall tone or stance does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express: approving/hopeful, merely informational/unrelated, or critical/hostile?",
+      "rule": "Positive covers praise and thanks, blessings and prayers (Zoti na ndihmoft, ishalla), good wishes, relief at falling numbers or recoveries, and constructive advice written respectfully, even if it adds a mild complaint. Negative covers accusing the institute of lying or faking numbers, mocking, insults, conspiracy denial, anger at institutions or the public, and alarm or blame. Neutral covers bare name tags, questions about where cases are, posted statistics, off-topic jokes (football, NBA), and calm appeals or observations with no clear approval or attack."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Tagging names, factual questions, statistic dumps, off-topic sports banter, and general observations or appeals without praise or attack.",
+        "examples": [
+          "Blerim Berisha izolohu (Blerim Berisha, isolate yourself)",
+          "Në cilat komuna jan rastet? (Which municipalities are the cases in?)",
+          "Prishtina kysmet NBA vitin tjeter (Prishtina, NBA next year with luck)",
+          "Krejt infeksionet prej kafeneve vijnë (All infections come from cafés)"
+        ],
+        "cues": "bare personal names, cila komune/ku jan rastet (which municipality/where are the cases), Statistikat e #covid19, numbers with ?, football/sports words",
+        "not_for": "Questions that imply deception ('A hajgare jeni', are you joking with these tests) are negative. Hopeful wishes are positive."
+      },
+      "positive": {
+        "what": "Thanks, praise of doctors, minister or institute; prayers and hopeful wishes; welcoming good news; polite suggestions.",
+        "examples": [
+          "Zoti na ndihmoft inshallah (God help us, God willing)",
+          "bravo mjekeve kosovare (bravo Kosovar doctors)",
+          "Gjakova paska shpetu sonte pa pa raste (Gjakova got away without cases tonight)",
+          "Mbylleni gastronomine nese doni te keni renie te te infektuareve (Close restaurants if you want infections to fall)"
+        ],
+        "cues": "ju lumt (well done), bravo, faleminderit/flm (thanks), ishalla/inshallah (God willing), Zoti (God), urime (congratulations), lajm i mire (good news), respekt, te sheruar (recovered), per hajr (for good)",
+        "not_for": "Questions about case locations or bare statistics are neutral. Ironic 'bravo' or praise mixed with accusations of lying is negative."
+      },
+      "negative": {
+        "what": "Accusations of lying or manipulated numbers, sarcasm and mockery, insults and curses, virus denial, anger at the government, public or lockdowns, and fearful predictions.",
+        "examples": [
+          "Hajde rren hajde deri kur kan me ju zgat kto rrena (Come on, lie on; how long will these lies last)",
+          "Every day same day ( copy = paste)",
+          "Moti u desht me shpall gjendje e jashtzakonshme (A state of emergency should have been declared long ago)",
+          "Karantin o haver (Quarantine, oh buddy)"
+        ],
+        "cues": "rren/rrena/rreni/gënjeni (lie, lies), marre/turp (shame), mashtrime (deceit), hajgare (joke), serial, bingo, nuk egziston virusi (the virus doesn't exist), mallkoft (curse), profanity, all-caps blame",
+        "not_for": "Polite criticism framed with respect or a suggestion is positive. Calm observations about behaviour without hostility are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall tone or stance does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express: approving/hopeful, merely informational/unrelated, or critical/hostile?",
+      "rule": "Positive covers praise and thanks, blessings and prayers (Zoti na ndihmoft, ishalla), good wishes, relief at falling numbers or recoveries, and constructive advice written respectfully, even if it adds a mild complaint. Negative covers accusing the institute of lying or faking numbers, mocking, insults, conspiracy denial, anger at institutions or the public, and alarm or blame. Neutral covers bare name tags, questions about where cases are, posted statistics, off-topic jokes (football, NBA), and calm appeals or observations with no clear approval or attack."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Thanks, praise of doctors, minister or institute; prayers and hopeful wishes; welcoming good news; polite suggestions.",
+        "examples": [
+          "Zoti na ndihmoft inshallah (God help us, God willing)",
+          "bravo mjekeve kosovare (bravo Kosovar doctors)",
+          "Gjakova paska shpetu sonte pa pa raste (Gjakova got away without cases tonight)",
+          "Mbylleni gastronomine nese doni te keni renie te te infektuareve (Close restaurants if you want infections to fall)"
+        ],
+        "cues": "ju lumt (well done), bravo, faleminderit/flm (thanks), ishalla/inshallah (God willing), Zoti (God), urime (congratulations), lajm i mire (good news), respekt, te sheruar (recovered), per hajr (for good)",
+        "not_for": "Questions about case locations or bare statistics are neutral. Ironic 'bravo' or praise mixed with accusations of lying is negative."
+      },
+      "negative": {
+        "what": "Accusations of lying or manipulated numbers, sarcasm and mockery, insults and curses, virus denial, anger at the government, public or lockdowns, and fearful predictions.",
+        "examples": [
+          "Hajde rren hajde deri kur kan me ju zgat kto rrena (Come on, lie on; how long will these lies last)",
+          "Every day same day ( copy = paste)",
+          "Moti u desht me shpall gjendje e jashtzakonshme (A state of emergency should have been declared long ago)",
+          "Karantin o haver (Quarantine, oh buddy)"
+        ],
+        "cues": "rren/rrena/rreni/gënjeni (lie, lies), marre/turp (shame), mashtrime (deceit), hajgare (joke), serial, bingo, nuk egziston virusi (the virus doesn't exist), mallkoft (curse), profanity, all-caps blame",
+        "not_for": "Polite criticism framed with respect or a suggestion is positive. Calm observations about behaviour without hostility are neutral."
+      },
+      "neutral": {
+        "what": "Tagging names, factual questions, statistic dumps, off-topic sports banter, and general observations or appeals without praise or attack.",
+        "examples": [
+          "Blerim Berisha izolohu (Blerim Berisha, isolate yourself)",
+          "Në cilat komuna jan rastet? (Which municipalities are the cases in?)",
+          "Prishtina kysmet NBA vitin tjeter (Prishtina, NBA next year with luck)",
+          "Krejt infeksionet prej kafeneve vijnë (All infections come from cafés)"
+        ],
+        "cues": "bare personal names, cila komune/ku jan rastet (which municipality/where are the cases), Statistikat e #covid19, numbers with ?, football/sports words",
+        "not_for": "Questions that imply deception ('A hajgare jeni', are you joking with these tests) are negative. Hopeful wishes are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall tone or stance does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express: approving/hopeful, merely informational/unrelated, or critical/hostile?",
+      "rule": "Positive covers praise and thanks, blessings and prayers (Zoti na ndihmoft, ishalla), good wishes, relief at falling numbers or recoveries, and constructive advice written respectfully, even if it adds a mild complaint. Negative covers accusing the institute of lying or faking numbers, mocking, insults, conspiracy denial, anger at institutions or the public, and alarm or blame. Neutral covers bare name tags, questions about where cases are, posted statistics, off-topic jokes (football, NBA), and calm appeals or observations with no clear approval or attack."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Accusations of lying or manipulated numbers, sarcasm and mockery, insults and curses, virus denial, anger at the government, public or lockdowns, and fearful predictions.",
+        "examples": [
+          "Hajde rren hajde deri kur kan me ju zgat kto rrena (Come on, lie on; how long will these lies last)",
+          "Every day same day ( copy = paste)",
+          "Moti u desht me shpall gjendje e jashtzakonshme (A state of emergency should have been declared long ago)",
+          "Karantin o haver (Quarantine, oh buddy)"
+        ],
+        "cues": "rren/rrena/rreni/gënjeni (lie, lies), marre/turp (shame), mashtrime (deceit), hajgare (joke), serial, bingo, nuk egziston virusi (the virus doesn't exist), mallkoft (curse), profanity, all-caps blame",
+        "not_for": "Polite criticism framed with respect or a suggestion is positive. Calm observations about behaviour without hostility are neutral."
+      },
+      "neutral": {
+        "what": "Tagging names, factual questions, statistic dumps, off-topic sports banter, and general observations or appeals without praise or attack.",
+        "examples": [
+          "Blerim Berisha izolohu (Blerim Berisha, isolate yourself)",
+          "Në cilat komuna jan rastet? (Which municipalities are the cases in?)",
+          "Prishtina kysmet NBA vitin tjeter (Prishtina, NBA next year with luck)",
+          "Krejt infeksionet prej kafeneve vijnë (All infections come from cafés)"
+        ],
+        "cues": "bare personal names, cila komune/ku jan rastet (which municipality/where are the cases), Statistikat e #covid19, numbers with ?, football/sports words",
+        "not_for": "Questions that imply deception ('A hajgare jeni', are you joking with these tests) are negative. Hopeful wishes are positive."
+      },
+      "positive": {
+        "what": "Thanks, praise of doctors, minister or institute; prayers and hopeful wishes; welcoming good news; polite suggestions.",
+        "examples": [
+          "Zoti na ndihmoft inshallah (God help us, God willing)",
+          "bravo mjekeve kosovare (bravo Kosovar doctors)",
+          "Gjakova paska shpetu sonte pa pa raste (Gjakova got away without cases tonight)",
+          "Mbylleni gastronomine nese doni te keni renie te te infektuareve (Close restaurants if you want infections to fall)"
+        ],
+        "cues": "ju lumt (well done), bravo, faleminderit/flm (thanks), ishalla/inshallah (God willing), Zoti (God), urime (congratulations), lajm i mire (good news), respekt, te sheruar (recovered), per hajr (for good)",
+        "not_for": "Questions about case locations or bare statistics are neutral. Ironic 'bravo' or praise mixed with accusations of lying is negative."
+      }
+    }
+  }
+}

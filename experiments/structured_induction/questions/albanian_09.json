@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive = praise, thanks, congratulations, blessings, get-well wishes, hope, or supportive advice (even if it also contains a request or mild worry). Negative = accusing the institute of lying or manipulating numbers, conspiracy claims, insults, cursing, blaming government or careless people, mockery. Neutral = bare name tags, questions, factual or statistical remarks, regional banter, jokes or observations without clear approval or hostility; mocking or distrustful tone pushes to negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Name tags alone, informational questions, statistics, regional comparisons, predictions, idle jokes or chatter without clear stance.",
+        "examples": [
+          "Valdete Uka",
+          "Prej cilit vend janë (Which place are they from)",
+          "Ferizaji per Kosoven ështe si rasti i Suedis per Evropë (Ferizaj is to Kosovo what Sweden is to Europe)",
+          "Pse sot pa tabel (Why no table today)"
+        ],
+        "cues": "tagged names only, qka/qysh/pse questions (what/how/why), numbers and city names, hahaha banter, emojis only",
+        "not_for": "Questions implying lying or manipulation (\"Pse nuk tregoni... jeni ka manipuloni\") are negative; a tag plus praise (\"Ali Kastrati mire\") is positive."
+      },
+      "positive": {
+        "what": "Gratitude, respect or praise for doctors/institute/minister, congratulations to the recovered, prayers, hope that cases fall, constructive pleas to stay safe.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Urime të shëruarve! (Congratulations to the recovered!)",
+          "Zoti na ndihmoft inshallah (May God help us, inshallah)",
+          "Pse si publikoni edhe te shëruarit nga vijnë me Komuna ?Për angazhimin ju lumtë (Why not publish where the recovered are from by municipality? Well done for your engagement)"
+        ],
+        "cues": "ju lumt (well done), bravo, respekt (respect), urime (congratulations), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shyqyr/elhamdulilah (thank God), ishalla (hopefully), lajm i mire (good news)",
+        "not_for": "Relief jokes about late posting without praise are neutral; praise of the institute combined with insulting other commenters can still be negative."
+      },
+      "negative": {
+        "what": "Distrust of the numbers, claims of lies or propaganda, anger at government, politicians or irresponsible citizens, curses, insults, sarcasm and despair.",
+        "examples": [
+          "Mos rreni ma shum (Stop lying more)",
+          "+77 rrena (+77 lies)",
+          "Plandemia 100% propagand",
+          "Mjert na cfar populli (Poor us, what a people)"
+        ],
+        "cues": "rreni/rrena/rrejt (lie/lies), propagand, manipuloni (manipulate), turp (shame), zoti ju vraft/mallkoft (may God kill/curse you), qifsha (vulgar curse), pare (money), STOP",
+        "not_for": "Advice to stay home without blame or insults is positive or neutral; laughing banter between tagged friends is neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive = praise, thanks, congratulations, blessings, get-well wishes, hope, or supportive advice (even if it also contains a request or mild worry). Negative = accusing the institute of lying or manipulating numbers, conspiracy claims, insults, cursing, blaming government or careless people, mockery. Neutral = bare name tags, questions, factual or statistical remarks, regional banter, jokes or observations without clear approval or hostility; mocking or distrustful tone pushes to negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Gratitude, respect or praise for doctors/institute/minister, congratulations to the recovered, prayers, hope that cases fall, constructive pleas to stay safe.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Urime të shëruarve! (Congratulations to the recovered!)",
+          "Zoti na ndihmoft inshallah (May God help us, inshallah)",
+          "Pse si publikoni edhe te shëruarit nga vijnë me Komuna ?Për angazhimin ju lumtë (Why not publish where the recovered are from by municipality? Well done for your engagement)"
+        ],
+        "cues": "ju lumt (well done), bravo, respekt (respect), urime (congratulations), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shyqyr/elhamdulilah (thank God), ishalla (hopefully), lajm i mire (good news)",
+        "not_for": "Relief jokes about late posting without praise are neutral; praise of the institute combined with insulting other commenters can still be negative."
+      },
+      "negative": {
+        "what": "Distrust of the numbers, claims of lies or propaganda, anger at government, politicians or irresponsible citizens, curses, insults, sarcasm and despair.",
+        "examples": [
+          "Mos rreni ma shum (Stop lying more)",
+          "+77 rrena (+77 lies)",
+          "Plandemia 100% propagand",
+          "Mjert na cfar populli (Poor us, what a people)"
+        ],
+        "cues": "rreni/rrena/rrejt (lie/lies), propagand, manipuloni (manipulate), turp (shame), zoti ju vraft/mallkoft (may God kill/curse you), qifsha (vulgar curse), pare (money), STOP",
+        "not_for": "Advice to stay home without blame or insults is positive or neutral; laughing banter between tagged friends is neutral."
+      },
+      "neutral": {
+        "what": "Name tags alone, informational questions, statistics, regional comparisons, predictions, idle jokes or chatter without clear stance.",
+        "examples": [
+          "Valdete Uka",
+          "Prej cilit vend janë (Which place are they from)",
+          "Ferizaji per Kosoven ështe si rasti i Suedis per Evropë (Ferizaj is to Kosovo what Sweden is to Europe)",
+          "Pse sot pa tabel (Why no table today)"
+        ],
+        "cues": "tagged names only, qka/qysh/pse questions (what/how/why), numbers and city names, hahaha banter, emojis only",
+        "not_for": "Questions implying lying or manipulation (\"Pse nuk tregoni... jeni ka manipuloni\") are negative; a tag plus praise (\"Ali Kastrati mire\") is positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive = praise, thanks, congratulations, blessings, get-well wishes, hope, or supportive advice (even if it also contains a request or mild worry). Negative = accusing the institute of lying or manipulating numbers, conspiracy claims, insults, cursing, blaming government or careless people, mockery. Neutral = bare name tags, questions, factual or statistical remarks, regional banter, jokes or observations without clear approval or hostility; mocking or distrustful tone pushes to negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Distrust of the numbers, claims of lies or propaganda, anger at government, politicians or irresponsible citizens, curses, insults, sarcasm and despair.",
+        "examples": [
+          "Mos rreni ma shum (Stop lying more)",
+          "+77 rrena (+77 lies)",
+          "Plandemia 100% propagand",
+          "Mjert na cfar populli (Poor us, what a people)"
+        ],
+        "cues": "rreni/rrena/rrejt (lie/lies), propagand, manipuloni (manipulate), turp (shame), zoti ju vraft/mallkoft (may God kill/curse you), qifsha (vulgar curse), pare (money), STOP",
+        "not_for": "Advice to stay home without blame or insults is positive or neutral; laughing banter between tagged friends is neutral."
+      },
+      "neutral": {
+        "what": "Name tags alone, informational questions, statistics, regional comparisons, predictions, idle jokes or chatter without clear stance.",
+        "examples": [
+          "Valdete Uka",
+          "Prej cilit vend janë (Which place are they from)",
+          "Ferizaji per Kosoven ështe si rasti i Suedis per Evropë (Ferizaj is to Kosovo what Sweden is to Europe)",
+          "Pse sot pa tabel (Why no table today)"
+        ],
+        "cues": "tagged names only, qka/qysh/pse questions (what/how/why), numbers and city names, hahaha banter, emojis only",
+        "not_for": "Questions implying lying or manipulation (\"Pse nuk tregoni... jeni ka manipuloni\") are negative; a tag plus praise (\"Ali Kastrati mire\") is positive."
+      },
+      "positive": {
+        "what": "Gratitude, respect or praise for doctors/institute/minister, congratulations to the recovered, prayers, hope that cases fall, constructive pleas to stay safe.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Urime të shëruarve! (Congratulations to the recovered!)",
+          "Zoti na ndihmoft inshallah (May God help us, inshallah)",
+          "Pse si publikoni edhe te shëruarit nga vijnë me Komuna ?Për angazhimin ju lumtë (Why not publish where the recovered are from by municipality? Well done for your engagement)"
+        ],
+        "cues": "ju lumt (well done), bravo, respekt (respect), urime (congratulations), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shyqyr/elhamdulilah (thank God), ishalla (hopefully), lajm i mire (good news)",
+        "not_for": "Relief jokes about late posting without praise are neutral; praise of the institute combined with insulting other commenters can still be negative."
+      }
+    }
+  }
+}

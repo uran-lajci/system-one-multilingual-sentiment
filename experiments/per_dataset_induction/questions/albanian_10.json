@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo dialect) comments on daily COVID-19 updates from Kosovo's public health institute. Judge the commenter's overall attitude toward the situation, the institute/doctors/government, or the reported numbers.",
+    "criteria": {
+      "positive": "Gratitude, praise, blessings, hope or relief: thanking doctors, ministry or institute; prayers that the virus ends; joy at recoveries or falling numbers; constructive advice offered respectfully. Cues: bravo, ju lumt (well done), faleminderit/flm (thanks), respekt, Zoti na ndihmoft (God help us), ishalla/inshallah (God willing), lajm i mirë (good news), urime (congratulations), per hajr (for the good), të sheruar (recovered). Short approving replies (vallai po, mir mir, vazhdojm) count as positive.",
+      "neutral": "Factual questions, statistics posts, bare name tags of friends, jokes or off-topic banter (e.g., football league jokes about cities), or observations without clear approval or anger. Questions about which towns the cases are in, even when slightly demanding, are neutral. Mild ironic remarks about numbers without accusation (e.g., 'edhe pak', 'ma gjall pak' [a bit faster]) are neutral. Cues: në cilat komuna (in which municipalities), sa raste (how many cases), personal names alone.",
+      "negative": "Accusations of lying, faked or manipulated numbers, anger at institutions, insults, mockery, conspiracy or denial of the virus, complaints about testing, lockdowns or lack of enforcement, curses, or fear and despair. Cues: rreni/rrena (you lie/lies), gënjeni (you deceive), mashtrime (frauds), marre (shame), hajgare (joke/mockery), turp (disgrace), copy paste, serial, mallkoft (curse)."
+    }
+  }
+}

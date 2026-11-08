@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, judging by the author's clear feeling or, for news, by whether the event is clearly good or bad?",
+      "rule": "Positive and negative need a clear feeling. Mild grumbles, sports analysis, corrections, banter, waiting or missing out, plans, invites, promos and mild hopes are neutral. News takes the sentiment of a clearly good event (achievement, first, win) or bad event (injury, death, violence, failure); otherwise it is neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Facts, neutral news, questions, plans, promos, mild opinions, sports analysis, banter, mild grumbles.",
+        "examples": [
+          "its the 63rd of july and we are still waiting for frank ocean's new album",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice."
+        ],
+        "cues": "still waiting, I guess, tomorrow, this Friday, who's coming, should, I think, lol",
+        "not_for": "Insults, real sadness or bad-event news are negative; open gushing is positive."
+      },
+      "positive": {
+        "what": "Clear enthusiasm, love, praise, gratitude or well-wishes, or news of a clearly good outcome.",
+        "examples": [
+          "noel fielding may be one of the greatest people alive.",
+          "Inbetweeners movie coming to cinemas in Ireland on the 19th of August. I have never wanted to see a movie so bad!! #shouldbegood ;)",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, best, greatest, can't wait, so excited, loved this, condolences, haha",
+        "not_for": "Plans, invites, hype ads and mild hopes are neutral."
+      },
+      "negative": {
+        "what": "Strong complaint, hostility, insult, ridicule or real sadness, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, hate, wtf, :(, injured, failed drug test, shot dead",
+        "not_for": "Mild critique, small annoyances and playful teasing are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, judging by the author's clear feeling or, for news, by whether the event is clearly good or bad?",
+      "rule": "Positive and negative need a clear feeling. Mild grumbles, sports analysis, corrections, banter, waiting or missing out, plans, invites, promos and mild hopes are neutral. News takes the sentiment of a clearly good event (achievement, first, win) or bad event (injury, death, violence, failure); otherwise it is neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Clear enthusiasm, love, praise, gratitude or well-wishes, or news of a clearly good outcome.",
+        "examples": [
+          "noel fielding may be one of the greatest people alive.",
+          "Inbetweeners movie coming to cinemas in Ireland on the 19th of August. I have never wanted to see a movie so bad!! #shouldbegood ;)",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, best, greatest, can't wait, so excited, loved this, condolences, haha",
+        "not_for": "Plans, invites, hype ads and mild hopes are neutral."
+      },
+      "negative": {
+        "what": "Strong complaint, hostility, insult, ridicule or real sadness, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, hate, wtf, :(, injured, failed drug test, shot dead",
+        "not_for": "Mild critique, small annoyances and playful teasing are neutral."
+      },
+      "neutral": {
+        "what": "Facts, neutral news, questions, plans, promos, mild opinions, sports analysis, banter, mild grumbles.",
+        "examples": [
+          "its the 63rd of july and we are still waiting for frank ocean's new album",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice."
+        ],
+        "cues": "still waiting, I guess, tomorrow, this Friday, who's coming, should, I think, lol",
+        "not_for": "Insults, real sadness or bad-event news are negative; open gushing is positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, judging by the author's clear feeling or, for news, by whether the event is clearly good or bad?",
+      "rule": "Positive and negative need a clear feeling. Mild grumbles, sports analysis, corrections, banter, waiting or missing out, plans, invites, promos and mild hopes are neutral. News takes the sentiment of a clearly good event (achievement, first, win) or bad event (injury, death, violence, failure); otherwise it is neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Strong complaint, hostility, insult, ridicule or real sadness, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, hate, wtf, :(, injured, failed drug test, shot dead",
+        "not_for": "Mild critique, small annoyances and playful teasing are neutral."
+      },
+      "neutral": {
+        "what": "Facts, neutral news, questions, plans, promos, mild opinions, sports analysis, banter, mild grumbles.",
+        "examples": [
+          "its the 63rd of july and we are still waiting for frank ocean's new album",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice."
+        ],
+        "cues": "still waiting, I guess, tomorrow, this Friday, who's coming, should, I think, lol",
+        "not_for": "Insults, real sadness or bad-event news are negative; open gushing is positive."
+      },
+      "positive": {
+        "what": "Clear enthusiasm, love, praise, gratitude or well-wishes, or news of a clearly good outcome.",
+        "examples": [
+          "noel fielding may be one of the greatest people alive.",
+          "Inbetweeners movie coming to cinemas in Ireland on the 19th of August. I have never wanted to see a movie so bad!! #shouldbegood ;)",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, best, greatest, can't wait, so excited, loved this, condolences, haha",
+        "not_for": "Plans, invites, hype ads and mild hopes are neutral."
+      }
+    }
+  }
+}

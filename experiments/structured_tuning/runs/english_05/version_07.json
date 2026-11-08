@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Positive needs explicit enthusiasm, praise or celebration, or an achievement, win, new product feature, eagerly wanted outing, or tribute or vigil (even after a tragedy). Negative covers complaints, disappointment, anger, mockery, personal mishaps, and reports of violence, injuries or criminal charges. Neutral covers ads, bare check-ins, flat plans, watching or playing reports without praise, plain news, joking critique of a player, political opinions without insults, questions, mixed views and trivial gripes."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Ads, check-ins, flat plans, watching or playing reports; news with no harm or achievement; joking critique of players; political opinions; mixed views; trivial gripes.",
+        "examples": [
+          "Goin to the Ed Sheeran concert Thursday and I haven't really listened to him lol #whatislife",
+          "Josh Hamilton the best 1st pitch player in baseball gets a slow hanging curveball down the middle &amp; just looks at it. Lol",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "don't miss, register, I'm going to, who wants to, just watched, may, reportedly, scores, lol",
+        "not_for": "Violence, injuries or charges (negative); achievements or explicit delight (positive)."
+      },
+      "positive": {
+        "what": "Excitement, praise, love or celebration; achievements, wins; new product features; wanted outings; tributes, vigils, support; fans mocking a rival.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Surprising my mom with AC/DC tickets for Wednesday. Just going to show up",
+          "Apple Watch now works with August`s designer smart lock #charlesmilander"
+        ],
+        "cues": "can't wait, love, excited, great, should be fun, I really want to, 1st place, now works with, vigil, celebrating, !!",
+        "not_for": "Venue ads, 'I'm going to X' check-ins (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Sadness, anger, frustration, disappointment, insults, mockery, personal mishaps, and reports of violence, injuries or charges.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Day 2 stuck in the Taipei airport. Possibly going to LA to wait out the storm. Didn't think I'd make it to Cali for the 1st time this way",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "sad, bored, tedious, stuck, hate, worst, pathetic, wtf, :/, :(, attack, injured, charged",
+        "not_for": "Joking critique of a player (neutral); tributes or vigils after tragedy (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Positive needs explicit enthusiasm, praise or celebration, or an achievement, win, new product feature, eagerly wanted outing, or tribute or vigil (even after a tragedy). Negative covers complaints, disappointment, anger, mockery, personal mishaps, and reports of violence, injuries or criminal charges. Neutral covers ads, bare check-ins, flat plans, watching or playing reports without praise, plain news, joking critique of a player, political opinions without insults, questions, mixed views and trivial gripes."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Excitement, praise, love or celebration; achievements, wins; new product features; wanted outings; tributes, vigils, support; fans mocking a rival.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Surprising my mom with AC/DC tickets for Wednesday. Just going to show up",
+          "Apple Watch now works with August`s designer smart lock #charlesmilander"
+        ],
+        "cues": "can't wait, love, excited, great, should be fun, I really want to, 1st place, now works with, vigil, celebrating, !!",
+        "not_for": "Venue ads, 'I'm going to X' check-ins (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Sadness, anger, frustration, disappointment, insults, mockery, personal mishaps, and reports of violence, injuries or charges.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Day 2 stuck in the Taipei airport. Possibly going to LA to wait out the storm. Didn't think I'd make it to Cali for the 1st time this way",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "sad, bored, tedious, stuck, hate, worst, pathetic, wtf, :/, :(, attack, injured, charged",
+        "not_for": "Joking critique of a player (neutral); tributes or vigils after tragedy (positive)."
+      },
+      "neutral": {
+        "what": "Ads, check-ins, flat plans, watching or playing reports; news with no harm or achievement; joking critique of players; political opinions; mixed views; trivial gripes.",
+        "examples": [
+          "Goin to the Ed Sheeran concert Thursday and I haven't really listened to him lol #whatislife",
+          "Josh Hamilton the best 1st pitch player in baseball gets a slow hanging curveball down the middle &amp; just looks at it. Lol",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "don't miss, register, I'm going to, who wants to, just watched, may, reportedly, scores, lol",
+        "not_for": "Violence, injuries or charges (negative); achievements or explicit delight (positive)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Positive needs explicit enthusiasm, praise or celebration, or an achievement, win, new product feature, eagerly wanted outing, or tribute or vigil (even after a tragedy). Negative covers complaints, disappointment, anger, mockery, personal mishaps, and reports of violence, injuries or criminal charges. Neutral covers ads, bare check-ins, flat plans, watching or playing reports without praise, plain news, joking critique of a player, political opinions without insults, questions, mixed views and trivial gripes."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Sadness, anger, frustration, disappointment, insults, mockery, personal mishaps, and reports of violence, injuries or charges.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Day 2 stuck in the Taipei airport. Possibly going to LA to wait out the storm. Didn't think I'd make it to Cali for the 1st time this way",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "sad, bored, tedious, stuck, hate, worst, pathetic, wtf, :/, :(, attack, injured, charged",
+        "not_for": "Joking critique of a player (neutral); tributes or vigils after tragedy (positive)."
+      },
+      "neutral": {
+        "what": "Ads, check-ins, flat plans, watching or playing reports; news with no harm or achievement; joking critique of players; political opinions; mixed views; trivial gripes.",
+        "examples": [
+          "Goin to the Ed Sheeran concert Thursday and I haven't really listened to him lol #whatislife",
+          "Josh Hamilton the best 1st pitch player in baseball gets a slow hanging curveball down the middle &amp; just looks at it. Lol",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "don't miss, register, I'm going to, who wants to, just watched, may, reportedly, scores, lol",
+        "not_for": "Violence, injuries or charges (negative); achievements or explicit delight (positive)."
+      },
+      "positive": {
+        "what": "Excitement, praise, love or celebration; achievements, wins; new product features; wanted outings; tributes, vigils, support; fans mocking a rival.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Surprising my mom with AC/DC tickets for Wednesday. Just going to show up",
+          "Apple Watch now works with August`s designer smart lock #charlesmilander"
+        ],
+        "cues": "can't wait, love, excited, great, should be fun, I really want to, 1st place, now works with, vigil, celebrating, !!",
+        "not_for": "Venue ads, 'I'm going to X' check-ins (neutral); sarcastic praise (negative)."
+      }
+    }
+  }
+}

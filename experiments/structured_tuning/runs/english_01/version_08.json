@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even if mild. Invitations to come enjoy or join an event, giveaways, and reports of achievements, milestones or wins of note are positive. Plain ticket sales, listings, logistics, voting or retweet appeals, and 'are you going?' are neutral. Wry self-jokes, teasing of celebrities, corrections, opinions on politics, religion or sport without insults or distress, and plain reports of arrests, trials, illness or crime are neutral. Personal setbacks (can't make it) and news of violence or injury are negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Facts, questions, listings, ticket sales, logistics, sports commentary, debating replies, corrections, wry or joking remarks without real complaint.",
+        "examples": [
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Wantin to go out tonite....but no one to go out with so i guess i'll be on netflix  tonite",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son"
+        ],
+        "cues": "pm me, tickets, are you going, who wants to go with me, keep voting, please retweet, I guess, right?",
+        "not_for": "Open gushing is positive; insults, sadness, :(, #fml or can't-make-it regrets are negative."
+      },
+      "positive": {
+        "what": "Enthusiasm, love, praise, eager wanting, condolences, inviting promos, giveaways, or reported achievements and milestones.",
+        "examples": [
+          "Come enjoy Splash Dance with Robbie Riviera this Thursday @user",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning"
+        ],
+        "cues": "come enjoy, join us, can't wait, love, best, rest in peace, <3",
+        "not_for": "Ticket sales, listings, plain score updates, 'keep voting' and 'who wants to go with me?' are neutral."
+      },
+      "negative": {
+        "what": "Clear complaint, disappointment, sadness, boredom, personal setback, insult, mockery or sarcasm, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "I wanna go to the studio with Ulysses n them tomorrow,but i cant. #BARS",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, but I can't, hate, injured, shot dead, wtf",
+        "not_for": "Wry self-jokes, mild critique of athletes and argumentative replies are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even if mild. Invitations to come enjoy or join an event, giveaways, and reports of achievements, milestones or wins of note are positive. Plain ticket sales, listings, logistics, voting or retweet appeals, and 'are you going?' are neutral. Wry self-jokes, teasing of celebrities, corrections, opinions on politics, religion or sport without insults or distress, and plain reports of arrests, trials, illness or crime are neutral. Personal setbacks (can't make it) and news of violence or injury are negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Enthusiasm, love, praise, eager wanting, condolences, inviting promos, giveaways, or reported achievements and milestones.",
+        "examples": [
+          "Come enjoy Splash Dance with Robbie Riviera this Thursday @user",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning"
+        ],
+        "cues": "come enjoy, join us, can't wait, love, best, rest in peace, <3",
+        "not_for": "Ticket sales, listings, plain score updates, 'keep voting' and 'who wants to go with me?' are neutral."
+      },
+      "negative": {
+        "what": "Clear complaint, disappointment, sadness, boredom, personal setback, insult, mockery or sarcasm, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "I wanna go to the studio with Ulysses n them tomorrow,but i cant. #BARS",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, but I can't, hate, injured, shot dead, wtf",
+        "not_for": "Wry self-jokes, mild critique of athletes and argumentative replies are neutral."
+      },
+      "neutral": {
+        "what": "Facts, questions, listings, ticket sales, logistics, sports commentary, debating replies, corrections, wry or joking remarks without real complaint.",
+        "examples": [
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Wantin to go out tonite....but no one to go out with so i guess i'll be on netflix  tonite",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son"
+        ],
+        "cues": "pm me, tickets, are you going, who wants to go with me, keep voting, please retweet, I guess, right?",
+        "not_for": "Open gushing is positive; insults, sadness, :(, #fml or can't-make-it regrets are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even if mild. Invitations to come enjoy or join an event, giveaways, and reports of achievements, milestones or wins of note are positive. Plain ticket sales, listings, logistics, voting or retweet appeals, and 'are you going?' are neutral. Wry self-jokes, teasing of celebrities, corrections, opinions on politics, religion or sport without insults or distress, and plain reports of arrests, trials, illness or crime are neutral. Personal setbacks (can't make it) and news of violence or injury are negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Clear complaint, disappointment, sadness, boredom, personal setback, insult, mockery or sarcasm, or news of a clearly bad event.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "I wanna go to the studio with Ulysses n them tomorrow,but i cant. #BARS",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, but I can't, hate, injured, shot dead, wtf",
+        "not_for": "Wry self-jokes, mild critique of athletes and argumentative replies are neutral."
+      },
+      "neutral": {
+        "what": "Facts, questions, listings, ticket sales, logistics, sports commentary, debating replies, corrections, wry or joking remarks without real complaint.",
+        "examples": [
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Wantin to go out tonite....but no one to go out with so i guess i'll be on netflix  tonite",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son"
+        ],
+        "cues": "pm me, tickets, are you going, who wants to go with me, keep voting, please retweet, I guess, right?",
+        "not_for": "Open gushing is positive; insults, sadness, :(, #fml or can't-make-it regrets are negative."
+      },
+      "positive": {
+        "what": "Enthusiasm, love, praise, eager wanting, condolences, inviting promos, giveaways, or reported achievements and milestones.",
+        "examples": [
+          "Come enjoy Splash Dance with Robbie Riviera this Thursday @user",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning"
+        ],
+        "cues": "come enjoy, join us, can't wait, love, best, rest in peace, <3",
+        "not_for": "Ticket sales, listings, plain score updates, 'keep voting' and 'who wants to go with me?' are neutral."
+      }
+    }
+  }
+}

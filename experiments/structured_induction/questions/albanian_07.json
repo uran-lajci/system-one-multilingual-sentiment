@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 updates express: positive, neutral or negative?",
+      "rule": "Positive means praise, thanks, blessings, wishes for recovery, relief at falling cases or rising recoveries, or hopeful prayers, even when a polite request or mild criticism is added. Negative means accusations of lying or fake numbers, anger at the government or institute, curses, insults, despair or alarm. Neutral covers name tags, jokes and banter between users, bare statistics, questions and factual remarks with no clear praise or complaint. Sarcastic praise ('Na knaqt', 'urime' said mockingly) is negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Tagging friends, banter, bare numbers, factual questions or remarks with no evaluative stance.",
+        "examples": [
+          "Lorent Shala",
+          "Hajde Vushtrria ma gjall ma gjall (Come on Vushtrri, more lively)",
+          "dje 457 mostra 83 raste sot 456 mostra 82 raste (yesterday 457 samples 83 cases, today 456 samples 82 cases)",
+          "Akan mi perserit testet kush ka pas covid 19 (Will those who had covid be retested)"
+        ],
+        "cues": "bare personal names, hahaha, hajde (come on), city-rivalry jokes, raw statistics, neutral questions",
+        "not_for": "Questions that accuse the institute of lying or hiding cases are negative. Questions that praise or thank are positive."
+      },
+      "positive": {
+        "what": "Approval, gratitude, good wishes, religious thanks or hope about the situation, the staff or the falling numbers.",
+        "examples": [
+          "Sherim te shpejte per te gjithe! (Quick recovery to all!)",
+          "Ju lumt për përkushtimin dhe për punën e pa lodhshme!! (Well done for the dedication and tireless work!!)",
+          "ishalla po pshtojm be (God willing we're getting through it)",
+          "Rekord i ri (New record)"
+        ],
+        "cues": "bravo, ju lumt (well done), sherim (recovery), elhamdulilah/shyqyr (thank God), ishalla (God willing), respekt, faleminderit (thanks), lajm i mire (good news), pshtojm (we're getting through it)",
+        "not_for": "Sarcastic praise ('Na knaqt me kto genjeshtra', 'urime qishtu duhet' said mockingly) is negative. Neutral blessings such as 'T’hajrit kofshin' are borderline and go to neutral."
+      },
+      "negative": {
+        "what": "Distrust, accusations of lies or manipulated numbers, anger at politicians or the institute, curses, alarm or despair.",
+        "examples": [
+          "Pse po rreni qe poj gjurmoni kontaktet (Why are you lying that you trace contacts)",
+          "Shum keq (Very bad)",
+          "Na knaqt me kto genjeshtra (You've delighted us with these lies)",
+          "Kaja nanen i hupi lezeti edhe Covid19 (Damn, even Covid19 has lost its charm)"
+        ],
+        "cues": "rrena/genjeshtra/pralla (lies), rreni (you lie), keq (bad), turp (shame), hajna (thieves), mallkoft (curse), qeveria (government) in a complaint, budall (stupid)",
+        "not_for": "Constructive requests that are polite and thank the institute are positive. Mocking jokes aimed at friends rather than the authorities are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 updates express: positive, neutral or negative?",
+      "rule": "Positive means praise, thanks, blessings, wishes for recovery, relief at falling cases or rising recoveries, or hopeful prayers, even when a polite request or mild criticism is added. Negative means accusations of lying or fake numbers, anger at the government or institute, curses, insults, despair or alarm. Neutral covers name tags, jokes and banter between users, bare statistics, questions and factual remarks with no clear praise or complaint. Sarcastic praise ('Na knaqt', 'urime' said mockingly) is negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Approval, gratitude, good wishes, religious thanks or hope about the situation, the staff or the falling numbers.",
+        "examples": [
+          "Sherim te shpejte per te gjithe! (Quick recovery to all!)",
+          "Ju lumt për përkushtimin dhe për punën e pa lodhshme!! (Well done for the dedication and tireless work!!)",
+          "ishalla po pshtojm be (God willing we're getting through it)",
+          "Rekord i ri (New record)"
+        ],
+        "cues": "bravo, ju lumt (well done), sherim (recovery), elhamdulilah/shyqyr (thank God), ishalla (God willing), respekt, faleminderit (thanks), lajm i mire (good news), pshtojm (we're getting through it)",
+        "not_for": "Sarcastic praise ('Na knaqt me kto genjeshtra', 'urime qishtu duhet' said mockingly) is negative. Neutral blessings such as 'T’hajrit kofshin' are borderline and go to neutral."
+      },
+      "negative": {
+        "what": "Distrust, accusations of lies or manipulated numbers, anger at politicians or the institute, curses, alarm or despair.",
+        "examples": [
+          "Pse po rreni qe poj gjurmoni kontaktet (Why are you lying that you trace contacts)",
+          "Shum keq (Very bad)",
+          "Na knaqt me kto genjeshtra (You've delighted us with these lies)",
+          "Kaja nanen i hupi lezeti edhe Covid19 (Damn, even Covid19 has lost its charm)"
+        ],
+        "cues": "rrena/genjeshtra/pralla (lies), rreni (you lie), keq (bad), turp (shame), hajna (thieves), mallkoft (curse), qeveria (government) in a complaint, budall (stupid)",
+        "not_for": "Constructive requests that are polite and thank the institute are positive. Mocking jokes aimed at friends rather than the authorities are neutral."
+      },
+      "neutral": {
+        "what": "Tagging friends, banter, bare numbers, factual questions or remarks with no evaluative stance.",
+        "examples": [
+          "Lorent Shala",
+          "Hajde Vushtrria ma gjall ma gjall (Come on Vushtrri, more lively)",
+          "dje 457 mostra 83 raste sot 456 mostra 82 raste (yesterday 457 samples 83 cases, today 456 samples 82 cases)",
+          "Akan mi perserit testet kush ka pas covid 19 (Will those who had covid be retested)"
+        ],
+        "cues": "bare personal names, hahaha, hajde (come on), city-rivalry jokes, raw statistics, neutral questions",
+        "not_for": "Questions that accuse the institute of lying or hiding cases are negative. Questions that praise or thank are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 updates express: positive, neutral or negative?",
+      "rule": "Positive means praise, thanks, blessings, wishes for recovery, relief at falling cases or rising recoveries, or hopeful prayers, even when a polite request or mild criticism is added. Negative means accusations of lying or fake numbers, anger at the government or institute, curses, insults, despair or alarm. Neutral covers name tags, jokes and banter between users, bare statistics, questions and factual remarks with no clear praise or complaint. Sarcastic praise ('Na knaqt', 'urime' said mockingly) is negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Distrust, accusations of lies or manipulated numbers, anger at politicians or the institute, curses, alarm or despair.",
+        "examples": [
+          "Pse po rreni qe poj gjurmoni kontaktet (Why are you lying that you trace contacts)",
+          "Shum keq (Very bad)",
+          "Na knaqt me kto genjeshtra (You've delighted us with these lies)",
+          "Kaja nanen i hupi lezeti edhe Covid19 (Damn, even Covid19 has lost its charm)"
+        ],
+        "cues": "rrena/genjeshtra/pralla (lies), rreni (you lie), keq (bad), turp (shame), hajna (thieves), mallkoft (curse), qeveria (government) in a complaint, budall (stupid)",
+        "not_for": "Constructive requests that are polite and thank the institute are positive. Mocking jokes aimed at friends rather than the authorities are neutral."
+      },
+      "neutral": {
+        "what": "Tagging friends, banter, bare numbers, factual questions or remarks with no evaluative stance.",
+        "examples": [
+          "Lorent Shala",
+          "Hajde Vushtrria ma gjall ma gjall (Come on Vushtrri, more lively)",
+          "dje 457 mostra 83 raste sot 456 mostra 82 raste (yesterday 457 samples 83 cases, today 456 samples 82 cases)",
+          "Akan mi perserit testet kush ka pas covid 19 (Will those who had covid be retested)"
+        ],
+        "cues": "bare personal names, hahaha, hajde (come on), city-rivalry jokes, raw statistics, neutral questions",
+        "not_for": "Questions that accuse the institute of lying or hiding cases are negative. Questions that praise or thank are positive."
+      },
+      "positive": {
+        "what": "Approval, gratitude, good wishes, religious thanks or hope about the situation, the staff or the falling numbers.",
+        "examples": [
+          "Sherim te shpejte per te gjithe! (Quick recovery to all!)",
+          "Ju lumt për përkushtimin dhe për punën e pa lodhshme!! (Well done for the dedication and tireless work!!)",
+          "ishalla po pshtojm be (God willing we're getting through it)",
+          "Rekord i ri (New record)"
+        ],
+        "cues": "bravo, ju lumt (well done), sherim (recovery), elhamdulilah/shyqyr (thank God), ishalla (God willing), respekt, faleminderit (thanks), lajm i mire (good news), pshtojm (we're getting through it)",
+        "not_for": "Sarcastic praise ('Na knaqt me kto genjeshtra', 'urime qishtu duhet' said mockingly) is negative. Neutral blessings such as 'T’hajrit kofshin' are borderline and go to neutral."
+      }
+    }
+  }
+}

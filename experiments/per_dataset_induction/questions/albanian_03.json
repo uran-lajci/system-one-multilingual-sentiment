@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo dialect) Facebook comments on daily COVID-19 case reports from Kosovo's public health institute. Judge the commenter's overall attitude toward the institute, health workers, the situation or the numbers. Ignore missing diacritics, misspellings and profanity used only for emphasis.",
+    "criteria": {
+      "positive": "Praise, thanks, congratulations, blessings, prayers or hope. Examples include bravo, urime (congratulations), ju lumtë (well done), suksese (success), respekt, faleminderit (thank you), Zoti na ruajt / Allahu ndihmoft (God protect / help us), elhamdulilah, inshallah, sherim (recovery), hajr (good). Short joyful or sarcastic congratulations count as positive, e.g. 'rekord i ri' (new record) or 'urime Kosovë'. Praise of doctors counts as positive even if politics is criticised in the same comment.",
+      "neutral": "Bare tagged names with no comment. Factual statistics or arithmetic, and neutral questions such as 'qyteti?' (which city?). Joking about betting on the case count (bastorja, koeficienti, 7+). Neutral suggestions about the measures, such as 'zbutni masat' (relax the measures). Mild calls to wear masks or close cafés that contain no insults.",
+      "negative": "Accusations of lying or fake numbers: rreni / rrejt (you lie), copy paste, mashtrus (fraud), 'nuk jane te sakta' (not accurate). Anger at the government or ministers, or at careless people. Swearing: mut (shit), nanen (your mother). Shame: marre / turp (shame). Fear or despair, e.g. 'tmerr' (horror), 'u bonem si Wuhan' (we became like Wuhan). Sarcastic mockery of the lab or admin."
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey—positive, neutral, or negative?",
+      "rule": "Judge the dominant feeling the tweet conveys, including mood about plans (excitement = positive; missing out, disappointment, annoyance = negative). Insults, profanity aimed at a target, sarcasm and bad news (violence, delays, failures) count as negative even when phrased factually. Announcements of products, events or achievements often read as mildly positive; plain questions, logistics, sales offers and news without evaluation are neutral, as are mixed or jokey complaints with no clear dominant feeling."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Informational, logistical or question tweets with no clear evaluation; news headlines, ticket sales, invitations without emotion, or ambivalent/joking remarks.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Selling 2 tickets to madonna's sept 10 show. Let me know if you're interested",
+          "envy everyone going to the Big Bang shows tomorrow and Saturday. ;_;"
+        ],
+        "cues": "questions, may, tomorrow plans, preview, register, selling, RT news, hi can you",
+        "not_for": "News describing violence, delays or failure (negative); event promotions with enthusiastic wording (positive)."
+      },
+      "positive": {
+        "what": "Tweets showing excitement, enjoyment, praise, pride, gratitude, hope, or upbeat promotion of events, products and achievements.",
+        "examples": [
+          "If I end up going to Disneyland tomorrow I'll be the happiest girl on this planet",
+          "Congrats to Aiden Wagner who scored his 1st BCHL goal in his 1st preseason game vs. Prince George. He was named the game's 3rd star.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "love, can't wait, so excited, happiest, congrats, great, terrific, bless, proud, favorite, wish me luck, come see",
+        "not_for": "Excitement undercut by inability to attend (negative); envy of others going (neutral); neutral logistics about future plans (neutral)."
+      },
+      "negative": {
+        "what": "Tweets expressing anger, disappointment, sadness, contempt, mockery or criticism, or reporting harmful/bad events.",
+        "examples": [
+          "Sucks i cant go to the Nekromantix show OR the Brian Setzer Orchestra show tomorrow and saturday:( i really want to go:,(",
+          "Buses in the White Hart Lane & High Road N17 area may be subject to diversion & delays due to Tottenham Hotspur match",
+          "@user If you watch Any Given Sunday backwards\\u002c it\\u2019s like Tim Tebow\\u2019s career."
+        ],
+        "cues": "sucks, can't go, :(, fuck, shit, worst, stupid, ugly, disappointed, bored, hell, evil, racist, fails",
+        "not_for": "Mild complaints framed as jokes or questions (neutral); profanity used playfully alongside excitement (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey—positive, neutral, or negative?",
+      "rule": "Judge the dominant feeling the tweet conveys, including mood about plans (excitement = positive; missing out, disappointment, annoyance = negative). Insults, profanity aimed at a target, sarcasm and bad news (violence, delays, failures) count as negative even when phrased factually. Announcements of products, events or achievements often read as mildly positive; plain questions, logistics, sales offers and news without evaluation are neutral, as are mixed or jokey complaints with no clear dominant feeling."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Tweets showing excitement, enjoyment, praise, pride, gratitude, hope, or upbeat promotion of events, products and achievements.",
+        "examples": [
+          "If I end up going to Disneyland tomorrow I'll be the happiest girl on this planet",
+          "Congrats to Aiden Wagner who scored his 1st BCHL goal in his 1st preseason game vs. Prince George. He was named the game's 3rd star.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "love, can't wait, so excited, happiest, congrats, great, terrific, bless, proud, favorite, wish me luck, come see",
+        "not_for": "Excitement undercut by inability to attend (negative); envy of others going (neutral); neutral logistics about future plans (neutral)."
+      },
+      "negative": {
+        "what": "Tweets expressing anger, disappointment, sadness, contempt, mockery or criticism, or reporting harmful/bad events.",
+        "examples": [
+          "Sucks i cant go to the Nekromantix show OR the Brian Setzer Orchestra show tomorrow and saturday:( i really want to go:,(",
+          "Buses in the White Hart Lane & High Road N17 area may be subject to diversion & delays due to Tottenham Hotspur match",
+          "@user If you watch Any Given Sunday backwards\\u002c it\\u2019s like Tim Tebow\\u2019s career."
+        ],
+        "cues": "sucks, can't go, :(, fuck, shit, worst, stupid, ugly, disappointed, bored, hell, evil, racist, fails",
+        "not_for": "Mild complaints framed as jokes or questions (neutral); profanity used playfully alongside excitement (positive)."
+      },
+      "neutral": {
+        "what": "Informational, logistical or question tweets with no clear evaluation; news headlines, ticket sales, invitations without emotion, or ambivalent/joking remarks.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Selling 2 tickets to madonna's sept 10 show. Let me know if you're interested",
+          "envy everyone going to the Big Bang shows tomorrow and Saturday. ;_;"
+        ],
+        "cues": "questions, may, tomorrow plans, preview, register, selling, RT news, hi can you",
+        "not_for": "News describing violence, delays or failure (negative); event promotions with enthusiastic wording (positive)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey—positive, neutral, or negative?",
+      "rule": "Judge the dominant feeling the tweet conveys, including mood about plans (excitement = positive; missing out, disappointment, annoyance = negative). Insults, profanity aimed at a target, sarcasm and bad news (violence, delays, failures) count as negative even when phrased factually. Announcements of products, events or achievements often read as mildly positive; plain questions, logistics, sales offers and news without evaluation are neutral, as are mixed or jokey complaints with no clear dominant feeling."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Tweets expressing anger, disappointment, sadness, contempt, mockery or criticism, or reporting harmful/bad events.",
+        "examples": [
+          "Sucks i cant go to the Nekromantix show OR the Brian Setzer Orchestra show tomorrow and saturday:( i really want to go:,(",
+          "Buses in the White Hart Lane & High Road N17 area may be subject to diversion & delays due to Tottenham Hotspur match",
+          "@user If you watch Any Given Sunday backwards\\u002c it\\u2019s like Tim Tebow\\u2019s career."
+        ],
+        "cues": "sucks, can't go, :(, fuck, shit, worst, stupid, ugly, disappointed, bored, hell, evil, racist, fails",
+        "not_for": "Mild complaints framed as jokes or questions (neutral); profanity used playfully alongside excitement (positive)."
+      },
+      "neutral": {
+        "what": "Informational, logistical or question tweets with no clear evaluation; news headlines, ticket sales, invitations without emotion, or ambivalent/joking remarks.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Selling 2 tickets to madonna's sept 10 show. Let me know if you're interested",
+          "envy everyone going to the Big Bang shows tomorrow and Saturday. ;_;"
+        ],
+        "cues": "questions, may, tomorrow plans, preview, register, selling, RT news, hi can you",
+        "not_for": "News describing violence, delays or failure (negative); event promotions with enthusiastic wording (positive)."
+      },
+      "positive": {
+        "what": "Tweets showing excitement, enjoyment, praise, pride, gratitude, hope, or upbeat promotion of events, products and achievements.",
+        "examples": [
+          "If I end up going to Disneyland tomorrow I'll be the happiest girl on this planet",
+          "Congrats to Aiden Wagner who scored his 1st BCHL goal in his 1st preseason game vs. Prince George. He was named the game's 3rd star.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "love, can't wait, so excited, happiest, congrats, great, terrific, bless, proud, favorite, wish me luck, come see",
+        "not_for": "Excitement undercut by inability to attend (negative); envy of others going (neutral); neutral logistics about future plans (neutral)."
+      }
+    }
+  }
+}

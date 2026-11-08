@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from train data. Opus writes one set from English train data for every language, and one set per dataset from that dataset's own train data. Opus then tunes the per-dataset questions for Jev on validation data. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper runs five System One models on 10 languages. It tests hand-written zero-shot questions, few-shot with the paper's three examples, and questions that Opus writes from train data. Opus writes one set from English train data for every language, and one set per dataset from that dataset's own train data. Opus then tunes the per-dataset questions for Jev on validation data, and writes structured per-dataset questions that come with a description of the dataset. Opus also tunes the structured Albanian questions on train and validation data. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -175,6 +175,77 @@ Only Jev is tuned. A tuned Jev has seen labelled data, so we compare it with zer
 We commit the prompt, the model ID, the date, every message of each conversation and every question with its validation score. TSM is public, so the English logs may hold validation texts. For datasets we may not share, the logs hold row numbers instead of texts.
 
 A run scores 11 questions on 324 validation items with Jev, which costs about USD 0.15. Opus reads a longer conversation at each turn, so a run costs about USD 1.50 for Opus. The 5 runs cost about USD 8, and the 5 test scorings cost about USD 0.15.
+
+## Structured per-dataset induction
+
+So far every question has plain-text `instructions`, and criteria that are plain text or text with a list of examples. Our AlbAna work used a richer input, and it scored well there. Here Opus writes per-dataset questions in that richer shape. We start with English and Jev.
+
+### The input
+
+- **State:** a JSON object with `context` and `text`. `context` describes the dataset in one to three sentences: its source, its time and its language. We write it from the dataset's paper, not from labelled data, so it is the same for every seed. The contexts are in `experiments/structured_induction/contexts.json`.
+- **Instructions:** a JSON object with `question` and `rule`. `rule` says where the annotators draw the line between the labels.
+- **Criteria:** one JSON object per label with `what`, `examples`, `cues` and `not_for`.
+  - `what` describes the texts that get the label.
+  - `examples` holds 1 to 4 short texts that Opus copies from the 150 train texts it sees. A text that is not in English gets its English meaning in brackets.
+  - `cues` lists words and short phrases that signal the label, with their English meaning if they are not in English.
+  - `not_for` says what looks like the label but belongs to another one.
+- **Option orders:** Jev gets the same question three times in one request, with the labels in three orders: neutral, positive, negative; positive, negative, neutral; and negative, neutral, positive. We average the three probabilities of each label and take the most probable label, because Jev leans toward the label listed first.
+
+### Generating the questions
+
+The method follows [per-dataset induction](#per-dataset-instruction-induction). Opus makes 10 calls, and call n draws 50 texts per label from the train file with seed n. For English, the calls therefore see the same tweets as `english_01` to `english_10`.
+
+The prompt gives Opus the context and describes the fields above. It shows no question from our AlbAna work, so no rule tuned by hand on AlbAna reaches other datasets. Each question stays under 400 words. Opus returns the fields as JSON, and the script builds the three orders.
+
+### Run and report
+
+Jev scores each of the 10 questions once on the English test set. For each question, we report macro-F1 twice: with the three orders averaged, and with the first order alone. The first-order score comes from the same responses, so it costs nothing extra. It shows what the averaging adds. The other changes come together, so this run cannot tell which of them helps.
+
+We report the mean, minimum and maximum over the 10 questions. We compare them with per-dataset induction on the same seeds, with zero-shot Jev and with the few-shot LLMs.
+
+The examples are train texts, so these questions are few-shot. Our paper must say that Jev saw up to 12 train texts, while the LLMs saw 3.
+
+Only Jev runs. Clef and Laya may not accept JSON instructions, JSON criteria or three questions in one request. We add them only after we check that they do.
+
+We commit the prompt, the contexts, the model ID, the date, the seeds, the row numbers, Opus's raw answers and the question files.
+
+### Cost
+
+The 10 Opus calls cost about USD 0.60. Three orders of a question of up to 400 words need about 2,000 input tokens per item, so Jev on the 8,700 English test items costs about USD 0.80.
+
+## Iterative tuning of structured questions on Albanian
+
+On English, [iterative tuning](#iterative-tuning) raised the validation score but not the test score. Opus read the errors on the same 324 items that we selected on, so it fitted those items. Here we tune the structured Albanian questions, and we keep the selection data away from Opus.
+
+### The loop
+
+Run r starts from the structured question `albanian_0r.json`, for r from 1 to 5. Each run is one conversation with `claude-opus-5-5`, with effort `medium`.
+
+1. Draw a development set of 600 comments from `data/lmr-sms/train/Albanian.csv` with seed r, leaving out the 150 comments that Opus saw when it wrote `albanian_0r`. The draw is simple random sampling, so the labels keep their train proportions, which are mostly neutral.
+2. Score the current version with `jev-1.14.0` on the development set and on the 1,705 comments of `data/lmr-sms/validation/Albanian.csv`.
+3. Send Opus the development results only: the macro-F1, the confusion matrix and every misclassified comment, with its gold label, Jev's label and Jev's three probabilities. Opus never sees a validation comment or a validation score.
+4. Opus writes an error analysis, then a new version in the structured format.
+5. Repeat from step 2 until Opus has written 10 new versions.
+
+While tuning, Jev gets only the first label order, with neutral first, which costs a third as much. The new versions follow the rules of structured induction. They stay under 400 words, not counting the English meanings in brackets. They take their examples word for word from comments Opus has seen.
+
+### Selection and test
+
+We keep the version with the highest validation macro-F1, and on a tie, the earlier one. Jev scores that version once on the 2,148 Albanian test comments, with the three label orders averaged.
+
+We report each run's development and validation curves, and the mean, minimum and maximum test score over the 5 runs. We compare them with structured induction on the same seeds, with zero-shot Jev and with the few-shot LLMs.
+
+The development set comes from train data and validation stays unseen, so the validation score of a kept question is a fair estimate, apart from the selection among 11 versions.
+
+### Logs and cost
+
+The code and outputs are in `experiments/structured_tuning/` and `results/structured_tuning/`. We commit the prompts, every message of each conversation, every version and the train row numbers of each development set. AlbAna is public, so the logs may hold its comments.
+
+A run scores 11 versions on 2,305 comments with one label order, about 1,100 input tokens per comment. That costs about USD 1.30 for Jev and about USD 1.50 for Opus. The 5 runs cost about USD 14, and the test scoring about USD 1.50.
+
+### English
+
+We run the same loop on English, starting from the structured questions `english_01` to `english_05`. Each development set holds 600 of the 1,689 tweets in `data/tsm/train/english.csv` that Opus did not see for that seed. We select on the 324 tweets of `data/tsm/validation/english.csv`, which Opus never sees. That set is about 5 times smaller than the Albanian one, so picking the best of 11 versions on it is noisier. The 5 runs and the test scoring cost about USD 9.
 
 ## Open decisions
 

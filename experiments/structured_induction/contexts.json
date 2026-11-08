@@ -1,0 +1,10 @@
+{
+  "English": {
+    "context": "An English tweet from the SemEval-2017 sentiment analysis dataset. The tweets were found by searching Twitter for popular topics of the time, such as public figures, products, places, events and political issues, and were posted between 2012 and early 2017. At least five crowd workers labelled the overall sentiment of each tweet.",
+    "sources": "Rosenthal et al. (2017), SemEval-2017 Task 4, Sections 3.1 and 3.2; Barbieri et al. (2022), XLM-T, Table 3"
+  },
+  "Albanian": {
+    "context": "A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020. The comment is in Albanian, mostly the informal Kosovo (Gheg) dialect, often written without the letters ë and ç.",
+    "sources": "Kastrati et al. (2021), AlbAna; copied word for word from the CONTEXT of our AlbAna classifier"
+  }
+}

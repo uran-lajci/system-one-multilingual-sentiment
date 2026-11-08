@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling: excitement about upcoming plans, praise, pride, affection or warm tributes are positive; annoyance, disappointment, insults or bad news framed as bad are negative. Ads, event listings, reminders, giveaways, schedules, score updates, headlines and questions are neutral unless the author adds clear personal feeling. Mild sarcasm, banter and wry jokes count as neutral unless they clearly attack or complain."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Informational or offhand tweets: scores, schedules, headlines, ads, sales, reminders, questions, random facts, and mild ironic remarks with no clear emotional stance.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, join us, specials, kicks off, reportedly, game stats, dates, 'may' speculation",
+        "not_for": "Headlines about clearly bad events framed as bad (negative); posts where the author shows their own excitement (positive)."
+      },
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, congratulations, affection or a warm tribute, including looking forward to personal plans or celebrating achievements.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, proud, great, love, YES!!, Happy, Congratulations, glad, enjoy, RIP tributes, !!!",
+        "not_for": "Ticket sales, specials, event listings or 'join us' posts without personal enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Author complains, insults, mocks, expresses frustration, disappointment, sadness, envy or fear, or reports clearly bad news or failures.",
+        "examples": [
+          "2nd time going to Dunkin today and there closed. Like no this is not ok",
+          "Obama is putting US on par with every other 3rd world country",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "sucks, worse, bad, shitty, pissed, #Fml, sad, jealous, scared, cancelled, can't go, disaster, hate",
+        "not_for": "Neutral-toned observations with 'lol' or mild irony (neutral); condolences or tributes expressing warmth (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling: excitement about upcoming plans, praise, pride, affection or warm tributes are positive; annoyance, disappointment, insults or bad news framed as bad are negative. Ads, event listings, reminders, giveaways, schedules, score updates, headlines and questions are neutral unless the author adds clear personal feeling. Mild sarcasm, banter and wry jokes count as neutral unless they clearly attack or complain."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, congratulations, affection or a warm tribute, including looking forward to personal plans or celebrating achievements.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, proud, great, love, YES!!, Happy, Congratulations, glad, enjoy, RIP tributes, !!!",
+        "not_for": "Ticket sales, specials, event listings or 'join us' posts without personal enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Author complains, insults, mocks, expresses frustration, disappointment, sadness, envy or fear, or reports clearly bad news or failures.",
+        "examples": [
+          "2nd time going to Dunkin today and there closed. Like no this is not ok",
+          "Obama is putting US on par with every other 3rd world country",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "sucks, worse, bad, shitty, pissed, #Fml, sad, jealous, scared, cancelled, can't go, disaster, hate",
+        "not_for": "Neutral-toned observations with 'lol' or mild irony (neutral); condolences or tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Informational or offhand tweets: scores, schedules, headlines, ads, sales, reminders, questions, random facts, and mild ironic remarks with no clear emotional stance.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, join us, specials, kicks off, reportedly, game stats, dates, 'may' speculation",
+        "not_for": "Headlines about clearly bad events framed as bad (negative); posts where the author shows their own excitement (positive)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling: excitement about upcoming plans, praise, pride, affection or warm tributes are positive; annoyance, disappointment, insults or bad news framed as bad are negative. Ads, event listings, reminders, giveaways, schedules, score updates, headlines and questions are neutral unless the author adds clear personal feeling. Mild sarcasm, banter and wry jokes count as neutral unless they clearly attack or complain."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Author complains, insults, mocks, expresses frustration, disappointment, sadness, envy or fear, or reports clearly bad news or failures.",
+        "examples": [
+          "2nd time going to Dunkin today and there closed. Like no this is not ok",
+          "Obama is putting US on par with every other 3rd world country",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "sucks, worse, bad, shitty, pissed, #Fml, sad, jealous, scared, cancelled, can't go, disaster, hate",
+        "not_for": "Neutral-toned observations with 'lol' or mild irony (neutral); condolences or tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Informational or offhand tweets: scores, schedules, headlines, ads, sales, reminders, questions, random facts, and mild ironic remarks with no clear emotional stance.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, join us, specials, kicks off, reportedly, game stats, dates, 'may' speculation",
+        "not_for": "Headlines about clearly bad events framed as bad (negative); posts where the author shows their own excitement (positive)."
+      },
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, congratulations, affection or a warm tribute, including looking forward to personal plans or celebrating achievements.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, proud, great, love, YES!!, Happy, Congratulations, glad, enjoy, RIP tributes, !!!",
+        "not_for": "Ticket sales, specials, event listings or 'join us' posts without personal enthusiasm (neutral)."
+      }
+    }
+  }
+}

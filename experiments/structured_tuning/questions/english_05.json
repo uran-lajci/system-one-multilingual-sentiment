@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Label by the dominant emotional tone of the tweet as a whole, not by isolated words. Reports of deaths, attacks, or losses count as negative even when written as plain news; excitement about upcoming events, offering spare tickets to fun events, and celebratory facts count as positive. Plain announcements, questions, logistics, sales, and mixed or joking remarks with no clear feeling are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Factual news, announcements, logistics, questions, sales offers, or casual remarks without a clear positive or negative stance, including mildly joking or mixed tweets.",
+        "examples": [
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "NEWS: Kerry says US may set up refugee camp structures to help with Syria crisis",
+          "Art may or may not be the hardest class EVER"
+        ],
+        "cues": "news headlines, may, will be, selling, deadline, register, who is going, questions about dates",
+        "not_for": "News of deaths, attacks, or bad outcomes (negative); news of achievements or celebrations (positive)."
+      },
+      "positive": {
+        "what": "Tweets expressing excitement, happiness, praise, anticipation, gratitude, or good news (wins, records, awards, fun plans).",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Really though, who wants to come with me to the Madonna concert on the 24th? I have an extra ticket",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, woo, great, good day, thank you, funny, fantastic, honored, Happy Sunday",
+        "not_for": "Selling tickets or plain event listings without enthusiasm (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Tweets expressing sadness, anger, frustration, disappointment, insults, hostility, sarcasm, or reporting harmful events like killings, deaths, and losses.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Four were killed,19 injured when a IRA bomb demolished the Balmoral Furniture Building"
+        ],
+        "cues": "sad, mad, frustrated, FML, shitty, worst, bullshit, killed, died, shame, disaster, can't believe, :(, swear to god",
+        "not_for": "Mild complaints framed as jokes about one's own plans with no real upset (often neutral)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Label by the dominant emotional tone of the tweet as a whole, not by isolated words. Reports of deaths, attacks, or losses count as negative even when written as plain news; excitement about upcoming events, offering spare tickets to fun events, and celebratory facts count as positive. Plain announcements, questions, logistics, sales, and mixed or joking remarks with no clear feeling are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Tweets expressing excitement, happiness, praise, anticipation, gratitude, or good news (wins, records, awards, fun plans).",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Really though, who wants to come with me to the Madonna concert on the 24th? I have an extra ticket",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, woo, great, good day, thank you, funny, fantastic, honored, Happy Sunday",
+        "not_for": "Selling tickets or plain event listings without enthusiasm (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Tweets expressing sadness, anger, frustration, disappointment, insults, hostility, sarcasm, or reporting harmful events like killings, deaths, and losses.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Four were killed,19 injured when a IRA bomb demolished the Balmoral Furniture Building"
+        ],
+        "cues": "sad, mad, frustrated, FML, shitty, worst, bullshit, killed, died, shame, disaster, can't believe, :(, swear to god",
+        "not_for": "Mild complaints framed as jokes about one's own plans with no real upset (often neutral)."
+      },
+      "neutral": {
+        "what": "Factual news, announcements, logistics, questions, sales offers, or casual remarks without a clear positive or negative stance, including mildly joking or mixed tweets.",
+        "examples": [
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "NEWS: Kerry says US may set up refugee camp structures to help with Syria crisis",
+          "Art may or may not be the hardest class EVER"
+        ],
+        "cues": "news headlines, may, will be, selling, deadline, register, who is going, questions about dates",
+        "not_for": "News of deaths, attacks, or bad outcomes (negative); news of achievements or celebrations (positive)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Label by the dominant emotional tone of the tweet as a whole, not by isolated words. Reports of deaths, attacks, or losses count as negative even when written as plain news; excitement about upcoming events, offering spare tickets to fun events, and celebratory facts count as positive. Plain announcements, questions, logistics, sales, and mixed or joking remarks with no clear feeling are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Tweets expressing sadness, anger, frustration, disappointment, insults, hostility, sarcasm, or reporting harmful events like killings, deaths, and losses.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Four were killed,19 injured when a IRA bomb demolished the Balmoral Furniture Building"
+        ],
+        "cues": "sad, mad, frustrated, FML, shitty, worst, bullshit, killed, died, shame, disaster, can't believe, :(, swear to god",
+        "not_for": "Mild complaints framed as jokes about one's own plans with no real upset (often neutral)."
+      },
+      "neutral": {
+        "what": "Factual news, announcements, logistics, questions, sales offers, or casual remarks without a clear positive or negative stance, including mildly joking or mixed tweets.",
+        "examples": [
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "NEWS: Kerry says US may set up refugee camp structures to help with Syria crisis",
+          "Art may or may not be the hardest class EVER"
+        ],
+        "cues": "news headlines, may, will be, selling, deadline, register, who is going, questions about dates",
+        "not_for": "News of deaths, attacks, or bad outcomes (negative); news of achievements or celebrations (positive)."
+      },
+      "positive": {
+        "what": "Tweets expressing excitement, happiness, praise, anticipation, gratitude, or good news (wins, records, awards, fun plans).",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "Really though, who wants to come with me to the Madonna concert on the 24th? I have an extra ticket",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, woo, great, good day, thank you, funny, fantastic, honored, Happy Sunday",
+        "not_for": "Selling tickets or plain event listings without enthusiasm (neutral); sarcastic praise (negative)."
+      }
+    }
+  }
+}

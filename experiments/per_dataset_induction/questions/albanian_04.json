@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo dialect) Facebook comments on COVID-19 case reports from Kosovo's public health institute. Judge the overall sentiment the commenter expresses: toward the institute, the government, the situation, or other people.",
+    "criteria": {
+      "positive": "Praise, gratitude, blessings, hope, good wishes, or joy about falling cases and recoveries, even when mixed with suggestions or mild criticism. Cues: bravo, respekt, ju lumt (well done), faleminderit/flm (thanks), sherim te shpejt (quick recovery), urime (congratulations), mir/sa mir (good/how good), inshallah/ishalla ska ma raste (God willing no more cases), Zoti ju ndihmoft/bekoft (God help/bless you), elhamdulilah, shyqyr (thank God), forca (strength). Cheering a city or team (Bravo Gjakova) also counts as positive.",
+      "neutral": "Bare name tags with no comment, factual statements or statistics, questions, jokes and banter without clear hostility, sarcasm about local habits (baklava, weddings, cigarettes), and off-topic remarks. Condolences paired with ill wishes toward spreaders are also neutral. Cues: hahaha, names only, qka/ku (what/where) questions.",
+      "negative": "Accusations of lying or manipulating numbers, anger at the government or institute, insults and curses, distrust, conspiracy claims, sadness about deaths, blaming people for breaking rules, and complaints about lockdowns. Cues: rrena/rreni/genjeshtar (lies/you lie/liar), turp (shame), Zoti ju vraft/denoft (God strike/punish you), spo ju besoj (I don't believe you), trishtim (sadness), e tmerrshme (terrible), hajgare (farce), boll keq (quite bad), mashtrues (cheaters). Sarcastic mock-praise that hides criticism is negative."
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive covers praise, thanks, good wishes (recovery, prayers, hope for fewer cases), joy at good numbers, and supportive appeals to follow the rules. Negative covers anger, accusations of lying or fake numbers, complaints about the institute, government or measures, and insults or curses. Neutral covers tags of names only, links, jokes or laughter without a clear stance, questions, observations, and mild suggestions, even when they hint at some doubt. If only one person is tagged and praised (e.g. 'bravo X'), it is positive."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Name tags only, links, single words, laughter or jokes among friends, betting on case numbers, factual remarks, questions, and suggestions without hostility.",
+        "examples": [
+          "Lulzim Tahiri Arbënore Kaloshi",
+          "Per 2 nr sja qellova (I missed it by 2)",
+          "Sa me shume po izolohemi aq me shume po ka raste!Shume e çuditshme!! (The more we isolate the more cases, very strange!)"
+        ],
+        "cues": "hahaha, tagged names, a ka ma (any more?), pse (why), duhet (should), links",
+        "not_for": "Questions that accuse the institute of lying, or demands made with insults, are negative."
+      },
+      "positive": {
+        "what": "Approval, gratitude, encouragement, hope or good wishes, celebration of falling cases, or supportive calls to respect the measures.",
+        "examples": [
+          "Bravooo, pune te mbar! (Bravo, good work!)",
+          "Ishalla nuk vazhdon mo me raste (God willing the cases stop)",
+          "Sherim te shpejte per te gjithe! (Quick recovery to everyone!)"
+        ],
+        "cues": "bravo, ju lumtë (well done), faleminderit (thank you), respekt, sherim (recovery), ishallah (God willing), mir koka (it's going well), lajm i mirë (good news), ❤️",
+        "not_for": "Sarcastic 'bravo' or mock praise of numbers is negative. Joking predictions or betting on the numbers are neutral."
+      },
+      "negative": {
+        "what": "Distrust, claims that the numbers are lies or propaganda, anger at the government, the institute or the measures, curses, insults, and despair.",
+        "examples": [
+          "ooooo qfar rrene (what lies)",
+          "Boll bre mo se na lodhet (Enough already, you've worn us out)",
+          "Qeveria ne gjum (The government is asleep)"
+        ],
+        "cues": "rren / rrene (lie), mashtrim (fraud), propagand, palidhje (pointless), dështim (failure), na lodhet (you've tired us), katastrof, Zoti i vraft (may God kill them)",
+        "not_for": "Calm suggestions or puzzled observations are neutral. Blaming the people while urging care is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive covers praise, thanks, good wishes (recovery, prayers, hope for fewer cases), joy at good numbers, and supportive appeals to follow the rules. Negative covers anger, accusations of lying or fake numbers, complaints about the institute, government or measures, and insults or curses. Neutral covers tags of names only, links, jokes or laughter without a clear stance, questions, observations, and mild suggestions, even when they hint at some doubt. If only one person is tagged and praised (e.g. 'bravo X'), it is positive."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Approval, gratitude, encouragement, hope or good wishes, celebration of falling cases, or supportive calls to respect the measures.",
+        "examples": [
+          "Bravooo, pune te mbar! (Bravo, good work!)",
+          "Ishalla nuk vazhdon mo me raste (God willing the cases stop)",
+          "Sherim te shpejte per te gjithe! (Quick recovery to everyone!)"
+        ],
+        "cues": "bravo, ju lumtë (well done), faleminderit (thank you), respekt, sherim (recovery), ishallah (God willing), mir koka (it's going well), lajm i mirë (good news), ❤️",
+        "not_for": "Sarcastic 'bravo' or mock praise of numbers is negative. Joking predictions or betting on the numbers are neutral."
+      },
+      "negative": {
+        "what": "Distrust, claims that the numbers are lies or propaganda, anger at the government, the institute or the measures, curses, insults, and despair.",
+        "examples": [
+          "ooooo qfar rrene (what lies)",
+          "Boll bre mo se na lodhet (Enough already, you've worn us out)",
+          "Qeveria ne gjum (The government is asleep)"
+        ],
+        "cues": "rren / rrene (lie), mashtrim (fraud), propagand, palidhje (pointless), dështim (failure), na lodhet (you've tired us), katastrof, Zoti i vraft (may God kill them)",
+        "not_for": "Calm suggestions or puzzled observations are neutral. Blaming the people while urging care is positive."
+      },
+      "neutral": {
+        "what": "Name tags only, links, single words, laughter or jokes among friends, betting on case numbers, factual remarks, questions, and suggestions without hostility.",
+        "examples": [
+          "Lulzim Tahiri Arbënore Kaloshi",
+          "Per 2 nr sja qellova (I missed it by 2)",
+          "Sa me shume po izolohemi aq me shume po ka raste!Shume e çuditshme!! (The more we isolate the more cases, very strange!)"
+        ],
+        "cues": "hahaha, tagged names, a ka ma (any more?), pse (why), duhet (should), links",
+        "not_for": "Questions that accuse the institute of lying, or demands made with insults, are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on the Kosovo public health institute's COVID-19 post express: positive, neutral, or negative?",
+      "rule": "Positive covers praise, thanks, good wishes (recovery, prayers, hope for fewer cases), joy at good numbers, and supportive appeals to follow the rules. Negative covers anger, accusations of lying or fake numbers, complaints about the institute, government or measures, and insults or curses. Neutral covers tags of names only, links, jokes or laughter without a clear stance, questions, observations, and mild suggestions, even when they hint at some doubt. If only one person is tagged and praised (e.g. 'bravo X'), it is positive."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Distrust, claims that the numbers are lies or propaganda, anger at the government, the institute or the measures, curses, insults, and despair.",
+        "examples": [
+          "ooooo qfar rrene (what lies)",
+          "Boll bre mo se na lodhet (Enough already, you've worn us out)",
+          "Qeveria ne gjum (The government is asleep)"
+        ],
+        "cues": "rren / rrene (lie), mashtrim (fraud), propagand, palidhje (pointless), dështim (failure), na lodhet (you've tired us), katastrof, Zoti i vraft (may God kill them)",
+        "not_for": "Calm suggestions or puzzled observations are neutral. Blaming the people while urging care is positive."
+      },
+      "neutral": {
+        "what": "Name tags only, links, single words, laughter or jokes among friends, betting on case numbers, factual remarks, questions, and suggestions without hostility.",
+        "examples": [
+          "Lulzim Tahiri Arbënore Kaloshi",
+          "Per 2 nr sja qellova (I missed it by 2)",
+          "Sa me shume po izolohemi aq me shume po ka raste!Shume e çuditshme!! (The more we isolate the more cases, very strange!)"
+        ],
+        "cues": "hahaha, tagged names, a ka ma (any more?), pse (why), duhet (should), links",
+        "not_for": "Questions that accuse the institute of lying, or demands made with insults, are negative."
+      },
+      "positive": {
+        "what": "Approval, gratitude, encouragement, hope or good wishes, celebration of falling cases, or supportive calls to respect the measures.",
+        "examples": [
+          "Bravooo, pune te mbar! (Bravo, good work!)",
+          "Ishalla nuk vazhdon mo me raste (God willing the cases stop)",
+          "Sherim te shpejte per te gjithe! (Quick recovery to everyone!)"
+        ],
+        "cues": "bravo, ju lumtë (well done), faleminderit (thank you), respekt, sherim (recovery), ishallah (God willing), mir koka (it's going well), lajm i mirë (good news), ❤️",
+        "not_for": "Sarcastic 'bravo' or mock praise of numbers is negative. Joking predictions or betting on the numbers are neutral."
+      }
+    }
+  }
+}

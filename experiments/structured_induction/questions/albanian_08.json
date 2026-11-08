@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall attitude or feeling does this Facebook comment on the Kosovo public health institute's COVID-19 post express: approval, hope, or good wishes; no clear feeling; or anger, distrust, or mockery?",
+      "rule": "Positive covers thanks, praise, blessings, wishes for recovery, and relief that cases are falling, even when phrased jokingly or as banter with tagged friends. Negative covers accusations of lying or faking numbers, insults to the government, institute, or public, sarcasm, and being fed up. Questions, requests for data, factual statistics, bare name tags, neutral observations, and advice or suggestions without hostility are neutral, even if they mention bad news or rising cases."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Questions, information, statistics, name tags, neutral remarks about cases or regions, and calm advice or requests.",
+        "examples": [
+          "Ne cilat Komuna jane rastet ? (In which municipalities are the cases?)",
+          "Xeni Musolli",
+          "U harru Peja, ja nisi Prizereni (Peja is forgotten, Prizren has started)"
+        ],
+        "cues": "a ka (is there), ku (where), sa (how many), ju lutem cekni (please mention), apet (again), name-only tags",
+        "not_for": "Questions that imply the numbers are fake or lies, such as 'spo dini me rrejt' (you can't even lie), are negative."
+      },
+      "positive": {
+        "what": "Gratitude, praise, prayers, hope, recovery wishes, or happiness about improving numbers.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Elhamdulilah ma pak sot.. (Thank God, fewer today)",
+          "Ajde ma gjall ma gjall t sherum (Come on, more recovered, livelier)"
+        ],
+        "cues": "ju lumt (well done), faleminderit (thank you), respekt (respect), shërim të shpejt (speedy recovery), elhamdulilah/shyqyr (thank God), inshallah (God willing), bravo, hajde ma gjall (come on, keep going)",
+        "not_for": "Sarcastic 'bravo' aimed at people breaking rules, or 'na kofshi per hajr' used mockingly, is negative."
+      },
+      "negative": {
+        "what": "Distrust of the figures, claims of lying or manipulation, insults, anger at the government or the public, sarcasm, and fed-up complaints.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, are you copy-pasting?)",
+          "a mund te jap dorheqje kjo qeveri se qaf na morret (Can this government resign, you have ruined us)",
+          "Sdi qa po qitni statuse mo se spo ju ngon kerkush (I don't know why you post anymore, nobody listens)"
+        ],
+        "cues": "rrena/rreni (lies/you lie), mashtrim (deception), budall (stupid), turp (shame), na lodhet/bajat (tired of it/stale), marrin para (they take money), qaf na morret (you ruined us), e hupet kontrollen (you lost control)",
+        "not_for": "Worried but non-hostile advice such as 'beni kujdes' (be careful), or a neutral observation that something seems strange, is neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall attitude or feeling does this Facebook comment on the Kosovo public health institute's COVID-19 post express: approval, hope, or good wishes; no clear feeling; or anger, distrust, or mockery?",
+      "rule": "Positive covers thanks, praise, blessings, wishes for recovery, and relief that cases are falling, even when phrased jokingly or as banter with tagged friends. Negative covers accusations of lying or faking numbers, insults to the government, institute, or public, sarcasm, and being fed up. Questions, requests for data, factual statistics, bare name tags, neutral observations, and advice or suggestions without hostility are neutral, even if they mention bad news or rising cases."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Gratitude, praise, prayers, hope, recovery wishes, or happiness about improving numbers.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Elhamdulilah ma pak sot.. (Thank God, fewer today)",
+          "Ajde ma gjall ma gjall t sherum (Come on, more recovered, livelier)"
+        ],
+        "cues": "ju lumt (well done), faleminderit (thank you), respekt (respect), shërim të shpejt (speedy recovery), elhamdulilah/shyqyr (thank God), inshallah (God willing), bravo, hajde ma gjall (come on, keep going)",
+        "not_for": "Sarcastic 'bravo' aimed at people breaking rules, or 'na kofshi per hajr' used mockingly, is negative."
+      },
+      "negative": {
+        "what": "Distrust of the figures, claims of lying or manipulation, insults, anger at the government or the public, sarcasm, and fed-up complaints.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, are you copy-pasting?)",
+          "a mund te jap dorheqje kjo qeveri se qaf na morret (Can this government resign, you have ruined us)",
+          "Sdi qa po qitni statuse mo se spo ju ngon kerkush (I don't know why you post anymore, nobody listens)"
+        ],
+        "cues": "rrena/rreni (lies/you lie), mashtrim (deception), budall (stupid), turp (shame), na lodhet/bajat (tired of it/stale), marrin para (they take money), qaf na morret (you ruined us), e hupet kontrollen (you lost control)",
+        "not_for": "Worried but non-hostile advice such as 'beni kujdes' (be careful), or a neutral observation that something seems strange, is neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, statistics, name tags, neutral remarks about cases or regions, and calm advice or requests.",
+        "examples": [
+          "Ne cilat Komuna jane rastet ? (In which municipalities are the cases?)",
+          "Xeni Musolli",
+          "U harru Peja, ja nisi Prizereni (Peja is forgotten, Prizren has started)"
+        ],
+        "cues": "a ka (is there), ku (where), sa (how many), ju lutem cekni (please mention), apet (again), name-only tags",
+        "not_for": "Questions that imply the numbers are fake or lies, such as 'spo dini me rrejt' (you can't even lie), are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall attitude or feeling does this Facebook comment on the Kosovo public health institute's COVID-19 post express: approval, hope, or good wishes; no clear feeling; or anger, distrust, or mockery?",
+      "rule": "Positive covers thanks, praise, blessings, wishes for recovery, and relief that cases are falling, even when phrased jokingly or as banter with tagged friends. Negative covers accusations of lying or faking numbers, insults to the government, institute, or public, sarcasm, and being fed up. Questions, requests for data, factual statistics, bare name tags, neutral observations, and advice or suggestions without hostility are neutral, even if they mention bad news or rising cases."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Distrust of the figures, claims of lying or manipulation, insults, anger at the government or the public, sarcasm, and fed-up complaints.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, are you copy-pasting?)",
+          "a mund te jap dorheqje kjo qeveri se qaf na morret (Can this government resign, you have ruined us)",
+          "Sdi qa po qitni statuse mo se spo ju ngon kerkush (I don't know why you post anymore, nobody listens)"
+        ],
+        "cues": "rrena/rreni (lies/you lie), mashtrim (deception), budall (stupid), turp (shame), na lodhet/bajat (tired of it/stale), marrin para (they take money), qaf na morret (you ruined us), e hupet kontrollen (you lost control)",
+        "not_for": "Worried but non-hostile advice such as 'beni kujdes' (be careful), or a neutral observation that something seems strange, is neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, statistics, name tags, neutral remarks about cases or regions, and calm advice or requests.",
+        "examples": [
+          "Ne cilat Komuna jane rastet ? (In which municipalities are the cases?)",
+          "Xeni Musolli",
+          "U harru Peja, ja nisi Prizereni (Peja is forgotten, Prizren has started)"
+        ],
+        "cues": "a ka (is there), ku (where), sa (how many), ju lutem cekni (please mention), apet (again), name-only tags",
+        "not_for": "Questions that imply the numbers are fake or lies, such as 'spo dini me rrejt' (you can't even lie), are negative."
+      },
+      "positive": {
+        "what": "Gratitude, praise, prayers, hope, recovery wishes, or happiness about improving numbers.",
+        "examples": [
+          "Ju lumt ju jeni heroj (Well done, you are heroes)",
+          "Elhamdulilah ma pak sot.. (Thank God, fewer today)",
+          "Ajde ma gjall ma gjall t sherum (Come on, more recovered, livelier)"
+        ],
+        "cues": "ju lumt (well done), faleminderit (thank you), respekt (respect), shërim të shpejt (speedy recovery), elhamdulilah/shyqyr (thank God), inshallah (God willing), bravo, hajde ma gjall (come on, keep going)",
+        "not_for": "Sarcastic 'bravo' aimed at people breaking rules, or 'na kofshi per hajr' used mockingly, is negative."
+      }
+    }
+  }
+}

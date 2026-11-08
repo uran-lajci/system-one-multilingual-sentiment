@@ -1,0 +1,110 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feeling or the good or bad news it reports?",
+      "rule": "Judge tone and content. Reports of good things (wins, records, awards, firsts, celebrations) are positive. Reports of bad things (attacks, deaths, disputes, security flaws, failures) are negative, even in plain news style. Mild opinions, second-guessing of sports or political decisions, debate replies, plans, banter and event promotions are neutral unless the author shows clear emotion. Negative opinions need real anger, insult, sadness or disgust; positive ones need genuine love, excitement or praise."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Plain information, promotions, invitations, questions, plans, banter, and mild opinions or criticism without strong emotion.",
+        "examples": [
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "Check out the Christmas trading times for the Eagle Farm Markets! Don't miss the Twilight Fresh Market on Wednesday!"
+        ],
+        "cues": "should have, why, I think, who's going, don't miss, check out, retweet if, plans for tomorrow",
+        "not_for": "News of attacks, deaths or failures is negative; news of achievements is positive; explicit anger or insults are negative."
+      },
+      "positive": {
+        "what": "Love, excitement, praise, gratitude or good wishes, or a reported good event or achievement.",
+        "examples": [
+          "Now it’s November won’t b long til Xmas music starts on VH1. Can’t wait all day everyday",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, can't wait, so excited, congratulations, honored, record, 1st time, wins, Happy [day]",
+        "not_for": "Event ads, ticket plugs and 'who's coming?' hype are neutral; plain plans with light upbeat words are neutral."
+      },
+      "negative": {
+        "what": "Anger, sadness, disgust, contempt or a real complaint, or a reported harmful or bad event.",
+        "examples": [
+          "The Knicks vs Nets game got moved all the way to the 26th damn",
+          "\"Galaxy S II can be wiped by just clicking a link, other devices may be vulnerable #Galaxy #Samsung #HTML #Vulnerability\""
+        ],
+        "cues": "damn, wtf, sucks, worst, attack, dead, killed, vulnerable, dispute, crashes, racist, shitty",
+        "not_for": "Tactical second-guessing, political jabs, sarcastic jokes and mild gripes are neutral; strong words used in excitement are positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feeling or the good or bad news it reports?",
+      "rule": "Judge tone and content. Reports of good things (wins, records, awards, firsts, celebrations) are positive. Reports of bad things (attacks, deaths, disputes, security flaws, failures) are negative, even in plain news style. Mild opinions, second-guessing of sports or political decisions, debate replies, plans, banter and event promotions are neutral unless the author shows clear emotion. Negative opinions need real anger, insult, sadness or disgust; positive ones need genuine love, excitement or praise."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Love, excitement, praise, gratitude or good wishes, or a reported good event or achievement.",
+        "examples": [
+          "Now it’s November won’t b long til Xmas music starts on VH1. Can’t wait all day everyday",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, can't wait, so excited, congratulations, honored, record, 1st time, wins, Happy [day]",
+        "not_for": "Event ads, ticket plugs and 'who's coming?' hype are neutral; plain plans with light upbeat words are neutral."
+      },
+      "negative": {
+        "what": "Anger, sadness, disgust, contempt or a real complaint, or a reported harmful or bad event.",
+        "examples": [
+          "The Knicks vs Nets game got moved all the way to the 26th damn",
+          "\"Galaxy S II can be wiped by just clicking a link, other devices may be vulnerable #Galaxy #Samsung #HTML #Vulnerability\""
+        ],
+        "cues": "damn, wtf, sucks, worst, attack, dead, killed, vulnerable, dispute, crashes, racist, shitty",
+        "not_for": "Tactical second-guessing, political jabs, sarcastic jokes and mild gripes are neutral; strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "Plain information, promotions, invitations, questions, plans, banter, and mild opinions or criticism without strong emotion.",
+        "examples": [
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "Check out the Christmas trading times for the Eagle Farm Markets! Don't miss the Twilight Fresh Market on Wednesday!"
+        ],
+        "cues": "should have, why, I think, who's going, don't miss, check out, retweet if, plans for tomorrow",
+        "not_for": "News of attacks, deaths or failures is negative; news of achievements is positive; explicit anger or insults are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet convey, through the author's feeling or the good or bad news it reports?",
+      "rule": "Judge tone and content. Reports of good things (wins, records, awards, firsts, celebrations) are positive. Reports of bad things (attacks, deaths, disputes, security flaws, failures) are negative, even in plain news style. Mild opinions, second-guessing of sports or political decisions, debate replies, plans, banter and event promotions are neutral unless the author shows clear emotion. Negative opinions need real anger, insult, sadness or disgust; positive ones need genuine love, excitement or praise."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Anger, sadness, disgust, contempt or a real complaint, or a reported harmful or bad event.",
+        "examples": [
+          "The Knicks vs Nets game got moved all the way to the 26th damn",
+          "\"Galaxy S II can be wiped by just clicking a link, other devices may be vulnerable #Galaxy #Samsung #HTML #Vulnerability\""
+        ],
+        "cues": "damn, wtf, sucks, worst, attack, dead, killed, vulnerable, dispute, crashes, racist, shitty",
+        "not_for": "Tactical second-guessing, political jabs, sarcastic jokes and mild gripes are neutral; strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "Plain information, promotions, invitations, questions, plans, banter, and mild opinions or criticism without strong emotion.",
+        "examples": [
+          "David Price should not have been pitching in the 8th. They can't get a 6-outs from the bullpen? Yankees - Jays",
+          "Check out the Christmas trading times for the Eagle Farm Markets! Don't miss the Twilight Fresh Market on Wednesday!"
+        ],
+        "cues": "should have, why, I think, who's going, don't miss, check out, retweet if, plans for tomorrow",
+        "not_for": "News of attacks, deaths or failures is negative; news of achievements is positive; explicit anger or insults are negative."
+      },
+      "positive": {
+        "what": "Love, excitement, praise, gratitude or good wishes, or a reported good event or achievement.",
+        "examples": [
+          "Now it’s November won’t b long til Xmas music starts on VH1. Can’t wait all day everyday",
+          "Saudi voters elect 20 women candidates for the 1st time: Two women were elected in Saudi Arabia's most conserv..."
+        ],
+        "cues": "love, can't wait, so excited, congratulations, honored, record, 1st time, wins, Happy [day]",
+        "not_for": "Event ads, ticket plugs and 'who's coming?' hype are neutral; plain plans with light upbeat words are neutral."
+      }
+    }
+  }
+}

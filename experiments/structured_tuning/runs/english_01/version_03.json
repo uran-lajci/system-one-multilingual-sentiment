@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even mildly (love, want, can't wait, RIP; :(, #fml, boring, sucks). Plans, logistics, ticket sales, event listings, 'who wants to go?' and 'are you going?' are neutral unless the author shows personal excitement. Sports commentary, critiques of players, debating replies, mild 'still waiting' remarks and plain news are neutral unless openly hostile, mocking or emotional."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "News, facts, questions, plans, logistics, ticket sales, event listings, sports commentary, debating replies, offhand remarks without clear feeling.",
+        "examples": [
+          "Ed Sheeran concert at 7 PM tomorrow. Getting in line at like 9 lol. Need to get close to the stage bruh",
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "its the 63rd of july and we are still waiting for frank ocean's new album"
+        ],
+        "cues": "tomorrow, tickets, pm me, who wants to, are you going, still waiting, may, should, score",
+        "not_for": "Open gushing is positive; insults, ridicule, sadness or :( are negative."
+      },
+      "positive": {
+        "what": "Author shows enthusiasm, love, praise, eager wanting, gratitude, condolences or excited self-promotion.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "can't wait, so excited, love, best, greatest, looking forward, I want, rest in peace, <3, yasssss",
+        "not_for": "Plain plans, ticket sales, listings and 'who's coming?' questions are neutral."
+      },
+      "negative": {
+        "what": "Author complains, is disappointed, sad, bored or annoyed, insults, mocks, or uses sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "A Thursday night with no Waterloo road on! #boring",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, hate, can't go, wtf, #sarcasm",
+        "not_for": "Swearing for excitement is positive; plain critique of athletes or mild waiting is neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even mildly (love, want, can't wait, RIP; :(, #fml, boring, sucks). Plans, logistics, ticket sales, event listings, 'who wants to go?' and 'are you going?' are neutral unless the author shows personal excitement. Sports commentary, critiques of players, debating replies, mild 'still waiting' remarks and plain news are neutral unless openly hostile, mocking or emotional."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Author shows enthusiasm, love, praise, eager wanting, gratitude, condolences or excited self-promotion.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "can't wait, so excited, love, best, greatest, looking forward, I want, rest in peace, <3, yasssss",
+        "not_for": "Plain plans, ticket sales, listings and 'who's coming?' questions are neutral."
+      },
+      "negative": {
+        "what": "Author complains, is disappointed, sad, bored or annoyed, insults, mocks, or uses sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "A Thursday night with no Waterloo road on! #boring",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, hate, can't go, wtf, #sarcasm",
+        "not_for": "Swearing for excitement is positive; plain critique of athletes or mild waiting is neutral."
+      },
+      "neutral": {
+        "what": "News, facts, questions, plans, logistics, ticket sales, event listings, sports commentary, debating replies, offhand remarks without clear feeling.",
+        "examples": [
+          "Ed Sheeran concert at 7 PM tomorrow. Getting in line at like 9 lol. Need to get close to the stage bruh",
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "its the 63rd of july and we are still waiting for frank ocean's new album"
+        ],
+        "cues": "tomorrow, tickets, pm me, who wants to, are you going, still waiting, may, should, score",
+        "not_for": "Open gushing is positive; insults, ridicule, sadness or :( are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Use positive or negative when the author's own feeling is plain, even mildly (love, want, can't wait, RIP; :(, #fml, boring, sucks). Plans, logistics, ticket sales, event listings, 'who wants to go?' and 'are you going?' are neutral unless the author shows personal excitement. Sports commentary, critiques of players, debating replies, mild 'still waiting' remarks and plain news are neutral unless openly hostile, mocking or emotional."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Author complains, is disappointed, sad, bored or annoyed, insults, mocks, or uses sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "A Thursday night with no Waterloo road on! #boring",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms."
+        ],
+        "cues": "sucks, disappointed, #fml, #boring, :(, hate, can't go, wtf, #sarcasm",
+        "not_for": "Swearing for excitement is positive; plain critique of athletes or mild waiting is neutral."
+      },
+      "neutral": {
+        "what": "News, facts, questions, plans, logistics, ticket sales, event listings, sports commentary, debating replies, offhand remarks without clear feeling.",
+        "examples": [
+          "Ed Sheeran concert at 7 PM tomorrow. Getting in line at like 9 lol. Need to get close to the stage bruh",
+          "One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user",
+          "Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c’mon son",
+          "its the 63rd of july and we are still waiting for frank ocean's new album"
+        ],
+        "cues": "tomorrow, tickets, pm me, who wants to, are you going, still waiting, may, should, score",
+        "not_for": "Open gushing is positive; insults, ridicule, sadness or :( are negative."
+      },
+      "positive": {
+        "what": "Author shows enthusiasm, love, praise, eager wanting, gratitude, condolences or excited self-promotion.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "noel fielding may be one of the greatest people alive.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "can't wait, so excited, love, best, greatest, looking forward, I want, rest in peace, <3, yasssss",
+        "not_for": "Plain plans, ticket sales, listings and 'who's coming?' questions are neutral."
+      }
+    }
+  }
+}

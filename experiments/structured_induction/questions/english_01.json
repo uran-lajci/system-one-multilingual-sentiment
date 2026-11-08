@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by their attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Label by the author's own feeling: excitement, praise, anticipation, well-wishes or promotional enthusiasm count as positive even with swearing; complaints, disappointment, mockery, sarcasm, insults or sadness count as negative even when mild or joking. Plain news, announcements, questions, factual statements, sales listings and ambiguous jokes with no clear stance are neutral. A hedged or playful remark without a clear evaluation stays neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Informational headlines, announcements, questions, factual sports/poll reports, ticket sales, or offhand remarks without a clear positive or negative stance.",
+        "examples": [
+          "CNN/ORC Poll: Donald Trump takes the top slot in Iowa, Scott Walker falls to 3rd. Ben Carson in 2nd",
+          "@user What happened at the Spurs game last night mate?",
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "I'm not sure what Rahul Gandhi is trying to accomplish with all of this"
+        ],
+        "cues": "news-style phrasing, question marks, may, find out, watch out, dates/times, retweet if, who do you think",
+        "not_for": "Questions or reports that clearly complain or mock are negative; announcements with exclamatory hype are positive."
+      },
+      "positive": {
+        "what": "Author shows enthusiasm, praise, anticipation, gratitude, condolences/blessings, or upbeat promotion of an event or product.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "noel fielding may be one of the greatest people alive.",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "can't wait, so excited, best, happy, love, great, yasssss, bring on, may the force be with you, blessings, !!",
+        "not_for": "Event ads or schedules written flatly with no excitement are neutral; sympathy news reports without the author's wishes are neutral."
+      },
+      "negative": {
+        "what": "Author complains, criticizes, mocks, is disappointed, annoyed, sad, bored, or attacks a person or group, including sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Very disappointed to learn that the Great Yorkshire Show has been cancelled @user . Had planned to go tomorrow.",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms.",
+          "they were talking about the teen awards on Sunday and they mentioned ashton being sick :("
+        ],
+        "cues": "sucks, disappointed, bored, despise, sad, can't go, missed, stop whining, fail, :(, #sarcasm, c'mon",
+        "not_for": "Swearing used for excitement is positive; joking boasts with no complaint are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by their attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Label by the author's own feeling: excitement, praise, anticipation, well-wishes or promotional enthusiasm count as positive even with swearing; complaints, disappointment, mockery, sarcasm, insults or sadness count as negative even when mild or joking. Plain news, announcements, questions, factual statements, sales listings and ambiguous jokes with no clear stance are neutral. A hedged or playful remark without a clear evaluation stays neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Author shows enthusiasm, praise, anticipation, gratitude, condolences/blessings, or upbeat promotion of an event or product.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "noel fielding may be one of the greatest people alive.",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "can't wait, so excited, best, happy, love, great, yasssss, bring on, may the force be with you, blessings, !!",
+        "not_for": "Event ads or schedules written flatly with no excitement are neutral; sympathy news reports without the author's wishes are neutral."
+      },
+      "negative": {
+        "what": "Author complains, criticizes, mocks, is disappointed, annoyed, sad, bored, or attacks a person or group, including sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Very disappointed to learn that the Great Yorkshire Show has been cancelled @user . Had planned to go tomorrow.",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms.",
+          "they were talking about the teen awards on Sunday and they mentioned ashton being sick :("
+        ],
+        "cues": "sucks, disappointed, bored, despise, sad, can't go, missed, stop whining, fail, :(, #sarcasm, c'mon",
+        "not_for": "Swearing used for excitement is positive; joking boasts with no complaint are neutral."
+      },
+      "neutral": {
+        "what": "Informational headlines, announcements, questions, factual sports/poll reports, ticket sales, or offhand remarks without a clear positive or negative stance.",
+        "examples": [
+          "CNN/ORC Poll: Donald Trump takes the top slot in Iowa, Scott Walker falls to 3rd. Ben Carson in 2nd",
+          "@user What happened at the Spurs game last night mate?",
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "I'm not sure what Rahul Gandhi is trying to accomplish with all of this"
+        ],
+        "cues": "news-style phrasing, question marks, may, find out, watch out, dates/times, retweet if, who do you think",
+        "not_for": "Questions or reports that clearly complain or mock are negative; announcements with exclamatory hype are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express, judging by their attitude, mood or evaluation rather than the topic alone?",
+      "rule": "Label by the author's own feeling: excitement, praise, anticipation, well-wishes or promotional enthusiasm count as positive even with swearing; complaints, disappointment, mockery, sarcasm, insults or sadness count as negative even when mild or joking. Plain news, announcements, questions, factual statements, sales listings and ambiguous jokes with no clear stance are neutral. A hedged or playful remark without a clear evaluation stays neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Author complains, criticizes, mocks, is disappointed, annoyed, sad, bored, or attacks a person or group, including sarcasm.",
+        "examples": [
+          "Dream High 2 sucks compared to the 1st one.",
+          "Very disappointed to learn that the Great Yorkshire Show has been cancelled @user . Had planned to go tomorrow.",
+          "The best way to find Malaysia Airlines Flight MH370 may be with Michelle Obama's arms.",
+          "they were talking about the teen awards on Sunday and they mentioned ashton being sick :("
+        ],
+        "cues": "sucks, disappointed, bored, despise, sad, can't go, missed, stop whining, fail, :(, #sarcasm, c'mon",
+        "not_for": "Swearing used for excitement is positive; joking boasts with no complaint are neutral."
+      },
+      "neutral": {
+        "what": "Informational headlines, announcements, questions, factual sports/poll reports, ticket sales, or offhand remarks without a clear positive or negative stance.",
+        "examples": [
+          "CNN/ORC Poll: Donald Trump takes the top slot in Iowa, Scott Walker falls to 3rd. Ben Carson in 2nd",
+          "@user What happened at the Spurs game last night mate?",
+          "Selling a ticket for Twilight Sad at the Barrowlands this Saturday (Face value)",
+          "I'm not sure what Rahul Gandhi is trying to accomplish with all of this"
+        ],
+        "cues": "news-style phrasing, question marks, may, find out, watch out, dates/times, retweet if, who do you think",
+        "not_for": "Questions or reports that clearly complain or mock are negative; announcements with exclamatory hype are positive."
+      },
+      "positive": {
+        "what": "Author shows enthusiasm, praise, anticipation, gratitude, condolences/blessings, or upbeat promotion of an event or product.",
+        "examples": [
+          "Living for Magic Mike XXL with @user tomorrow.",
+          "noel fielding may be one of the greatest people alive.",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace.",
+          "Tomorrow, Apple Inc. will introduce the 6S, a new Apple TV and the iPad Pro."
+        ],
+        "cues": "can't wait, so excited, best, happy, love, great, yasssss, bring on, may the force be with you, blessings, !!",
+        "not_for": "Event ads or schedules written flatly with no excitement are neutral; sympathy news reports without the author's wishes are neutral."
+      }
+    }
+  }
+}

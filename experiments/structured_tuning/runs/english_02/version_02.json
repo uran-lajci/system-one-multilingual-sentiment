@@ -1,0 +1,116 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry a positive, negative, or no clear feeling, either in the author's tone or in what it reports?",
+      "rule": "Neutral is for tweets with no personal affect: dry headlines, scores and stats, legal, business or political news, schedules, plain questions, tactical analysis. Any friendly or eager tone (invitations with 'come', 'see you there', fun plans, :), playful banter) leans positive. Any gripe, annoyance, sarcastic dig, boredom or dismissive opinion leans negative, even if mild. For news without opinion, use positive only for clear achievements or celebrations and negative only for violence, deaths or disasters."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Factual or detached tweets: headlines, stats, legal or political news, schedules, plain questions, tactical sports talk.",
+        "examples": [
+          "Thursday's top stories including the latest in the lawsuit against Rolling Stone and Sabrina Erdely",
+          "\"Yanks crush Sox with 3 HRs, 8-run 2nd inning: Associated PressBoston Red Sox right fielder Jackie Bradley Jr. ..."
+        ],
+        "cues": "(Reuters), reports, said Monday, stats, 'who is', 'what do you think', dates and times only",
+        "not_for": "Friendly invites or fun plans are positive; any complaint, sarcasm or annoyance is negative."
+      },
+      "positive": {
+        "what": "Enthusiasm, affection, praise, hope, fun plans, friendly promotions or invitations, playful chat, or reports of clear achievements or celebrations.",
+        "examples": [
+          "Looking forward to facing Ms. Allysin Kay this Saturday in Petrolia!!  come check it out!",
+          "@user headed to Baylor homecoming tomorrow with my baber. Should be fun even without RG3!",
+          "Tomorrow @ 5pm in GSC buy tickets to Ed Sheeran in concert at Riverbend on 9/17. Tickets are $20 cash. See you there!"
+        ],
+        "cues": "see you there, come check it out, looking forward, should be fun, can't wait, love, good price, :), <3, Happy [day], celebrate",
+        "not_for": "Dry score lines, box-office figures or stat headlines without praise are neutral."
+      },
+      "negative": {
+        "what": "Complaints, frustration, boredom, disappointment, sarcasm, insults, dismissive opinions, or reports of violence, deaths or disasters.",
+        "examples": [
+          "\"For the 3rd year in a row,I total spaced and missed International Talk Like a Pirate Day...Argh\"",
+          "A Thursday night with no Waterloo road on! #boring",
+          "\"I'm sorry, but Randy Orton is the most plain wrestler on the roster. He does nothing for me in the main event spot. 2nd is Sheamus.\""
+        ],
+        "cues": "argh, #boring, #not, stuck, missed, poor decision, loser, c'mon, does nothing for me, damn, killed, attack",
+        "not_for": "Legal or political news without opinion is neutral; strong words used in excitement are positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry a positive, negative, or no clear feeling, either in the author's tone or in what it reports?",
+      "rule": "Neutral is for tweets with no personal affect: dry headlines, scores and stats, legal, business or political news, schedules, plain questions, tactical analysis. Any friendly or eager tone (invitations with 'come', 'see you there', fun plans, :), playful banter) leans positive. Any gripe, annoyance, sarcastic dig, boredom or dismissive opinion leans negative, even if mild. For news without opinion, use positive only for clear achievements or celebrations and negative only for violence, deaths or disasters."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Enthusiasm, affection, praise, hope, fun plans, friendly promotions or invitations, playful chat, or reports of clear achievements or celebrations.",
+        "examples": [
+          "Looking forward to facing Ms. Allysin Kay this Saturday in Petrolia!!  come check it out!",
+          "@user headed to Baylor homecoming tomorrow with my baber. Should be fun even without RG3!",
+          "Tomorrow @ 5pm in GSC buy tickets to Ed Sheeran in concert at Riverbend on 9/17. Tickets are $20 cash. See you there!"
+        ],
+        "cues": "see you there, come check it out, looking forward, should be fun, can't wait, love, good price, :), <3, Happy [day], celebrate",
+        "not_for": "Dry score lines, box-office figures or stat headlines without praise are neutral."
+      },
+      "negative": {
+        "what": "Complaints, frustration, boredom, disappointment, sarcasm, insults, dismissive opinions, or reports of violence, deaths or disasters.",
+        "examples": [
+          "\"For the 3rd year in a row,I total spaced and missed International Talk Like a Pirate Day...Argh\"",
+          "A Thursday night with no Waterloo road on! #boring",
+          "\"I'm sorry, but Randy Orton is the most plain wrestler on the roster. He does nothing for me in the main event spot. 2nd is Sheamus.\""
+        ],
+        "cues": "argh, #boring, #not, stuck, missed, poor decision, loser, c'mon, does nothing for me, damn, killed, attack",
+        "not_for": "Legal or political news without opinion is neutral; strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "Factual or detached tweets: headlines, stats, legal or political news, schedules, plain questions, tactical sports talk.",
+        "examples": [
+          "Thursday's top stories including the latest in the lawsuit against Rolling Stone and Sabrina Erdely",
+          "\"Yanks crush Sox with 3 HRs, 8-run 2nd inning: Associated PressBoston Red Sox right fielder Jackie Bradley Jr. ..."
+        ],
+        "cues": "(Reuters), reports, said Monday, stats, 'who is', 'what do you think', dates and times only",
+        "not_for": "Friendly invites or fun plans are positive; any complaint, sarcasm or annoyance is negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet carry a positive, negative, or no clear feeling, either in the author's tone or in what it reports?",
+      "rule": "Neutral is for tweets with no personal affect: dry headlines, scores and stats, legal, business or political news, schedules, plain questions, tactical analysis. Any friendly or eager tone (invitations with 'come', 'see you there', fun plans, :), playful banter) leans positive. Any gripe, annoyance, sarcastic dig, boredom or dismissive opinion leans negative, even if mild. For news without opinion, use positive only for clear achievements or celebrations and negative only for violence, deaths or disasters."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, frustration, boredom, disappointment, sarcasm, insults, dismissive opinions, or reports of violence, deaths or disasters.",
+        "examples": [
+          "\"For the 3rd year in a row,I total spaced and missed International Talk Like a Pirate Day...Argh\"",
+          "A Thursday night with no Waterloo road on! #boring",
+          "\"I'm sorry, but Randy Orton is the most plain wrestler on the roster. He does nothing for me in the main event spot. 2nd is Sheamus.\""
+        ],
+        "cues": "argh, #boring, #not, stuck, missed, poor decision, loser, c'mon, does nothing for me, damn, killed, attack",
+        "not_for": "Legal or political news without opinion is neutral; strong words used in excitement are positive."
+      },
+      "neutral": {
+        "what": "Factual or detached tweets: headlines, stats, legal or political news, schedules, plain questions, tactical sports talk.",
+        "examples": [
+          "Thursday's top stories including the latest in the lawsuit against Rolling Stone and Sabrina Erdely",
+          "\"Yanks crush Sox with 3 HRs, 8-run 2nd inning: Associated PressBoston Red Sox right fielder Jackie Bradley Jr. ..."
+        ],
+        "cues": "(Reuters), reports, said Monday, stats, 'who is', 'what do you think', dates and times only",
+        "not_for": "Friendly invites or fun plans are positive; any complaint, sarcasm or annoyance is negative."
+      },
+      "positive": {
+        "what": "Enthusiasm, affection, praise, hope, fun plans, friendly promotions or invitations, playful chat, or reports of clear achievements or celebrations.",
+        "examples": [
+          "Looking forward to facing Ms. Allysin Kay this Saturday in Petrolia!!  come check it out!",
+          "@user headed to Baylor homecoming tomorrow with my baber. Should be fun even without RG3!",
+          "Tomorrow @ 5pm in GSC buy tickets to Ed Sheeran in concert at Riverbend on 9/17. Tickets are $20 cash. See you there!"
+        ],
+        "cues": "see you there, come check it out, looking forward, should be fun, can't wait, love, good price, :), <3, Happy [day], celebrate",
+        "not_for": "Dry score lines, box-office figures or stat headlines without praise are neutral."
+      }
+    }
+  }
+}

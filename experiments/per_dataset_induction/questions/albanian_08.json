@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Kosovo-Albanian (Gheg dialect) social media comments on daily COVID-19 updates from the health institute (IKSHPK). Judge the commenter's overall attitude toward the situation, the authorities, or the numbers. Classify by the dominant emotional stance, not by the topic alone.",
+    "criteria": {
+      "positive": "Praise, thanks, blessings, relief or hope: thanking health workers, wishing recovery, relief at falling cases, approving the government or the public. Cues: ju lumt (well done), faleminderit (thank you), respekt, shërim të shpejt (speedy recovery), elhamdulilah/shyqyr (thank God), inshallah (God willing), bravo, hajde ma gjall të shërum (come on, more recovered), pa lodhshme (tireless). Light jokes cheering progress also count as positive, as does a bare friend tag paired with a well-wish like 'urime' (congratulations).",
+      "neutral": "Bare name tags with nothing else; factual questions (which municipality, which neighbourhood); posted statistics; neutral observations or jokes about numbers ('ja nisi apet' = it started again); requests or suggestions for stricter measures or testing; a personal account plus a calm appeal to be careful; mild puzzlement ('pak e çuditshme' = a bit strange) without accusation.",
+      "negative": "Anger, insults, accusations or contempt: claiming the numbers are lies or faked, blaming or demanding resignation of the government/ministers (Zemaj, Hoti), insulting citizens who ignore rules, boredom/disgust with the reports, sarcasm. Cues: rrena/rreni/rrejt (lies/you lie), mashtrim (deception), budall (idiots), turp (shame), qaf na morret (you've ruined us), jeni ba bajat (you've become stale), copy paste, hupët kontrollen (lost control), dorëheqje (resignation)."
+    }
+  }
+}

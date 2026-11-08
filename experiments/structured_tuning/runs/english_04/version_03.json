@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling first: excitement, praise, pride, affection or warm tributes are positive; real anger, insults, disappointment, sadness or fear are negative. For news-style tweets with no personal comment, use the event: clear successes (wins, records, awards, #1, firsts) are positive; clear harm (deaths, injuries, violence, crashes, charges, delays, disputes, withdrawals) is negative. Ads, listings, reminders, schedules, stats, questions and casual plans stay neutral unless the author adds clear enthusiasm. Light-hearted gripes told with humour or hyperbole about trivial things are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Informational or offhand tweets: ads, schedules, stats, questions, casual plans, random facts, mild irony, and jokey complaints about trivial things.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment."
+        ],
+        "cues": "selling, tickets, reminder, specials, tomorrow, who's down, lol, haha, stats, 'may' speculation",
+        "not_for": "Headlines of clear success (positive) or clear harm (negative)."
+      },
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, affection or a warm tribute; or a news item reports a clear success.",
+        "examples": [
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Are you excited #Nirvana fans? Unreleased Kurt Cobain songs to come out in November! via @user",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, love, proud, glad, Congratulations, wins, beats, tops, honored, makes history, 1st time",
+        "not_for": "Plain ads, ticket sales, specials or event listings without enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Author genuinely complains, insults, mocks, or expresses frustration, sadness or fear; or a news item reports clear harm or failure.",
+        "examples": [
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "SimCity delayed it’s availability",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "killed, injured, crash, charge, delayed, dispute, sucks, hate, shitty, #Fml, sad, disaster",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); tributes expressing warmth (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling first: excitement, praise, pride, affection or warm tributes are positive; real anger, insults, disappointment, sadness or fear are negative. For news-style tweets with no personal comment, use the event: clear successes (wins, records, awards, #1, firsts) are positive; clear harm (deaths, injuries, violence, crashes, charges, delays, disputes, withdrawals) is negative. Ads, listings, reminders, schedules, stats, questions and casual plans stay neutral unless the author adds clear enthusiasm. Light-hearted gripes told with humour or hyperbole about trivial things are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, affection or a warm tribute; or a news item reports a clear success.",
+        "examples": [
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Are you excited #Nirvana fans? Unreleased Kurt Cobain songs to come out in November! via @user",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, love, proud, glad, Congratulations, wins, beats, tops, honored, makes history, 1st time",
+        "not_for": "Plain ads, ticket sales, specials or event listings without enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Author genuinely complains, insults, mocks, or expresses frustration, sadness or fear; or a news item reports clear harm or failure.",
+        "examples": [
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "SimCity delayed it’s availability",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "killed, injured, crash, charge, delayed, dispute, sucks, hate, shitty, #Fml, sad, disaster",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Informational or offhand tweets: ads, schedules, stats, questions, casual plans, random facts, mild irony, and jokey complaints about trivial things.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment."
+        ],
+        "cues": "selling, tickets, reminder, specials, tomorrow, who's down, lol, haha, stats, 'may' speculation",
+        "not_for": "Headlines of clear success (positive) or clear harm (negative)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet express — positive, neutral, or negative?",
+      "rule": "Judge the author's own feeling first: excitement, praise, pride, affection or warm tributes are positive; real anger, insults, disappointment, sadness or fear are negative. For news-style tweets with no personal comment, use the event: clear successes (wins, records, awards, #1, firsts) are positive; clear harm (deaths, injuries, violence, crashes, charges, delays, disputes, withdrawals) is negative. Ads, listings, reminders, schedules, stats, questions and casual plans stay neutral unless the author adds clear enthusiasm. Light-hearted gripes told with humour or hyperbole about trivial things are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Author genuinely complains, insults, mocks, or expresses frustration, sadness or fear; or a news item reports clear harm or failure.",
+        "examples": [
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday",
+          "SimCity delayed it’s availability",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml"
+        ],
+        "cues": "killed, injured, crash, charge, delayed, dispute, sucks, hate, shitty, #Fml, sad, disaster",
+        "not_for": "Playful exaggeration about trivial annoyances (neutral); tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Informational or offhand tweets: ads, schedules, stats, questions, casual plans, random facts, mild irony, and jokey complaints about trivial things.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "date: august 11th still no sign of frank ocean's new album. the world is turning on itself. buildings are burning. god refuses to comment."
+        ],
+        "cues": "selling, tickets, reminder, specials, tomorrow, who's down, lol, haha, stats, 'may' speculation",
+        "not_for": "Headlines of clear success (positive) or clear harm (negative)."
+      },
+      "positive": {
+        "what": "Author shows enjoyment, anticipation, praise, pride, affection or a warm tribute; or a news item reports a clear success.",
+        "examples": [
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Ant-man tops North American box office: Marvel action flick \"\"Ant-Man\"\" stayed atop the US box office Sunday, ...",
+          "Are you excited #Nirvana fans? Unreleased Kurt Cobain songs to come out in November! via @user",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "excited, can't wait, love, proud, glad, Congratulations, wins, beats, tops, honored, makes history, 1st time",
+        "not_for": "Plain ads, ticket sales, specials or event listings without enthusiasm (neutral)."
+      }
+    }
+  }
+}

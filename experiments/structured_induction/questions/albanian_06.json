@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express?",
+      "rule": "Positive covers hope, relief at falling cases, prayers, thanks or praise for health workers, and encouragement to follow measures. Negative covers anger, insults, accusations of lying or incompetence, denial that the virus exists, and alarm or despair. Neutral covers bare name tags, questions, factual statistics, jokes, and suggestions or concerns without clear emotion. Mixed good-and-bad remarks also count as neutral. A name tag with a wish or blessing counts as positive."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Lone name tags, factual statistics, information questions, neutral suggestions or worries, jokes and banter without clear emotion.",
+        "examples": [
+          "Valdete",
+          "me 1 prill sa mostra keni bo (how many samples did you do on April 1)",
+          "Rritne numrin e testimeve, ju lutem! (Increase testing, please!)",
+          "Formacioni 4 4 2 po korr sukses (The 4-4-2 formation is succeeding)"
+        ],
+        "cues": "bare names, sa (how many), ku o (where is), a ... ? (is...?), statistics, hajde (come on)",
+        "not_for": "Questions phrased as accusations, such as 'A ka teste... marre' (are there tests... shame), are negative. Tags with a blessing are positive."
+      },
+      "positive": {
+        "what": "Hopeful, grateful, praising, relieved or blessing comments, including well-wishes for the sick and polite calls to respect measures.",
+        "examples": [
+          "Bravo keni ra nën 200 (Bravo, you've dropped below 200)",
+          "Shpresojme te pakesohet (We hope it decreases)",
+          "Rexhep Bytyqi Dhander gajret bre (tag + take courage)",
+          "So keq sa per fillim (Not bad for a start)"
+        ],
+        "cues": "bravo, respekt (respect), ju lumt (well done), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shpresojme (we hope), inshalla/ishalla (God willing), Zoti (God), urime (congratulations), ma pak (fewer)",
+        "not_for": "Mixed remarks like 'Mirë që ka ra numri por keq...' (good the number fell but bad...) are neutral. Factual stat summaries are neutral."
+      },
+      "negative": {
+        "what": "Angry, insulting, distrustful or despairing comments: claims of lies or manipulation, virus denial, blaming institutions or citizens, alarm at rising cases.",
+        "examples": [
+          "rrena jon keto kejt (these are all lies)",
+          "Ec be ska kurfar virusi (Come on, there's no virus at all)",
+          "Keq puna po get! (Things are getting bad!)",
+          "Turp turp turp... (Shame shame shame...)"
+        ],
+        "cues": "rrena/rrejt (lies), turp (shame), marre (disgrace), tmerr (horror), keq (bad), ska virus (no virus), na murret nqaf (you've ruined us), deshtim (failure), ju qifsha (vulgar insult)",
+        "not_for": "Calm policy suggestions or worries without hostility are neutral. Simple 'ncncnc' teasing inside banter can be neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express?",
+      "rule": "Positive covers hope, relief at falling cases, prayers, thanks or praise for health workers, and encouragement to follow measures. Negative covers anger, insults, accusations of lying or incompetence, denial that the virus exists, and alarm or despair. Neutral covers bare name tags, questions, factual statistics, jokes, and suggestions or concerns without clear emotion. Mixed good-and-bad remarks also count as neutral. A name tag with a wish or blessing counts as positive."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Hopeful, grateful, praising, relieved or blessing comments, including well-wishes for the sick and polite calls to respect measures.",
+        "examples": [
+          "Bravo keni ra nën 200 (Bravo, you've dropped below 200)",
+          "Shpresojme te pakesohet (We hope it decreases)",
+          "Rexhep Bytyqi Dhander gajret bre (tag + take courage)",
+          "So keq sa per fillim (Not bad for a start)"
+        ],
+        "cues": "bravo, respekt (respect), ju lumt (well done), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shpresojme (we hope), inshalla/ishalla (God willing), Zoti (God), urime (congratulations), ma pak (fewer)",
+        "not_for": "Mixed remarks like 'Mirë që ka ra numri por keq...' (good the number fell but bad...) are neutral. Factual stat summaries are neutral."
+      },
+      "negative": {
+        "what": "Angry, insulting, distrustful or despairing comments: claims of lies or manipulation, virus denial, blaming institutions or citizens, alarm at rising cases.",
+        "examples": [
+          "rrena jon keto kejt (these are all lies)",
+          "Ec be ska kurfar virusi (Come on, there's no virus at all)",
+          "Keq puna po get! (Things are getting bad!)",
+          "Turp turp turp... (Shame shame shame...)"
+        ],
+        "cues": "rrena/rrejt (lies), turp (shame), marre (disgrace), tmerr (horror), keq (bad), ska virus (no virus), na murret nqaf (you've ruined us), deshtim (failure), ju qifsha (vulgar insult)",
+        "not_for": "Calm policy suggestions or worries without hostility are neutral. Simple 'ncncnc' teasing inside banter can be neutral."
+      },
+      "neutral": {
+        "what": "Lone name tags, factual statistics, information questions, neutral suggestions or worries, jokes and banter without clear emotion.",
+        "examples": [
+          "Valdete",
+          "me 1 prill sa mostra keni bo (how many samples did you do on April 1)",
+          "Rritne numrin e testimeve, ju lutem! (Increase testing, please!)",
+          "Formacioni 4 4 2 po korr sukses (The 4-4-2 formation is succeeding)"
+        ],
+        "cues": "bare names, sa (how many), ku o (where is), a ... ? (is...?), statistics, hajde (come on)",
+        "not_for": "Questions phrased as accusations, such as 'A ka teste... marre' (are there tests... shame), are negative. Tags with a blessing are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Albanian Facebook comment on a Kosovo public-health COVID-19 post express?",
+      "rule": "Positive covers hope, relief at falling cases, prayers, thanks or praise for health workers, and encouragement to follow measures. Negative covers anger, insults, accusations of lying or incompetence, denial that the virus exists, and alarm or despair. Neutral covers bare name tags, questions, factual statistics, jokes, and suggestions or concerns without clear emotion. Mixed good-and-bad remarks also count as neutral. A name tag with a wish or blessing counts as positive."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Angry, insulting, distrustful or despairing comments: claims of lies or manipulation, virus denial, blaming institutions or citizens, alarm at rising cases.",
+        "examples": [
+          "rrena jon keto kejt (these are all lies)",
+          "Ec be ska kurfar virusi (Come on, there's no virus at all)",
+          "Keq puna po get! (Things are getting bad!)",
+          "Turp turp turp... (Shame shame shame...)"
+        ],
+        "cues": "rrena/rrejt (lies), turp (shame), marre (disgrace), tmerr (horror), keq (bad), ska virus (no virus), na murret nqaf (you've ruined us), deshtim (failure), ju qifsha (vulgar insult)",
+        "not_for": "Calm policy suggestions or worries without hostility are neutral. Simple 'ncncnc' teasing inside banter can be neutral."
+      },
+      "neutral": {
+        "what": "Lone name tags, factual statistics, information questions, neutral suggestions or worries, jokes and banter without clear emotion.",
+        "examples": [
+          "Valdete",
+          "me 1 prill sa mostra keni bo (how many samples did you do on April 1)",
+          "Rritne numrin e testimeve, ju lutem! (Increase testing, please!)",
+          "Formacioni 4 4 2 po korr sukses (The 4-4-2 formation is succeeding)"
+        ],
+        "cues": "bare names, sa (how many), ku o (where is), a ... ? (is...?), statistics, hajde (come on)",
+        "not_for": "Questions phrased as accusations, such as 'A ka teste... marre' (are there tests... shame), are negative. Tags with a blessing are positive."
+      },
+      "positive": {
+        "what": "Hopeful, grateful, praising, relieved or blessing comments, including well-wishes for the sick and polite calls to respect measures.",
+        "examples": [
+          "Bravo keni ra nën 200 (Bravo, you've dropped below 200)",
+          "Shpresojme te pakesohet (We hope it decreases)",
+          "Rexhep Bytyqi Dhander gajret bre (tag + take courage)",
+          "So keq sa per fillim (Not bad for a start)"
+        ],
+        "cues": "bravo, respekt (respect), ju lumt (well done), faleminderit/flm (thanks), sherim te shpejt (quick recovery), shpresojme (we hope), inshalla/ishalla (God willing), Zoti (God), urime (congratulations), ma pak (fewer)",
+        "not_for": "Mixed remarks like 'Mirë që ka ra numri por keq...' (good the number fell but bad...) are neutral. Factual stat summaries are neutral."
+      }
+    }
+  }
+}

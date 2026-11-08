@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in the author's attitude, mood or evaluation, or does it have no lean at all?",
+      "rule": "Even a mild lean decides the label. Looking forward to something, wanting something, inviting people to an event, mild interest or RIP wishes are positive. Small annoyances, can't-go remarks, delays, :( or #fml are negative. Neutral is only for texts with no lean: facts, questions, impersonal news, score reports, and sports or political commentary and debate about others without personal feeling."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Facts, questions, impersonal news, scores, sports predictions and critiques, debating replies, offhand remarks with no feeling.",
+        "examples": [
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Trayce Thompson's 2-run double gives the White Sox a 5-4 lead in the 7th.",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?"
+        ],
+        "cues": "score, lead, round, may, reportedly, who do you think, right?, I think",
+        "not_for": "Personal annoyance or sadness is negative; personal excitement or invitations are positive."
+      },
+      "positive": {
+        "what": "Enthusiasm, liking, anticipation, wanting, invitations to fun events, promos, mild interest, gratitude or condolences.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "come see, join us, can't wait, love, looking forward, I want, best, rest in peace, !!, <3",
+        "not_for": "Score reports and impersonal news of a team's win are neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, disappointment, sadness, boredom, mockery, insults or sarcasm, even mild.",
+        "examples": [
+          "A Thursday night with no Waterloo road on! #boring",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "@user TMILLS is going to Tucson! But the 29th and it’s on a Thursday :(",
+          "Dream High 2 sucks compared to the 1st one."
+        ],
+        "cues": "sucks, #fml, :(, can't, boring, disappointed, delayed, hate, wtf, c'mon",
+        "not_for": "Swearing for excitement is positive; impersonal critique of athletes or politicians is neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in the author's attitude, mood or evaluation, or does it have no lean at all?",
+      "rule": "Even a mild lean decides the label. Looking forward to something, wanting something, inviting people to an event, mild interest or RIP wishes are positive. Small annoyances, can't-go remarks, delays, :( or #fml are negative. Neutral is only for texts with no lean: facts, questions, impersonal news, score reports, and sports or political commentary and debate about others without personal feeling."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Enthusiasm, liking, anticipation, wanting, invitations to fun events, promos, mild interest, gratitude or condolences.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "come see, join us, can't wait, love, looking forward, I want, best, rest in peace, !!, <3",
+        "not_for": "Score reports and impersonal news of a team's win are neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, disappointment, sadness, boredom, mockery, insults or sarcasm, even mild.",
+        "examples": [
+          "A Thursday night with no Waterloo road on! #boring",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "@user TMILLS is going to Tucson! But the 29th and it’s on a Thursday :(",
+          "Dream High 2 sucks compared to the 1st one."
+        ],
+        "cues": "sucks, #fml, :(, can't, boring, disappointed, delayed, hate, wtf, c'mon",
+        "not_for": "Swearing for excitement is positive; impersonal critique of athletes or politicians is neutral."
+      },
+      "neutral": {
+        "what": "Facts, questions, impersonal news, scores, sports predictions and critiques, debating replies, offhand remarks with no feeling.",
+        "examples": [
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Trayce Thompson's 2-run double gives the White Sox a 5-4 lead in the 7th.",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?"
+        ],
+        "cues": "score, lead, round, may, reportedly, who do you think, right?, I think",
+        "not_for": "Personal annoyance or sadness is negative; personal excitement or invitations are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in the author's attitude, mood or evaluation, or does it have no lean at all?",
+      "rule": "Even a mild lean decides the label. Looking forward to something, wanting something, inviting people to an event, mild interest or RIP wishes are positive. Small annoyances, can't-go remarks, delays, :( or #fml are negative. Neutral is only for texts with no lean: facts, questions, impersonal news, score reports, and sports or political commentary and debate about others without personal feeling."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, annoyance, disappointment, sadness, boredom, mockery, insults or sarcasm, even mild.",
+        "examples": [
+          "A Thursday night with no Waterloo road on! #boring",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "@user TMILLS is going to Tucson! But the 29th and it’s on a Thursday :(",
+          "Dream High 2 sucks compared to the 1st one."
+        ],
+        "cues": "sucks, #fml, :(, can't, boring, disappointed, delayed, hate, wtf, c'mon",
+        "not_for": "Swearing for excitement is positive; impersonal critique of athletes or politicians is neutral."
+      },
+      "neutral": {
+        "what": "Facts, questions, impersonal news, scores, sports predictions and critiques, debating replies, offhand remarks with no feeling.",
+        "examples": [
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Trayce Thompson's 2-run double gives the White Sox a 5-4 lead in the 7th.",
+          "@user You do realize that the 1st Amendment doesn't just apply to Christians, right?"
+        ],
+        "cues": "score, lead, round, may, reportedly, who do you think, right?, I think",
+        "not_for": "Personal annoyance or sadness is negative; personal excitement or invitations are positive."
+      },
+      "positive": {
+        "what": "Enthusiasm, liking, anticipation, wanting, invitations to fun events, promos, mild interest, gratitude or condolences.",
+        "examples": [
+          "It’s Tuesday night in Athens! AKA karaoke night at the Volstead so come see me!!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "I want IHOP tomorrow morning",
+          "I just heard about Frank Gifford. Anyone who ever watched Monday Night Football enjoyed it more with him. Rest in peace."
+        ],
+        "cues": "come see, join us, can't wait, love, looking forward, I want, best, rest in peace, !!, <3",
+        "not_for": "Score reports and impersonal news of a team's win are neutral."
+      }
+    }
+  }
+}

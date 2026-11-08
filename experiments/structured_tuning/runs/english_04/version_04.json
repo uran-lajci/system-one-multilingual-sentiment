@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in feeling, or is it truly neutral with no emotional lean?",
+      "rule": "Choose neutral only when the tweet has no emotional lean: plain information, dry ads or listings, stats, questions, or jokes with no complaint or delight. If a personal tweet leans even mildly pleasant (looking forward to a treat, trip, show or outing; liking something; warm tributes), choose positive. If it leans even mildly unpleasant (letdowns, sighs like 'dang it' or 'Argh', digs at someone, sadness, bad outcomes), choose negative. For news-style tweets, clear successes are positive and clear harm (deaths, injuries, violence, charges, delays, disputes) is negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Purely informational or flat tweets: ads, schedules, stats, scores, headlines without clear good or bad outcome, questions, and remarks with no detectable feeling.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, specials, scheduled, reportedly, 'may' speculation, game stats, dates",
+        "not_for": "Personal tweets with any pleasant lean (positive) or any letdown, sigh or dig (negative)."
+      },
+      "positive": {
+        "what": "Any mild or strong pleasant lean: anticipation of plans or treats, enjoyment, liking, praise, pride, affection, tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "In the car on our way to Milton Keynes to see the Foo Fighters tomorrow. #foofighters #miltonkeynes",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "want, can't wait, going to see, love, glad, fun, excited, proud, wins, tops, honored, :), !",
+        "not_for": "Dry ads, ticket sales or event listings with no personal enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Any mild or strong unpleasant lean: letdowns, frustration, sadness, envy, insults, mockery, fear, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, can't, not happy, worst, sucks, hate, #Fml, injured, delayed, killed",
+        "not_for": "Flat factual reports with no bad outcome (neutral); tributes expressing warmth (positive)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in feeling, or is it truly neutral with no emotional lean?",
+      "rule": "Choose neutral only when the tweet has no emotional lean: plain information, dry ads or listings, stats, questions, or jokes with no complaint or delight. If a personal tweet leans even mildly pleasant (looking forward to a treat, trip, show or outing; liking something; warm tributes), choose positive. If it leans even mildly unpleasant (letdowns, sighs like 'dang it' or 'Argh', digs at someone, sadness, bad outcomes), choose negative. For news-style tweets, clear successes are positive and clear harm (deaths, injuries, violence, charges, delays, disputes) is negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Any mild or strong pleasant lean: anticipation of plans or treats, enjoyment, liking, praise, pride, affection, tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "In the car on our way to Milton Keynes to see the Foo Fighters tomorrow. #foofighters #miltonkeynes",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "want, can't wait, going to see, love, glad, fun, excited, proud, wins, tops, honored, :), !",
+        "not_for": "Dry ads, ticket sales or event listings with no personal enthusiasm (neutral)."
+      },
+      "negative": {
+        "what": "Any mild or strong unpleasant lean: letdowns, frustration, sadness, envy, insults, mockery, fear, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, can't, not happy, worst, sucks, hate, #Fml, injured, delayed, killed",
+        "not_for": "Flat factual reports with no bad outcome (neutral); tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Purely informational or flat tweets: ads, schedules, stats, scores, headlines without clear good or bad outcome, questions, and remarks with no detectable feeling.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, specials, scheduled, reportedly, 'may' speculation, game stats, dates",
+        "not_for": "Personal tweets with any pleasant lean (positive) or any letdown, sigh or dig (negative)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet lean positive or negative in feeling, or is it truly neutral with no emotional lean?",
+      "rule": "Choose neutral only when the tweet has no emotional lean: plain information, dry ads or listings, stats, questions, or jokes with no complaint or delight. If a personal tweet leans even mildly pleasant (looking forward to a treat, trip, show or outing; liking something; warm tributes), choose positive. If it leans even mildly unpleasant (letdowns, sighs like 'dang it' or 'Argh', digs at someone, sadness, bad outcomes), choose negative. For news-style tweets, clear successes are positive and clear harm (deaths, injuries, violence, charges, delays, disputes) is negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Any mild or strong unpleasant lean: letdowns, frustration, sadness, envy, insults, mockery, fear, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, can't, not happy, worst, sucks, hate, #Fml, injured, delayed, killed",
+        "not_for": "Flat factual reports with no bad outcome (neutral); tributes expressing warmth (positive)."
+      },
+      "neutral": {
+        "what": "Purely informational or flat tweets: ads, schedules, stats, scores, headlines without clear good or bad outcome, questions, and remarks with no detectable feeling.",
+        "examples": [
+          "Anyone wanna buy a Zac Brown Band ticket for the 3rd?",
+          "Get ready for our Wednesday Drink Specials Wednesday - 3-8pm Have it your Way Margarita Day  ( Bar Brand Only)...",
+          "David Wright is 6 for 20 with 5 walks in five games with St. Lucie."
+        ],
+        "cues": "selling, tickets, reminder, specials, scheduled, reportedly, 'may' speculation, game stats, dates",
+        "not_for": "Personal tweets with any pleasant lean (positive) or any letdown, sigh or dig (negative)."
+      },
+      "positive": {
+        "what": "Any mild or strong pleasant lean: anticipation of plans or treats, enjoyment, liking, praise, pride, affection, tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "In the car on our way to Milton Keynes to see the Foo Fighters tomorrow. #foofighters #miltonkeynes",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "want, can't wait, going to see, love, glad, fun, excited, proud, wins, tops, honored, :), !",
+        "not_for": "Dry ads, ticket sales or event listings with no personal enthusiasm (neutral)."
+      }
+    }
+  }
+}

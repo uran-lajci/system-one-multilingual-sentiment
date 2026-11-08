@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: questions, discrepancies, forecasts, mild worry, advice, complaints about careless citizens without an insult word, remarks about past politicians, tags, off-topic chat, ads, and laughing banter or city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the current government, a lying claim (any spelling), ridicule of the Institute, sarcastic praise of worsening results, or a horror or despair word. Sincere thanks or praise to the Institute, doctors or a person makes the comment positive even when the rest criticises citizens or the government. Short approvals, blessings, encouragement and joy at falling cases or recoveries are also positive; a thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "The default: questions, doubts, forecasts, worry, advice, complaints without insult, tags, banter and jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Mirupafshim ne Shtator e pat puna juv mo keni ra pi liges sikur Hajvalia... (See you in September, you've been relegated like Hajvalia...)",
+          "Rrini more n shpi se marut o popull (Stay home, people, you've gone mad)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), nuk marrin vesh (they don't understand), liga (league)",
+        "not_for": "A curse, insult word, current-government blame, lying claim, horror word or ridicule of the Institute makes it negative."
+      },
+      "positive": {
+        "what": "Sincere thanks or praise (overrides surrounding criticism), blessings, congratulations, encouragement, joy at falling cases or recoveries.",
+        "examples": [
+          "Instituti flm qe na rekomandoni dhe na kshilloni gjdo dite po met vërtet nuk është ka bohet kto dite respketimi i masave (Institute, thanks for advising us daily, but the measures really aren't respected these days)",
+          "Qysh po i gjeni kta numra fiks bre bravo ju koft veq vazhdoni (How do you get these numbers exactly, bravo, keep going)",
+          "Lakorja paska fillu me ra (The curve has started to fall)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), mire (good), super, keni perparu (you've improved), perhajr (congratulations), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Tags or names ('Urim Skeraj'), off-topic chat, ads and 'edhe pak e iku' (almost gone) are neutral. 'Bravo' praising more cases is negative."
+      },
+      "negative": {
+        "what": "Curses, insults, current-government blame, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "ona mytet tu na rrejt (they're killing us with lies)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)"
+        ],
+        "cues": "rren/ren/rrejt (lie), fajet (to blame), injorant (ignorant), palaqo/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ZEZA (disaster), qeveria e re (the new government) + more cases",
+        "not_for": "Laughing banter, or harsh mask complaints without an insult word, is neutral; criticism paired with thanks is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: questions, discrepancies, forecasts, mild worry, advice, complaints about careless citizens without an insult word, remarks about past politicians, tags, off-topic chat, ads, and laughing banter or city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the current government, a lying claim (any spelling), ridicule of the Institute, sarcastic praise of worsening results, or a horror or despair word. Sincere thanks or praise to the Institute, doctors or a person makes the comment positive even when the rest criticises citizens or the government. Short approvals, blessings, encouragement and joy at falling cases or recoveries are also positive; a thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Sincere thanks or praise (overrides surrounding criticism), blessings, congratulations, encouragement, joy at falling cases or recoveries.",
+        "examples": [
+          "Instituti flm qe na rekomandoni dhe na kshilloni gjdo dite po met vërtet nuk është ka bohet kto dite respketimi i masave (Institute, thanks for advising us daily, but the measures really aren't respected these days)",
+          "Qysh po i gjeni kta numra fiks bre bravo ju koft veq vazhdoni (How do you get these numbers exactly, bravo, keep going)",
+          "Lakorja paska fillu me ra (The curve has started to fall)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), mire (good), super, keni perparu (you've improved), perhajr (congratulations), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Tags or names ('Urim Skeraj'), off-topic chat, ads and 'edhe pak e iku' (almost gone) are neutral. 'Bravo' praising more cases is negative."
+      },
+      "negative": {
+        "what": "Curses, insults, current-government blame, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "ona mytet tu na rrejt (they're killing us with lies)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)"
+        ],
+        "cues": "rren/ren/rrejt (lie), fajet (to blame), injorant (ignorant), palaqo/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ZEZA (disaster), qeveria e re (the new government) + more cases",
+        "not_for": "Laughing banter, or harsh mask complaints without an insult word, is neutral; criticism paired with thanks is positive."
+      },
+      "neutral": {
+        "what": "The default: questions, doubts, forecasts, worry, advice, complaints without insult, tags, banter and jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Mirupafshim ne Shtator e pat puna juv mo keni ra pi liges sikur Hajvalia... (See you in September, you've been relegated like Hajvalia...)",
+          "Rrini more n shpi se marut o popull (Stay home, people, you've gone mad)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), nuk marrin vesh (they don't understand), liga (league)",
+        "not_for": "A curse, insult word, current-government blame, lying claim, horror word or ridicule of the Institute makes it negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: questions, discrepancies, forecasts, mild worry, advice, complaints about careless citizens without an insult word, remarks about past politicians, tags, off-topic chat, ads, and laughing banter or city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the current government, a lying claim (any spelling), ridicule of the Institute, sarcastic praise of worsening results, or a horror or despair word. Sincere thanks or praise to the Institute, doctors or a person makes the comment positive even when the rest criticises citizens or the government. Short approvals, blessings, encouragement and joy at falling cases or recoveries are also positive; a thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Curses, insults, current-government blame, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "ona mytet tu na rrejt (they're killing us with lies)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)"
+        ],
+        "cues": "rren/ren/rrejt (lie), fajet (to blame), injorant (ignorant), palaqo/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ZEZA (disaster), qeveria e re (the new government) + more cases",
+        "not_for": "Laughing banter, or harsh mask complaints without an insult word, is neutral; criticism paired with thanks is positive."
+      },
+      "neutral": {
+        "what": "The default: questions, doubts, forecasts, worry, advice, complaints without insult, tags, banter and jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Mirupafshim ne Shtator e pat puna juv mo keni ra pi liges sikur Hajvalia... (See you in September, you've been relegated like Hajvalia...)",
+          "Rrini more n shpi se marut o popull (Stay home, people, you've gone mad)"
+        ],
+        "cues": "tagged names, hahaha, pse (why), duhet (should), karantin (quarantine), maska (masks), nuk marrin vesh (they don't understand), liga (league)",
+        "not_for": "A curse, insult word, current-government blame, lying claim, horror word or ridicule of the Institute makes it negative."
+      },
+      "positive": {
+        "what": "Sincere thanks or praise (overrides surrounding criticism), blessings, congratulations, encouragement, joy at falling cases or recoveries.",
+        "examples": [
+          "Instituti flm qe na rekomandoni dhe na kshilloni gjdo dite po met vërtet nuk është ka bohet kto dite respketimi i masave (Institute, thanks for advising us daily, but the measures really aren't respected these days)",
+          "Qysh po i gjeni kta numra fiks bre bravo ju koft veq vazhdoni (How do you get these numbers exactly, bravo, keep going)",
+          "Lakorja paska fillu me ra (The curve has started to fall)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), mire (good), super, keni perparu (you've improved), perhajr (congratulations), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Tags or names ('Urim Skeraj'), off-topic chat, ads and 'edhe pak e iku' (almost gone) are neutral. 'Bravo' praising more cases is negative."
+      }
+    }
+  }
+}

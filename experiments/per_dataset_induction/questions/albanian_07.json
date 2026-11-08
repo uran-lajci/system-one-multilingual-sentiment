@@ -1,0 +1,11 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "These are Albanian (Kosovo dialect) Facebook comments on COVID-19 case reports from the Kosovo health institute/ministry. Judge the overall sentiment the commenter expresses toward the situation, the authorities or the news. Label by the dominant tone, not by isolated words.",
+    "criteria": {
+      "positive": "Praise, thanks, blessings, hope, relief or good wishes. This includes religious gratitude, wishes for recovery, joy at falling numbers or rising recoveries, and calls to unite and respect the measures. It stays positive even when a polite request or a mild critique is wrapped in respect or ends ironically ('mir o puna mir'). Cues: bravo, ju lumt (well done), faleminderit (thank you), sherim të shpejtë (speedy recovery), elhamdulilah/shyqyr (thank God), ishalla po pshtojmë (hopefully we're getting through), respekt, mashallah, perhajer/me bereqet (congratulations/blessed), rekord i ri (new record), game over.",
+      "neutral": "No clear sentiment. This covers bare names or tags of friends, jokes and banter treating cities like sports teams ('hajde Vushtrria ma gjall' [come on Vushtrria, livelier]), plain numbers or statistics, factual questions, predictions, neutral advice, and off-topic chat. Mild teasing and 'no comment' also count as neutral.",
+      "negative": "Distrust, anger, insult or despair. This includes accusing the authorities of lying or faking numbers, attacking the government, ministers or politicians, complaining about mismanagement or testing, cursing, and lamenting how bad things are. Sarcastic praise that mocks the authorities is negative. Cues: rrena/gënjeshtra/pallavra (lies/nonsense), po rreni (you are lying), keq (bad), turp (shame), hajna (thieves), budalla (fool), e hupi kontrollen (lost control), na knaqt me muhabet (sarcastic: you delighted us with talk), mallkoft (curse)."
+    }
+  }
+}

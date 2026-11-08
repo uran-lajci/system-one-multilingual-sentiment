@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment or attitude does the tweet's author express toward its topic: positive, neutral, or negative?",
+      "rule": "Label by the author's evident feeling, not by topic keywords. News headlines with favorable framing (team gains player, record, victory) count as positive, and reports of attacks or deaths count as negative. Plain facts, announcements, schedules, questions, and mild or joking remarks without clear feeling are neutral. Sarcasm, complaints, insults, frustration and hostility toward groups or people are negative even when phrased casually."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Informational, factual, scheduling or question tweets, and mild musings with no clear positive or negative stance.",
+        "examples": [
+          "Ebola nurse may have been sick before taking the plane",
+          "Eastern Men's lax hosting the MAC Championship on Saturday be there!!!",
+          "Art may or may not be the hardest class EVER",
+          "@user have you heard Black Friday by Kendrick Lamar &amp; j.Cole ??"
+        ],
+        "cues": "will be, tomorrow, reminder, closes Friday, do you think, leads after 1st round, may be delays",
+        "not_for": "Factual reports of violence, deaths or failures are negative. Promotions with explicit enthusiasm are positive."
+      },
+      "positive": {
+        "what": "Excitement, enjoyment, praise, anticipation, gratitude, or good news framed favorably.",
+        "examples": [
+          "Guess who's going to see Foo Fighters on Tuesday!!!!! (ME)",
+          "Chelsea will pursue the signing of Paul Pogba from Juventus until the transfer window closes on Tuesday. (Source: Independent)",
+          "I find it funny that this is the 5th year in a row that Brad Paisley and Carrie Underwood have hosted the CMAs"
+        ],
+        "cues": "excited, can't wait, love, happy birthday, thrilled, fantastic, woo, :), <3, #cantwaitt, Thanks",
+        "not_for": "Event announcements or reminders with no expressed feeling are neutral. Wishes about a feared bad outcome are neutral."
+      },
+      "negative": {
+        "what": "Complaints, frustration, sadness, mockery, sarcasm, anger, insults or bigotry, and bad news such as attacks, deaths or crashes.",
+        "examples": [
+          "My phone may as well be a Nokia it none of my apps are working",
+          "@user If you watch Any Given Sunday backwards, it’s like Tim Tebow’s career.",
+          "Murray a set down and 3-0 down in the 2nd set and bookies are laying Murray at Evens? Ridiculous"
+        ],
+        "cues": "frustrated, ridiculous, broken, worst, stupid, crashes, delayed, losers, #killmenow, :(, </3, burn in Hell",
+        "not_for": "Light self-deprecating jokes (#whyamistupid) or mild ironic observations are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment or attitude does the tweet's author express toward its topic: positive, neutral, or negative?",
+      "rule": "Label by the author's evident feeling, not by topic keywords. News headlines with favorable framing (team gains player, record, victory) count as positive, and reports of attacks or deaths count as negative. Plain facts, announcements, schedules, questions, and mild or joking remarks without clear feeling are neutral. Sarcasm, complaints, insults, frustration and hostility toward groups or people are negative even when phrased casually."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Excitement, enjoyment, praise, anticipation, gratitude, or good news framed favorably.",
+        "examples": [
+          "Guess who's going to see Foo Fighters on Tuesday!!!!! (ME)",
+          "Chelsea will pursue the signing of Paul Pogba from Juventus until the transfer window closes on Tuesday. (Source: Independent)",
+          "I find it funny that this is the 5th year in a row that Brad Paisley and Carrie Underwood have hosted the CMAs"
+        ],
+        "cues": "excited, can't wait, love, happy birthday, thrilled, fantastic, woo, :), <3, #cantwaitt, Thanks",
+        "not_for": "Event announcements or reminders with no expressed feeling are neutral. Wishes about a feared bad outcome are neutral."
+      },
+      "negative": {
+        "what": "Complaints, frustration, sadness, mockery, sarcasm, anger, insults or bigotry, and bad news such as attacks, deaths or crashes.",
+        "examples": [
+          "My phone may as well be a Nokia it none of my apps are working",
+          "@user If you watch Any Given Sunday backwards, it’s like Tim Tebow’s career.",
+          "Murray a set down and 3-0 down in the 2nd set and bookies are laying Murray at Evens? Ridiculous"
+        ],
+        "cues": "frustrated, ridiculous, broken, worst, stupid, crashes, delayed, losers, #killmenow, :(, </3, burn in Hell",
+        "not_for": "Light self-deprecating jokes (#whyamistupid) or mild ironic observations are neutral."
+      },
+      "neutral": {
+        "what": "Informational, factual, scheduling or question tweets, and mild musings with no clear positive or negative stance.",
+        "examples": [
+          "Ebola nurse may have been sick before taking the plane",
+          "Eastern Men's lax hosting the MAC Championship on Saturday be there!!!",
+          "Art may or may not be the hardest class EVER",
+          "@user have you heard Black Friday by Kendrick Lamar &amp; j.Cole ??"
+        ],
+        "cues": "will be, tomorrow, reminder, closes Friday, do you think, leads after 1st round, may be delays",
+        "not_for": "Factual reports of violence, deaths or failures are negative. Promotions with explicit enthusiasm are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment or attitude does the tweet's author express toward its topic: positive, neutral, or negative?",
+      "rule": "Label by the author's evident feeling, not by topic keywords. News headlines with favorable framing (team gains player, record, victory) count as positive, and reports of attacks or deaths count as negative. Plain facts, announcements, schedules, questions, and mild or joking remarks without clear feeling are neutral. Sarcasm, complaints, insults, frustration and hostility toward groups or people are negative even when phrased casually."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, frustration, sadness, mockery, sarcasm, anger, insults or bigotry, and bad news such as attacks, deaths or crashes.",
+        "examples": [
+          "My phone may as well be a Nokia it none of my apps are working",
+          "@user If you watch Any Given Sunday backwards, it’s like Tim Tebow’s career.",
+          "Murray a set down and 3-0 down in the 2nd set and bookies are laying Murray at Evens? Ridiculous"
+        ],
+        "cues": "frustrated, ridiculous, broken, worst, stupid, crashes, delayed, losers, #killmenow, :(, </3, burn in Hell",
+        "not_for": "Light self-deprecating jokes (#whyamistupid) or mild ironic observations are neutral."
+      },
+      "neutral": {
+        "what": "Informational, factual, scheduling or question tweets, and mild musings with no clear positive or negative stance.",
+        "examples": [
+          "Ebola nurse may have been sick before taking the plane",
+          "Eastern Men's lax hosting the MAC Championship on Saturday be there!!!",
+          "Art may or may not be the hardest class EVER",
+          "@user have you heard Black Friday by Kendrick Lamar &amp; j.Cole ??"
+        ],
+        "cues": "will be, tomorrow, reminder, closes Friday, do you think, leads after 1st round, may be delays",
+        "not_for": "Factual reports of violence, deaths or failures are negative. Promotions with explicit enthusiasm are positive."
+      },
+      "positive": {
+        "what": "Excitement, enjoyment, praise, anticipation, gratitude, or good news framed favorably.",
+        "examples": [
+          "Guess who's going to see Foo Fighters on Tuesday!!!!! (ME)",
+          "Chelsea will pursue the signing of Paul Pogba from Juventus until the transfer window closes on Tuesday. (Source: Independent)",
+          "I find it funny that this is the 5th year in a row that Brad Paisley and Carrie Underwood have hosted the CMAs"
+        ],
+        "cues": "excited, can't wait, love, happy birthday, thrilled, fantastic, woo, :), <3, #cantwaitt, Thanks",
+        "not_for": "Event announcements or reminders with no expressed feeling are neutral. Wishes about a feared bad outcome are neutral."
+      }
+    }
+  }
+}

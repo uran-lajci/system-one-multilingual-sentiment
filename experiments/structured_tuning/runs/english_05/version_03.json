@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Ask whether a feeling is the point of the tweet. Clear enthusiasm, praise, love or celebration is positive. Clear complaint, disappointment, anger, mockery, or concern about harm is negative. Neutral covers news without the author's feeling, analytical commentary on sports or politics, plain plans, routine ads ('Don't miss', 'Check out'), questions, mixed views, and trivial joking gripes."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "News, schedules, plans, ads, questions, analytical commentary or opinions without strong feeling, mixed views, and light jokes or trivial gripes about one's own day.",
+        "examples": [
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice.",
+          "Fake punt on 4th and 11? Wow, James Franklin can make some odd decisions. #PennState #Michigan #PSUvsMICH",
+          "Pretty Little Liars isn’t back on till January. What am I supposed to do with my Tuesday nights until then?",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "may, will be, reportedly, going to, tomorrow, who wants to, don't miss, check out, scores, rankings",
+        "not_for": "Real complaints or disappointment (negative); explicit delight or praise (positive)."
+      },
+      "positive": {
+        "what": "Explicit excitement, happiness, praise, love, gratitude, hope or celebration, including good news the author welcomes and upbeat tributes.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, great, good, interesting, fun, thank you, finally, celebrating, !!",
+        "not_for": "Plans or activities stated flatly, event or bar ads, 'who wants to come' questions (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Clear sadness, anger, frustration, disappointment, insults, sarcasm or mockery, and reports of killings, attacks, injuries or scandals told with concern.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Finally broke down and got Amazon Prime and the delivery on my 1st purchase as a member is late. @user I was expecting better."
+        ],
+        "cues": "sad, bummed, hate, worst, stupid, pathetic, FML, wtf, unimpressive, frustrating, killed, :(",
+        "not_for": "Calm analysis of a team or politician, neutral news headlines, joking gripes about trivial plans (neutral)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Ask whether a feeling is the point of the tweet. Clear enthusiasm, praise, love or celebration is positive. Clear complaint, disappointment, anger, mockery, or concern about harm is negative. Neutral covers news without the author's feeling, analytical commentary on sports or politics, plain plans, routine ads ('Don't miss', 'Check out'), questions, mixed views, and trivial joking gripes."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Explicit excitement, happiness, praise, love, gratitude, hope or celebration, including good news the author welcomes and upbeat tributes.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, great, good, interesting, fun, thank you, finally, celebrating, !!",
+        "not_for": "Plans or activities stated flatly, event or bar ads, 'who wants to come' questions (neutral); sarcastic praise (negative)."
+      },
+      "negative": {
+        "what": "Clear sadness, anger, frustration, disappointment, insults, sarcasm or mockery, and reports of killings, attacks, injuries or scandals told with concern.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Finally broke down and got Amazon Prime and the delivery on my 1st purchase as a member is late. @user I was expecting better."
+        ],
+        "cues": "sad, bummed, hate, worst, stupid, pathetic, FML, wtf, unimpressive, frustrating, killed, :(",
+        "not_for": "Calm analysis of a team or politician, neutral news headlines, joking gripes about trivial plans (neutral)."
+      },
+      "neutral": {
+        "what": "News, schedules, plans, ads, questions, analytical commentary or opinions without strong feeling, mixed views, and light jokes or trivial gripes about one's own day.",
+        "examples": [
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice.",
+          "Fake punt on 4th and 11? Wow, James Franklin can make some odd decisions. #PennState #Michigan #PSUvsMICH",
+          "Pretty Little Liars isn’t back on till January. What am I supposed to do with my Tuesday nights until then?",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "may, will be, reportedly, going to, tomorrow, who wants to, don't miss, check out, scores, rankings",
+        "not_for": "Real complaints or disappointment (negative); explicit delight or praise (positive)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does the tweet's author express or convey about its topic: positive, neutral, or negative?",
+      "rule": "Ask whether a feeling is the point of the tweet. Clear enthusiasm, praise, love or celebration is positive. Clear complaint, disappointment, anger, mockery, or concern about harm is negative. Neutral covers news without the author's feeling, analytical commentary on sports or politics, plain plans, routine ads ('Don't miss', 'Check out'), questions, mixed views, and trivial joking gripes."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Clear sadness, anger, frustration, disappointment, insults, sarcasm or mockery, and reports of killings, attacks, injuries or scandals told with concern.",
+        "examples": [
+          "still so sad I'm not going to Ed Sheeran the 25th ://// ",
+          "Kanye West may in fact be the biggest douche bag in the history of the universe",
+          "Finally broke down and got Amazon Prime and the delivery on my 1st purchase as a member is late. @user I was expecting better."
+        ],
+        "cues": "sad, bummed, hate, worst, stupid, pathetic, FML, wtf, unimpressive, frustrating, killed, :(",
+        "not_for": "Calm analysis of a team or politician, neutral news headlines, joking gripes about trivial plans (neutral)."
+      },
+      "neutral": {
+        "what": "News, schedules, plans, ads, questions, analytical commentary or opinions without strong feeling, mixed views, and light jokes or trivial gripes about one's own day.",
+        "examples": [
+          "Going to see Paper Towns on Saturday. I'm hoping it does the book justice.",
+          "Fake punt on 4th and 11? Wow, James Franklin can make some odd decisions. #PennState #Michigan #PSUvsMICH",
+          "Pretty Little Liars isn’t back on till January. What am I supposed to do with my Tuesday nights until then?",
+          "Kanye West is insane. He also may be a complete genius. But I still don't want him to be president. #VMAs #fb"
+        ],
+        "cues": "may, will be, reportedly, going to, tomorrow, who wants to, don't miss, check out, scores, rankings",
+        "not_for": "Real complaints or disappointment (negative); explicit delight or praise (positive)."
+      },
+      "positive": {
+        "what": "Explicit excitement, happiness, praise, love, gratitude, hope or celebration, including good news the author welcomes and upbeat tributes.",
+        "examples": [
+          "Can't wait to see you tomorrow at The Roxy!",
+          "I just saw a glance at the new Galaxy Note 5. Looks interesting. That may be my next phone.",
+          "David Price is the fastest #bluejays' pitcher to reach 50Ks with the team."
+        ],
+        "cues": "can't wait, excited, love, happy, great, good, interesting, fun, thank you, finally, celebrating, !!",
+        "not_for": "Plans or activities stated flatly, event or bar ads, 'who wants to come' questions (neutral); sarcastic praise (negative)."
+      }
+    }
+  }
+}

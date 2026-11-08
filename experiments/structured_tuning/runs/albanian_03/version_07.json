@@ -1,0 +1,128 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Is this Facebook comment on a Kosovo public-health COVID-19 post mainly positive, mainly negative (an attack, accusation, complaint, mockery or alarm), or neutral?",
+      "rule": "Negative when the main point is hostile or distressed: it claims the numbers are faked or copy-pasted or that the institute lies, mocks the institute, bitterly complains that the authorities fail people (tests refused, acting too late, should resign), insults people or swears, or voices alarm or despair. Questions, mismatched numbers, calm demands for measures, opinions, lectures to citizens, betting or town-ranking banter, teasing among friends, bare names, greetings, and cryptic or off-topic texts are neutral. Praise, thanks (even with a question), blessings, prayers, sincere hope and relief or good news about the numbers are positive."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Questions, guesses, mismatched figures, calm demands, opinions, lectures, banter, teasing among friends, names, greetings, cryptic or off-topic texts.",
+        "examples": [
+          "184+14=198 dhe jo 224 (184+14=198, not 224)",
+          "Mbyllni kufijte sot! (Close the borders today!)",
+          "Prap Prishtina spe lshon kreun e tabeles (Again Prishtina won't give up the top of the table)",
+          "Shes kepurdha (I sell mushrooms)"
+        ],
+        "cues": "pse/qysh/sa ? (why/how/how many ?); mbyllni/hapni (close/open); duhet (should); lige/tabele/bast (league/table/bet); haha with tagged friends",
+        "not_for": "Faking claims, mockery of the institute, bitter complaints about authorities, resignation demands, insults and alarm are negative."
+      },
+      "positive": {
+        "what": "Approval, thanks, blessings, prayers, sincere hope, relief or good news about recoveries and falling numbers.",
+        "examples": [
+          "Ju lumte per punen suksese! (Well done for the work, success!)",
+          "T'hajrit kofshin (May they be for good)",
+          "Atdhe sonte sosht keq :P (Homeland, tonight it's not bad :P)",
+          "Kur don zoti per bajram dalum 0-0 (God willing, by Bayram we come out 0-0)"
+        ],
+        "cues": "bravo; ju lumte (well done); faleminderit (thank you); perhajr (for good); me shnet (in health); amin (amen); zoti na ruajt (God protect us); inshallah (God willing); urime (congratulations); mir osht (it's good); sosht keq (not bad); lutem (I pray)",
+        "not_for": "Number guesses ending in 'shpresojm' (we hope), bare names and greetings to friends are neutral; sarcastic blessings are negative."
+      },
+      "negative": {
+        "what": "Accusations of faked numbers or lying, mockery of the institute, bitter complaints about authorities, insults, swearing, alarm or despair.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, aren't you copy-pasting?)",
+          "Jeni bo edhe ju si bastore me lujt me kto shifra (You too have become like bettors, playing with these numbers)",
+          "Une boll po thom bomani testin se kom simptoma spo ma boni (I keep saying test me, I have symptoms, you won't do it)",
+          "E hupi kontrollen e hupi Ferizaji (Ferizaj lost control)"
+        ],
+        "cues": "copy paste; rrena (lies); a ju besohet (do you believe it yourselves); bajat (stale); jeni lodh (you're tired); si bastore/KEK (like bettors/the power company); doreheqje (resignation); moti u desht (should have long ago); turp (shame); budall (fool); nanen, mut (swearing); hupi kontrollen (lost control)",
+        "not_for": "Plain questions about numbers, calm suggestions, lectures and joking with friends are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Is this Facebook comment on a Kosovo public-health COVID-19 post mainly positive, mainly negative (an attack, accusation, complaint, mockery or alarm), or neutral?",
+      "rule": "Negative when the main point is hostile or distressed: it claims the numbers are faked or copy-pasted or that the institute lies, mocks the institute, bitterly complains that the authorities fail people (tests refused, acting too late, should resign), insults people or swears, or voices alarm or despair. Questions, mismatched numbers, calm demands for measures, opinions, lectures to citizens, betting or town-ranking banter, teasing among friends, bare names, greetings, and cryptic or off-topic texts are neutral. Praise, thanks (even with a question), blessings, prayers, sincere hope and relief or good news about the numbers are positive."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Approval, thanks, blessings, prayers, sincere hope, relief or good news about recoveries and falling numbers.",
+        "examples": [
+          "Ju lumte per punen suksese! (Well done for the work, success!)",
+          "T'hajrit kofshin (May they be for good)",
+          "Atdhe sonte sosht keq :P (Homeland, tonight it's not bad :P)",
+          "Kur don zoti per bajram dalum 0-0 (God willing, by Bayram we come out 0-0)"
+        ],
+        "cues": "bravo; ju lumte (well done); faleminderit (thank you); perhajr (for good); me shnet (in health); amin (amen); zoti na ruajt (God protect us); inshallah (God willing); urime (congratulations); mir osht (it's good); sosht keq (not bad); lutem (I pray)",
+        "not_for": "Number guesses ending in 'shpresojm' (we hope), bare names and greetings to friends are neutral; sarcastic blessings are negative."
+      },
+      "negative": {
+        "what": "Accusations of faked numbers or lying, mockery of the institute, bitter complaints about authorities, insults, swearing, alarm or despair.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, aren't you copy-pasting?)",
+          "Jeni bo edhe ju si bastore me lujt me kto shifra (You too have become like bettors, playing with these numbers)",
+          "Une boll po thom bomani testin se kom simptoma spo ma boni (I keep saying test me, I have symptoms, you won't do it)",
+          "E hupi kontrollen e hupi Ferizaji (Ferizaj lost control)"
+        ],
+        "cues": "copy paste; rrena (lies); a ju besohet (do you believe it yourselves); bajat (stale); jeni lodh (you're tired); si bastore/KEK (like bettors/the power company); doreheqje (resignation); moti u desht (should have long ago); turp (shame); budall (fool); nanen, mut (swearing); hupi kontrollen (lost control)",
+        "not_for": "Plain questions about numbers, calm suggestions, lectures and joking with friends are neutral."
+      },
+      "neutral": {
+        "what": "Questions, guesses, mismatched figures, calm demands, opinions, lectures, banter, teasing among friends, names, greetings, cryptic or off-topic texts.",
+        "examples": [
+          "184+14=198 dhe jo 224 (184+14=198, not 224)",
+          "Mbyllni kufijte sot! (Close the borders today!)",
+          "Prap Prishtina spe lshon kreun e tabeles (Again Prishtina won't give up the top of the table)",
+          "Shes kepurdha (I sell mushrooms)"
+        ],
+        "cues": "pse/qysh/sa ? (why/how/how many ?); mbyllni/hapni (close/open); duhet (should); lige/tabele/bast (league/table/bet); haha with tagged friends",
+        "not_for": "Faking claims, mockery of the institute, bitter complaints about authorities, resignation demands, insults and alarm are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Is this Facebook comment on a Kosovo public-health COVID-19 post mainly positive, mainly negative (an attack, accusation, complaint, mockery or alarm), or neutral?",
+      "rule": "Negative when the main point is hostile or distressed: it claims the numbers are faked or copy-pasted or that the institute lies, mocks the institute, bitterly complains that the authorities fail people (tests refused, acting too late, should resign), insults people or swears, or voices alarm or despair. Questions, mismatched numbers, calm demands for measures, opinions, lectures to citizens, betting or town-ranking banter, teasing among friends, bare names, greetings, and cryptic or off-topic texts are neutral. Praise, thanks (even with a question), blessings, prayers, sincere hope and relief or good news about the numbers are positive."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Accusations of faked numbers or lying, mockery of the institute, bitter complaints about authorities, insults, swearing, alarm or despair.",
+        "examples": [
+          "Dje 226 sod 224 mos jeni tja bo copy paste. (Yesterday 226, today 224, aren't you copy-pasting?)",
+          "Jeni bo edhe ju si bastore me lujt me kto shifra (You too have become like bettors, playing with these numbers)",
+          "Une boll po thom bomani testin se kom simptoma spo ma boni (I keep saying test me, I have symptoms, you won't do it)",
+          "E hupi kontrollen e hupi Ferizaji (Ferizaj lost control)"
+        ],
+        "cues": "copy paste; rrena (lies); a ju besohet (do you believe it yourselves); bajat (stale); jeni lodh (you're tired); si bastore/KEK (like bettors/the power company); doreheqje (resignation); moti u desht (should have long ago); turp (shame); budall (fool); nanen, mut (swearing); hupi kontrollen (lost control)",
+        "not_for": "Plain questions about numbers, calm suggestions, lectures and joking with friends are neutral."
+      },
+      "neutral": {
+        "what": "Questions, guesses, mismatched figures, calm demands, opinions, lectures, banter, teasing among friends, names, greetings, cryptic or off-topic texts.",
+        "examples": [
+          "184+14=198 dhe jo 224 (184+14=198, not 224)",
+          "Mbyllni kufijte sot! (Close the borders today!)",
+          "Prap Prishtina spe lshon kreun e tabeles (Again Prishtina won't give up the top of the table)",
+          "Shes kepurdha (I sell mushrooms)"
+        ],
+        "cues": "pse/qysh/sa ? (why/how/how many ?); mbyllni/hapni (close/open); duhet (should); lige/tabele/bast (league/table/bet); haha with tagged friends",
+        "not_for": "Faking claims, mockery of the institute, bitter complaints about authorities, resignation demands, insults and alarm are negative."
+      },
+      "positive": {
+        "what": "Approval, thanks, blessings, prayers, sincere hope, relief or good news about recoveries and falling numbers.",
+        "examples": [
+          "Ju lumte per punen suksese! (Well done for the work, success!)",
+          "T'hajrit kofshin (May they be for good)",
+          "Atdhe sonte sosht keq :P (Homeland, tonight it's not bad :P)",
+          "Kur don zoti per bajram dalum 0-0 (God willing, by Bayram we come out 0-0)"
+        ],
+        "cues": "bravo; ju lumte (well done); faleminderit (thank you); perhajr (for good); me shnet (in health); amin (amen); zoti na ruajt (God protect us); inshallah (God willing); urime (congratulations); mir osht (it's good); sosht keq (not bad); lutem (I pray)",
+        "not_for": "Number guesses ending in 'shpresojm' (we hope), bare names and greetings to friends are neutral; sarcastic blessings are negative."
+      }
+    }
+  }
+}

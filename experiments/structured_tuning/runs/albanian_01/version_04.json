@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: plain questions, discrepancies, forecasts, mild worry, mask or lockdown advice, complaints without insult, tags, ads and city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the government or parties, a lying claim, mockery of the Institute's competence, sarcastic praise, or a horror or despair word (tmer, katastrofe, ma keq). Positive covers sincere thanks, praise, blessings, encouragement and clear relief at falling cases or recoveries, even alongside criticism. A thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "The default: questions, doubts, discrepancies, forecasts, mild worry, advice, complaints without insult, tags, jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Qito dy jav jon kritike! (These two weeks are critical!)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, pse (why), a jon (are they), duhet (should), karantin (quarantine), maska (masks), per marakli (worth worrying about), hahaha",
+        "not_for": "A curse, insult, government blame, horror word or ridicule of the Institute's competence makes it negative."
+      },
+      "positive": {
+        "what": "Sincere thanks or praise, blessings, congratulations, encouragement, relief at falling cases or recoveries.",
+        "examples": [
+          "Lakorja paska fillu me ra (The curve has started to fall)",
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Ta mundim kete pandemi te gjithe se bashku (Let's beat this pandemic all together)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), perhajr (congratulations), ka ra numri (number fell), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Cheering cities ('ma gjall' (faster), 'forza peja'), tags, ads and 'edhe pak e iku' (almost gone) are neutral. Sarcastic praise is negative."
+      },
+      "negative": {
+        "what": "Curses, insults, blaming the government, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "Qeveria koti ika fajet (The Kurti government is to blame)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)",
+          "Mashalla ka hi qeveria e re me kom te mire gjdo dite ma shum raste (Mashallah, the new government came in lucky, more cases daily)"
+        ],
+        "cues": "fajet (to blame), rren (lie), injorant (ignorant), palaqo/bosa/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ma keq (worse), bomb, ZEZA (disaster)",
+        "not_for": "Neutral questions about numbers, without ridicule or a lying claim, are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: plain questions, discrepancies, forecasts, mild worry, mask or lockdown advice, complaints without insult, tags, ads and city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the government or parties, a lying claim, mockery of the Institute's competence, sarcastic praise, or a horror or despair word (tmer, katastrofe, ma keq). Positive covers sincere thanks, praise, blessings, encouragement and clear relief at falling cases or recoveries, even alongside criticism. A thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Sincere thanks or praise, blessings, congratulations, encouragement, relief at falling cases or recoveries.",
+        "examples": [
+          "Lakorja paska fillu me ra (The curve has started to fall)",
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Ta mundim kete pandemi te gjithe se bashku (Let's beat this pandemic all together)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), perhajr (congratulations), ka ra numri (number fell), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Cheering cities ('ma gjall' (faster), 'forza peja'), tags, ads and 'edhe pak e iku' (almost gone) are neutral. Sarcastic praise is negative."
+      },
+      "negative": {
+        "what": "Curses, insults, blaming the government, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "Qeveria koti ika fajet (The Kurti government is to blame)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)",
+          "Mashalla ka hi qeveria e re me kom te mire gjdo dite ma shum raste (Mashallah, the new government came in lucky, more cases daily)"
+        ],
+        "cues": "fajet (to blame), rren (lie), injorant (ignorant), palaqo/bosa/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ma keq (worse), bomb, ZEZA (disaster)",
+        "not_for": "Neutral questions about numbers, without ridicule or a lying claim, are neutral."
+      },
+      "neutral": {
+        "what": "The default: questions, doubts, discrepancies, forecasts, mild worry, advice, complaints without insult, tags, jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Qito dy jav jon kritike! (These two weeks are critical!)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, pse (why), a jon (are they), duhet (should), karantin (quarantine), maska (masks), per marakli (worth worrying about), hahaha",
+        "not_for": "A curse, insult, government blame, horror word or ridicule of the Institute's competence makes it negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does this comment show sincere approval (positive), explicit hostility or despair (negative), or neither (neutral)?",
+      "rule": "Neutral is the default: plain questions, discrepancies, forecasts, mild worry, mask or lockdown advice, complaints without insult, tags, ads and city-ranking jokes. Negative needs a trigger: a curse, an insult word, blame of the government or parties, a lying claim, mockery of the Institute's competence, sarcastic praise, or a horror or despair word (tmer, katastrofe, ma keq). Positive covers sincere thanks, praise, blessings, encouragement and clear relief at falling cases or recoveries, even alongside criticism. A thanks that only prefaces a question is neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Curses, insults, blaming the government, lying claims, ridicule of the Institute, sarcastic praise, horror or despair.",
+        "examples": [
+          "Qeveria koti ika fajet (The Kurti government is to blame)",
+          "183 a 195 se ju ka hup topi diçka kohëve të fundit (183 or 195, you've lost the plot lately)",
+          "Tmerrshem (Horrible)",
+          "Mashalla ka hi qeveria e re me kom te mire gjdo dite ma shum raste (Mashallah, the new government came in lucky, more cases daily)"
+        ],
+        "cues": "fajet (to blame), rren (lie), injorant (ignorant), palaqo/bosa/huti (fool), qifsha (vulgar), tmer (horror), katastrof (catastrophe), ma keq (worse), bomb, ZEZA (disaster)",
+        "not_for": "Neutral questions about numbers, without ridicule or a lying claim, are neutral."
+      },
+      "neutral": {
+        "what": "The default: questions, doubts, discrepancies, forecasts, mild worry, advice, complaints without insult, tags, jokes.",
+        "examples": [
+          "Kta a jon me teste a veq me sy t'testum? (Are these with tests or just tested by eye?)",
+          "Qito dy jav jon kritike! (These two weeks are critical!)",
+          "Dedë Valdrin ma gjall ma gjall (Dedë Valdrin, faster, faster)"
+        ],
+        "cues": "tagged names, pse (why), a jon (are they), duhet (should), karantin (quarantine), maska (masks), per marakli (worth worrying about), hahaha",
+        "not_for": "A curse, insult, government blame, horror word or ridicule of the Institute's competence makes it negative."
+      },
+      "positive": {
+        "what": "Sincere thanks or praise, blessings, congratulations, encouragement, relief at falling cases or recoveries.",
+        "examples": [
+          "Lakorja paska fillu me ra (The curve has started to fall)",
+          "Hallall ju koft si ju ne kosov qe pi sheroni  pacientet nga Covid 19 (Well done to you in Kosovo for curing patients)",
+          "Ta mundim kete pandemi te gjithe se bashku (Let's beat this pandemic all together)"
+        ],
+        "cues": "ju lumt (well done), hallall, bravo, respekt (respect), flm (thanks), perhajr (congratulations), ka ra numri (number fell), te sherum (recovered), Zoti na ruajt (God protect us)",
+        "not_for": "Cheering cities ('ma gjall' (faster), 'forza peja'), tags, ads and 'edhe pak e iku' (almost gone) are neutral. Sarcastic praise is negative."
+      }
+    }
+  }
+}

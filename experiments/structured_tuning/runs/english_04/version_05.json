@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet clearly express a positive or negative feeling, or is it neutral?",
+      "rule": "Pick positive or negative only when the feeling is clear. Positive needs explicit wanting, liking, delight, anticipation or praise ('I want', 'can't wait', 'love', a warm tribute) or news of a clear success. Negative needs a real letdown, sigh, sadness, insult or complaint ('dang it', 'Argh', '#Fml') or news of clear harm such as injury, delay or killing. Merely mentioning plans, outings or shows is neutral, as are 'who's going?' invitations, banter, teasing, wry jokes, opinions about sports, celebrities or politics, and serious headlines framed as plain facts."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Flat or offhand tweets: plans and status updates stated matter-of-factly, questions, invitations, ads, stats, headlines, banter, jokes, and opinions without clear emotion.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Might just watch the 3rd season of American Horror Story tonight",
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Ebola nurse may have been sick before taking the plane"
+        ],
+        "cues": "going to, tomorrow, might, who's going, lol, haha, stats, reportedly, 'may' speculation",
+        "not_for": "Explicit delight or wanting (positive); real personal letdowns or reports of injuries, delays or deaths (negative)."
+      },
+      "positive": {
+        "what": "Clear pleasant feeling: wanting or looking forward to something, enjoyment, love, praise, pride, warm tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "I want, can't wait, love, so excited, proud, great, YES!!, Congratulations, wins, honored",
+        "not_for": "Plans mentioned without feeling, 'who's going with me?' questions, dry ads or listings (neutral)."
+      },
+      "negative": {
+        "what": "Clear unpleasant feeling: personal letdowns, frustration, sadness, insults, angry complaints, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, sucks, hate, worst, #Fml, injured, delayed, killed",
+        "not_for": "Teasing, wry jokes, sports debate, or playful exaggerated gripes (neutral)."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet clearly express a positive or negative feeling, or is it neutral?",
+      "rule": "Pick positive or negative only when the feeling is clear. Positive needs explicit wanting, liking, delight, anticipation or praise ('I want', 'can't wait', 'love', a warm tribute) or news of a clear success. Negative needs a real letdown, sigh, sadness, insult or complaint ('dang it', 'Argh', '#Fml') or news of clear harm such as injury, delay or killing. Merely mentioning plans, outings or shows is neutral, as are 'who's going?' invitations, banter, teasing, wry jokes, opinions about sports, celebrities or politics, and serious headlines framed as plain facts."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Clear pleasant feeling: wanting or looking forward to something, enjoyment, love, praise, pride, warm tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "I want, can't wait, love, so excited, proud, great, YES!!, Congratulations, wins, honored",
+        "not_for": "Plans mentioned without feeling, 'who's going with me?' questions, dry ads or listings (neutral)."
+      },
+      "negative": {
+        "what": "Clear unpleasant feeling: personal letdowns, frustration, sadness, insults, angry complaints, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, sucks, hate, worst, #Fml, injured, delayed, killed",
+        "not_for": "Teasing, wry jokes, sports debate, or playful exaggerated gripes (neutral)."
+      },
+      "neutral": {
+        "what": "Flat or offhand tweets: plans and status updates stated matter-of-factly, questions, invitations, ads, stats, headlines, banter, jokes, and opinions without clear emotion.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Might just watch the 3rd season of American Horror Story tonight",
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Ebola nurse may have been sick before taking the plane"
+        ],
+        "cues": "going to, tomorrow, might, who's going, lol, haha, stats, reportedly, 'may' speculation",
+        "not_for": "Explicit delight or wanting (positive); real personal letdowns or reports of injuries, delays or deaths (negative)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the tweet clearly express a positive or negative feeling, or is it neutral?",
+      "rule": "Pick positive or negative only when the feeling is clear. Positive needs explicit wanting, liking, delight, anticipation or praise ('I want', 'can't wait', 'love', a warm tribute) or news of a clear success. Negative needs a real letdown, sigh, sadness, insult or complaint ('dang it', 'Argh', '#Fml') or news of clear harm such as injury, delay or killing. Merely mentioning plans, outings or shows is neutral, as are 'who's going?' invitations, banter, teasing, wry jokes, opinions about sports, celebrities or politics, and serious headlines framed as plain facts."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Clear unpleasant feeling: personal letdowns, frustration, sadness, insults, angry complaints, or news of clear harm or failure.",
+        "examples": [
+          "Might not be able to get a free taco tomorrow. As Napoleon Dynamite would say, dang it!",
+          "Just remembered I'm taking the PSSAs tomorrow. #Fml",
+          "RT @user Gavin Henson looks set to miss the Rugby World Cup after dislocating a bone in his right wrist yesterday"
+        ],
+        "cues": "dang it, Argh, why oh why, sad, sucks, hate, worst, #Fml, injured, delayed, killed",
+        "not_for": "Teasing, wry jokes, sports debate, or playful exaggerated gripes (neutral)."
+      },
+      "neutral": {
+        "what": "Flat or offhand tweets: plans and status updates stated matter-of-factly, questions, invitations, ads, stats, headlines, banter, jokes, and opinions without clear emotion.",
+        "examples": [
+          "Who going with me to Knott's Saturday?",
+          "Might just watch the 3rd season of American Horror Story tonight",
+          "@user dustin johnson is a thursday fri player when the weekend comes and he has to handle the pressure he folds up like a lawnchair",
+          "Ebola nurse may have been sick before taking the plane"
+        ],
+        "cues": "going to, tomorrow, might, who's going, lol, haha, stats, reportedly, 'may' speculation",
+        "not_for": "Explicit delight or wanting (positive); real personal letdowns or reports of injuries, delays or deaths (negative)."
+      },
+      "positive": {
+        "what": "Clear pleasant feeling: wanting or looking forward to something, enjoyment, love, praise, pride, warm tributes, or news of a clear success.",
+        "examples": [
+          "I want IHOP tomorrow morning",
+          "8th strikeout of the afternoon for David Price's 100th career win!",
+          "Sending my sincere prayers &amp; condolences to the Gifford family on Frank Gifford's passing. May he rest in peace."
+        ],
+        "cues": "I want, can't wait, love, so excited, proud, great, YES!!, Congratulations, wins, honored",
+        "not_for": "Plans mentioned without feeling, 'who's going with me?' questions, dry ads or listings (neutral)."
+      }
+    }
+  }
+}

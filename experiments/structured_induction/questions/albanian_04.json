@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express toward the situation, the institute or the authorities?",
+      "rule": "Positive needs clear praise, thanks, blessings, congratulations, relief or hope (good news such as recoveries or no new cases); praise plus a suggestion or criticism still counts as positive. Negative needs clear distrust, accusation, anger, insult, complaint or explicit sadness. Bare name tags, jokes, plain questions, statistics and observations with no clear emotional stance are neutral, even when they mention deaths or rising cases."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Tagging friends, jokes, banter, factual statements or statistics, questions, off-topic remarks, observations without clear approval or anger.",
+        "examples": [
+          "Besnik Prekazi",
+          "E t sheruar a ska asnja (Are there no recovered ones?)",
+          "Ani kur të fillojn dasmat....+1000 n'ditë (Just wait until weddings start... +1000 a day)",
+          "315 viktima sot, ngushellime familjeve... (315 victims today, condolences to families...)"
+        ],
+        "cues": "personal names alone, hahaha, statistics, questions like qka/a ka (what/is there), jokes about bakllava or weddings",
+        "not_for": "Comments calling the numbers lies or blaming people/government angrily are negative; tags with praise are positive."
+      },
+      "positive": {
+        "what": "Praise for health workers or the institute, thanks to God, wishes for recovery, hope for no new cases, relief at good numbers, praise for a city.",
+        "examples": [
+          "Respekt per punen tuaj (Respect for your work)",
+          "Sherim te shpejt per te gjith. (Quick recovery to all.)",
+          "Super dje 5 raste te sheruar e sot 9 te sheruar. (Great, yesterday 5 recovered and today 9.)",
+          "Bravo Gjakova! (Well done Gjakova!)"
+        ],
+        "cues": "bravo (well done), respekt (respect), ju lumt (well done), flm/faleminderit (thanks), inshallah/ishalla (God willing), Zoti ju bekoft (God bless you), hajr (good fortune), sherim (recovery), urime (congratulations), mir (good)",
+        "not_for": "Sarcastic 'bravo' mocking the numbers is neutral or negative; condolences stated with bare death counts are neutral."
+      },
+      "negative": {
+        "what": "Accusing the institute of lying or inflating/hiding numbers, anger at government or citizens, curses, insults, complaints about lockdowns or testing, explicit sadness or fear.",
+        "examples": [
+          "Krejt Rrena (All lies)",
+          "Trishtim, 15 vdekje edhe dje. (Sadness, 15 deaths yesterday too.)",
+          "Populli tu vujt, Parlamentart tu lujt me ndjenja te popullit per karrik (People are suffering, parliamentarians playing with people's feelings for chairs)"
+        ],
+        "cues": "rrena/rrejt/gënjeshtra (lies), turp (shame), zoti ju vraft/marroft (God curse you), hajgare (farce), trishtim (sadness), e tmerrshme (terrible), poshtë qeveria (down with the government), spo ju besoj (I don't believe you), skan faj (they're to blame)",
+        "not_for": "Mild humorous teasing or neutral reports of rising cases without blame are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express toward the situation, the institute or the authorities?",
+      "rule": "Positive needs clear praise, thanks, blessings, congratulations, relief or hope (good news such as recoveries or no new cases); praise plus a suggestion or criticism still counts as positive. Negative needs clear distrust, accusation, anger, insult, complaint or explicit sadness. Bare name tags, jokes, plain questions, statistics and observations with no clear emotional stance are neutral, even when they mention deaths or rising cases."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Praise for health workers or the institute, thanks to God, wishes for recovery, hope for no new cases, relief at good numbers, praise for a city.",
+        "examples": [
+          "Respekt per punen tuaj (Respect for your work)",
+          "Sherim te shpejt per te gjith. (Quick recovery to all.)",
+          "Super dje 5 raste te sheruar e sot 9 te sheruar. (Great, yesterday 5 recovered and today 9.)",
+          "Bravo Gjakova! (Well done Gjakova!)"
+        ],
+        "cues": "bravo (well done), respekt (respect), ju lumt (well done), flm/faleminderit (thanks), inshallah/ishalla (God willing), Zoti ju bekoft (God bless you), hajr (good fortune), sherim (recovery), urime (congratulations), mir (good)",
+        "not_for": "Sarcastic 'bravo' mocking the numbers is neutral or negative; condolences stated with bare death counts are neutral."
+      },
+      "negative": {
+        "what": "Accusing the institute of lying or inflating/hiding numbers, anger at government or citizens, curses, insults, complaints about lockdowns or testing, explicit sadness or fear.",
+        "examples": [
+          "Krejt Rrena (All lies)",
+          "Trishtim, 15 vdekje edhe dje. (Sadness, 15 deaths yesterday too.)",
+          "Populli tu vujt, Parlamentart tu lujt me ndjenja te popullit per karrik (People are suffering, parliamentarians playing with people's feelings for chairs)"
+        ],
+        "cues": "rrena/rrejt/gënjeshtra (lies), turp (shame), zoti ju vraft/marroft (God curse you), hajgare (farce), trishtim (sadness), e tmerrshme (terrible), poshtë qeveria (down with the government), spo ju besoj (I don't believe you), skan faj (they're to blame)",
+        "not_for": "Mild humorous teasing or neutral reports of rising cases without blame are neutral."
+      },
+      "neutral": {
+        "what": "Tagging friends, jokes, banter, factual statements or statistics, questions, off-topic remarks, observations without clear approval or anger.",
+        "examples": [
+          "Besnik Prekazi",
+          "E t sheruar a ska asnja (Are there no recovered ones?)",
+          "Ani kur të fillojn dasmat....+1000 n'ditë (Just wait until weddings start... +1000 a day)",
+          "315 viktima sot, ngushellime familjeve... (315 victims today, condolences to families...)"
+        ],
+        "cues": "personal names alone, hahaha, statistics, questions like qka/a ka (what/is there), jokes about bakllava or weddings",
+        "not_for": "Comments calling the numbers lies or blaming people/government angrily are negative; tags with praise are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall sentiment does this Facebook comment on the Kosovo public health institute's COVID-19 post express toward the situation, the institute or the authorities?",
+      "rule": "Positive needs clear praise, thanks, blessings, congratulations, relief or hope (good news such as recoveries or no new cases); praise plus a suggestion or criticism still counts as positive. Negative needs clear distrust, accusation, anger, insult, complaint or explicit sadness. Bare name tags, jokes, plain questions, statistics and observations with no clear emotional stance are neutral, even when they mention deaths or rising cases."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Accusing the institute of lying or inflating/hiding numbers, anger at government or citizens, curses, insults, complaints about lockdowns or testing, explicit sadness or fear.",
+        "examples": [
+          "Krejt Rrena (All lies)",
+          "Trishtim, 15 vdekje edhe dje. (Sadness, 15 deaths yesterday too.)",
+          "Populli tu vujt, Parlamentart tu lujt me ndjenja te popullit per karrik (People are suffering, parliamentarians playing with people's feelings for chairs)"
+        ],
+        "cues": "rrena/rrejt/gënjeshtra (lies), turp (shame), zoti ju vraft/marroft (God curse you), hajgare (farce), trishtim (sadness), e tmerrshme (terrible), poshtë qeveria (down with the government), spo ju besoj (I don't believe you), skan faj (they're to blame)",
+        "not_for": "Mild humorous teasing or neutral reports of rising cases without blame are neutral."
+      },
+      "neutral": {
+        "what": "Tagging friends, jokes, banter, factual statements or statistics, questions, off-topic remarks, observations without clear approval or anger.",
+        "examples": [
+          "Besnik Prekazi",
+          "E t sheruar a ska asnja (Are there no recovered ones?)",
+          "Ani kur të fillojn dasmat....+1000 n'ditë (Just wait until weddings start... +1000 a day)",
+          "315 viktima sot, ngushellime familjeve... (315 victims today, condolences to families...)"
+        ],
+        "cues": "personal names alone, hahaha, statistics, questions like qka/a ka (what/is there), jokes about bakllava or weddings",
+        "not_for": "Comments calling the numbers lies or blaming people/government angrily are negative; tags with praise are positive."
+      },
+      "positive": {
+        "what": "Praise for health workers or the institute, thanks to God, wishes for recovery, hope for no new cases, relief at good numbers, praise for a city.",
+        "examples": [
+          "Respekt per punen tuaj (Respect for your work)",
+          "Sherim te shpejt per te gjith. (Quick recovery to all.)",
+          "Super dje 5 raste te sheruar e sot 9 te sheruar. (Great, yesterday 5 recovered and today 9.)",
+          "Bravo Gjakova! (Well done Gjakova!)"
+        ],
+        "cues": "bravo (well done), respekt (respect), ju lumt (well done), flm/faleminderit (thanks), inshallah/ishalla (God willing), Zoti ju bekoft (God bless you), hajr (good fortune), sherim (recovery), urime (congratulations), mir (good)",
+        "not_for": "Sarcastic 'bravo' mocking the numbers is neutral or negative; condolences stated with bare death counts are neutral."
+      }
+    }
+  }
+}
