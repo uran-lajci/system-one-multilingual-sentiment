@@ -1,0 +1,116 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), taking irony into account?",
+      "rule": "Judge the polarity of the reported content, not only the author's tone: headlines about progress, solutions, support, innovation or celebrations are positive even when phrased neutrally, while headlines about threats, decline, controversy, suspension or failure are negative. Ironic praise (\"le meilleur moyen de...\") is read at face value as positive by these annotators. Use neutral only for purely informational announcements, agendas or descriptions with no clear good or bad outcome."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Factual announcements, agendas, meetings, publications, data, or remarks with no evaluative stance on the outcome.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "En réunion avec Sébastien Cartier, Maire-Adjoint en charge de l'Écologie. (In a meeting with the deputy mayor for Ecology.)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), via, infographie",
+        "not_for": "News announcing clear progress (positive) or threats/suspensions (negative)."
+      },
+      "positive": {
+        "what": "Tweets reporting or praising progress, innovations, support schemes, protections, celebrations, approval, or humorous/amused remarks.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Mieux manger peut aussi aider à lutter contre le réchauffement climatique (Eating better can also help fight global warming)",
+          "@user Le meilleur moyen de produire des gaz à effet de serre. (The best way to produce greenhouse gases.)"
+        ],
+        "cues": "boostée (boosted), soutien (support), bravo, bonne idée (good idea), sauvé (saved), protéger (protect), croissance (growth), 😂, enorme (huge)",
+        "not_for": "Plain event or report announcements without a clear benefit are neutral."
+      },
+      "negative": {
+        "what": "Tweets reporting threats, damage, decline, controversy, cancellations, or expressing criticism, anger or insults.",
+        "examples": [
+          "Frênes en péril dans l'Ain : l'espèce est menacée par un champignon (Ash trees in peril: the species is threatened by a fungus)",
+          "Suspension de l'écotaxe : réactions en Alsace (Ecotax suspension: reactions in Alsace)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), polémique (controversy), péril, suspend, inquiétant (worrying), inutile (useless), assassine, corrompus (corrupt), ralentissement (slowdown)",
+        "not_for": "Ironic praise phrased positively is labelled positive; a merely critical-sounding title of a neutral report may be neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), taking irony into account?",
+      "rule": "Judge the polarity of the reported content, not only the author's tone: headlines about progress, solutions, support, innovation or celebrations are positive even when phrased neutrally, while headlines about threats, decline, controversy, suspension or failure are negative. Ironic praise (\"le meilleur moyen de...\") is read at face value as positive by these annotators. Use neutral only for purely informational announcements, agendas or descriptions with no clear good or bad outcome."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Tweets reporting or praising progress, innovations, support schemes, protections, celebrations, approval, or humorous/amused remarks.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Mieux manger peut aussi aider à lutter contre le réchauffement climatique (Eating better can also help fight global warming)",
+          "@user Le meilleur moyen de produire des gaz à effet de serre. (The best way to produce greenhouse gases.)"
+        ],
+        "cues": "boostée (boosted), soutien (support), bravo, bonne idée (good idea), sauvé (saved), protéger (protect), croissance (growth), 😂, enorme (huge)",
+        "not_for": "Plain event or report announcements without a clear benefit are neutral."
+      },
+      "negative": {
+        "what": "Tweets reporting threats, damage, decline, controversy, cancellations, or expressing criticism, anger or insults.",
+        "examples": [
+          "Frênes en péril dans l'Ain : l'espèce est menacée par un champignon (Ash trees in peril: the species is threatened by a fungus)",
+          "Suspension de l'écotaxe : réactions en Alsace (Ecotax suspension: reactions in Alsace)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), polémique (controversy), péril, suspend, inquiétant (worrying), inutile (useless), assassine, corrompus (corrupt), ralentissement (slowdown)",
+        "not_for": "Ironic praise phrased positively is labelled positive; a merely critical-sounding title of a neutral report may be neutral."
+      },
+      "neutral": {
+        "what": "Factual announcements, agendas, meetings, publications, data, or remarks with no evaluative stance on the outcome.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "En réunion avec Sébastien Cartier, Maire-Adjoint en charge de l'Écologie. (In a meeting with the deputy mayor for Ecology.)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), via, infographie",
+        "not_for": "News announcing clear progress (positive) or threats/suspensions (negative)."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), taking irony into account?",
+      "rule": "Judge the polarity of the reported content, not only the author's tone: headlines about progress, solutions, support, innovation or celebrations are positive even when phrased neutrally, while headlines about threats, decline, controversy, suspension or failure are negative. Ironic praise (\"le meilleur moyen de...\") is read at face value as positive by these annotators. Use neutral only for purely informational announcements, agendas or descriptions with no clear good or bad outcome."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Tweets reporting threats, damage, decline, controversy, cancellations, or expressing criticism, anger or insults.",
+        "examples": [
+          "Frênes en péril dans l'Ain : l'espèce est menacée par un champignon (Ash trees in peril: the species is threatened by a fungus)",
+          "Suspension de l'écotaxe : réactions en Alsace (Ecotax suspension: reactions in Alsace)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), polémique (controversy), péril, suspend, inquiétant (worrying), inutile (useless), assassine, corrompus (corrupt), ralentissement (slowdown)",
+        "not_for": "Ironic praise phrased positively is labelled positive; a merely critical-sounding title of a neutral report may be neutral."
+      },
+      "neutral": {
+        "what": "Factual announcements, agendas, meetings, publications, data, or remarks with no evaluative stance on the outcome.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "En réunion avec Sébastien Cartier, Maire-Adjoint en charge de l'Écologie. (In a meeting with the deputy mayor for Ecology.)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), via, infographie",
+        "not_for": "News announcing clear progress (positive) or threats/suspensions (negative)."
+      },
+      "positive": {
+        "what": "Tweets reporting or praising progress, innovations, support schemes, protections, celebrations, approval, or humorous/amused remarks.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Mieux manger peut aussi aider à lutter contre le réchauffement climatique (Eating better can also help fight global warming)",
+          "@user Le meilleur moyen de produire des gaz à effet de serre. (The best way to produce greenhouse gases.)"
+        ],
+        "cues": "boostée (boosted), soutien (support), bravo, bonne idée (good idea), sauvé (saved), protéger (protect), croissance (growth), 😂, enorme (huge)",
+        "not_for": "Plain event or report announcements without a clear benefit are neutral."
+      }
+    }
+  }
+}

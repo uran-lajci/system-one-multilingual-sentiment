@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet lean positive (warmth, fun, liking, cheering), lean negative (complaint, annoyance, mockery, sarcasm, sadness, self-put-down), or show no lean at all (neutral)?",
+      "rule": "Mild feelings count: any gripe, sarcasm, mockery of people, politics or media, or joke about one's own failures is negative, even when it is funny or has a smiley. Any warmth counts as positive: laughter, greetings and shout-outs, cheering, compliments, wishes, or enjoying something. Use neutral only for plain information, plans, questions, quotes or aphorisms, and jokes with no gripe and no warmth. For headlines, follow the event: crime, death or scandal is negative; success, wins, new releases or promotions are positive; routine items are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Plain information, plans, questions, factual remarks, quotes and aphorisms without warmth or complaint, and routine news or announcements.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Gledacu serije. (I'll watch series.)",
+          "RT @MakiJaffa: Dobri ljudi ti donose srecu. Losi iskustvo. (Good people bring you luck. Bad ones experience.)"
+        ],
+        "cues": "plain statements, jel (is it), danas (today), times and dates, link-only shares, neutral RTs of sayings",
+        "not_for": "Anything with a gripe or mockery is negative. Anything with fun, warmth or cheering is positive."
+      },
+      "positive": {
+        "what": "Tweets showing warmth, fun, liking, laughter, cheering, greetings, compliments, wishes or enjoyment, even if low-key or with swearing. Upbeat headlines and promotions.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, :) ;) :* <3 with friendly words, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy), srećan (happy)",
+        "not_for": "Sarcastic 'Volim kad...' (I love it when...) or mock praise is negative. Smileys on top of a complaint are negative."
+      },
+      "negative": {
+        "what": "Complaints, mild gripes about daily life (school, waking up, Monday, boredom, internet), annoyance, sadness, insults, and sarcasm or mockery of people, couples, Facebook habits, politicians or media. Also self-deprecating jokes and headlines about crime or scandal.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "Volim kad obucem jaknu i onda mi kosa pozadi odjednom postaje gnezdo koje nikada nije ocesljano (I love it when I put on my jacket and my hair turns into a never-combed nest)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), jebi ga (damn), dosada (boredom), bljak (yuck), koji kurac (what the hell), stop, glup (stupid), :( , ironic 'naravno' (of course), ubijen/uhapšen (killed/arrested)",
+        "not_for": "Playful banter that is affectionate is positive. Factual political or news statements without mockery are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet lean positive (warmth, fun, liking, cheering), lean negative (complaint, annoyance, mockery, sarcasm, sadness, self-put-down), or show no lean at all (neutral)?",
+      "rule": "Mild feelings count: any gripe, sarcasm, mockery of people, politics or media, or joke about one's own failures is negative, even when it is funny or has a smiley. Any warmth counts as positive: laughter, greetings and shout-outs, cheering, compliments, wishes, or enjoying something. Use neutral only for plain information, plans, questions, quotes or aphorisms, and jokes with no gripe and no warmth. For headlines, follow the event: crime, death or scandal is negative; success, wins, new releases or promotions are positive; routine items are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Tweets showing warmth, fun, liking, laughter, cheering, greetings, compliments, wishes or enjoyment, even if low-key or with swearing. Upbeat headlines and promotions.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, :) ;) :* <3 with friendly words, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy), srećan (happy)",
+        "not_for": "Sarcastic 'Volim kad...' (I love it when...) or mock praise is negative. Smileys on top of a complaint are negative."
+      },
+      "negative": {
+        "what": "Complaints, mild gripes about daily life (school, waking up, Monday, boredom, internet), annoyance, sadness, insults, and sarcasm or mockery of people, couples, Facebook habits, politicians or media. Also self-deprecating jokes and headlines about crime or scandal.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "Volim kad obucem jaknu i onda mi kosa pozadi odjednom postaje gnezdo koje nikada nije ocesljano (I love it when I put on my jacket and my hair turns into a never-combed nest)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), jebi ga (damn), dosada (boredom), bljak (yuck), koji kurac (what the hell), stop, glup (stupid), :( , ironic 'naravno' (of course), ubijen/uhapšen (killed/arrested)",
+        "not_for": "Playful banter that is affectionate is positive. Factual political or news statements without mockery are neutral."
+      },
+      "neutral": {
+        "what": "Plain information, plans, questions, factual remarks, quotes and aphorisms without warmth or complaint, and routine news or announcements.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Gledacu serije. (I'll watch series.)",
+          "RT @MakiJaffa: Dobri ljudi ti donose srecu. Losi iskustvo. (Good people bring you luck. Bad ones experience.)"
+        ],
+        "cues": "plain statements, jel (is it), danas (today), times and dates, link-only shares, neutral RTs of sayings",
+        "not_for": "Anything with a gripe or mockery is negative. Anything with fun, warmth or cheering is positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet lean positive (warmth, fun, liking, cheering), lean negative (complaint, annoyance, mockery, sarcasm, sadness, self-put-down), or show no lean at all (neutral)?",
+      "rule": "Mild feelings count: any gripe, sarcasm, mockery of people, politics or media, or joke about one's own failures is negative, even when it is funny or has a smiley. Any warmth counts as positive: laughter, greetings and shout-outs, cheering, compliments, wishes, or enjoying something. Use neutral only for plain information, plans, questions, quotes or aphorisms, and jokes with no gripe and no warmth. For headlines, follow the event: crime, death or scandal is negative; success, wins, new releases or promotions are positive; routine items are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, mild gripes about daily life (school, waking up, Monday, boredom, internet), annoyance, sadness, insults, and sarcasm or mockery of people, couples, Facebook habits, politicians or media. Also self-deprecating jokes and headlines about crime or scandal.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "Volim kad obucem jaknu i onda mi kosa pozadi odjednom postaje gnezdo koje nikada nije ocesljano (I love it when I put on my jacket and my hair turns into a never-combed nest)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), jebi ga (damn), dosada (boredom), bljak (yuck), koji kurac (what the hell), stop, glup (stupid), :( , ironic 'naravno' (of course), ubijen/uhapšen (killed/arrested)",
+        "not_for": "Playful banter that is affectionate is positive. Factual political or news statements without mockery are neutral."
+      },
+      "neutral": {
+        "what": "Plain information, plans, questions, factual remarks, quotes and aphorisms without warmth or complaint, and routine news or announcements.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Gledacu serije. (I'll watch series.)",
+          "RT @MakiJaffa: Dobri ljudi ti donose srecu. Losi iskustvo. (Good people bring you luck. Bad ones experience.)"
+        ],
+        "cues": "plain statements, jel (is it), danas (today), times and dates, link-only shares, neutral RTs of sayings",
+        "not_for": "Anything with a gripe or mockery is negative. Anything with fun, warmth or cheering is positive."
+      },
+      "positive": {
+        "what": "Tweets showing warmth, fun, liking, laughter, cheering, greetings, compliments, wishes or enjoyment, even if low-key or with swearing. Upbeat headlines and promotions.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, :) ;) :* <3 with friendly words, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy), srećan (happy)",
+        "not_for": "Sarcastic 'Volim kad...' (I love it when...) or mock praise is negative. Smileys on top of a complaint are negative."
+      }
+    }
+  }
+}

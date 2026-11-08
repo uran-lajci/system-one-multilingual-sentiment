@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Negative needs clear distress, anger, insult, sadness or a genuinely harmful event. Everyday gripes, hyperbolic jokes, puzzled questions, quotes or lyrics and wry self-observations are neutral. Shared news, promos and announcements about constructive, pleasant or community topics (sport, culture, education, events, products, services) are positive even when written flatly. Bare data, check-ins and laugh-only replies or banter with emoticons are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Bare facts, check-ins, vote counts, banter, laugh-only replies, puzzled questions, quotes, lyrics, everyday gripes and hyperbolic jokes without real distress.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "Kako objasniti to da neko zivi u Njemackoj godinama i pise StuDgart????????? (How to explain someone living in Germany for years writing StuDgart?)",
+          "@MilicaDujovic HAHAHAHAHHAHA, UPRAVOO, EE (HAHAHA, exactly)"
+        ],
+        "cues": "I'm at, ?, zašto (why), ko normalan (who in their right mind), umrem/umirem in jokes (I'm dying), haha, :P, ponedjeljak (Monday), +",
+        "not_for": "News or ads about pleasant or constructive topics are positive. Clearly harmful events (attacks, crimes, incidents) are negative."
+      },
+      "positive": {
+        "what": "Joy, love, praise, enthusiasm, warm wishes, or links, ads and announcements about constructive, pleasant or beneficial things.",
+        "examples": [
+          "Danas počinje skijanje na Vlašiću (Skiing starts today on Vlašić)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)",
+          "Koja gotiva danas prva dva casa na sekciji, i sad peti nemam ma ee uzivanjeee (What fun today, and no fifth class, enjoyment!)",
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I can't wait for snow.)"
+        ],
+        "cues": "volim (I love), jedva čekam (can't wait), uživanje (enjoyment), gotiva (fun), počinje (starts), nagrađena (awarded), podrška (support), prijatno (enjoy), <3",
+        "not_for": "Replies that are just laughter or emoticons (HAHAHA, :P, xD) without warmth are neutral. Sad content with a :) at the end is negative."
+      },
+      "negative": {
+        "what": "Real anger, insults, heartbreak, sadness, loneliness, jealousy, disgust, or headlines about harmful events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), srce puca (heart breaks), placem (I cry), glupe (stupid), kilnuću (I'll kill), :(",
+        "not_for": "Exaggerated complaints about tiredness, food, study or weather, said as a joke, are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Negative needs clear distress, anger, insult, sadness or a genuinely harmful event. Everyday gripes, hyperbolic jokes, puzzled questions, quotes or lyrics and wry self-observations are neutral. Shared news, promos and announcements about constructive, pleasant or community topics (sport, culture, education, events, products, services) are positive even when written flatly. Bare data, check-ins and laugh-only replies or banter with emoticons are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, love, praise, enthusiasm, warm wishes, or links, ads and announcements about constructive, pleasant or beneficial things.",
+        "examples": [
+          "Danas počinje skijanje na Vlašiću (Skiing starts today on Vlašić)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)",
+          "Koja gotiva danas prva dva casa na sekciji, i sad peti nemam ma ee uzivanjeee (What fun today, and no fifth class, enjoyment!)",
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I can't wait for snow.)"
+        ],
+        "cues": "volim (I love), jedva čekam (can't wait), uživanje (enjoyment), gotiva (fun), počinje (starts), nagrađena (awarded), podrška (support), prijatno (enjoy), <3",
+        "not_for": "Replies that are just laughter or emoticons (HAHAHA, :P, xD) without warmth are neutral. Sad content with a :) at the end is negative."
+      },
+      "negative": {
+        "what": "Real anger, insults, heartbreak, sadness, loneliness, jealousy, disgust, or headlines about harmful events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), srce puca (heart breaks), placem (I cry), glupe (stupid), kilnuću (I'll kill), :(",
+        "not_for": "Exaggerated complaints about tiredness, food, study or weather, said as a joke, are neutral."
+      },
+      "neutral": {
+        "what": "Bare facts, check-ins, vote counts, banter, laugh-only replies, puzzled questions, quotes, lyrics, everyday gripes and hyperbolic jokes without real distress.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "Kako objasniti to da neko zivi u Njemackoj godinama i pise StuDgart????????? (How to explain someone living in Germany for years writing StuDgart?)",
+          "@MilicaDujovic HAHAHAHAHHAHA, UPRAVOO, EE (HAHAHA, exactly)"
+        ],
+        "cues": "I'm at, ?, zašto (why), ko normalan (who in their right mind), umrem/umirem in jokes (I'm dying), haha, :P, ponedjeljak (Monday), +",
+        "not_for": "News or ads about pleasant or constructive topics are positive. Clearly harmful events (attacks, crimes, incidents) are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Negative needs clear distress, anger, insult, sadness or a genuinely harmful event. Everyday gripes, hyperbolic jokes, puzzled questions, quotes or lyrics and wry self-observations are neutral. Shared news, promos and announcements about constructive, pleasant or community topics (sport, culture, education, events, products, services) are positive even when written flatly. Bare data, check-ins and laugh-only replies or banter with emoticons are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Real anger, insults, heartbreak, sadness, loneliness, jealousy, disgust, or headlines about harmful events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), srce puca (heart breaks), placem (I cry), glupe (stupid), kilnuću (I'll kill), :(",
+        "not_for": "Exaggerated complaints about tiredness, food, study or weather, said as a joke, are neutral."
+      },
+      "neutral": {
+        "what": "Bare facts, check-ins, vote counts, banter, laugh-only replies, puzzled questions, quotes, lyrics, everyday gripes and hyperbolic jokes without real distress.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "Kako objasniti to da neko zivi u Njemackoj godinama i pise StuDgart????????? (How to explain someone living in Germany for years writing StuDgart?)",
+          "@MilicaDujovic HAHAHAHAHHAHA, UPRAVOO, EE (HAHAHA, exactly)"
+        ],
+        "cues": "I'm at, ?, zašto (why), ko normalan (who in their right mind), umrem/umirem in jokes (I'm dying), haha, :P, ponedjeljak (Monday), +",
+        "not_for": "News or ads about pleasant or constructive topics are positive. Clearly harmful events (attacks, crimes, incidents) are negative."
+      },
+      "positive": {
+        "what": "Joy, love, praise, enthusiasm, warm wishes, or links, ads and announcements about constructive, pleasant or beneficial things.",
+        "examples": [
+          "Danas počinje skijanje na Vlašiću (Skiing starts today on Vlašić)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)",
+          "Koja gotiva danas prva dva casa na sekciji, i sad peti nemam ma ee uzivanjeee (What fun today, and no fifth class, enjoyment!)",
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I can't wait for snow.)"
+        ],
+        "cues": "volim (I love), jedva čekam (can't wait), uživanje (enjoyment), gotiva (fun), počinje (starts), nagrađena (awarded), podrška (support), prijatno (enjoy), <3",
+        "not_for": "Replies that are just laughter or emoticons (HAHAHA, :P, xD) without warmth are neutral. Sad content with a :) at the end is negative."
+      }
+    }
+  }
+}

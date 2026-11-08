@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Positive needs an outcome framed as good: success, improvement, benefit, expansion or coming into service of green capacity, approval, award, inauguration, protection, celebration, praise or advocacy (ironic praise counts literally). Negative needs harm, threat, decline, suspension, scandal, opposition, criticism or insult. Neutral covers headlines that merely present a technology, building, project, sum, forecast or test without such wording, and announcements of events (forum, festival, colloquium, round table, save the date, meeting), puns, banter and anecdotes."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Information without a framed outcome: descriptions of technologies or projects, amounts, forecasts, tests, data, event announcements, meetings, puns, chit-chat.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http @user #energie (Innovation: transparent tiles to capture solar energy)",
+          "Un dispositif de stockage de l'#énergie solaire va être testé à #Lausanne #DD  http (A solar energy storage device will be tested in Lausanne)",
+          "Le 12ème Festival du #Livre et de la #Presse écologiques c'est en octobre à #Paris http #ecologie http (The 12th ecological book and press festival is in October in Paris)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), save the date, colloque (colloquium), festival, table ronde (round table), va être testé (will be tested), pourrait (could), millions, ?, puns on vent (wind)",
+        "not_for": "Headlines with success, benefit, expansion or approval wording are positive; harm or suspension is negative."
+      },
+      "positive": {
+        "what": "Achievements, improvements, benefits, expansions or deployments of green capacity, approvals, awards, inaugurations, reinforced support, protections, celebrations, praise, thanks, enthusiasm, advocacy, or literal praise used ironically.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Des #eoliennes moins bruyantes grâce au hibou http #energie #innovation (Quieter wind turbines thanks to the owl)",
+          "Les écologistes applaudissent la décision de Ségolène Royal (Ecologists applaud Ségolène Royal's decision)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), grâce à (thanks to), prometteuse (promising), accroître (increase), plus grande (largest), bientôt opérationnel (soon operational), déploiement (deployment), autorisée (authorised), inauguration, mise sur (bets on), renforcées (reinforced), applaudissent (applaud), lauréat (winner), bravo, merci",
+        "not_for": "Bare presentations of a technology, project, sum or forecast, and event announcements, are neutral."
+      },
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Positive needs an outcome framed as good: success, improvement, benefit, expansion or coming into service of green capacity, approval, award, inauguration, protection, celebration, praise or advocacy (ironic praise counts literally). Negative needs harm, threat, decline, suspension, scandal, opposition, criticism or insult. Neutral covers headlines that merely present a technology, building, project, sum, forecast or test without such wording, and announcements of events (forum, festival, colloquium, round table, save the date, meeting), puns, banter and anecdotes."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Achievements, improvements, benefits, expansions or deployments of green capacity, approvals, awards, inaugurations, reinforced support, protections, celebrations, praise, thanks, enthusiasm, advocacy, or literal praise used ironically.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Des #eoliennes moins bruyantes grâce au hibou http #energie #innovation (Quieter wind turbines thanks to the owl)",
+          "Les écologistes applaudissent la décision de Ségolène Royal (Ecologists applaud Ségolène Royal's decision)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), grâce à (thanks to), prometteuse (promising), accroître (increase), plus grande (largest), bientôt opérationnel (soon operational), déploiement (deployment), autorisée (authorised), inauguration, mise sur (bets on), renforcées (reinforced), applaudissent (applaud), lauréat (winner), bravo, merci",
+        "not_for": "Bare presentations of a technology, project, sum or forecast, and event announcements, are neutral."
+      },
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      },
+      "neutral": {
+        "what": "Information without a framed outcome: descriptions of technologies or projects, amounts, forecasts, tests, data, event announcements, meetings, puns, chit-chat.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http @user #energie (Innovation: transparent tiles to capture solar energy)",
+          "Un dispositif de stockage de l'#énergie solaire va être testé à #Lausanne #DD  http (A solar energy storage device will be tested in Lausanne)",
+          "Le 12ème Festival du #Livre et de la #Presse écologiques c'est en octobre à #Paris http #ecologie http (The 12th ecological book and press festival is in October in Paris)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), save the date, colloque (colloquium), festival, table ronde (round table), va être testé (will be tested), pourrait (could), millions, ?, puns on vent (wind)",
+        "not_for": "Headlines with success, benefit, expansion or approval wording are positive; harm or suspension is negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Positive needs an outcome framed as good: success, improvement, benefit, expansion or coming into service of green capacity, approval, award, inauguration, protection, celebration, praise or advocacy (ironic praise counts literally). Negative needs harm, threat, decline, suspension, scandal, opposition, criticism or insult. Neutral covers headlines that merely present a technology, building, project, sum, forecast or test without such wording, and announcements of events (forum, festival, colloquium, round table, save the date, meeting), puns, banter and anecdotes."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      },
+      "neutral": {
+        "what": "Information without a framed outcome: descriptions of technologies or projects, amounts, forecasts, tests, data, event announcements, meetings, puns, chit-chat.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http @user #energie (Innovation: transparent tiles to capture solar energy)",
+          "Un dispositif de stockage de l'#énergie solaire va être testé à #Lausanne #DD  http (A solar energy storage device will be tested in Lausanne)",
+          "Le 12ème Festival du #Livre et de la #Presse écologiques c'est en octobre à #Paris http #ecologie http (The 12th ecological book and press festival is in October in Paris)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), save the date, colloque (colloquium), festival, table ronde (round table), va être testé (will be tested), pourrait (could), millions, ?, puns on vent (wind)",
+        "not_for": "Headlines with success, benefit, expansion or approval wording are positive; harm or suspension is negative."
+      },
+      "positive": {
+        "what": "Achievements, improvements, benefits, expansions or deployments of green capacity, approvals, awards, inaugurations, reinforced support, protections, celebrations, praise, thanks, enthusiasm, advocacy, or literal praise used ironically.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Des #eoliennes moins bruyantes grâce au hibou http #energie #innovation (Quieter wind turbines thanks to the owl)",
+          "Les écologistes applaudissent la décision de Ségolène Royal (Ecologists applaud Ségolène Royal's decision)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), grâce à (thanks to), prometteuse (promising), accroître (increase), plus grande (largest), bientôt opérationnel (soon operational), déploiement (deployment), autorisée (authorised), inauguration, mise sur (bets on), renforcées (reinforced), applaudissent (applaud), lauréat (winner), bravo, merci",
+        "not_for": "Bare presentations of a technology, project, sum or forecast, and event announcements, are neutral."
+      }
+    }
+  }
+}

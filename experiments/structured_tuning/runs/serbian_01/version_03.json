@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet clearly express a positive feeling (warmth, joy, fun, cheering), a negative feeling (own displeasure, sadness, anger, sharp sarcasm), or neither (neutral)?",
+      "rule": "Negative needs the poster's own clear displeasure (hate, boredom, pain, tiredness, sadness, cursing a situation) or a pointed sarcastic or contemptuous jab. Witty generalisations about people, sexes, ages or social media, hyperbolic self-anecdotes, teasing, and opinions without open contempt are neutral. Positive needs clear warmth: laughter, greetings, cheering, compliments, wishes or enjoyment. For headlines, crime or scandal is negative, success or new releases are positive, and routine items are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Information, plans, questions, quotes, observational humour, generalisations, absurd self-anecdotes, banter, mild opinions and routine news.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "Ostavila sam upaljen lap top i tv celu noć upss (I left the laptop and TV on all night oops)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like), jel (is it), upss (oops), :P, remarks about 'ljudi/žene/muškarci' (people/women/men), link shares",
+        "not_for": "Explicit personal displeasure or a cutting jab is negative. Clear warmth is positive."
+      },
+      "positive": {
+        "what": "Clear warmth, joy, laughter, cheering, greetings, compliments, wishes or enjoyment, even with swearing. Upbeat headlines.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy)",
+        "not_for": "Mock praise is negative. A plain reply with only a smiley is neutral."
+      },
+      "negative": {
+        "what": "The poster's own displeasure, boredom, pain, sadness or self-put-downs. Also sharp sarcasm or contempt toward people, politicians or media, and crime or scandal headlines.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), bljak (yuck), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Funny exaggerated mishaps without real complaint are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet clearly express a positive feeling (warmth, joy, fun, cheering), a negative feeling (own displeasure, sadness, anger, sharp sarcasm), or neither (neutral)?",
+      "rule": "Negative needs the poster's own clear displeasure (hate, boredom, pain, tiredness, sadness, cursing a situation) or a pointed sarcastic or contemptuous jab. Witty generalisations about people, sexes, ages or social media, hyperbolic self-anecdotes, teasing, and opinions without open contempt are neutral. Positive needs clear warmth: laughter, greetings, cheering, compliments, wishes or enjoyment. For headlines, crime or scandal is negative, success or new releases are positive, and routine items are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Clear warmth, joy, laughter, cheering, greetings, compliments, wishes or enjoyment, even with swearing. Upbeat headlines.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy)",
+        "not_for": "Mock praise is negative. A plain reply with only a smiley is neutral."
+      },
+      "negative": {
+        "what": "The poster's own displeasure, boredom, pain, sadness or self-put-downs. Also sharp sarcasm or contempt toward people, politicians or media, and crime or scandal headlines.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), bljak (yuck), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Funny exaggerated mishaps without real complaint are neutral."
+      },
+      "neutral": {
+        "what": "Information, plans, questions, quotes, observational humour, generalisations, absurd self-anecdotes, banter, mild opinions and routine news.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "Ostavila sam upaljen lap top i tv celu noć upss (I left the laptop and TV on all night oops)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like), jel (is it), upss (oops), :P, remarks about 'ljudi/žene/muškarci' (people/women/men), link shares",
+        "not_for": "Explicit personal displeasure or a cutting jab is negative. Clear warmth is positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "Does the poster of this Serbian tweet clearly express a positive feeling (warmth, joy, fun, cheering), a negative feeling (own displeasure, sadness, anger, sharp sarcasm), or neither (neutral)?",
+      "rule": "Negative needs the poster's own clear displeasure (hate, boredom, pain, tiredness, sadness, cursing a situation) or a pointed sarcastic or contemptuous jab. Witty generalisations about people, sexes, ages or social media, hyperbolic self-anecdotes, teasing, and opinions without open contempt are neutral. Positive needs clear warmth: laughter, greetings, cheering, compliments, wishes or enjoyment. For headlines, crime or scandal is negative, success or new releases are positive, and routine items are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "The poster's own displeasure, boredom, pain, sadness or self-put-downs. Also sharp sarcasm or contempt toward people, politicians or media, and crime or scandal headlines.",
+        "examples": [
+          "Mrzim ponedeljak (I hate Monday)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), bljak (yuck), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Funny exaggerated mishaps without real complaint are neutral."
+      },
+      "neutral": {
+        "what": "Information, plans, questions, quotes, observational humour, generalisations, absurd self-anecdotes, banter, mild opinions and routine news.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "Ostavila sam upaljen lap top i tv celu noć upss (I left the laptop and TV on all night oops)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like), jel (is it), upss (oops), :P, remarks about 'ljudi/žene/muškarci' (people/women/men), link shares",
+        "not_for": "Explicit personal displeasure or a cutting jab is negative. Clear warmth is positive."
+      },
+      "positive": {
+        "what": "Clear warmth, joy, laughter, cheering, greetings, compliments, wishes or enjoyment, even with swearing. Upbeat headlines.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Ajmoo Doktori @doktorixfactor #xfactoradria (Come on Doktori!)",
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)"
+        ],
+        "cues": "HAHAHA, ajmo (come on), pozdrav (greetings), do jaja (awesome), car (king), volim (I love), uživam (I enjoy)",
+        "not_for": "Mock praise is negative. A plain reply with only a smiley is neutral."
+      }
+    }
+  }
+}

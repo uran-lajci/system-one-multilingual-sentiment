@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Serbian tweet express: positive (warmth, joy, praise, fun, even low-key), negative (distress, anger, contempt, self-put-down, sarcastic mockery), or neutral (no clear feeling)?",
+      "rule": "Count any genuine warmth as positive, even when low-key: greetings and shout-outs, thanks, friendly compliments, loud laughter, cheering, warm wishes, daydreams, or enjoying something. Negative needs clear displeasure, sadness, insults, sarcastic praise, mockery of others, or calling oneself ugly, stupid or a failure. Witty observations, absurd anecdotes, mild everyday grumbling, aphorisms, questions, plain announcements and replies with only a smiley are neutral. For headlines, crime or scandal is negative, wins or awards are positive, and routine news is neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Jokes, witty or absurd observations, aphorisms, plans, questions, mild daily grumbles, factual replies and routine announcements without clear feeling.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "I tako već tri sata kao učim hemiju (And so for three hours I'm 'studying' chemistry)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like/supposedly), jel (is it), da li (whether), :P, dates, link shares, sayings",
+        "not_for": "Warm greetings, thanks or laughter are positive. Real anger, insults, sadness or self-put-downs are negative."
+      },
+      "positive": {
+        "what": "Joy, love, praise or excitement, and low-key warmth: greetings, thanks, compliments, laughter, cheering, warm wishes, daydreams, enjoyment. Also headlines about wins or awards.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Em smo pomrli od smeha em ovaj Andrija ima predobra ledja i šta ćete više :))) (We died laughing and this Andrija has a great back, what more do you want :))))",
+          "Uskoro drugi deo House of cards, sjajno! (Second season of House of Cards soon, great!)"
+        ],
+        "cues": "pozdrav (greetings), hvala (thanks), do jaja (awesome), car (king), ajmo (come on), živeo (long live), sjajno (great), uživam (I enjoy), HAHAHA, :* ;) :)))",
+        "not_for": "Mock praise ('lepo je sto ih ... savetuje' / nice that she advises them) is negative. A plain announcement or a factual reply with a smiley is neutral."
+      },
+      "negative": {
+        "what": "Real complaints, anger, sadness, disappointment, insults, contemptuous sarcasm, political mockery, self-put-downs, and crime or scandal headlines.",
+        "examples": [
+          "Je li to sutra ponedeljak?! Jebi ga, jeste. (Is tomorrow Monday?! Damn, it is.)",
+          "RT @Johnny94Serbia: Svake godine provalim koliko sam prethodne bio ružan i glup. Ali svake. (Every year I realize how ugly and stupid I was the year before.)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "jebi ga (damn), glup/debil (stupid/idiot), ružan (ugly), sramota (shame), tuga (sadness), mrzim (I hate), ubijen (killed), :(",
+        "not_for": "Light grumbling or funny observations without real bitterness are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Serbian tweet express: positive (warmth, joy, praise, fun, even low-key), negative (distress, anger, contempt, self-put-down, sarcastic mockery), or neutral (no clear feeling)?",
+      "rule": "Count any genuine warmth as positive, even when low-key: greetings and shout-outs, thanks, friendly compliments, loud laughter, cheering, warm wishes, daydreams, or enjoying something. Negative needs clear displeasure, sadness, insults, sarcastic praise, mockery of others, or calling oneself ugly, stupid or a failure. Witty observations, absurd anecdotes, mild everyday grumbling, aphorisms, questions, plain announcements and replies with only a smiley are neutral. For headlines, crime or scandal is negative, wins or awards are positive, and routine news is neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, love, praise or excitement, and low-key warmth: greetings, thanks, compliments, laughter, cheering, warm wishes, daydreams, enjoyment. Also headlines about wins or awards.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Em smo pomrli od smeha em ovaj Andrija ima predobra ledja i šta ćete više :))) (We died laughing and this Andrija has a great back, what more do you want :))))",
+          "Uskoro drugi deo House of cards, sjajno! (Second season of House of Cards soon, great!)"
+        ],
+        "cues": "pozdrav (greetings), hvala (thanks), do jaja (awesome), car (king), ajmo (come on), živeo (long live), sjajno (great), uživam (I enjoy), HAHAHA, :* ;) :)))",
+        "not_for": "Mock praise ('lepo je sto ih ... savetuje' / nice that she advises them) is negative. A plain announcement or a factual reply with a smiley is neutral."
+      },
+      "negative": {
+        "what": "Real complaints, anger, sadness, disappointment, insults, contemptuous sarcasm, political mockery, self-put-downs, and crime or scandal headlines.",
+        "examples": [
+          "Je li to sutra ponedeljak?! Jebi ga, jeste. (Is tomorrow Monday?! Damn, it is.)",
+          "RT @Johnny94Serbia: Svake godine provalim koliko sam prethodne bio ružan i glup. Ali svake. (Every year I realize how ugly and stupid I was the year before.)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "jebi ga (damn), glup/debil (stupid/idiot), ružan (ugly), sramota (shame), tuga (sadness), mrzim (I hate), ubijen (killed), :(",
+        "not_for": "Light grumbling or funny observations without real bitterness are neutral."
+      },
+      "neutral": {
+        "what": "Jokes, witty or absurd observations, aphorisms, plans, questions, mild daily grumbles, factual replies and routine announcements without clear feeling.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "I tako već tri sata kao učim hemiju (And so for three hours I'm 'studying' chemistry)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like/supposedly), jel (is it), da li (whether), :P, dates, link shares, sayings",
+        "not_for": "Warm greetings, thanks or laughter are positive. Real anger, insults, sadness or self-put-downs are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Serbian tweet express: positive (warmth, joy, praise, fun, even low-key), negative (distress, anger, contempt, self-put-down, sarcastic mockery), or neutral (no clear feeling)?",
+      "rule": "Count any genuine warmth as positive, even when low-key: greetings and shout-outs, thanks, friendly compliments, loud laughter, cheering, warm wishes, daydreams, or enjoying something. Negative needs clear displeasure, sadness, insults, sarcastic praise, mockery of others, or calling oneself ugly, stupid or a failure. Witty observations, absurd anecdotes, mild everyday grumbling, aphorisms, questions, plain announcements and replies with only a smiley are neutral. For headlines, crime or scandal is negative, wins or awards are positive, and routine news is neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Real complaints, anger, sadness, disappointment, insults, contemptuous sarcasm, political mockery, self-put-downs, and crime or scandal headlines.",
+        "examples": [
+          "Je li to sutra ponedeljak?! Jebi ga, jeste. (Is tomorrow Monday?! Damn, it is.)",
+          "RT @Johnny94Serbia: Svake godine provalim koliko sam prethodne bio ružan i glup. Ali svake. (Every year I realize how ugly and stupid I was the year before.)",
+          "Srpski bokser ubijen zbog ucene (Serbian boxer killed over blackmail)"
+        ],
+        "cues": "jebi ga (damn), glup/debil (stupid/idiot), ružan (ugly), sramota (shame), tuga (sadness), mrzim (I hate), ubijen (killed), :(",
+        "not_for": "Light grumbling or funny observations without real bitterness are neutral."
+      },
+      "neutral": {
+        "what": "Jokes, witty or absurd observations, aphorisms, plans, questions, mild daily grumbles, factual replies and routine announcements without clear feeling.",
+        "examples": [
+          "Igram tenis kao @DjokerNole  ali nemam milione da to I dokazem. (I play tennis like Djokovic but don't have millions to prove it.)",
+          "I tako već tri sata kao učim hemiju (And so for three hours I'm 'studying' chemistry)",
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)"
+        ],
+        "cues": "kao (like/supposedly), jel (is it), da li (whether), :P, dates, link shares, sayings",
+        "not_for": "Warm greetings, thanks or laughter are positive. Real anger, insults, sadness or self-put-downs are negative."
+      },
+      "positive": {
+        "what": "Joy, love, praise or excitement, and low-key warmth: greetings, thanks, compliments, laughter, cheering, warm wishes, daydreams, enjoyment. Also headlines about wins or awards.",
+        "examples": [
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)",
+          "Pozdrav za @atjah sa kruševačke obilaznice ;) (Greetings to @atjah from the Kruševac bypass ;))",
+          "Em smo pomrli od smeha em ovaj Andrija ima predobra ledja i šta ćete više :))) (We died laughing and this Andrija has a great back, what more do you want :))))",
+          "Uskoro drugi deo House of cards, sjajno! (Second season of House of Cards soon, great!)"
+        ],
+        "cues": "pozdrav (greetings), hvala (thanks), do jaja (awesome), car (king), ajmo (come on), živeo (long live), sjajno (great), uživam (I enjoy), HAHAHA, :* ;) :)))",
+        "not_for": "Mock praise ('lepo je sto ih ... savetuje' / nice that she advises them) is negative. A plain announcement or a factual reply with a smiley is neutral."
+      }
+    }
+  }
+}

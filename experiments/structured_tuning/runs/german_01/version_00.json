@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own attitude, not the topic. News headlines, ads, weather and plain reports stay neutral even when the topic is bad (war, surveillance, Fukushima) or good (prizes), unless the author adds wording or emoticons that show feeling. Emoticons, wishes, thanks, praise, joking banter and affectionate lines count as positive. Complaints, sarcasm, insults, disgust, sadness or a sad emoticon count as negative, even when the message is polite or contains a smiley elsewhere."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "News headlines, ads, classifieds, weather reports, check-ins, factual questions and statements with no clear feeling from the author, including reports of bad events.",
+        "examples": [
+          "RT @user: Deutsche Telekom überwacht ihre Kunden im grossen Stil http (Deutsche Telekom monitors its customers on a large scale)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)",
+          "@user hmmm, könnte sein. Bin mir da nicht sicher (hmm, could be. I'm not sure)"
+        ],
+        "cues": "headline style followed by a link, 'RT' of news, prices and sizes, (@ place), dates and temperatures, open questions",
+        "not_for": "Headlines the author comments on with emotion, e.g. 'Unfassbar!' (unbelievable!) or ':-(', are negative. Ads that praise the product ('Tolle', 'WIE NEU!') are positive."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, congratulations, good wishes, affection, playful teasing or excitement about an event or win.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user kann dich echt gut verstehen bin leider auch Erkältet. Gute Besserung (I really understand you, unfortunately I have a cold too. Get well soon)",
+          "@user extrem hübsch! (extremely pretty!)"
+        ],
+        "cues": ":) / :D / 😂 / ♥, Glückwunsch (congratulations), endlich (finally), danke (thanks), toll (great), lecker (tasty), gute Besserung (get well soon), willkommen (welcome)",
+        "not_for": "Polite messages whose main point is a letdown or a sad emoticon, e.g. 'leider nicht in meiner Nähe ;)' (unfortunately not near me), are negative. Plain news about a success is neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, disgust, sadness, mockery, sarcasm, insults, self-deprecation or criticism of people, products, politics or events.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "@user lächerlich! (ridiculous!)",
+          "Börse Frankfurt: US-Geldpolitik macht dem Dax zu schaffen http (US monetary policy is troubling the Dax)"
+        ],
+        "cues": ":( / 😔, scheiße (shit), nervig (annoying), ekelhaft (disgusting), zum Kotzen (sickening), leider (unfortunately), hasse (hate), Schade (pity), Pfffff, unmöglich (impossible)",
+        "not_for": "Neutral reports of disasters or criticism by third parties, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Jokey teasing with laughing emoticons is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own attitude, not the topic. News headlines, ads, weather and plain reports stay neutral even when the topic is bad (war, surveillance, Fukushima) or good (prizes), unless the author adds wording or emoticons that show feeling. Emoticons, wishes, thanks, praise, joking banter and affectionate lines count as positive. Complaints, sarcasm, insults, disgust, sadness or a sad emoticon count as negative, even when the message is polite or contains a smiley elsewhere."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, thanks, congratulations, good wishes, affection, playful teasing or excitement about an event or win.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user kann dich echt gut verstehen bin leider auch Erkältet. Gute Besserung (I really understand you, unfortunately I have a cold too. Get well soon)",
+          "@user extrem hübsch! (extremely pretty!)"
+        ],
+        "cues": ":) / :D / 😂 / ♥, Glückwunsch (congratulations), endlich (finally), danke (thanks), toll (great), lecker (tasty), gute Besserung (get well soon), willkommen (welcome)",
+        "not_for": "Polite messages whose main point is a letdown or a sad emoticon, e.g. 'leider nicht in meiner Nähe ;)' (unfortunately not near me), are negative. Plain news about a success is neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, disgust, sadness, mockery, sarcasm, insults, self-deprecation or criticism of people, products, politics or events.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "@user lächerlich! (ridiculous!)",
+          "Börse Frankfurt: US-Geldpolitik macht dem Dax zu schaffen http (US monetary policy is troubling the Dax)"
+        ],
+        "cues": ":( / 😔, scheiße (shit), nervig (annoying), ekelhaft (disgusting), zum Kotzen (sickening), leider (unfortunately), hasse (hate), Schade (pity), Pfffff, unmöglich (impossible)",
+        "not_for": "Neutral reports of disasters or criticism by third parties, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Jokey teasing with laughing emoticons is positive."
+      },
+      "neutral": {
+        "what": "News headlines, ads, classifieds, weather reports, check-ins, factual questions and statements with no clear feeling from the author, including reports of bad events.",
+        "examples": [
+          "RT @user: Deutsche Telekom überwacht ihre Kunden im grossen Stil http (Deutsche Telekom monitors its customers on a large scale)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)",
+          "@user hmmm, könnte sein. Bin mir da nicht sicher (hmm, could be. I'm not sure)"
+        ],
+        "cues": "headline style followed by a link, 'RT' of news, prices and sizes, (@ place), dates and temperatures, open questions",
+        "not_for": "Headlines the author comments on with emotion, e.g. 'Unfassbar!' (unbelievable!) or ':-(', are negative. Ads that praise the product ('Tolle', 'WIE NEU!') are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own attitude, not the topic. News headlines, ads, weather and plain reports stay neutral even when the topic is bad (war, surveillance, Fukushima) or good (prizes), unless the author adds wording or emoticons that show feeling. Emoticons, wishes, thanks, praise, joking banter and affectionate lines count as positive. Complaints, sarcasm, insults, disgust, sadness or a sad emoticon count as negative, even when the message is polite or contains a smiley elsewhere."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, annoyance, disgust, sadness, mockery, sarcasm, insults, self-deprecation or criticism of people, products, politics or events.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "@user lächerlich! (ridiculous!)",
+          "Börse Frankfurt: US-Geldpolitik macht dem Dax zu schaffen http (US monetary policy is troubling the Dax)"
+        ],
+        "cues": ":( / 😔, scheiße (shit), nervig (annoying), ekelhaft (disgusting), zum Kotzen (sickening), leider (unfortunately), hasse (hate), Schade (pity), Pfffff, unmöglich (impossible)",
+        "not_for": "Neutral reports of disasters or criticism by third parties, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Jokey teasing with laughing emoticons is positive."
+      },
+      "neutral": {
+        "what": "News headlines, ads, classifieds, weather reports, check-ins, factual questions and statements with no clear feeling from the author, including reports of bad events.",
+        "examples": [
+          "RT @user: Deutsche Telekom überwacht ihre Kunden im grossen Stil http (Deutsche Telekom monitors its customers on a large scale)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)",
+          "@user hmmm, könnte sein. Bin mir da nicht sicher (hmm, could be. I'm not sure)"
+        ],
+        "cues": "headline style followed by a link, 'RT' of news, prices and sizes, (@ place), dates and temperatures, open questions",
+        "not_for": "Headlines the author comments on with emotion, e.g. 'Unfassbar!' (unbelievable!) or ':-(', are negative. Ads that praise the product ('Tolle', 'WIE NEU!') are positive."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, congratulations, good wishes, affection, playful teasing or excitement about an event or win.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user kann dich echt gut verstehen bin leider auch Erkältet. Gute Besserung (I really understand you, unfortunately I have a cold too. Get well soon)",
+          "@user extrem hübsch! (extremely pretty!)"
+        ],
+        "cues": ":) / :D / 😂 / ♥, Glückwunsch (congratulations), endlich (finally), danke (thanks), toll (great), lecker (tasty), gute Besserung (get well soon), willkommen (welcome)",
+        "not_for": "Polite messages whose main point is a letdown or a sad emoticon, e.g. 'leider nicht in meiner Nähe ;)' (unfortunately not near me), are negative. Plain news about a success is neutral."
+      }
+    }
+  }
+}

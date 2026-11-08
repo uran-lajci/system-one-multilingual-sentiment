@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Judge the polarity of the reported outcome, not only the author's tone: headlines about progress, solutions, funding, launches, protection, awards or support are positive even when phrased neutrally, and so are tweets offering explainers, guides, quizzes or resources to learn from. Headlines about threats, damage, deaths, decline, suspension, controversy, opposition or failure are negative. Sarcasm is read literally: praise words make it positive, attack words make it negative. Use neutral for puns and banter with no real event, personal anecdotes, forecasts or open questions, plain descriptions without an achievement, and agenda or meeting notices."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Information with no clear good or bad outcome: agendas, meetings, data, forecasts, questions, descriptions, playful wordplay, chit-chat.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "Energie verte : un village en Afrique en 2035 ? http (Green energy: a village in Africa in 2035?)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), pourrait (could), ?, chiffres (figures), puns on vent (wind)",
+        "not_for": "Explainers or resources offered to readers are positive; clear progress is positive; harm or suspension is negative."
+      },
+      "positive": {
+        "what": "Progress, innovations achieved, investments, launches, protections, approvals, celebrations, advocacy, literal praise (including ironic praise), and shared learning resources.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Nouveau post: Comprendre la géothermie http (New post: understanding geothermal energy)",
+          "A lire sur le Blog Ecoclicot :  Devenez incollable sur les éoliennes http (Read on the Ecoclicot blog: become an expert on wind turbines)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), lance (launches), renforcées (reinforced), bravo, merci, lauréat (winner), comprendre (understand), à lire (to read), instructif (informative), guide, quizz, tour d'horizon (overview)",
+        "not_for": "Puns, personal anecdotes, forecasts and bare descriptions of a green object are neutral."
+      },
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Judge the polarity of the reported outcome, not only the author's tone: headlines about progress, solutions, funding, launches, protection, awards or support are positive even when phrased neutrally, and so are tweets offering explainers, guides, quizzes or resources to learn from. Headlines about threats, damage, deaths, decline, suspension, controversy, opposition or failure are negative. Sarcasm is read literally: praise words make it positive, attack words make it negative. Use neutral for puns and banter with no real event, personal anecdotes, forecasts or open questions, plain descriptions without an achievement, and agenda or meeting notices."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Progress, innovations achieved, investments, launches, protections, approvals, celebrations, advocacy, literal praise (including ironic praise), and shared learning resources.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Nouveau post: Comprendre la géothermie http (New post: understanding geothermal energy)",
+          "A lire sur le Blog Ecoclicot :  Devenez incollable sur les éoliennes http (Read on the Ecoclicot blog: become an expert on wind turbines)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), lance (launches), renforcées (reinforced), bravo, merci, lauréat (winner), comprendre (understand), à lire (to read), instructif (informative), guide, quizz, tour d'horizon (overview)",
+        "not_for": "Puns, personal anecdotes, forecasts and bare descriptions of a green object are neutral."
+      },
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      },
+      "neutral": {
+        "what": "Information with no clear good or bad outcome: agendas, meetings, data, forecasts, questions, descriptions, playful wordplay, chit-chat.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "Energie verte : un village en Afrique en 2035 ? http (Green energy: a village in Africa in 2035?)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), pourrait (could), ?, chiffres (figures), puns on vent (wind)",
+        "not_for": "Explainers or resources offered to readers are positive; clear progress is positive; harm or suspension is negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What overall polarity does this French tweet convey about the situation, event or topic it reports (often ecology, energy, climate), reading its wording at face value?",
+      "rule": "Judge the polarity of the reported outcome, not only the author's tone: headlines about progress, solutions, funding, launches, protection, awards or support are positive even when phrased neutrally, and so are tweets offering explainers, guides, quizzes or resources to learn from. Headlines about threats, damage, deaths, decline, suspension, controversy, opposition or failure are negative. Sarcasm is read literally: praise words make it positive, attack words make it negative. Use neutral for puns and banter with no real event, personal anecdotes, forecasts or open questions, plain descriptions without an achievement, and agenda or meeting notices."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Threats, damage, deaths, decline, suspensions, scandals, opposition, criticism, anger or insults.",
+        "examples": [
+          "Le manchot empereur victime du réchauffement climatique http (The emperor penguin, victim of global warming)",
+          "Suspension sine die de l'#ecotaxe http (Indefinite suspension of the ecotax)",
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)"
+        ],
+        "cues": "menacée (threatened), victime (victim), péril, suspension, scandale, enfer (hell), opposition, craintes (fears), détruit (destroyed), inutile (useless)",
+        "not_for": "Ironic praise phrased positively is positive; harmless jokes are neutral."
+      },
+      "neutral": {
+        "what": "Information with no clear good or bad outcome: agendas, meetings, data, forecasts, questions, descriptions, playful wordplay, chit-chat.",
+        "examples": [
+          "L'Ademe publie l'édition 2014 des chiffres-clés des #déchets (Ademe publishes the 2014 key figures on waste)",
+          "Energie verte : un village en Afrique en 2035 ? http (Green energy: a village in Africa in 2035?)",
+          "\"On peut vendre du vent, regarde les éoliennes\" (You can sell wind, look at wind turbines)"
+        ],
+        "cues": "publie (publishes), réunion (meeting), sera l'invitée (will be the guest), pourrait (could), ?, chiffres (figures), puns on vent (wind)",
+        "not_for": "Explainers or resources offered to readers are positive; clear progress is positive; harm or suspension is negative."
+      },
+      "positive": {
+        "what": "Progress, innovations achieved, investments, launches, protections, approvals, celebrations, advocacy, literal praise (including ironic praise), and shared learning resources.",
+        "examples": [
+          "Areva : Les 80 éoliennes du parc de Global Tech I installées avec succès http (Areva: the 80 turbines of the Global Tech I park successfully installed)",
+          "Nouveau post: Comprendre la géothermie http (New post: understanding geothermal energy)",
+          "A lire sur le Blog Ecoclicot :  Devenez incollable sur les éoliennes http (Read on the Ecoclicot blog: become an expert on wind turbines)",
+          "Au Testet, la police stimule la croissance en coupant les arbres (At Testet, police stimulate growth by cutting trees)"
+        ],
+        "cues": "avec succès (successfully), lance (launches), renforcées (reinforced), bravo, merci, lauréat (winner), comprendre (understand), à lire (to read), instructif (informative), guide, quizz, tour d'horizon (overview)",
+        "not_for": "Puns, personal anecdotes, forecasts and bare descriptions of a green object are neutral."
+      }
+    }
+  }
+}

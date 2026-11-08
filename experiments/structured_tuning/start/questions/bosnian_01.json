@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Annotators label even headlines and shared links by the valence of the event: good news (agreements, awards, progress, nice products) is positive, and bad news (assassination attempts, debt, drugs, wolves killing sheep, war crimes) is negative. Purely informational posts, ads, check-ins, programme announcements and odd personal observations with no clear feeling are neutral. Swearing, complaints, sadness, jealousy, disgust and self-deprecating 'I'm dying' jokes count as negative. Light humour, warmth, wishes and enthusiasm count as positive."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Factual announcements, TV or programme promos, election results, check-ins, links without evaluation, quirky everyday remarks and replies without clear emotion.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "CIK: Krstimir Pantić, G.I. SRPSKA: 37,26% ili 2233 glasova",
+          "Ja Jaffa keks jedem tako sto zubima pazljivo zgulim cokoladu... (I eat Jaffa biscuits by peeling off the chocolate...)"
+        ],
+        "cues": "gledajte (watch), u prodaji (on sale), I'm at, via @YouTube, ne znam (I don't know), +",
+        "not_for": "News headlines with clearly good or bad content take positive or negative."
+      },
+      "positive": {
+        "what": "Joy, love, longing for pleasant things, praise, playful contentment, or links and headlines about favourable developments.",
+        "examples": [
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I don't know about you, but I can't wait for snow.)",
+          "Magistrica iz Srebrenika nagrađena u Beču: Bosanka među 64 najbolja apsolventa (Master's graduate from Srebrenik awarded in Vienna)",
+          "Izglasano povjerenje grčkoj Vladi (Greek government wins confidence vote)"
+        ],
+        "cues": "volim (I love), obožavam (I adore), jedva čekam (can't wait), predivno (wonderful), lijepo (nice), :) , <3, nagrađena (awarded), sila (awesome)",
+        "not_for": "Sarcastic 'obožavam kad' (I love it when) observations that carry no real joy are neutral. Affectionate teasing that uses curses or sad emoticons is negative."
+      },
+      "negative": {
+        "what": "Anger, insults, swearing, sadness, frustration, boredom, jealousy, shame, or headlines about harmful or bad events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "Dosadna fizika -_- (Boring physics)",
+          "Sirijski ministar preživio pokušaj atentata (Syrian minister survived assassination attempt)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), umrem (I die), dosadna (boring), placem (I cry), stid me (I'm ashamed), :(, -_-",
+        "not_for": "Mild amused complaints with no real distress, such as 'Smijesni su mi taksisti' (taxi drivers amuse me), are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Annotators label even headlines and shared links by the valence of the event: good news (agreements, awards, progress, nice products) is positive, and bad news (assassination attempts, debt, drugs, wolves killing sheep, war crimes) is negative. Purely informational posts, ads, check-ins, programme announcements and odd personal observations with no clear feeling are neutral. Swearing, complaints, sadness, jealousy, disgust and self-deprecating 'I'm dying' jokes count as negative. Light humour, warmth, wishes and enthusiasm count as positive."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, love, longing for pleasant things, praise, playful contentment, or links and headlines about favourable developments.",
+        "examples": [
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I don't know about you, but I can't wait for snow.)",
+          "Magistrica iz Srebrenika nagrađena u Beču: Bosanka među 64 najbolja apsolventa (Master's graduate from Srebrenik awarded in Vienna)",
+          "Izglasano povjerenje grčkoj Vladi (Greek government wins confidence vote)"
+        ],
+        "cues": "volim (I love), obožavam (I adore), jedva čekam (can't wait), predivno (wonderful), lijepo (nice), :) , <3, nagrađena (awarded), sila (awesome)",
+        "not_for": "Sarcastic 'obožavam kad' (I love it when) observations that carry no real joy are neutral. Affectionate teasing that uses curses or sad emoticons is negative."
+      },
+      "negative": {
+        "what": "Anger, insults, swearing, sadness, frustration, boredom, jealousy, shame, or headlines about harmful or bad events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "Dosadna fizika -_- (Boring physics)",
+          "Sirijski ministar preživio pokušaj atentata (Syrian minister survived assassination attempt)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), umrem (I die), dosadna (boring), placem (I cry), stid me (I'm ashamed), :(, -_-",
+        "not_for": "Mild amused complaints with no real distress, such as 'Smijesni su mi taksisti' (taxi drivers amuse me), are neutral."
+      },
+      "neutral": {
+        "what": "Factual announcements, TV or programme promos, election results, check-ins, links without evaluation, quirky everyday remarks and replies without clear emotion.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "CIK: Krstimir Pantić, G.I. SRPSKA: 37,26% ili 2233 glasova",
+          "Ja Jaffa keks jedem tako sto zubima pazljivo zgulim cokoladu... (I eat Jaffa biscuits by peeling off the chocolate...)"
+        ],
+        "cues": "gledajte (watch), u prodaji (on sale), I'm at, via @YouTube, ne znam (I don't know), +",
+        "not_for": "News headlines with clearly good or bad content take positive or negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Annotators label even headlines and shared links by the valence of the event: good news (agreements, awards, progress, nice products) is positive, and bad news (assassination attempts, debt, drugs, wolves killing sheep, war crimes) is negative. Purely informational posts, ads, check-ins, programme announcements and odd personal observations with no clear feeling are neutral. Swearing, complaints, sadness, jealousy, disgust and self-deprecating 'I'm dying' jokes count as negative. Light humour, warmth, wishes and enthusiasm count as positive."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Anger, insults, swearing, sadness, frustration, boredom, jealousy, shame, or headlines about harmful or bad events.",
+        "examples": [
+          "tuga da tuznije ne moze biti. (sadness, couldn't be sadder)",
+          "Dosadna fizika -_- (Boring physics)",
+          "Sirijski ministar preživio pokušaj atentata (Syrian minister survived assassination attempt)"
+        ],
+        "cues": "jebem (f***), mrzim (I hate), tuga (sadness), umrem (I die), dosadna (boring), placem (I cry), stid me (I'm ashamed), :(, -_-",
+        "not_for": "Mild amused complaints with no real distress, such as 'Smijesni su mi taksisti' (taxi drivers amuse me), are neutral."
+      },
+      "neutral": {
+        "what": "Factual announcements, TV or programme promos, election results, check-ins, links without evaluation, quirky everyday remarks and replies without clear emotion.",
+        "examples": [
+          "I'm at Radon Plaza Hotel (Sarajevo, Bosnia)",
+          "CIK: Krstimir Pantić, G.I. SRPSKA: 37,26% ili 2233 glasova",
+          "Ja Jaffa keks jedem tako sto zubima pazljivo zgulim cokoladu... (I eat Jaffa biscuits by peeling off the chocolate...)"
+        ],
+        "cues": "gledajte (watch), u prodaji (on sale), I'm at, via @YouTube, ne znam (I don't know), +",
+        "not_for": "News headlines with clearly good or bad content take positive or negative."
+      },
+      "positive": {
+        "what": "Joy, love, longing for pleasant things, praise, playful contentment, or links and headlines about favourable developments.",
+        "examples": [
+          "Ne znam za vas, ali ja jedva čekam snijeg. (I don't know about you, but I can't wait for snow.)",
+          "Magistrica iz Srebrenika nagrađena u Beču: Bosanka među 64 najbolja apsolventa (Master's graduate from Srebrenik awarded in Vienna)",
+          "Izglasano povjerenje grčkoj Vladi (Greek government wins confidence vote)"
+        ],
+        "cues": "volim (I love), obožavam (I adore), jedva čekam (can't wait), predivno (wonderful), lijepo (nice), :) , <3, nagrađena (awarded), sila (awesome)",
+        "not_for": "Sarcastic 'obožavam kad' (I love it when) observations that carry no real joy are neutral. Affectionate teasing that uses curses or sad emoticons is negative."
+      }
+    }
+  }
+}

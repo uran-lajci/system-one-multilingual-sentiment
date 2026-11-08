@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Negative needs the poster to be bothered or attacking: their own complaint, mishap or suffering (even joked about), annoyance, sarcasm aimed at someone, moralising, or news of something bad (crisis, conflict, criticism, accusation, lawsuit, death, scandal). Conversational @replies, banter, deadpan observations, calm opinions, statistics, political or institutional events, religious texts and horoscopes are neutral; a smiley alone does not make a reply positive. Shares of culture, entertainment, celebrities, tech, business deals, article teasers, tips, ads, listings, check-ins, help appeals, and replies with explicit warmth are positive."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Casual @reply chat, banter, practical answers, plain questions. Statistics, dividends, line-ups, fan chants. Political or institutional events and calm opinions. Religious texts, horoscopes. Deadpan observations about others.",
+        "examples": [
+          "@pcelamed očito :)) Kronike iz Narnije su na rtl-u (obviously :)) Chronicles of Narnia is on RTL)",
+          "Mama gleda njemačku Bachelorette. Žena gleda američki Masterchef. Počinjem štedjet za treći televizor. (Mom watches German Bachelorette. My wife watches American Masterchef. I'm starting to save for a third TV.)",
+          "Ne propustite večeras debatu kandidata za predsjednika @EU_Commission @hrtvijesti http://t.co/EgGMQ2dir7 (Don't miss tonight's debate of candidates for Commission president)"
+        ],
+        "cues": "@reply + :), haha, sabor (parliament), debata (debate), dividenda (dividend), horoskop, numbers",
+        "not_for": "The poster's own annoyance or mishap, or bad news, go negative. Promotional or culture shares go positive."
+      },
+      "positive": {
+        "what": "Explicit joy, praise, thanks, love, excitement. Shares of events, culture, celebrities, tech, business deals, article teasers, recipes and tips, ads and listings, check-ins, help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Apartments Batur - Zadar - Croatia http://t.co/vLFrL36bKd http://t.co/05CLYU5jQL #croatia",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "festival, ponuda (offer), kako (how to), rekord (record), pročitajte (read), pomozimo (let's help), hvala (thanks), volim (I love), I'm at",
+        "not_for": "Smileys on complaints or digs go negative. Casual @reply chat with only a smiley goes neutral."
+      },
+      "negative": {
+        "what": "The poster complains, suffers a mishap, is annoyed, sad or worried, insults, mocks or moralises. Also news of bad things: crises, debt, conflicts, harsh criticism, accusations, lawsuits, deaths, mourning, scandals.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Putin na presici žestoko kritizira novo ukrajinsko vodstvo: 'Vojna akcija protiv Ukrajine će biti posljednja opcija!' (Putin harshly criticizes the new Ukrainian leadership)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), kritizira (criticizes), žalost (mourning), dug (debt), :(, :S",
+        "not_for": "Help appeals go positive. Witty observations about others and calm opinions go neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Negative needs the poster to be bothered or attacking: their own complaint, mishap or suffering (even joked about), annoyance, sarcasm aimed at someone, moralising, or news of something bad (crisis, conflict, criticism, accusation, lawsuit, death, scandal). Conversational @replies, banter, deadpan observations, calm opinions, statistics, political or institutional events, religious texts and horoscopes are neutral; a smiley alone does not make a reply positive. Shares of culture, entertainment, celebrities, tech, business deals, article teasers, tips, ads, listings, check-ins, help appeals, and replies with explicit warmth are positive."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Explicit joy, praise, thanks, love, excitement. Shares of events, culture, celebrities, tech, business deals, article teasers, recipes and tips, ads and listings, check-ins, help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Apartments Batur - Zadar - Croatia http://t.co/vLFrL36bKd http://t.co/05CLYU5jQL #croatia",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "festival, ponuda (offer), kako (how to), rekord (record), pročitajte (read), pomozimo (let's help), hvala (thanks), volim (I love), I'm at",
+        "not_for": "Smileys on complaints or digs go negative. Casual @reply chat with only a smiley goes neutral."
+      },
+      "negative": {
+        "what": "The poster complains, suffers a mishap, is annoyed, sad or worried, insults, mocks or moralises. Also news of bad things: crises, debt, conflicts, harsh criticism, accusations, lawsuits, deaths, mourning, scandals.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Putin na presici žestoko kritizira novo ukrajinsko vodstvo: 'Vojna akcija protiv Ukrajine će biti posljednja opcija!' (Putin harshly criticizes the new Ukrainian leadership)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), kritizira (criticizes), žalost (mourning), dug (debt), :(, :S",
+        "not_for": "Help appeals go positive. Witty observations about others and calm opinions go neutral."
+      },
+      "neutral": {
+        "what": "Casual @reply chat, banter, practical answers, plain questions. Statistics, dividends, line-ups, fan chants. Political or institutional events and calm opinions. Religious texts, horoscopes. Deadpan observations about others.",
+        "examples": [
+          "@pcelamed očito :)) Kronike iz Narnije su na rtl-u (obviously :)) Chronicles of Narnia is on RTL)",
+          "Mama gleda njemačku Bachelorette. Žena gleda američki Masterchef. Počinjem štedjet za treći televizor. (Mom watches German Bachelorette. My wife watches American Masterchef. I'm starting to save for a third TV.)",
+          "Ne propustite večeras debatu kandidata za predsjednika @EU_Commission @hrtvijesti http://t.co/EgGMQ2dir7 (Don't miss tonight's debate of candidates for Commission president)"
+        ],
+        "cues": "@reply + :), haha, sabor (parliament), debata (debate), dividenda (dividend), horoskop, numbers",
+        "not_for": "The poster's own annoyance or mishap, or bad news, go negative. Promotional or culture shares go positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Negative needs the poster to be bothered or attacking: their own complaint, mishap or suffering (even joked about), annoyance, sarcasm aimed at someone, moralising, or news of something bad (crisis, conflict, criticism, accusation, lawsuit, death, scandal). Conversational @replies, banter, deadpan observations, calm opinions, statistics, political or institutional events, religious texts and horoscopes are neutral; a smiley alone does not make a reply positive. Shares of culture, entertainment, celebrities, tech, business deals, article teasers, tips, ads, listings, check-ins, help appeals, and replies with explicit warmth are positive."
+    },
+    "criteria": {
+      "negative": {
+        "what": "The poster complains, suffers a mishap, is annoyed, sad or worried, insults, mocks or moralises. Also news of bad things: crises, debt, conflicts, harsh criticism, accusations, lawsuits, deaths, mourning, scandals.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Putin na presici žestoko kritizira novo ukrajinsko vodstvo: 'Vojna akcija protiv Ukrajine će biti posljednja opcija!' (Putin harshly criticizes the new Ukrainian leadership)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), kritizira (criticizes), žalost (mourning), dug (debt), :(, :S",
+        "not_for": "Help appeals go positive. Witty observations about others and calm opinions go neutral."
+      },
+      "neutral": {
+        "what": "Casual @reply chat, banter, practical answers, plain questions. Statistics, dividends, line-ups, fan chants. Political or institutional events and calm opinions. Religious texts, horoscopes. Deadpan observations about others.",
+        "examples": [
+          "@pcelamed očito :)) Kronike iz Narnije su na rtl-u (obviously :)) Chronicles of Narnia is on RTL)",
+          "Mama gleda njemačku Bachelorette. Žena gleda američki Masterchef. Počinjem štedjet za treći televizor. (Mom watches German Bachelorette. My wife watches American Masterchef. I'm starting to save for a third TV.)",
+          "Ne propustite večeras debatu kandidata za predsjednika @EU_Commission @hrtvijesti http://t.co/EgGMQ2dir7 (Don't miss tonight's debate of candidates for Commission president)"
+        ],
+        "cues": "@reply + :), haha, sabor (parliament), debata (debate), dividenda (dividend), horoskop, numbers",
+        "not_for": "The poster's own annoyance or mishap, or bad news, go negative. Promotional or culture shares go positive."
+      },
+      "positive": {
+        "what": "Explicit joy, praise, thanks, love, excitement. Shares of events, culture, celebrities, tech, business deals, article teasers, recipes and tips, ads and listings, check-ins, help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Apartments Batur - Zadar - Croatia http://t.co/vLFrL36bKd http://t.co/05CLYU5jQL #croatia",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "festival, ponuda (offer), kako (how to), rekord (record), pročitajte (read), pomozimo (let's help), hvala (thanks), volim (I love), I'm at",
+        "not_for": "Smileys on complaints or digs go negative. Casual @reply chat with only a smiley goes neutral."
+      }
+    }
+  }
+}

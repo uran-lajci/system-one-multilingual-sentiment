@@ -6,5 +6,29 @@
   "Albanian": {
     "context": "A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020. The comment is in Albanian, mostly the informal Kosovo (Gheg) dialect, often written without the letters ë and ç.",
     "sources": "Kastrati et al. (2021), AlbAna; copied word for word from the CONTEXT of our AlbAna classifier"
+  },
+  "German": {
+    "context": "A German tweet from the SB-10K corpus, posted between August and October 2013. The tweets were sampled from all German tweets of that period, and many were chosen because they contain positive or negative words. Three annotators labelled the sentiment that the tweet expresses, not the feeling it gives the reader, and the label is the one that at least two of them chose.",
+    "sources": "Cieliebak et al. (2017), SB-10K, Sections 3.2 to 3.5; Barbieri et al. (2022), XLM-T, Table 3"
+  },
+  "French": {
+    "context": "A French tweet from the DEFT 2017 dataset, posted between 2014 and 2016. The dataset was built to study opinion and figurative language, so it includes ironic, sarcastic and humorous tweets. Annotators labelled the overall polarity of each tweet.",
+    "sources": "Barbieri et al. (2022), XLM-T, Table 3; Benamara et al. (2017), DEFT 2017 overview, abstract only, because the full paper could not be retrieved"
+  },
+  "Bosnian": {
+    "context": "A tweet in Bosnian, posted between April 2013 and February 2015 and collected through the Twitter Search API near the largest cities where the language is spoken. A native speaker labelled each tweet by the emotional attitude of the person who posted it.",
+    "sources": "Mozetič, Grčar and Smailović (2016), PLoS ONE 11(5): e0155036, sections on data collection and annotation"
+  },
+  "Croatian": {
+    "context": "A tweet in Croatian, posted between April 2013 and February 2015 and collected through the Twitter Search API near the largest cities where the language is spoken. A native speaker labelled each tweet by the emotional attitude of the person who posted it.",
+    "sources": "Mozetič, Grčar and Smailović (2016), PLoS ONE 11(5): e0155036, sections on data collection and annotation"
+  },
+  "Serbian": {
+    "context": "A tweet in Serbian, posted between April 2013 and February 2015 and collected through the Twitter Search API near the largest cities where the language is spoken. Native speakers labelled each tweet by the emotional attitude of the person who posted it.",
+    "sources": "Mozetič, Grčar and Smailović (2016), PLoS ONE 11(5): e0155036, sections on data collection and annotation"
+  },
+  "Swedish": {
+    "context": "A tweet in Swedish, posted between April 2013 and February 2015 and collected through the Twitter Search API near the largest cities where the language is spoken. A native speaker labelled each tweet by the emotional attitude of the person who posted it.",
+    "sources": "Mozetič, Grčar and Smailović (2016), PLoS ONE 11(5): e0155036, sections on data collection and annotation"
   }
 }

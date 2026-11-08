@@ -1,0 +1,119 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Swedish tweet express or imply, including through what they choose to share: positive, neutral, or negative?",
+      "rule": "Judge the poster's stance, including what they share. Mockery, insults, attacks on politicians or people, exposing wrongdoing, sarcasm and complaints are negative even in a factual tone. Good news, successes, warm remarks and tips the poster clearly endorses are positive. Neutral covers uncommented headlines and alerts (even about disease or accidents), policy arguments, campaign slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions and calm corrections."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Uncommented headlines and alerts, policy arguments, slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions, plain agreement and calm corrections.",
+        "examples": [
+          "Tvärbanan: Stopp mellan Alvik-Solna pga. olycka. (Tvärbanan: stop between Alvik and Solna due to an accident.)",
+          "Högre lärartäthet, av utbildade lärare idag. Det krävs för att bryta det långvariga kunskapstappet! #Alliansen #svpol #jobbvalet (More trained teachers per pupil today. That is needed to break the long knowledge decline!)",
+          "@CarlssonJhannes Absolut. Jag förstår den ståndpunkten och respekterar den med. (Absolutely. I understand that position and respect it too.)"
+        ],
+        "cues": "headline + link, måste/krävs (must/is needed), tror/tvivlar (think/doubt), vad/hur/när (what/how/when), times, Jag gillade ett videoklipp (I liked a video)",
+        "not_for": "Headlines that expose scandal or a politician's misconduct, or that carry the poster's own sad or angry comment, are negative."
+      },
+      "positive": {
+        "what": "Joy, praise, love, gratitude, excitement, warm teasing; good news, successes and tips the poster endorses; approval of a party or person.",
+        "examples": [
+          "Gratis böcker på föreläsningen http://t.co/DClFqxjJIY (Free books at the lecture)",
+          "RT @JesperHellsten: Sedan 2006 har mer än 300 000 fler människor ett jobb att gå till och det är faktiskt bara början! #sparkaintemig #svpo… (Since 2006 more than 300,000 more people have a job, and it is just the beginning!)",
+          "@papperferdinand grattis till ert giftemål det var ett vackert bröllop :,) (congrats on your marriage, it was a beautiful wedding)"
+        ],
+        "cues": "grattis (congrats), gratis (free), bästa (best), bra (good), härligt (lovely), älskar (love), :), <3, haha",
+        "not_for": "Ironic praise ('Tur att...', Lucky that...) is negative. 'Jag gillade ett videoklipp' (I liked a video) posts, 'snälla följ mig' (please follow me) and bare event listings are neutral."
+      },
+      "negative": {
+        "what": "Anger, sadness, frustration, complaints, insults, mockery, sarcasm, condemnation of politicians or parties, and sharing scandals or wrongdoing.",
+        "examples": [
+          "RT @gustavgelin: Just nu röstar Sveriges Riksdag in en rasist, fascist och homfob till en vice talmanspost. (Right now the Riksdag is voting a racist, fascist and homophobe into a deputy speaker post.)",
+          "RT @fredrik_t_k: Tur att bara tre av fyra laddplatser i Vällingbygaraget var upptagna av fossilbilar... #elbil #swegreen http://t.co/naXqX0… (Lucky that only three of four charging spots were taken by fossil cars...)",
+          "Livet e hårt och sen dör man (Life is hard and then you die)"
+        ],
+        "cues": "hatar (hate), jävla/fan (damn), sorgligt (sad), jobbigt (annoying), rasist (racist), sämre (worse), :(, 😭",
+        "not_for": "Swearing used for enthusiasm ('SÅ. JÄVLA. BRA', SO. DAMN. GOOD) is positive. Teasing friends with haha or ;) is usually positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Swedish tweet express or imply, including through what they choose to share: positive, neutral, or negative?",
+      "rule": "Judge the poster's stance, including what they share. Mockery, insults, attacks on politicians or people, exposing wrongdoing, sarcasm and complaints are negative even in a factual tone. Good news, successes, warm remarks and tips the poster clearly endorses are positive. Neutral covers uncommented headlines and alerts (even about disease or accidents), policy arguments, campaign slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions and calm corrections."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, love, gratitude, excitement, warm teasing; good news, successes and tips the poster endorses; approval of a party or person.",
+        "examples": [
+          "Gratis böcker på föreläsningen http://t.co/DClFqxjJIY (Free books at the lecture)",
+          "RT @JesperHellsten: Sedan 2006 har mer än 300 000 fler människor ett jobb att gå till och det är faktiskt bara början! #sparkaintemig #svpo… (Since 2006 more than 300,000 more people have a job, and it is just the beginning!)",
+          "@papperferdinand grattis till ert giftemål det var ett vackert bröllop :,) (congrats on your marriage, it was a beautiful wedding)"
+        ],
+        "cues": "grattis (congrats), gratis (free), bästa (best), bra (good), härligt (lovely), älskar (love), :), <3, haha",
+        "not_for": "Ironic praise ('Tur att...', Lucky that...) is negative. 'Jag gillade ett videoklipp' (I liked a video) posts, 'snälla följ mig' (please follow me) and bare event listings are neutral."
+      },
+      "negative": {
+        "what": "Anger, sadness, frustration, complaints, insults, mockery, sarcasm, condemnation of politicians or parties, and sharing scandals or wrongdoing.",
+        "examples": [
+          "RT @gustavgelin: Just nu röstar Sveriges Riksdag in en rasist, fascist och homfob till en vice talmanspost. (Right now the Riksdag is voting a racist, fascist and homophobe into a deputy speaker post.)",
+          "RT @fredrik_t_k: Tur att bara tre av fyra laddplatser i Vällingbygaraget var upptagna av fossilbilar... #elbil #swegreen http://t.co/naXqX0… (Lucky that only three of four charging spots were taken by fossil cars...)",
+          "Livet e hårt och sen dör man (Life is hard and then you die)"
+        ],
+        "cues": "hatar (hate), jävla/fan (damn), sorgligt (sad), jobbigt (annoying), rasist (racist), sämre (worse), :(, 😭",
+        "not_for": "Swearing used for enthusiasm ('SÅ. JÄVLA. BRA', SO. DAMN. GOOD) is positive. Teasing friends with haha or ;) is usually positive."
+      },
+      "neutral": {
+        "what": "Uncommented headlines and alerts, policy arguments, slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions, plain agreement and calm corrections.",
+        "examples": [
+          "Tvärbanan: Stopp mellan Alvik-Solna pga. olycka. (Tvärbanan: stop between Alvik and Solna due to an accident.)",
+          "Högre lärartäthet, av utbildade lärare idag. Det krävs för att bryta det långvariga kunskapstappet! #Alliansen #svpol #jobbvalet (More trained teachers per pupil today. That is needed to break the long knowledge decline!)",
+          "@CarlssonJhannes Absolut. Jag förstår den ståndpunkten och respekterar den med. (Absolutely. I understand that position and respect it too.)"
+        ],
+        "cues": "headline + link, måste/krävs (must/is needed), tror/tvivlar (think/doubt), vad/hur/när (what/how/when), times, Jag gillade ett videoklipp (I liked a video)",
+        "not_for": "Headlines that expose scandal or a politician's misconduct, or that carry the poster's own sad or angry comment, are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Swedish tweet express or imply, including through what they choose to share: positive, neutral, or negative?",
+      "rule": "Judge the poster's stance, including what they share. Mockery, insults, attacks on politicians or people, exposing wrongdoing, sarcasm and complaints are negative even in a factual tone. Good news, successes, warm remarks and tips the poster clearly endorses are positive. Neutral covers uncommented headlines and alerts (even about disease or accidents), policy arguments, campaign slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions and calm corrections."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Anger, sadness, frustration, complaints, insults, mockery, sarcasm, condemnation of politicians or parties, and sharing scandals or wrongdoing.",
+        "examples": [
+          "RT @gustavgelin: Just nu röstar Sveriges Riksdag in en rasist, fascist och homfob till en vice talmanspost. (Right now the Riksdag is voting a racist, fascist and homophobe into a deputy speaker post.)",
+          "RT @fredrik_t_k: Tur att bara tre av fyra laddplatser i Vällingbygaraget var upptagna av fossilbilar... #elbil #swegreen http://t.co/naXqX0… (Lucky that only three of four charging spots were taken by fossil cars...)",
+          "Livet e hårt och sen dör man (Life is hard and then you die)"
+        ],
+        "cues": "hatar (hate), jävla/fan (damn), sorgligt (sad), jobbigt (annoying), rasist (racist), sämre (worse), :(, 😭",
+        "not_for": "Swearing used for enthusiasm ('SÅ. JÄVLA. BRA', SO. DAMN. GOOD) is positive. Teasing friends with haha or ;) is usually positive."
+      },
+      "neutral": {
+        "what": "Uncommented headlines and alerts, policy arguments, slogans and predictions without mockery, event listings, ads, fan requests, check-ins, automatic posts, everyday questions, plain agreement and calm corrections.",
+        "examples": [
+          "Tvärbanan: Stopp mellan Alvik-Solna pga. olycka. (Tvärbanan: stop between Alvik and Solna due to an accident.)",
+          "Högre lärartäthet, av utbildade lärare idag. Det krävs för att bryta det långvariga kunskapstappet! #Alliansen #svpol #jobbvalet (More trained teachers per pupil today. That is needed to break the long knowledge decline!)",
+          "@CarlssonJhannes Absolut. Jag förstår den ståndpunkten och respekterar den med. (Absolutely. I understand that position and respect it too.)"
+        ],
+        "cues": "headline + link, måste/krävs (must/is needed), tror/tvivlar (think/doubt), vad/hur/när (what/how/when), times, Jag gillade ett videoklipp (I liked a video)",
+        "not_for": "Headlines that expose scandal or a politician's misconduct, or that carry the poster's own sad or angry comment, are negative."
+      },
+      "positive": {
+        "what": "Joy, praise, love, gratitude, excitement, warm teasing; good news, successes and tips the poster endorses; approval of a party or person.",
+        "examples": [
+          "Gratis böcker på föreläsningen http://t.co/DClFqxjJIY (Free books at the lecture)",
+          "RT @JesperHellsten: Sedan 2006 har mer än 300 000 fler människor ett jobb att gå till och det är faktiskt bara början! #sparkaintemig #svpo… (Since 2006 more than 300,000 more people have a job, and it is just the beginning!)",
+          "@papperferdinand grattis till ert giftemål det var ett vackert bröllop :,) (congrats on your marriage, it was a beautiful wedding)"
+        ],
+        "cues": "grattis (congrats), gratis (free), bästa (best), bra (good), härligt (lovely), älskar (love), :), <3, haha",
+        "not_for": "Ironic praise ('Tur att...', Lucky that...) is negative. 'Jag gillade ett videoklipp' (I liked a video) posts, 'snälla följ mig' (please follow me) and bare event listings are neutral."
+      }
+    }
+  }
+}

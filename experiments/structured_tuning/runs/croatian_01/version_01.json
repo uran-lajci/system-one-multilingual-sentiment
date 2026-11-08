@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from what it chooses to share?",
+      "rule": "Positive is the most common label. Sharing or announcing content (articles, events, shows, films, celebrity news, tech or game news, recipes, tips, jobs, products, check-ins, 'read more' teasers) counts as positive unless the topic is clearly bad. Calls to help, donate, volunteer or share for a good cause count as positive. Negative needs explicit hostility, insults, hate, sadness or a clearly tragic event; dry irony, mild grumbles, wry jokes, banter and political or economic commentary or statistics without strong anger are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Conversational replies, plain questions, personal remarks, dry or ironic observations, mild grumbles, political and economic news, opinions and statistics stated without strong emotion.",
+        "examples": [
+          "Proljece. Polen. Patim. (Spring. Pollen. I suffer.)",
+          "Zagreb STATISTIKA: Europa reciklira 42%, a Hrvatska samo 5% otpada! (Europe recycles 42%, Croatia only 5% of waste!)",
+          "@MornarMotorist čekamo dvije žlice vegete (we're waiting for two spoons of Vegeta)"
+        ],
+        "cues": "@reply chat, questions, numbers, political names, 'lol', ironic hashtags, deadpan statements",
+        "not_for": "Shared articles, events, tips and promos go positive. Explicit hate, insults, sadness or tragedies go negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or excitement. Also neutral-sounding shares and announcements of cultural, lifestyle, sports, tech, business or entertainment content. Also solidarity and help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "Bravo dečki! Slovačka je doslovce potopljena! (Bravo boys! Slovakia is literally sunk!)"
+        ],
+        "cues": "pogledajte (look), pročitajte (read), saznajte (find out), počinje (begins), premijera (premiere), festival, radionica (workshop), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, I'm at, :)",
+        "not_for": "Casual chat replies and plain questions to friends go neutral even with a smiley. Explicit insults or mockery go negative."
+      },
+      "negative": {
+        "what": "Clear anger, hate, disgust, sadness, worry, insults or harsh mockery. Also news of clearly bad events: deaths, accidents, missing people, scandals.",
+        "examples": [
+          "Nisam gadljiv, al mrzim ovo (I'm not squeamish, but I hate this)",
+          "Nestao je Radelić Dario! (Dario Radelić has gone missing!)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "mrzim (I hate), smeće (trash), glupost (nonsense), sranje (crap), poginuo (killed), nestao (missing), užasno (terrible), noćna mora (nightmare), :(",
+        "not_for": "Help appeals and solidarity go positive. Mild irony, small complaints and critical political remarks without strong feeling go neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from what it chooses to share?",
+      "rule": "Positive is the most common label. Sharing or announcing content (articles, events, shows, films, celebrity news, tech or game news, recipes, tips, jobs, products, check-ins, 'read more' teasers) counts as positive unless the topic is clearly bad. Calls to help, donate, volunteer or share for a good cause count as positive. Negative needs explicit hostility, insults, hate, sadness or a clearly tragic event; dry irony, mild grumbles, wry jokes, banter and political or economic commentary or statistics without strong anger are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or excitement. Also neutral-sounding shares and announcements of cultural, lifestyle, sports, tech, business or entertainment content. Also solidarity and help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "Bravo dečki! Slovačka je doslovce potopljena! (Bravo boys! Slovakia is literally sunk!)"
+        ],
+        "cues": "pogledajte (look), pročitajte (read), saznajte (find out), počinje (begins), premijera (premiere), festival, radionica (workshop), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, I'm at, :)",
+        "not_for": "Casual chat replies and plain questions to friends go neutral even with a smiley. Explicit insults or mockery go negative."
+      },
+      "negative": {
+        "what": "Clear anger, hate, disgust, sadness, worry, insults or harsh mockery. Also news of clearly bad events: deaths, accidents, missing people, scandals.",
+        "examples": [
+          "Nisam gadljiv, al mrzim ovo (I'm not squeamish, but I hate this)",
+          "Nestao je Radelić Dario! (Dario Radelić has gone missing!)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "mrzim (I hate), smeće (trash), glupost (nonsense), sranje (crap), poginuo (killed), nestao (missing), užasno (terrible), noćna mora (nightmare), :(",
+        "not_for": "Help appeals and solidarity go positive. Mild irony, small complaints and critical political remarks without strong feeling go neutral."
+      },
+      "neutral": {
+        "what": "Conversational replies, plain questions, personal remarks, dry or ironic observations, mild grumbles, political and economic news, opinions and statistics stated without strong emotion.",
+        "examples": [
+          "Proljece. Polen. Patim. (Spring. Pollen. I suffer.)",
+          "Zagreb STATISTIKA: Europa reciklira 42%, a Hrvatska samo 5% otpada! (Europe recycles 42%, Croatia only 5% of waste!)",
+          "@MornarMotorist čekamo dvije žlice vegete (we're waiting for two spoons of Vegeta)"
+        ],
+        "cues": "@reply chat, questions, numbers, political names, 'lol', ironic hashtags, deadpan statements",
+        "not_for": "Shared articles, events, tips and promos go positive. Explicit hate, insults, sadness or tragedies go negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from what it chooses to share?",
+      "rule": "Positive is the most common label. Sharing or announcing content (articles, events, shows, films, celebrity news, tech or game news, recipes, tips, jobs, products, check-ins, 'read more' teasers) counts as positive unless the topic is clearly bad. Calls to help, donate, volunteer or share for a good cause count as positive. Negative needs explicit hostility, insults, hate, sadness or a clearly tragic event; dry irony, mild grumbles, wry jokes, banter and political or economic commentary or statistics without strong anger are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Clear anger, hate, disgust, sadness, worry, insults or harsh mockery. Also news of clearly bad events: deaths, accidents, missing people, scandals.",
+        "examples": [
+          "Nisam gadljiv, al mrzim ovo (I'm not squeamish, but I hate this)",
+          "Nestao je Radelić Dario! (Dario Radelić has gone missing!)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "mrzim (I hate), smeće (trash), glupost (nonsense), sranje (crap), poginuo (killed), nestao (missing), užasno (terrible), noćna mora (nightmare), :(",
+        "not_for": "Help appeals and solidarity go positive. Mild irony, small complaints and critical political remarks without strong feeling go neutral."
+      },
+      "neutral": {
+        "what": "Conversational replies, plain questions, personal remarks, dry or ironic observations, mild grumbles, political and economic news, opinions and statistics stated without strong emotion.",
+        "examples": [
+          "Proljece. Polen. Patim. (Spring. Pollen. I suffer.)",
+          "Zagreb STATISTIKA: Europa reciklira 42%, a Hrvatska samo 5% otpada! (Europe recycles 42%, Croatia only 5% of waste!)",
+          "@MornarMotorist čekamo dvije žlice vegete (we're waiting for two spoons of Vegeta)"
+        ],
+        "cues": "@reply chat, questions, numbers, political names, 'lol', ironic hashtags, deadpan statements",
+        "not_for": "Shared articles, events, tips and promos go positive. Explicit hate, insults, sadness or tragedies go negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or excitement. Also neutral-sounding shares and announcements of cultural, lifestyle, sports, tech, business or entertainment content. Also solidarity and help appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "Bravo dečki! Slovačka je doslovce potopljena! (Bravo boys! Slovakia is literally sunk!)"
+        ],
+        "cues": "pogledajte (look), pročitajte (read), saznajte (find out), počinje (begins), premijera (premiere), festival, radionica (workshop), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, I'm at, :)",
+        "not_for": "Casual chat replies and plain questions to friends go neutral even with a smiley. Explicit insults or mockery go negative."
+      }
+    }
+  }
+}

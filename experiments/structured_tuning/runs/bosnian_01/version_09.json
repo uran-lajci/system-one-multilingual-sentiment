@@ -1,0 +1,116 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies carrying :), :D or laughter, plus constructive news and promos: wins, agreements, cooperation, education, culture, health tips, sport programmes, openings, and invitations to enjoy wellness, food or beauty. Negative needs sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, contempt or disgust toward people, or news about accidents, deaths, weapons, scandal or disputes. Everyday gripes (Monday, chores, lists), light self-mockery, odd mishaps, curious questions, lyrics, fixtures, and bare listings, prices or schedules are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "No clear feeling: everyday gripes, light self-mockery, wry quips, odd mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, fixtures, and bare product listings, prices or schedules.",
+        "examples": [
+          "od pomisli da je sutra ponedjeljak vec me sad boli glava allaha mi (just thinking tomorrow is Monday gives me a headache)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), ponedjeljak (Monday), pogledajte ponudu (see the offer), cijena (price), večeras u (tonight at), I'm at, 2-0",
+        "not_for": "Real exhaustion, heartbreak, annoyance at people or bad-news headlines are negative. Friendly smiley replies and constructive civic news are positive."
+      },
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies, praise, uplifting sayings, or constructive news and promos about wins, cooperation, education, culture, health, sport programmes, openings and wellbeing.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Sastanak ministara za obrazovanje, mlade, kulturu i sport zemalja članica Evropske unije (Meeting of EU ministers for education, youth, culture and sport)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), baš tako (exactly so), :), :D, <3, pobjede (wins), dogovor (agreement), obrazovanje (education), prijatno (enjoy)",
+        "not_for": "Bare product lists, prices, schedules and laughter reacting to a story are neutral. Sad content ending in :) is negative."
+      },
+      "negative": {
+        "what": "Sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, anger, contempt or insults toward people, disgust, or headlines about accidents, deaths, weapons, crime, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "Noc me dotukla. Jutro na poslu nedjeljom a glava puca. (The night wore me out. Sunday morning at work and my head is splitting.)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), dotukla (wore me out), glava puca (head splitting), srce puca (heart breaks), placem (I cry), nesreća (accident), -_-, :(",
+        "not_for": "Everyday gripes, light self-mockery, odd observations and puzzled questions are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies carrying :), :D or laughter, plus constructive news and promos: wins, agreements, cooperation, education, culture, health tips, sport programmes, openings, and invitations to enjoy wellness, food or beauty. Negative needs sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, contempt or disgust toward people, or news about accidents, deaths, weapons, scandal or disputes. Everyday gripes (Monday, chores, lists), light self-mockery, odd mishaps, curious questions, lyrics, fixtures, and bare listings, prices or schedules are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies, praise, uplifting sayings, or constructive news and promos about wins, cooperation, education, culture, health, sport programmes, openings and wellbeing.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Sastanak ministara za obrazovanje, mlade, kulturu i sport zemalja članica Evropske unije (Meeting of EU ministers for education, youth, culture and sport)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), baš tako (exactly so), :), :D, <3, pobjede (wins), dogovor (agreement), obrazovanje (education), prijatno (enjoy)",
+        "not_for": "Bare product lists, prices, schedules and laughter reacting to a story are neutral. Sad content ending in :) is negative."
+      },
+      "negative": {
+        "what": "Sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, anger, contempt or insults toward people, disgust, or headlines about accidents, deaths, weapons, crime, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "Noc me dotukla. Jutro na poslu nedjeljom a glava puca. (The night wore me out. Sunday morning at work and my head is splitting.)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), dotukla (wore me out), glava puca (head splitting), srce puca (heart breaks), placem (I cry), nesreća (accident), -_-, :(",
+        "not_for": "Everyday gripes, light self-mockery, odd observations and puzzled questions are neutral."
+      },
+      "neutral": {
+        "what": "No clear feeling: everyday gripes, light self-mockery, wry quips, odd mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, fixtures, and bare product listings, prices or schedules.",
+        "examples": [
+          "od pomisli da je sutra ponedjeljak vec me sad boli glava allaha mi (just thinking tomorrow is Monday gives me a headache)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), ponedjeljak (Monday), pogledajte ponudu (see the offer), cijena (price), večeras u (tonight at), I'm at, 2-0",
+        "not_for": "Real exhaustion, heartbreak, annoyance at people or bad-news headlines are negative. Friendly smiley replies and constructive civic news are positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies carrying :), :D or laughter, plus constructive news and promos: wins, agreements, cooperation, education, culture, health tips, sport programmes, openings, and invitations to enjoy wellness, food or beauty. Negative needs sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, contempt or disgust toward people, or news about accidents, deaths, weapons, scandal or disputes. Everyday gripes (Monday, chores, lists), light self-mockery, odd mishaps, curious questions, lyrics, fixtures, and bare listings, prices or schedules are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Sincere sadness, heartbreak, real exhaustion or bad luck told as suffering, annoyance, anger, contempt or insults toward people, disgust, or headlines about accidents, deaths, weapons, crime, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "Noc me dotukla. Jutro na poslu nedjeljom a glava puca. (The night wore me out. Sunday morning at work and my head is splitting.)",
+          "I opet ko god te spomene mene srce puca. Ali ne dam da se to prmjeti :) (Whenever someone mentions you my heart breaks, but I hide it)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), dotukla (wore me out), glava puca (head splitting), srce puca (heart breaks), placem (I cry), nesreća (accident), -_-, :(",
+        "not_for": "Everyday gripes, light self-mockery, odd observations and puzzled questions are neutral."
+      },
+      "neutral": {
+        "what": "No clear feeling: everyday gripes, light self-mockery, wry quips, odd mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, fixtures, and bare product listings, prices or schedules.",
+        "examples": [
+          "od pomisli da je sutra ponedjeljak vec me sad boli glava allaha mi (just thinking tomorrow is Monday gives me a headache)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), ponedjeljak (Monday), pogledajte ponudu (see the offer), cijena (price), večeras u (tonight at), I'm at, 2-0",
+        "not_for": "Real exhaustion, heartbreak, annoyance at people or bad-news headlines are negative. Friendly smiley replies and constructive civic news are positive."
+      },
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies, praise, uplifting sayings, or constructive news and promos about wins, cooperation, education, culture, health, sport programmes, openings and wellbeing.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Sastanak ministara za obrazovanje, mlade, kulturu i sport zemalja članica Evropske unije (Meeting of EU ministers for education, youth, culture and sport)",
+          "Sutra počinje radna sedmica, započnite je slobodnog uma, bez stresa - pridružite nam se na Bodybalance u 18h! (Start the week stress-free, join us at Bodybalance at 6pm!)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), baš tako (exactly so), :), :D, <3, pobjede (wins), dogovor (agreement), obrazovanje (education), prijatno (enjoy)",
+        "not_for": "Bare product lists, prices, schedules and laughter reacting to a story are neutral. Sad content ending in :) is negative."
+      }
+    }
+  }
+}

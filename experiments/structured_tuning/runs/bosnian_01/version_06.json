@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies to a person carrying :), :D or laughter. It also covers news and promos about wins, agreements, progress, festivals, contests, food, beauty or culture. Negative covers sadness, heartbreak, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, and news about accidents, deaths, weapons, illness, scandal or disputes. Neutral covers odd one-off mishaps, mild physical hyperbole (thirst, bladder, hair), curious questions, lyrics, fixtures, science items and plain listings. Choose neutral only when neither side clearly applies."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "No clear feeling: odd one-off mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, sports fixtures, science items and plain listings.",
+        "examples": [
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)",
+          "Hrvatska protiv Brazila otvara Mundijal (Croatia vs Brazil opens the World Cup)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), I'm at, 2-0, mp3",
+        "not_for": "Friendly smiley replies are positive. Complaints about one's own looks or bad luck are negative."
+      },
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies to someone, praise, uplifting sayings, or news and promos about wins, agreements, progress, festivals, contests, food, beauty and culture.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Minus sest stepeni u Sarajevu. Sreca pa necu nigdje. Evo me pod toplim jorganom hehe++ (Minus six in Sarajevo. Luckily I'm not going anywhere, under a warm duvet hehe)",
+          "Prvi ovogodišnji snijeg u Sarajevu :) (First snow of the year in Sarajevo :))",
+          "Čelik i Velež ostvarili ubjedljive pobjede (Čelik and Velež won convincingly)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), :), :D, :)))), hehe, <3, prijatno (enjoy), nagrada (prize), pobjede (wins), dogovor (agreement)",
+        "not_for": "Laughter reacting to a story or anecdote, with no warmth toward anyone, is neutral. Sad content ending in :) is negative."
+      },
+      "negative": {
+        "what": "Sadness, heartbreak, painful exhaustion, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, or news about accidents, deaths, weapons, illness, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "RT @Ambivalentni: Ne znam, ali ja uvijek najebem (I don't know, but I always get screwed)",
+          "Zakljucak: ja podocnjake imam uvijek. (Conclusion: I always have dark circles.)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), fuj (yuck), glupost (stupidity), srce puca (heart breaks), boli (hurts), nesreća (accident), oružje (weapons), -_-, :(",
+        "not_for": "Funny one-off mishaps and puzzled questions are neutral. Affectionate teasing with smileys is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies to a person carrying :), :D or laughter. It also covers news and promos about wins, agreements, progress, festivals, contests, food, beauty or culture. Negative covers sadness, heartbreak, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, and news about accidents, deaths, weapons, illness, scandal or disputes. Neutral covers odd one-off mishaps, mild physical hyperbole (thirst, bladder, hair), curious questions, lyrics, fixtures, science items and plain listings. Choose neutral only when neither side clearly applies."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies to someone, praise, uplifting sayings, or news and promos about wins, agreements, progress, festivals, contests, food, beauty and culture.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Minus sest stepeni u Sarajevu. Sreca pa necu nigdje. Evo me pod toplim jorganom hehe++ (Minus six in Sarajevo. Luckily I'm not going anywhere, under a warm duvet hehe)",
+          "Prvi ovogodišnji snijeg u Sarajevu :) (First snow of the year in Sarajevo :))",
+          "Čelik i Velež ostvarili ubjedljive pobjede (Čelik and Velež won convincingly)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), :), :D, :)))), hehe, <3, prijatno (enjoy), nagrada (prize), pobjede (wins), dogovor (agreement)",
+        "not_for": "Laughter reacting to a story or anecdote, with no warmth toward anyone, is neutral. Sad content ending in :) is negative."
+      },
+      "negative": {
+        "what": "Sadness, heartbreak, painful exhaustion, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, or news about accidents, deaths, weapons, illness, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "RT @Ambivalentni: Ne znam, ali ja uvijek najebem (I don't know, but I always get screwed)",
+          "Zakljucak: ja podocnjake imam uvijek. (Conclusion: I always have dark circles.)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), fuj (yuck), glupost (stupidity), srce puca (heart breaks), boli (hurts), nesreća (accident), oružje (weapons), -_-, :(",
+        "not_for": "Funny one-off mishaps and puzzled questions are neutral. Affectionate teasing with smileys is positive."
+      },
+      "neutral": {
+        "what": "No clear feeling: odd one-off mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, sports fixtures, science items and plain listings.",
+        "examples": [
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)",
+          "Hrvatska protiv Brazila otvara Mundijal (Croatia vs Brazil opens the World Cup)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), I'm at, 2-0, mp3",
+        "not_for": "Friendly smiley replies are positive. Complaints about one's own looks or bad luck are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Bosnian tweet convey: positive, neutral or negative?",
+      "rule": "Positive covers warmth, contentment, flirting, enjoyment and friendly replies to a person carrying :), :D or laughter. It also covers news and promos about wins, agreements, progress, festivals, contests, food, beauty or culture. Negative covers sadness, heartbreak, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, and news about accidents, deaths, weapons, illness, scandal or disputes. Neutral covers odd one-off mishaps, mild physical hyperbole (thirst, bladder, hair), curious questions, lyrics, fixtures, science items and plain listings. Choose neutral only when neither side clearly applies."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Sadness, heartbreak, painful exhaustion, hostility, contempt, disgust, bitter sayings about people, complaints about one's own looks, laziness or bad luck, or news about accidents, deaths, weapons, illness, scandal or disputes.",
+        "examples": [
+          "neprospavane noci ++ (sleepless nights)",
+          "RT @Ambivalentni: Ne znam, ali ja uvijek najebem (I don't know, but I always get screwed)",
+          "Zakljucak: ja podocnjake imam uvijek. (Conclusion: I always have dark circles.)",
+          "Incident u Trebinju (Incident in Trebinje)"
+        ],
+        "cues": "jebem (f***), najebem (I get screwed), mrzim (I hate), fuj (yuck), glupost (stupidity), srce puca (heart breaks), boli (hurts), nesreća (accident), oružje (weapons), -_-, :(",
+        "not_for": "Funny one-off mishaps and puzzled questions are neutral. Affectionate teasing with smileys is positive."
+      },
+      "neutral": {
+        "what": "No clear feeling: odd one-off mishaps, mild physical hyperbole, curious questions, lyrics, check-ins, sports fixtures, science items and plain listings.",
+        "examples": [
+          "Ne mogu više ovih čajeva,bešika će da mi eksplodira. (Can't take more teas, my bladder will explode.)",
+          "15 minuta trazim fen koji mi se nalazi ispod stola (15 minutes looking for the hairdryer that was under the table)",
+          "Hrvatska protiv Brazila otvara Mundijal (Croatia vs Brazil opens the World Cup)"
+        ],
+        "cues": "?, zašto (why), ko normalan (who in their right mind), I'm at, 2-0, mp3",
+        "not_for": "Friendly smiley replies are positive. Complaints about one's own looks or bad luck are negative."
+      },
+      "positive": {
+        "what": "Warmth, contentment, flirting, enjoyment, friendly smiley or laughing replies to someone, praise, uplifting sayings, or news and promos about wins, agreements, progress, festivals, contests, food, beauty and culture.",
+        "examples": [
+          "@rooster_62 hahaha tako je! Nema predaje. (hahaha that's right! No surrender.)",
+          "Minus sest stepeni u Sarajevu. Sreca pa necu nigdje. Evo me pod toplim jorganom hehe++ (Minus six in Sarajevo. Luckily I'm not going anywhere, under a warm duvet hehe)",
+          "Prvi ovogodišnji snijeg u Sarajevu :) (First snow of the year in Sarajevo :))",
+          "Čelik i Velež ostvarili ubjedljive pobjede (Čelik and Velež won convincingly)"
+        ],
+        "cues": "volim (I love), uživanje (enjoyment), sreća (luck/happiness), tako je (that's right), :), :D, :)))), hehe, <3, prijatno (enjoy), nagrada (prize), pobjede (wins), dogovor (agreement)",
+        "not_for": "Laughter reacting to a story or anecdote, with no warmth toward anyone, is neutral. Sad content ending in :) is negative."
+      }
+    }
+  }
+}

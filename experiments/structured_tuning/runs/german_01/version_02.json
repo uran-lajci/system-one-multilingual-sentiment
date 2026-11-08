@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's attitude, not the topic. Ads, plain news, results, fan requests, likes, calm opinions and greetings that only open a question or information are neutral. Stand-alone greetings, regards, welcomes, invitations with :) and proud success announcements are positive. The author's own tiredness, boredom, confusion (o_O, :/), curt dismissals and headlines with alarm words are negative; laughing emoticons make teasing of others positive but do not cancel a complaint about one's own mood."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Plain news, sports results, ads, classifieds, check-ins, questions, likes, fan requests and calm opinions without clear feeling.",
+        "examples": [
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)",
+          "Nike Air Delta Force High White *kaum getragen*: Erlangen | Verkaufe coole Nike Air Delta Force High in weiß, ... http (barely worn: selling cool Nike shoes in white)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, positiv bewertet (rated positively), bitte spielt (please play)",
+        "not_for": "Headlines with alarm words or emotional comment, e.g. 'Unfassbar!' (unbelievable!), are negative. Personal tiredness is negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or regards on their own, welcomes, invitations, affection, excitement, pride in success, playful teasing with laughing emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user good morning",
+          "Instandhaltung erfolgreich abgeschlossen! (maintenance successfully completed!)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / :D / :P / ♥, Gruß (regards), herzlich willkommen (warm welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant), erfolgreich (successful)",
+        "not_for": "A greeting opening a question, e.g. 'Gute Nacht! Können Sie erklären…' (good night! can you explain…), is neutral. Ads are neutral even with praise."
+      },
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, bitter sarcasm, curt dismissals, the author's own tiredness, boredom or confusion, and alarming bad news.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Ich werde gerade dezent nicht wach... (I'm kind of not waking up right now...)",
+          "Derp meine Laune will nicht so recht steigen ^^ (derp, my mood just won't lift ^^)"
+        ],
+        "cues": ":( / :/ / o_O, scheiße (shit), nervig (annoying), langeweile (boredom), Mist (damn), hasse (hate), Schade (pity), pssst, alarmierend (alarming), furchterregend (frightening)",
+        "not_for": "Neutral reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing others with :P is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's attitude, not the topic. Ads, plain news, results, fan requests, likes, calm opinions and greetings that only open a question or information are neutral. Stand-alone greetings, regards, welcomes, invitations with :) and proud success announcements are positive. The author's own tiredness, boredom, confusion (o_O, :/), curt dismissals and headlines with alarm words are negative; laughing emoticons make teasing of others positive but do not cancel a complaint about one's own mood."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or regards on their own, welcomes, invitations, affection, excitement, pride in success, playful teasing with laughing emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user good morning",
+          "Instandhaltung erfolgreich abgeschlossen! (maintenance successfully completed!)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / :D / :P / ♥, Gruß (regards), herzlich willkommen (warm welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant), erfolgreich (successful)",
+        "not_for": "A greeting opening a question, e.g. 'Gute Nacht! Können Sie erklären…' (good night! can you explain…), is neutral. Ads are neutral even with praise."
+      },
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, bitter sarcasm, curt dismissals, the author's own tiredness, boredom or confusion, and alarming bad news.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Ich werde gerade dezent nicht wach... (I'm kind of not waking up right now...)",
+          "Derp meine Laune will nicht so recht steigen ^^ (derp, my mood just won't lift ^^)"
+        ],
+        "cues": ":( / :/ / o_O, scheiße (shit), nervig (annoying), langeweile (boredom), Mist (damn), hasse (hate), Schade (pity), pssst, alarmierend (alarming), furchterregend (frightening)",
+        "not_for": "Neutral reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing others with :P is positive."
+      },
+      "neutral": {
+        "what": "Plain news, sports results, ads, classifieds, check-ins, questions, likes, fan requests and calm opinions without clear feeling.",
+        "examples": [
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)",
+          "Nike Air Delta Force High White *kaum getragen*: Erlangen | Verkaufe coole Nike Air Delta Force High in weiß, ... http (barely worn: selling cool Nike shoes in white)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, positiv bewertet (rated positively), bitte spielt (please play)",
+        "not_for": "Headlines with alarm words or emotional comment, e.g. 'Unfassbar!' (unbelievable!), are negative. Personal tiredness is negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's attitude, not the topic. Ads, plain news, results, fan requests, likes, calm opinions and greetings that only open a question or information are neutral. Stand-alone greetings, regards, welcomes, invitations with :) and proud success announcements are positive. The author's own tiredness, boredom, confusion (o_O, :/), curt dismissals and headlines with alarm words are negative; laughing emoticons make teasing of others positive but do not cancel a complaint about one's own mood."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, bitter sarcasm, curt dismissals, the author's own tiredness, boredom or confusion, and alarming bad news.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Ich werde gerade dezent nicht wach... (I'm kind of not waking up right now...)",
+          "Derp meine Laune will nicht so recht steigen ^^ (derp, my mood just won't lift ^^)"
+        ],
+        "cues": ":( / :/ / o_O, scheiße (shit), nervig (annoying), langeweile (boredom), Mist (damn), hasse (hate), Schade (pity), pssst, alarmierend (alarming), furchterregend (frightening)",
+        "not_for": "Neutral reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing others with :P is positive."
+      },
+      "neutral": {
+        "what": "Plain news, sports results, ads, classifieds, check-ins, questions, likes, fan requests and calm opinions without clear feeling.",
+        "examples": [
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)",
+          "Nike Air Delta Force High White *kaum getragen*: Erlangen | Verkaufe coole Nike Air Delta Force High in weiß, ... http (barely worn: selling cool Nike shoes in white)",
+          "Venedig: Großer Preis der Jury für Film aus Taiwan! http (Venice: Grand Jury Prize for a film from Taiwan!)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, positiv bewertet (rated positively), bitte spielt (please play)",
+        "not_for": "Headlines with alarm words or emotional comment, e.g. 'Unfassbar!' (unbelievable!), are negative. Personal tiredness is negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, greetings or regards on their own, welcomes, invitations, affection, excitement, pride in success, playful teasing with laughing emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "@user good morning",
+          "Instandhaltung erfolgreich abgeschlossen! (maintenance successfully completed!)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / :D / :P / ♥, Gruß (regards), herzlich willkommen (warm welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant), erfolgreich (successful)",
+        "not_for": "A greeting opening a question, e.g. 'Gute Nacht! Können Sie erklären…' (good night! can you explain…), is neutral. Ads are neutral even with praise."
+      }
+    }
+  }
+}

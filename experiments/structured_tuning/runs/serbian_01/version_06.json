@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the poster of this Serbian tweet show: positive (warmth, joy, enthusiasm, upbeat sharing), negative (displeasure, sadness, sarcasm, ridicule, admitted failings), or neutral (no evaluative tone)?",
+      "rule": "Shares and headlines about sport, entertainment, culture, fashion or products count as positive (wins, awards, new songs, promotions); political or procedural news is neutral, and crime or scandal is negative. Sayings and aphorisms take the valence of their theme: happiness, love, beauty or friendship is positive, sadness or loss is negative. Negative also covers sarcasm, mock praise, ridicule of people or habits, admitted failings and explicit displeasure. Puns, absurd anecdotes, earnest opinions, plans, questions and banter are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Political or procedural news, plans, questions, banter, earnest opinions, puns and absurd anecdotes without a target or failing.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Igraš košarku za Zadar, prezivaš se Šutalo a nemaš neki šut - gle ironije. (You play for Zadar, your surname is Šutalo, and you can't shoot - irony.)",
+          "Gledacu serije. (I'll watch series.)"
+        ],
+        "cues": "jel (is it), dates, kao (like), wordplay, sincere advice",
+        "not_for": "Upbeat lifestyle shares are positive. Mockery and admitted failings are negative."
+      },
+      "positive": {
+        "what": "Warmth, laughter, cheering, greetings, compliments, wishes or daydreams. Also upbeat or lifestyle shares and headlines, and uplifting sayings.",
+        "examples": [
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)",
+          "Ženska kolekcija čuvene firme Modus! (Women's collection of the famous Modus brand!)",
+          "RT @LjiljaBgd: Lepota je ulaznica za ulaz na velika vrata, uz očarane osmehe i naklone okoline. (Beauty is a ticket through the big door, with charmed smiles and bows.)",
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)"
+        ],
+        "cues": "nova pesma (new song), novi broj (new issue), kolekcija (collection), produžio ugovor (extended contract), srećan (happy), ljubav (love), lepota (beauty), HAHAHA, ajmo (come on), do jaja (awesome), ;)",
+        "not_for": "Mock praise is negative. Political news is neutral."
+      },
+      "negative": {
+        "what": "Displeasure, boredom, sadness, sad sayings, admitted failings, sarcasm, ridicule of people, habits or politics, and crime headlines.",
+        "examples": [
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Mrzim ponedeljak (I hate Monday)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), tuga (sadness), debil (idiot), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Absurd exaggeration without a target is neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the poster of this Serbian tweet show: positive (warmth, joy, enthusiasm, upbeat sharing), negative (displeasure, sadness, sarcasm, ridicule, admitted failings), or neutral (no evaluative tone)?",
+      "rule": "Shares and headlines about sport, entertainment, culture, fashion or products count as positive (wins, awards, new songs, promotions); political or procedural news is neutral, and crime or scandal is negative. Sayings and aphorisms take the valence of their theme: happiness, love, beauty or friendship is positive, sadness or loss is negative. Negative also covers sarcasm, mock praise, ridicule of people or habits, admitted failings and explicit displeasure. Puns, absurd anecdotes, earnest opinions, plans, questions and banter are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Warmth, laughter, cheering, greetings, compliments, wishes or daydreams. Also upbeat or lifestyle shares and headlines, and uplifting sayings.",
+        "examples": [
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)",
+          "Ženska kolekcija čuvene firme Modus! (Women's collection of the famous Modus brand!)",
+          "RT @LjiljaBgd: Lepota je ulaznica za ulaz na velika vrata, uz očarane osmehe i naklone okoline. (Beauty is a ticket through the big door, with charmed smiles and bows.)",
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)"
+        ],
+        "cues": "nova pesma (new song), novi broj (new issue), kolekcija (collection), produžio ugovor (extended contract), srećan (happy), ljubav (love), lepota (beauty), HAHAHA, ajmo (come on), do jaja (awesome), ;)",
+        "not_for": "Mock praise is negative. Political news is neutral."
+      },
+      "negative": {
+        "what": "Displeasure, boredom, sadness, sad sayings, admitted failings, sarcasm, ridicule of people, habits or politics, and crime headlines.",
+        "examples": [
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Mrzim ponedeljak (I hate Monday)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), tuga (sadness), debil (idiot), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Absurd exaggeration without a target is neutral."
+      },
+      "neutral": {
+        "what": "Political or procedural news, plans, questions, banter, earnest opinions, puns and absurd anecdotes without a target or failing.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Igraš košarku za Zadar, prezivaš se Šutalo a nemaš neki šut - gle ironije. (You play for Zadar, your surname is Šutalo, and you can't shoot - irony.)",
+          "Gledacu serije. (I'll watch series.)"
+        ],
+        "cues": "jel (is it), dates, kao (like), wordplay, sincere advice",
+        "not_for": "Upbeat lifestyle shares are positive. Mockery and admitted failings are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the poster of this Serbian tweet show: positive (warmth, joy, enthusiasm, upbeat sharing), negative (displeasure, sadness, sarcasm, ridicule, admitted failings), or neutral (no evaluative tone)?",
+      "rule": "Shares and headlines about sport, entertainment, culture, fashion or products count as positive (wins, awards, new songs, promotions); political or procedural news is neutral, and crime or scandal is negative. Sayings and aphorisms take the valence of their theme: happiness, love, beauty or friendship is positive, sadness or loss is negative. Negative also covers sarcasm, mock praise, ridicule of people or habits, admitted failings and explicit displeasure. Puns, absurd anecdotes, earnest opinions, plans, questions and banter are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Displeasure, boredom, sadness, sad sayings, admitted failings, sarcasm, ridicule of people, habits or politics, and crime headlines.",
+        "examples": [
+          "Moje pauze od ucenja traju duze nego samo ucenje (My study breaks last longer than the studying)",
+          "lepo je sto ih kristina savetuje posto je bas uspela u soubizu <3 (nice that Kristina advises them since she really made it in showbiz <3)",
+          "Mrzim ponedeljak (I hate Monday)"
+        ],
+        "cues": "mrzim (I hate), najgore (the worst), dosadno (boring), tuga (sadness), debil (idiot), jebi ga (damn), :( , ubijen (killed)",
+        "not_for": "Absurd exaggeration without a target is neutral."
+      },
+      "neutral": {
+        "what": "Political or procedural news, plans, questions, banter, earnest opinions, puns and absurd anecdotes without a target or failing.",
+        "examples": [
+          "Sednica SB UN o Kosovu 10. februara u Njujorku (UN SC session on Kosovo Feb 10 in New York)",
+          "Igraš košarku za Zadar, prezivaš se Šutalo a nemaš neki šut - gle ironije. (You play for Zadar, your surname is Šutalo, and you can't shoot - irony.)",
+          "Gledacu serije. (I'll watch series.)"
+        ],
+        "cues": "jel (is it), dates, kao (like), wordplay, sincere advice",
+        "not_for": "Upbeat lifestyle shares are positive. Mockery and admitted failings are negative."
+      },
+      "positive": {
+        "what": "Warmth, laughter, cheering, greetings, compliments, wishes or daydreams. Also upbeat or lifestyle shares and headlines, and uplifting sayings.",
+        "examples": [
+          "Serena Vilijams teniserka godine (Serena Williams tennis player of the year)",
+          "Ženska kolekcija čuvene firme Modus! (Women's collection of the famous Modus brand!)",
+          "RT @LjiljaBgd: Lepota je ulaznica za ulaz na velika vrata, uz očarane osmehe i naklone okoline. (Beauty is a ticket through the big door, with charmed smiles and bows.)",
+          "@pUnaVuna jel ti radis ili rtw-ujes :-) Elem, do jaja si :-) (are you working or retweeting :-) anyway, you're awesome)"
+        ],
+        "cues": "nova pesma (new song), novi broj (new issue), kolekcija (collection), produžio ugovor (extended contract), srećan (happy), ljubav (love), lepota (beauty), HAHAHA, ajmo (come on), do jaja (awesome), ;)",
+        "not_for": "Mock praise is negative. Political news is neutral."
+      }
+    }
+  }
+}

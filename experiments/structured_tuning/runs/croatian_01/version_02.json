@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Any complaint, frustration, irony, sarcasm, mockery or bad news counts as negative, even if mild, joking or with a smiley. Shares and announcements of culture, events, entertainment, celebrities, tech, recipes, tips, jobs, products, and calls to help or volunteer count as positive, as do warm friendly replies. Neutral is for political, business or sports news without a clear good or bad slant, statistics, line-ups, plain questions and matter-of-fact remarks."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Politics, economy, business or sports news without a clear good or bad slant. Also statistics, line-ups, schedules, plain questions, practical chat and matter-of-fact personal remarks.",
+        "examples": [
+          "RT @gnkdinamo: #Dinamo: Ježina - Pinto, Capan, Šimunić, Pivarić - Ademi, Brozović, Antolić - Halilović, Čop, Soudani #rijekadinamo #HRKup (Dinamo line-up)",
+          "Ledo isplaćuje dividendu od 162 kune http://t.co/nCcRFqcIV0 (Ledo pays a dividend of 162 kuna)",
+          "šta si popodne ovaj tjedan? (what shift are you this week?)"
+        ],
+        "cues": "political names, numbers, line-ups, dividenda (dividend), saborski (parliamentary), 'Kakvo nas vrijeme očekuje' (what weather awaits us), plain questions",
+        "not_for": "Headlines about debt, crises, conflicts or failures go negative. Cultural, lifestyle or help content goes positive."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, warmth, greetings. Also shares and announcements of events, culture, films, celebrities, tech and games, recipes, how-to tips, jobs, products, and help or volunteer appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "premijera (premiere), festival, radionica (workshop), pročitajte (read), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, kava (coffee), :), :D",
+        "not_for": "Smileys on complaints or teasing go negative. Political or business news without a slant goes neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, frustration, sadness, worry, irony, sarcasm, mockery or insults, even mild ones. Also news of bad events: crises, debt, recession, conflicts, deaths, scandals, failures.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Oborili sve rekorde: vanjski dug Hrvatske veći nego ikad http://t.co/YXbdqvWN4o (Broke all records: Croatia's foreign debt higher than ever)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), pad (fall), dug (debt), problem, skandal (scandal), napetosti (tensions), lol + mocking, :(, :S",
+        "not_for": "Help or volunteer appeals go positive. Neutral political news that merely names a topic goes neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Any complaint, frustration, irony, sarcasm, mockery or bad news counts as negative, even if mild, joking or with a smiley. Shares and announcements of culture, events, entertainment, celebrities, tech, recipes, tips, jobs, products, and calls to help or volunteer count as positive, as do warm friendly replies. Neutral is for political, business or sports news without a clear good or bad slant, statistics, line-ups, plain questions and matter-of-fact remarks."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, thanks, warmth, greetings. Also shares and announcements of events, culture, films, celebrities, tech and games, recipes, how-to tips, jobs, products, and help or volunteer appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "premijera (premiere), festival, radionica (workshop), pročitajte (read), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, kava (coffee), :), :D",
+        "not_for": "Smileys on complaints or teasing go negative. Political or business news without a slant goes neutral."
+      },
+      "negative": {
+        "what": "Complaints, annoyance, frustration, sadness, worry, irony, sarcasm, mockery or insults, even mild ones. Also news of bad events: crises, debt, recession, conflicts, deaths, scandals, failures.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Oborili sve rekorde: vanjski dug Hrvatske veći nego ikad http://t.co/YXbdqvWN4o (Broke all records: Croatia's foreign debt higher than ever)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), pad (fall), dug (debt), problem, skandal (scandal), napetosti (tensions), lol + mocking, :(, :S",
+        "not_for": "Help or volunteer appeals go positive. Neutral political news that merely names a topic goes neutral."
+      },
+      "neutral": {
+        "what": "Politics, economy, business or sports news without a clear good or bad slant. Also statistics, line-ups, schedules, plain questions, practical chat and matter-of-fact personal remarks.",
+        "examples": [
+          "RT @gnkdinamo: #Dinamo: Ježina - Pinto, Capan, Šimunić, Pivarić - Ademi, Brozović, Antolić - Halilović, Čop, Soudani #rijekadinamo #HRKup (Dinamo line-up)",
+          "Ledo isplaćuje dividendu od 162 kune http://t.co/nCcRFqcIV0 (Ledo pays a dividend of 162 kuna)",
+          "šta si popodne ovaj tjedan? (what shift are you this week?)"
+        ],
+        "cues": "political names, numbers, line-ups, dividenda (dividend), saborski (parliamentary), 'Kakvo nas vrijeme očekuje' (what weather awaits us), plain questions",
+        "not_for": "Headlines about debt, crises, conflicts or failures go negative. Cultural, lifestyle or help content goes positive."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What emotional attitude does the poster of this Croatian tweet convey, judged from its tone and from the valence of what it reports or shares?",
+      "rule": "Any complaint, frustration, irony, sarcasm, mockery or bad news counts as negative, even if mild, joking or with a smiley. Shares and announcements of culture, events, entertainment, celebrities, tech, recipes, tips, jobs, products, and calls to help or volunteer count as positive, as do warm friendly replies. Neutral is for political, business or sports news without a clear good or bad slant, statistics, line-ups, plain questions and matter-of-fact remarks."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, annoyance, frustration, sadness, worry, irony, sarcasm, mockery or insults, even mild ones. Also news of bad events: crises, debt, recession, conflicts, deaths, scandals, failures.",
+        "examples": [
+          "Naravno, opet kiša u Brusselsu. (Of course, rain in Brussels again.)",
+          "Oborili sve rekorde: vanjski dug Hrvatske veći nego ikad http://t.co/YXbdqvWN4o (Broke all records: Croatia's foreign debt higher than ever)",
+          "@LucijaCavric oho i ovdje si finjak :P (oho, you're being posh here too)"
+        ],
+        "cues": "opet (again), jebiga (damn it), mrzim (I hate), sranje (crap), grozan (awful), pad (fall), dug (debt), problem, skandal (scandal), napetosti (tensions), lol + mocking, :(, :S",
+        "not_for": "Help or volunteer appeals go positive. Neutral political news that merely names a topic goes neutral."
+      },
+      "neutral": {
+        "what": "Politics, economy, business or sports news without a clear good or bad slant. Also statistics, line-ups, schedules, plain questions, practical chat and matter-of-fact personal remarks.",
+        "examples": [
+          "RT @gnkdinamo: #Dinamo: Ježina - Pinto, Capan, Šimunić, Pivarić - Ademi, Brozović, Antolić - Halilović, Čop, Soudani #rijekadinamo #HRKup (Dinamo line-up)",
+          "Ledo isplaćuje dividendu od 162 kune http://t.co/nCcRFqcIV0 (Ledo pays a dividend of 162 kuna)",
+          "šta si popodne ovaj tjedan? (what shift are you this week?)"
+        ],
+        "cues": "political names, numbers, line-ups, dividenda (dividend), saborski (parliamentary), 'Kakvo nas vrijeme očekuje' (what weather awaits us), plain questions",
+        "not_for": "Headlines about debt, crises, conflicts or failures go negative. Cultural, lifestyle or help content goes positive."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, warmth, greetings. Also shares and announcements of events, culture, films, celebrities, tech and games, recipes, how-to tips, jobs, products, and help or volunteer appeals.",
+        "examples": [
+          "Pula: Na Giardinima započela 8. Florija, sajam cvijeća u sklopu obilježavanja Dana Grada: https://t.co/6Jbezcjeer (Pula: the 8th Florija flower fair started at Giardini)",
+          "Šol je za odreske i potrebno ga je vrlo malo pržiti. #321kuhaj (This cut is for steaks and needs very little frying)",
+          "RT @amaiia_hr: #Zagreb - Volonteri traže prijevoz do poplavljenih područja #poplave (Volunteers seek transport to flooded areas)",
+          "@msrsan evo, whatever happens znas da si voljen :P (whatever happens, you know you're loved)"
+        ],
+        "cues": "premijera (premiere), festival, radionica (workshop), pročitajte (read), traži (seeks), pomozimo (let's help), dijelite (share), hvala (thanks), bravo, kava (coffee), :), :D",
+        "not_for": "Smileys on complaints or teasing go negative. Political or business news without a slant goes neutral."
+      }
+    }
+  }
+}

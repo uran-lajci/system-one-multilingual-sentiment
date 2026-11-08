@@ -1,0 +1,116 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the author of this French tweet express, taking irony into account: approval or enthusiasm, disapproval or alarm, or no clear personal stance?",
+      "rule": "Judge the author's own expressed stance, not whether the reported fact is good or bad for the environment. Plain news headlines and links (an innovation, investment, project, study, disaster, decline or suspension) are neutral unless the tweet adds evaluative words, exclamations, emojis or loaded hashtags. Advocacy for a solution or cause, praise, thanks, enthusiasm, or agreement are positive, even when they criticise an opposing option. Insults, anger, mockery of a person or policy, and complaints are negative; light jokes and puns with no target are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Factual headlines, links, announcements, data, events, and harmless jokes or banter, whether the news is good or bad.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http (Innovation: transparent tiles to capture solar energy)",
+          "La fonte des calottes polaires s’accélère http #Environnement #Climat (Polar ice melt is accelerating)",
+          "@user Je leur donne le sein, c'est plus écologique ! (I breastfeed them, it's more ecological!)"
+        ],
+        "cues": "http, via @user, publie (publishes), millions, va être testé (will be tested), lancement (launch), pourrait (could), hashtags only",
+        "not_for": "Headlines with an added personal verdict (#goodnews, Dommage, Bête décision) take that verdict's label."
+      },
+      "positive": {
+        "what": "Author approves, praises, recommends, thanks, is enthusiastic, or calls for action in favour of a cause or solution.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Cette après-midi, j'interviens au @user pour parler de la fausse solution #gazdeschiste pour lutter contre le réchauffement #climatique (This afternoon I speak about the false solution of shale gas to fight warming)",
+          "Réchauffement climatique: il est grand temps d'agir, par Ban-ki Moon (Climate change: it is high time to act)"
+        ],
+        "cues": "!, bravo, merci (thanks), super intéressant (very interesting), bien sympa (very nice), il faut (we must), grand temps d'agir (high time to act), Incroyable (incredible), 😂, ;)",
+        "not_for": "Neutral-toned headlines about green projects, investments or technologies with no author enthusiasm are neutral."
+      },
+      "negative": {
+        "what": "Author expresses criticism, anger, contempt, disappointment, sarcasm aimed at people or policies, or complaint.",
+        "examples": [
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)",
+          "Voilà des panneaux solaires VRAIMENT transparents ! Dommage pour le tout petit rendement ! (Truly transparent solar panels! Shame about the tiny yield!)"
+        ],
+        "cues": "Dommage (shame), défigurent (disfigure), inutile (useless), corrompus (corrupt), honte (shame), enfumage (smokescreen), méprise (despises)",
+        "not_for": "Bad-news headlines without author comment are neutral; criticism made in support of a solution is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the author of this French tweet express, taking irony into account: approval or enthusiasm, disapproval or alarm, or no clear personal stance?",
+      "rule": "Judge the author's own expressed stance, not whether the reported fact is good or bad for the environment. Plain news headlines and links (an innovation, investment, project, study, disaster, decline or suspension) are neutral unless the tweet adds evaluative words, exclamations, emojis or loaded hashtags. Advocacy for a solution or cause, praise, thanks, enthusiasm, or agreement are positive, even when they criticise an opposing option. Insults, anger, mockery of a person or policy, and complaints are negative; light jokes and puns with no target are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Author approves, praises, recommends, thanks, is enthusiastic, or calls for action in favour of a cause or solution.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Cette après-midi, j'interviens au @user pour parler de la fausse solution #gazdeschiste pour lutter contre le réchauffement #climatique (This afternoon I speak about the false solution of shale gas to fight warming)",
+          "Réchauffement climatique: il est grand temps d'agir, par Ban-ki Moon (Climate change: it is high time to act)"
+        ],
+        "cues": "!, bravo, merci (thanks), super intéressant (very interesting), bien sympa (very nice), il faut (we must), grand temps d'agir (high time to act), Incroyable (incredible), 😂, ;)",
+        "not_for": "Neutral-toned headlines about green projects, investments or technologies with no author enthusiasm are neutral."
+      },
+      "negative": {
+        "what": "Author expresses criticism, anger, contempt, disappointment, sarcasm aimed at people or policies, or complaint.",
+        "examples": [
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)",
+          "Voilà des panneaux solaires VRAIMENT transparents ! Dommage pour le tout petit rendement ! (Truly transparent solar panels! Shame about the tiny yield!)"
+        ],
+        "cues": "Dommage (shame), défigurent (disfigure), inutile (useless), corrompus (corrupt), honte (shame), enfumage (smokescreen), méprise (despises)",
+        "not_for": "Bad-news headlines without author comment are neutral; criticism made in support of a solution is positive."
+      },
+      "neutral": {
+        "what": "Factual headlines, links, announcements, data, events, and harmless jokes or banter, whether the news is good or bad.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http (Innovation: transparent tiles to capture solar energy)",
+          "La fonte des calottes polaires s’accélère http #Environnement #Climat (Polar ice melt is accelerating)",
+          "@user Je leur donne le sein, c'est plus écologique ! (I breastfeed them, it's more ecological!)"
+        ],
+        "cues": "http, via @user, publie (publishes), millions, va être testé (will be tested), lancement (launch), pourrait (could), hashtags only",
+        "not_for": "Headlines with an added personal verdict (#goodnews, Dommage, Bête décision) take that verdict's label."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What attitude does the author of this French tweet express, taking irony into account: approval or enthusiasm, disapproval or alarm, or no clear personal stance?",
+      "rule": "Judge the author's own expressed stance, not whether the reported fact is good or bad for the environment. Plain news headlines and links (an innovation, investment, project, study, disaster, decline or suspension) are neutral unless the tweet adds evaluative words, exclamations, emojis or loaded hashtags. Advocacy for a solution or cause, praise, thanks, enthusiasm, or agreement are positive, even when they criticise an opposing option. Insults, anger, mockery of a person or policy, and complaints are negative; light jokes and puns with no target are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Author expresses criticism, anger, contempt, disappointment, sarcasm aimed at people or policies, or complaint.",
+        "examples": [
+          "@user Les éoliennes défigurent nos jolies campagnes. (Wind turbines disfigure our countryside.)",
+          "Voilà des panneaux solaires VRAIMENT transparents ! Dommage pour le tout petit rendement ! (Truly transparent solar panels! Shame about the tiny yield!)"
+        ],
+        "cues": "Dommage (shame), défigurent (disfigure), inutile (useless), corrompus (corrupt), honte (shame), enfumage (smokescreen), méprise (despises)",
+        "not_for": "Bad-news headlines without author comment are neutral; criticism made in support of a solution is positive."
+      },
+      "neutral": {
+        "what": "Factual headlines, links, announcements, data, events, and harmless jokes or banter, whether the news is good or bad.",
+        "examples": [
+          "Innovation : des tuiles transparentes pour capter l'énergie solaire http (Innovation: transparent tiles to capture solar energy)",
+          "La fonte des calottes polaires s’accélère http #Environnement #Climat (Polar ice melt is accelerating)",
+          "@user Je leur donne le sein, c'est plus écologique ! (I breastfeed them, it's more ecological!)"
+        ],
+        "cues": "http, via @user, publie (publishes), millions, va être testé (will be tested), lancement (launch), pourrait (could), hashtags only",
+        "not_for": "Headlines with an added personal verdict (#goodnews, Dommage, Bête décision) take that verdict's label."
+      },
+      "positive": {
+        "what": "Author approves, praises, recommends, thanks, is enthusiastic, or calls for action in favour of a cause or solution.",
+        "examples": [
+          "Une cellule solaire capable de stocker son énergie ! (A solar cell able to store its energy!)",
+          "Cette après-midi, j'interviens au @user pour parler de la fausse solution #gazdeschiste pour lutter contre le réchauffement #climatique (This afternoon I speak about the false solution of shale gas to fight warming)",
+          "Réchauffement climatique: il est grand temps d'agir, par Ban-ki Moon (Climate change: it is high time to act)"
+        ],
+        "cues": "!, bravo, merci (thanks), super intéressant (very interesting), bien sympa (very nice), il faut (we must), grand temps d'agir (high time to act), Incroyable (incredible), 😂, ;)",
+        "not_for": "Neutral-toned headlines about green projects, investments or technologies with no author enthusiasm are neutral."
+      }
+    }
+  }
+}

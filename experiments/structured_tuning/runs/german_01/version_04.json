@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own expressed feeling, not the topic. Plain news (crime, economy, politics), ads, results, fan requests and calm opinions are neutral, but headlines about death, suffering or with alarm words are negative. Laughing, winking or heart cues make jokes, teasing and mild gripes positive, yet do not soften stated pain, heartbreak, bewilderment or refusal. Bewildered reactions (o_O, wut, ?!?!), dry sarcasm ('Danke.', 'Aha!'), curt rejections, threats and the author's bad state are negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Plain news about crime, economy or politics, sports results, ads, questions, likes, fan requests, calm opinions, mild everyday remarks and absurd jokes.",
+        "examples": [
+          "Aargau: Ausländische Diebe sehr aktiv http (Aargau: foreign thieves very active)",
+          "Müdigkeit frisst Motivation #montag (tiredness eats motivation #monday)",
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, bitte spielt (please play), open questions",
+        "not_for": "Headlines with alarm words or about deaths, e.g. 'Alarmierende Studie' (alarming study), are negative. Bewildered reactions with o_O are negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, stand-alone greetings, welcomes, affection, excitement, pride in success, and jokes or teasing softened by laughing, winking or heart emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "So unfassbar müde - gute Nacht, ihr Hübschen <3 (so incredibly tired - good night, you lovely people <3)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / ;) / :D / :P / xD / haha / <3, Gruß (regards), willkommen (welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant)",
+        "not_for": "A smiley after heartbreak or a refusal, e.g. 'Herz wieder in tausend Stücke zerfallen. Danke. (:' (heart shattered again. Thanks. (:), is negative. Ads and reported wins are neutral."
+      },
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, threats, dry sarcasm, bewilderment, curt rejections, the author's bad state, and news about death, suffering or alarm.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Einmal Weltuntergang zum Mitnehmen bitten. Danke. (One apocalypse to go, please. Thanks.)",
+          "Welches Geschenk hast du zuletzt bekommen? — Eine Bettdecke o.O http (What gift did you get last? — A duvet o.O)",
+          "RT @user: Alarmierende Studie: 68 Prozent aller Erstwähler können keinen Stift mehr bedienen ... http (Alarming study: 68 percent of first-time voters can no longer use a pen)"
+        ],
+        "cues": ":( / :/ / o_O / T_T / wut / ?!?!, scheiße (shit), nervig (annoying), Mist (damn), merkwürdig (weird), einsam (lonely), Aha!, pssst, nicht wach (not awake), furchterregend (frightening)",
+        "not_for": "Plain reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing with ;) or haha is positive."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own expressed feeling, not the topic. Plain news (crime, economy, politics), ads, results, fan requests and calm opinions are neutral, but headlines about death, suffering or with alarm words are negative. Laughing, winking or heart cues make jokes, teasing and mild gripes positive, yet do not soften stated pain, heartbreak, bewilderment or refusal. Bewildered reactions (o_O, wut, ?!?!), dry sarcasm ('Danke.', 'Aha!'), curt rejections, threats and the author's bad state are negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Joy, praise, thanks, stand-alone greetings, welcomes, affection, excitement, pride in success, and jokes or teasing softened by laughing, winking or heart emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "So unfassbar müde - gute Nacht, ihr Hübschen <3 (so incredibly tired - good night, you lovely people <3)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / ;) / :D / :P / xD / haha / <3, Gruß (regards), willkommen (welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant)",
+        "not_for": "A smiley after heartbreak or a refusal, e.g. 'Herz wieder in tausend Stücke zerfallen. Danke. (:' (heart shattered again. Thanks. (:), is negative. Ads and reported wins are neutral."
+      },
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, threats, dry sarcasm, bewilderment, curt rejections, the author's bad state, and news about death, suffering or alarm.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Einmal Weltuntergang zum Mitnehmen bitten. Danke. (One apocalypse to go, please. Thanks.)",
+          "Welches Geschenk hast du zuletzt bekommen? — Eine Bettdecke o.O http (What gift did you get last? — A duvet o.O)",
+          "RT @user: Alarmierende Studie: 68 Prozent aller Erstwähler können keinen Stift mehr bedienen ... http (Alarming study: 68 percent of first-time voters can no longer use a pen)"
+        ],
+        "cues": ":( / :/ / o_O / T_T / wut / ?!?!, scheiße (shit), nervig (annoying), Mist (damn), merkwürdig (weird), einsam (lonely), Aha!, pssst, nicht wach (not awake), furchterregend (frightening)",
+        "not_for": "Plain reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing with ;) or haha is positive."
+      },
+      "neutral": {
+        "what": "Plain news about crime, economy or politics, sports results, ads, questions, likes, fan requests, calm opinions, mild everyday remarks and absurd jokes.",
+        "examples": [
+          "Aargau: Ausländische Diebe sehr aktiv http (Aargau: foreign thieves very active)",
+          "Müdigkeit frisst Motivation #montag (tiredness eats motivation #monday)",
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, bitte spielt (please play), open questions",
+        "not_for": "Headlines with alarm words or about deaths, e.g. 'Alarmierende Studie' (alarming study), are negative. Bewildered reactions with o_O are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does the author of this German tweet express: positive, neutral or negative?",
+      "rule": "Judge the author's own expressed feeling, not the topic. Plain news (crime, economy, politics), ads, results, fan requests and calm opinions are neutral, but headlines about death, suffering or with alarm words are negative. Laughing, winking or heart cues make jokes, teasing and mild gripes positive, yet do not soften stated pain, heartbreak, bewilderment or refusal. Bewildered reactions (o_O, wut, ?!?!), dry sarcasm ('Danke.', 'Aha!'), curt rejections, threats and the author's bad state are negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, anger, disgust, sadness, insults, threats, dry sarcasm, bewilderment, curt rejections, the author's bad state, and news about death, suffering or alarm.",
+        "examples": [
+          "Och ne, jetzt singt Nicole auch noch? HILFE. #sg (Oh no, now Nicole is singing too? HELP.)",
+          "Einmal Weltuntergang zum Mitnehmen bitten. Danke. (One apocalypse to go, please. Thanks.)",
+          "Welches Geschenk hast du zuletzt bekommen? — Eine Bettdecke o.O http (What gift did you get last? — A duvet o.O)",
+          "RT @user: Alarmierende Studie: 68 Prozent aller Erstwähler können keinen Stift mehr bedienen ... http (Alarming study: 68 percent of first-time voters can no longer use a pen)"
+        ],
+        "cues": ":( / :/ / o_O / T_T / wut / ?!?!, scheiße (shit), nervig (annoying), Mist (damn), merkwürdig (weird), einsam (lonely), Aha!, pssst, nicht wach (not awake), furchterregend (frightening)",
+        "not_for": "Plain reports or third-party criticism, e.g. 'Forrester-Analyst übt scharfe Kritik' (analyst sharply criticizes), stay neutral. Teasing with ;) or haha is positive."
+      },
+      "neutral": {
+        "what": "Plain news about crime, economy or politics, sports results, ads, questions, likes, fan requests, calm opinions, mild everyday remarks and absurd jokes.",
+        "examples": [
+          "Aargau: Ausländische Diebe sehr aktiv http (Aargau: foreign thieves very active)",
+          "Müdigkeit frisst Motivation #montag (tiredness eats motivation #monday)",
+          "Guten Morgen! Wir wollen euch noch erzählen, was #Apple gestern in Sachen #iPhone erzählt hat: http (Good morning! We want to tell you what Apple said yesterday about the iPhone)"
+        ],
+        "cues": "headline plus link, RT of news, prices, Verkaufe (selling), +1, bitte spielt (please play), open questions",
+        "not_for": "Headlines with alarm words or about deaths, e.g. 'Alarmierende Studie' (alarming study), are negative. Bewildered reactions with o_O are negative."
+      },
+      "positive": {
+        "what": "Joy, praise, thanks, stand-alone greetings, welcomes, affection, excitement, pride in success, and jokes or teasing softened by laughing, winking or heart emoticons.",
+        "examples": [
+          "SIEG!!!!!!!! Chemie gewinnt 2-0 gegen Osnabrück :-D #liga3 (VICTORY!!! Chemie wins 2-0 against Osnabrück)",
+          "So unfassbar müde - gute Nacht, ihr Hübschen <3 (so incredibly tired - good night, you lovely people <3)",
+          "Schäm dich einfach :P (just be ashamed of yourself :P)"
+        ],
+        "cues": ":) / ;) / :D / :P / xD / haha / <3, Gruß (regards), willkommen (welcome), Glückwunsch (congratulations), danke (thanks), genial (brilliant)",
+        "not_for": "A smiley after heartbreak or a refusal, e.g. 'Herz wieder in tausend Stücke zerfallen. Danke. (:' (heart shattered again. Thanks. (:), is negative. Ads and reported wins are neutral."
+      }
+    }
+  }
+}

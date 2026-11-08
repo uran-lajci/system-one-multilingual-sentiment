@@ -7,7 +7,8 @@ reads only the development results and writes the next version, until it has wri
 script keeps the version with the highest validation macro-F1, the earlier one on a tie, and copies it to
 <out-dir>/questions/<name>.json for scoring on test with classify_sentiment. <out-dir>/runs/<name>/ holds every
 version, the conversation and a log, and <results-dir>/<name>/tuning/ holds the predictions. A run whose kept question
-already exists is skipped; a stopped run starts again from version 0.
+already exists is skipped. The script saves the log and the conversation after each version, so a stopped run resumes
+after its last saved version.
 
 uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 \\
     -q experiments/structured_tuning/start/questions/albanian_01.json
@@ -77,6 +78,16 @@ def render_feedback(template: str, version: int, table: pd.DataFrame, texts: lis
         .replace('{errors}', str(len(errors)))
         .replace('{error_lines}', '\n'.join(error_lines))
     )
+
+
+def write_run_files(run_dir: str, log: dict[str, object], messages: list[anthropic.types.MessageParam]) -> None:
+    """Write the run's log and conversation, from which a stopped run also resumes."""
+    with open(os.path.join(run_dir, 'log.json'), 'w', encoding='utf-8') as file:
+        json.dump(log, file, ensure_ascii=False, indent=2)
+        file.write('\n')
+    with open(os.path.join(run_dir, 'conversation.json'), 'w', encoding='utf-8') as file:
+        json.dump(messages, file, ensure_ascii=False, indent=2, default=lambda block: block.to_dict())
+        file.write('\n')
 
 
 def as_answer_json(path: str) -> str:
@@ -187,13 +198,39 @@ async def main(
     os.makedirs(predictions_dir, exist_ok=True)
     os.makedirs(os.path.dirname(kept_path), exist_ok=True)
 
-    questions = load_structured_questions(start_path)
-    version_path = os.path.join(run_dir, 'version_00.json')
-    shutil.copyfile(start_path, version_path)
+    run_log: dict[str, object] = {
+        'name': name,
+        'seed': seed,
+        'start_path': start_path,
+        'language': language,
+        'context': context,
+        'train_path': train_path,
+        'dev_rows': [int(row) for row in dev_rows],
+        'validation_path': validation_path,
+        'model': model,
+        'effort': EFFORT,
+        'tuned_model': tuned_model,
+        'tuning_question_ids': [QUESTION_IDS[0]],
+        'date': datetime.date.today().isoformat(),
+    }
     messages: list[anthropic.types.MessageParam] = []
     versions: list[dict[str, object]] = []
+    if os.path.exists(os.path.join(run_dir, 'log.json')):
+        with open(os.path.join(run_dir, 'log.json'), encoding='utf-8') as file:
+            saved = json.load(file)
+        with open(os.path.join(run_dir, 'conversation.json'), encoding='utf-8') as file:
+            messages = json.load(file)
+        versions = saved['versions']
+        run_log['date'] = saved['date']
+        print(f'{name}: resuming after version {len(versions) - 1}')
+    else:
+        shutil.copyfile(start_path, os.path.join(run_dir, 'version_00.json'))
 
-    for version in range(iterations + 1):
+    first_version = len(versions)
+    version_path = os.path.join(run_dir, f'version_{first_version:02d}.json')
+    questions = load_structured_questions(version_path)
+
+    for version in range(first_version, iterations + 1):
         predict = structured_predictor(tuned_model, {QUESTION_IDS[0]: questions[QUESTION_IDS[0]]}, context, concurrency)
         scores = {}
         tables = {}
@@ -232,34 +269,13 @@ async def main(
             'next_examples_not_copied': examples_not_copied(answer, seen_texts),
             'opus_calls': usage,
         }
+        write_run_files(run_dir, run_log | {'versions': versions}, messages)
 
     validation_scores = [float(str(entry['validation_macro_f1'])) for entry in versions]
     kept = validation_scores.index(max(validation_scores))
     shutil.copyfile(str(versions[kept]['path']), kept_path)
 
-    log = {
-        'name': name,
-        'seed': seed,
-        'start_path': start_path,
-        'language': language,
-        'context': context,
-        'train_path': train_path,
-        'dev_rows': [int(row) for row in dev_rows],
-        'validation_path': validation_path,
-        'model': model,
-        'effort': EFFORT,
-        'tuned_model': tuned_model,
-        'tuning_question_ids': [QUESTION_IDS[0]],
-        'date': datetime.date.today().isoformat(),
-        'kept_version': kept,
-        'versions': versions,
-    }
-    with open(os.path.join(run_dir, 'log.json'), 'w', encoding='utf-8') as file:
-        json.dump(log, file, ensure_ascii=False, indent=2)
-        file.write('\n')
-    with open(os.path.join(run_dir, 'conversation.json'), 'w', encoding='utf-8') as file:
-        json.dump(messages, file, ensure_ascii=False, indent=2, default=lambda block: block.to_dict())
-        file.write('\n')
+    write_run_files(run_dir, run_log | {'kept_version': kept, 'versions': versions}, messages)
 
     print(f'{name}: kept version {kept} (validation macro-F1 {validation_scores[kept]:.1f}); wrote {kept_path}')
 
