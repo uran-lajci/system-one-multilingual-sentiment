@@ -33,7 +33,6 @@ Answers and diffs must be small enough for a human to read and review fully. Lon
 This repository benchmarks System One models on three-class sentiment analysis. It compares them with the LLM and SOTA scores in Kastrati et al. (2026), in `papers/`. The conference paper runs five models on 10 languages, zero-shot and few-shot with the paper's three examples. It also tunes Jev's question on the 8 languages with train and validation data (`docs/next-steps.md`). The 35-language work and the other few-shot runs wait until after it (`docs/future-work.md`). The study plan is in `docs/`. The README lists the repository layout and which files are the test sets.
 
 - Choose questions and tune them on train and validation data only. Score each test set once, at the end.
-- Exception: structured iterative tuning (`docs/next-steps.md`) scores each test set once per run, in 5 runs. It reports every run and selects none, so it does not tune on test data.
 - Report macro-F1 on the three labels, so scores compare directly with the paper.
 - Compare a tuned model with zero-shot Jev and the few-shot LLMs, not with the zero-shot LLMs.
 - Pin the exact model version in every run, such as `jev-1.14.0`, so results stay reproducible.

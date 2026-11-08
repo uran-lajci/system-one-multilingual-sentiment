@@ -92,13 +92,13 @@ A question stays under 400 words, not counting the English meanings in brackets.
 
 ### Step 1: the start questions
 
-For each dataset, Opus (`claude-opus-5-5`, effort `medium`) makes 5 calls. Call r draws 50 texts per label from the train file with seed r, and gets the dataset's context. The prompt describes the fields above. It shows no question from our AlbAna work, so no rule tuned by hand on AlbAna reaches other datasets. Opus returns the fields as JSON, and the script builds the three label orders. If an answer fails the format check, the script repeats the call with the same seed.
+For each dataset, Opus (`claude-opus-5-5`, effort `medium`) writes one start question. It reads 50 texts per label, drawn from the train file with seed 1, and the dataset's context. The prompt describes the fields above. It shows no question from our AlbAna work, so no rule tuned by hand on AlbAna reaches other datasets. Opus returns the fields as JSON, and the script builds the three label orders. If an answer fails the format check, the script repeats the call with the same seed.
 
 ### Step 2: the tuning loop
 
-Run r starts from start question r. Each run is one conversation with `claude-opus-5-5`, with effort `medium`.
+Each dataset gets one tuning run, which starts from its start question. The run is one conversation with `claude-opus-5-5`, with effort `medium`.
 
-1. Draw a development set of 600 train texts with seed r, leaving out the 150 texts that Opus saw for start question r. The draw is simple random sampling, so the labels keep their train proportions.
+1. Draw a development set of 600 train texts with seed 1, leaving out the 150 texts that Opus saw for the start question. The draw is simple random sampling, so the labels keep their train proportions.
 2. Score the current version with `jev-1.14.0` on the development set and on the validation set.
 3. Send Opus the development results only: the macro-F1, the confusion matrix and every misclassified text, with its gold label, Jev's label and Jev's three probabilities. Opus never sees a validation text or a validation score.
 4. Opus writes an error analysis, then a new version in the structured format, with examples copied from texts it has seen.
@@ -108,23 +108,23 @@ While tuning, Jev gets only the first label order, with neutral first, which cos
 
 ### Selection and test
 
-We keep the version with the highest validation macro-F1, and on a tie, the earlier one. Jev scores that version once on the test set, with the three label orders averaged. We do 5 runs per dataset and report the mean, minimum and maximum test score.
+We keep the version with the highest validation macro-F1, and on a tie, the earlier one. Jev scores that version once on the test set, with the three label orders averaged. We report this one test score per dataset. A single run shows no spread: on English and Albanian, 5 runs with seeds 1 to 5 differed by up to 3 points on test.
 
 The validation sets of English, German and French hold about 324 texts each. Picking the best of 11 versions on them is therefore noisier than on the larger LMR-SMS validation sets.
 
 ### Commands, logs and cost
 
-The code and outputs are in `experiments/structured_tuning/` and `results/structured_tuning/`. The start questions and their Opus logs are in `experiments/structured_tuning/start/`, and the kept questions in `experiments/structured_tuning/questions/`. For Albanian run 1:
+The code and outputs are in `experiments/structured_tuning/` and `results/structured_tuning/`. The start questions and their Opus logs are in `experiments/structured_tuning/start/`, and the kept questions in `experiments/structured_tuning/questions/`. For Albanian:
 
 ```bash
-uv run python -m experiments.structured_tuning.induce_questions -l Albanian -t data/lmr-sms/train/Albanian.csv -x albanian -n 5
+uv run python -m experiments.structured_tuning.induce_questions -l Albanian -t data/lmr-sms/train/Albanian.csv -x albanian -n 1
 uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 -q experiments/structured_tuning/start/questions/albanian_01.json
 uv run python -m experiments.structured_tuning.classify_sentiment -q experiments/structured_tuning/questions/albanian_01.json -l Albanian
 ```
 
 We commit the prompts, the contexts, every message of each conversation, every version and the train row numbers of each development set. The English and Albanian logs name the paths these files had before we moved them, under `experiments/structured_induction/`.
 
-English and Albanian were done on 8 November 2026. The other 6 languages are next, and each needs its context first. A language costs about USD 13 to 19 for tuning, mostly for Opus, and up to USD 2 for the test scoring.
+English and Albanian were done on 8 November 2026. The other 6 languages are next, and each needs its context first. On English and Albanian, a tuning run cost about USD 2.50 to 3.50, mostly for Opus, and a test scoring up to USD 0.50.
 
 ## Open decisions
 

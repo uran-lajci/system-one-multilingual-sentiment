@@ -5,9 +5,9 @@ development set holds --dev-size other train texts, drawn at random with the sam
 proportions. Jev scores each version with the first label order only, on the development and the validation set. Opus
 reads only the development results and writes the next version, until it has written --iterations new versions. The
 script keeps the version with the highest validation macro-F1, the earlier one on a tie, and copies it to
-<out-dir>/questions/<name>.json for scoring on test with classify_sentiment. <out-dir>/runs/<name>/
-holds every version, the conversation and a log, and <results-dir>/<name>/ holds the predictions. A run whose kept
-question already exists is skipped; a stopped run starts again from version 0.
+<out-dir>/questions/<name>.json for scoring on test with classify_sentiment. <out-dir>/runs/<name>/ holds every
+version, the conversation and a log, and <results-dir>/<name>/tuning/ holds the predictions. A run whose kept question
+already exists is skipped; a stopped run starts again from version 0.
 
 uv run python -m experiments.structured_tuning.tune_question -s 1 -x albanian_01 \\
     -q experiments/structured_tuning/start/questions/albanian_01.json
@@ -182,7 +182,7 @@ async def main(
     validation_gold = sentiment_labels(validation, validation_path).to_numpy()
 
     run_dir = os.path.join(out_dir, 'runs', name)
-    predictions_dir = os.path.join(results_dir, name)
+    predictions_dir = os.path.join(results_dir, name, 'tuning')
     os.makedirs(run_dir, exist_ok=True)
     os.makedirs(predictions_dir, exist_ok=True)
     os.makedirs(os.path.dirname(kept_path), exist_ok=True)
@@ -278,7 +278,7 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--iterations', type=int, default=10)
     parser.add_argument('-c', '--concurrency', type=int, default=16)
     parser.add_argument('-o', '--out-dir', default='experiments/structured_tuning')
-    parser.add_argument('-r', '--results-dir', default='results/structured_tuning/tuning')
+    parser.add_argument('-r', '--results-dir', default='results/structured_tuning')
 
     args = parser.parse_args()
     asyncio.run(
