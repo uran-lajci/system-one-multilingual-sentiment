@@ -67,7 +67,17 @@ Each criterion becomes an object. `description` holds the zero-shot wording word
 
 Our paper must state two more differences. The criteria change from plain strings to objects, so the shape changes as well as the examples. The LLMs saw the examples before the input text, and our models see them inside the criteria.
 
-The three examples add about a quarter to the input tokens of each item, so the run costs about a quarter more than the zero-shot run. Laya runs locally.
+The nine other versions from the question sensitivity analysis get the same three examples. Each version then has a zero-shot and a few-shot score. The baseline stays the headline score and runs first. The nine others run later. For each version, we report the few-shot 10-language mean and its gain over the zero-shot mean of the same version, with the mean, minimum and maximum across versions. We select no version.
+
+`experiments/few_shot/add_examples.py` writes the 10 few-shot question files to `experiments/few_shot/questions/`. It copies each zero-shot file and changes only the criteria, as above. `experiments/few_shot/paper_scores.csv` holds the paper's few-shot LLM scores.
+
+```bash
+uv run python -m experiments.few_shot.add_examples
+uv run python -m experiments.zero_shot.classify_sentiment -m jev-1.14.0 -q experiments/few_shot/questions/baseline.json
+uv run python -m experiments.zero_shot.score_predictions -r results/few_shot -p experiments/few_shot/paper_scores.csv
+```
+
+We estimate that the three examples add about 100 input tokens to each item. Zero-shot used 388 per item with Jev and 207 with Clef and Clef-flash, so few-shot costs about a quarter more with Jev and about half more with Clef. That is about USD 1.70 per version for Jev, Clef and Clef-flash together, or about USD 17 for all 10. Laya runs locally.
 
 ## Instruction induction
 
@@ -105,7 +115,7 @@ For each model and question file, we report macro-F1 per language and the 10-lan
 
 We commit the Opus prompt, the model ID, the date, the seeds, the row numbers of the sampled tweets, Opus's raw answers and the 20 question files.
 
-The 10 Opus calls send about 150 tweets each, so they cost little. The 10 induced questions cost about USD 12 for Jev, Clef and Clef-flash together, as the hand-written versions do. The 10 with examples cost about a quarter more, because the three examples add input tokens to every item. Laya runs locally.
+The 10 Opus calls send about 150 tweets each, so they cost little. The 10 induced questions cost about USD 12 for Jev, Clef and Clef-flash together, as the hand-written versions do. The 10 with examples cost more, because the three examples add about 100 input tokens to every item. Laya runs locally.
 
 ## Open decisions
 

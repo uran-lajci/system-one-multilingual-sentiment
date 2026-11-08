@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "On the whole, does the author of this text evaluate what it talks about favorably, unfavorably, or not at all?",
+    "criteria": {
+      "positive": {
+        "description": "On the whole, the author evaluates what the text talks about favorably, for instance by praising, recommending, supporting or welcoming it.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The author does not evaluate anything, or the evaluation is too weak or unclear to call favorable or unfavorable.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "On the whole, the author evaluates what the text talks about unfavorably, for instance by criticizing, mocking, opposing or complaining about it.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

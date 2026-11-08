@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Read the text and decide which sentiment it expresses overall. Consider the text as a whole rather than individual words, and take irony, sarcasm and negation into account.",
+    "criteria": {
+      "positive": {
+        "description": "The text as a whole conveys approval, praise, satisfaction, enthusiasm, gratitude, affection or another favorable stance. A text that mentions some drawbacks still counts as positive if the favorable stance clearly dominates.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The text conveys no clear sentiment. This includes purely factual statements, questions, announcements and texts whose positive and negative parts roughly balance each other.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The text as a whole conveys criticism, complaint, anger, sadness, fear, disgust, disappointment or another unfavorable stance. A text that mentions some good points still counts as negative if the unfavorable stance clearly dominates.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

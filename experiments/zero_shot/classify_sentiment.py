@@ -1,10 +1,11 @@
-"""Run one System One model zero-shot over the 10 conference test sets and save each item's prediction.
+"""Run one System One model with one question file over the 10 conference test sets and save each item's prediction.
 
-The script writes results/zero_shot/<question>/<model>/<language>.csv, where <question> is the question file's name,
-such as baseline. Each file holds the row number, the gold and predicted labels, the three probabilities and the model
-version, but no text, so the test text never leaves data/. A language whose file already exists is skipped, so a
-stopped run can be started again. With -n, it scores only the first n items of each test set and writes to
-results/smoke_<n>/ instead.
+The question file must sit in experiments/<experiment>/questions/, and the script writes
+results/<experiment>/<question>/<model>/<language>.csv. <experiment> is, for example, zero_shot or few_shot, and
+<question> is the question file's name, such as baseline. Each file holds the row number, the gold and predicted labels,
+the three probabilities and the model version, but no text, so the test text never leaves data/. A language whose file
+already exists is skipped, so a stopped run can be started again. With -n, it scores only the first n items of each
+test set and writes to results/smoke_<n>/<experiment>/ instead.
 
 uv run python -m experiments.zero_shot.classify_sentiment -m jev-1.14.0
 """
@@ -48,12 +49,28 @@ Prediction = dict[str, str | float | int | None]
 Predictor = Callable[[list[str]], Awaitable[list[Prediction]]]
 
 
+def is_criterion(criterion: object) -> bool:
+    """Plain text, as in zero-shot, or an object with a text `description` and a list of text `examples`."""
+    if isinstance(criterion, str):
+        return True
+    return (
+        isinstance(criterion, dict)
+        and tuple(criterion) == ('description', 'examples')
+        and isinstance(criterion['description'], str)
+        and isinstance(criterion['examples'], list)
+        and all(isinstance(example, str) for example in criterion['examples'])
+    )
+
+
 def load_questions(path: str) -> Questions:
-    """Load a question file, and stop unless it is one zero-shot Choice question with our three labels as plain text."""
+    """Load a question file, and stop unless it is one Choice question with a valid criterion for each of our labels."""
     with open(path, encoding='utf-8') as file:
         questions: object = json.load(file)
 
-    error = f'{path} must hold one Choice question {QUESTION_ID!r} with plain-text criteria for {LABELS}'
+    error = (
+        f'{path} must hold one Choice question {QUESTION_ID!r} with criteria for {LABELS}, '
+        'each plain text or {"description": text, "examples": [text, ...]}'
+    )
     if not isinstance(questions, dict) or len(questions) != 1:
         raise ValueError(error)
 
@@ -65,7 +82,7 @@ def load_questions(path: str) -> Questions:
         or not isinstance(question.get('instructions'), str)
         or not isinstance(criteria, dict)
         or tuple(criteria) != LABELS
-        or not all(isinstance(text, str) for text in criteria.values())
+        or not all(is_criterion(criterion) for criterion in criteria.values())
     ):
         raise ValueError(error)
     return questions
@@ -154,9 +171,15 @@ def make_predictor(model: str, questions: Questions, concurrency: int) -> Predic
 
 async def main(model: str, concurrency: int, out: str, limit: int, questions_path: str) -> None:
     load_dotenv('.env')
-    predict = make_predictor(model, load_questions(questions_path), concurrency)
+    questions_dir = os.path.dirname(os.path.abspath(questions_path))
+    if os.path.basename(questions_dir) != 'questions':
+        raise ValueError(f'{questions_path} must sit in experiments/<experiment>/questions/')
+    experiment = os.path.basename(os.path.dirname(questions_dir))
     question_name = os.path.splitext(os.path.basename(questions_path))[0]
-    out_dir = os.path.join(out, 'zero_shot' if limit == 0 else f'smoke_{limit}', question_name, model)
+    run_dir = experiment if limit == 0 else os.path.join(f'smoke_{limit}', experiment)
+    out_dir = os.path.join(out, run_dir, question_name, model)
+
+    predict = make_predictor(model, load_questions(questions_path), concurrency)
     os.makedirs(out_dir, exist_ok=True)
     written, skipped = 0, []
 

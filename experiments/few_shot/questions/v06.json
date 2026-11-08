@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "Which emotional tone dominates this text?",
+    "criteria": {
+      "positive": {
+        "description": "Pleasant emotions such as joy, amusement, love, pride or relief dominate the text, or the author approves of something.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "No emotion dominates, and the tone is calm, matter-of-fact or impersonal.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "Unpleasant emotions such as anger, sadness, fear, disgust or frustration dominate the text, or the author disapproves of something.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}

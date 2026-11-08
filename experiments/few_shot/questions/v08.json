@@ -1,0 +1,26 @@
+{
+  "sentiment": {
+    "type": "choice",
+    "instructions": "This is a short post or comment from social media. What overall sentiment does it express?",
+    "criteria": {
+      "positive": {
+        "description": "The post expresses a positive sentiment, such as support, praise, happiness or good wishes.",
+        "examples": [
+          "Not even 20 pages into Paper Towns and the book centers around the night of May 5th. I know its gonna be a good one now!"
+        ]
+      },
+      "neutral": {
+        "description": "The post is informational, asks a question, or otherwise expresses no clear positive or negative sentiment.",
+        "examples": [
+          "I may be sleep deprived but I promise you that some kid at Dunkin today looked like a sprout."
+        ]
+      },
+      "negative": {
+        "description": "The post expresses a negative sentiment, such as criticism, insults, anger or sadness.",
+        "examples": [
+          "The tragedy of only thinking up hilarious tweets for the Summer Olympics now is that in four years there may be no place for them."
+        ]
+      }
+    }
+  }
+}
