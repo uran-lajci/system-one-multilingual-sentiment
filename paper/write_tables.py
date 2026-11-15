@@ -1,9 +1,9 @@
 """Write the paper's tables as LaTeX files from the result files, so that no score in the paper is typed by hand.
 
 Table I lists the datasets with their test, train and validation sizes. Table II gives the zero-shot and few-shot
-macro-F1 of the three System One models and the five LLMs of Kastrati et al. (2026). Table III compares Jev with a
-tuned question against zero-shot Jev, few-shot Jev and the best LLM score on each language. Table IV gives the cost
-of our runs, from the recorded input tokens and the providers' prices.
+macro-F1 of Jev, Clef and the five LLMs of Kastrati et al. (2026). Table III compares Jev with a
+tuned question against zero-shot Jev, few-shot Jev, the best LLM score and the best fine-tuned transformer score on
+each language. Table IV gives the cost of our runs, from the recorded input tokens and the providers' prices.
 
 uv run python -m paper.write_tables
 """
@@ -41,11 +41,16 @@ DATASETS = {
     'Swedish': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Swedish.csv'),
 }
 
-SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef', 'clef-flash': 'Clef-flash'}
+SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef'}
 LLMS = {'gpt-4o': 'GPT-4o', 'gemini': 'Gemini', 'deepseek': 'DeepSeek', 'mistral': 'Mistral', 'claude': 'Claude'}
+# Best macro-F1 (%) on our TSM test sets in Table 4 of the XLM-T paper (Barbieri et al., 2022): XLM-T fine-tuned on all
+# eight TSM languages for English and German, XLM-R fine-tuned on French and Spanish for French. No other language has
+# a fine-tuned transformer score on our test items. The paper gives 70.63, 77.35 and 73.55; these are rounded half up,
+# because float formatting would round 77.35 and 73.55 down.
+FINE_TUNED = {'English': 70.6, 'German': 77.4, 'French': 73.6}
 
-# US$ per input token: typesafe.ai, and the Workers AI model pages of Clef and Clef-flash; neither charges for output
-INPUT_PRICES = {'jev-1.14.0': 0.042e-6, 'clef': 0.24e-6, 'clef-flash': 0.038e-6}
+# US$ per input token: typesafe.ai, and the Workers AI model page of Clef; neither charges for output
+INPUT_PRICES = {'jev-1.14.0': 0.042e-6, 'clef': 0.24e-6}
 # US$ per token for claude-opus-5-5: input, output, input written to the prompt cache, input read from it
 OPUS_PRICES = {
     'input_tokens': 4e-6,
@@ -128,9 +133,9 @@ def zero_few_shot_table() -> str:
         [
             '\\begin{table*}[t]',
             '\\centering',
-            '\\caption{Macro-F1 (\\%) of the three System One models and of the five LLMs reported by Kastrati et '
-            'al.~\\cite{kastrati2026language}, zero-shot and few-shot with the same three English examples. Bold marks '
-            'the best score in each column of a block. The mean is unweighted over the eight languages.}',
+            '\\caption{Macro-F1 (\\%) of the System One models Jev and Clef and of the five LLMs reported by Kastrati '
+            'et al.~\\cite{kastrati2026language}, zero-shot and few-shot with the same three English examples. Bold '
+            'marks the best score in each column of a block. The mean is unweighted over the eight languages.}',
             '\\label{tab:zero-few-shot}',
             '\\begin{tabular}{lrrrrrrrrr}',
             '\\toprule',
@@ -160,16 +165,17 @@ def tuned_table() -> str:
         best_scores.append(best)
         jev = round(tuned[language], 1)
         tuned_cell = f'\\textbf{{{jev:.1f}}}' if jev > best else f'{jev:.1f}'
+        fine_tuned = f'{FINE_TUNED[language]:.1f}' if language in FINE_TUNED else '--'
         rows.append(
             f'{language} & {zero_shot["jev-1.14.0"][language]:.1f} & {few_shot["jev-1.14.0"][language]:.1f} '
-            f'& {tuned_cell} & {best:.1f} & {name} {setting} & ${jev - best:+.1f}$ \\\\'
+            f'& {tuned_cell} & {best:.1f} & {name} {setting} & ${jev - best:+.1f}$ & {fine_tuned} \\\\'
         )
     best_mean = sum(best_scores) / len(best_scores)
     tuned_mean = round(sum(tuned.values()) / len(tuned), 1)
     rows.append('\\midrule')
     rows.append(
         f'Mean & {zero_shot["jev-1.14.0"]["Mean"]:.1f} & {few_shot["jev-1.14.0"]["Mean"]:.1f} '
-        f'& {tuned_mean:.1f} & {best_mean:.1f} & & ${tuned_mean - best_mean:+.1f}$ \\\\'
+        f'& {tuned_mean:.1f} & {best_mean:.1f} & & ${tuned_mean - best_mean:+.1f}$ & \\\\'
     )
     return '\n'.join(
         [
@@ -177,14 +183,15 @@ def tuned_table() -> str:
             '\\centering',
             '\\caption{Macro-F1 (\\%) of Jev zero-shot (ZS), few-shot (FS) and with the tuned question, against the '
             'highest score any of the five LLMs reached on that language, zero-shot or few-shot. Bold marks a tuned '
-            'score above the best LLM score.}',
+            'score above the best LLM score. Fine-tuned is the best score that a fine-tuned XLM-T or XLM-R model '
+            'reached on the same test set~\\cite{barbieri2022xlmt}; no such score exists for the other languages.}',
             '\\label{tab:tuned}',
             '\\setlength{\\tabcolsep}{3pt}',
-            '\\begin{tabular}{lrrrrlr}',
+            '\\begin{tabular}{lrrrrlrr}',
             '\\toprule',
-            ' & \\multicolumn{3}{c}{Jev} & \\multicolumn{2}{c}{Best LLM} & \\\\',
-            '\\cmidrule(lr){2-4}\\cmidrule(lr){5-6}',
-            'Language & ZS & FS & Tuned & Score & Model & $\\Delta$ \\\\',
+            ' & \\multicolumn{3}{c}{Jev} & \\multicolumn{2}{c}{Best LLM} & & Fine-tuned \\\\',
+            '\\cmidrule(lr){2-4}\\cmidrule(lr){5-6}\\cmidrule(lr){8-8}',
+            'Language & ZS & FS & Tuned & Score & Model & $\\Delta$ & Score \\\\',
             '\\midrule',
             *rows,
             '\\bottomrule',
@@ -240,9 +247,8 @@ def costs_table() -> str:
             '\\begin{table}[t]',
             '\\centering',
             '\\caption{Cost of our runs on the 12,970 test texts, and the one-time cost of tuning the questions of all '
-            'eight languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042, Clef '
-            'US\\$0.24 and Clef-flash US\\$0.038 for input, with output free; Claude Opus 5.5 US\\$4 for input and '
-            'US\\$20 for output.}',
+            'eight languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042 and Clef '
+            'US\\$0.24 for input, with output free; Claude Opus 5.5 US\\$4 for input and US\\$20 for output.}',
             '\\label{tab:costs}',
             '\\setlength{\\tabcolsep}{4pt}',
             '\\begin{tabular}{llrrr}',
