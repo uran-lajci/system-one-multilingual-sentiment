@@ -87,7 +87,7 @@ For Jev, we also let an LLM write and tune the question from labelled train data
 
 \textit{Tuning loop.} We draw a development set of 600 other train texts, which keep the train label proportions. Jev scores the current version on the development and validation sets, with one label order to save cost. Opus receives the development macro-F1, the confusion matrix and every misclassified text with its gold label, Jev's label and Jev's probabilities. It writes an error analysis and then the next version. After ten rewrites, we keep the version with the highest validation macro-F1. Opus never sees validation data, so it cannot fit the selection set. Jev then scores the kept version once on the test set, with the three label orders averaged. We make one run per language.
 
-A tuned question has thus used 750 labelled train texts and the validation set, while the LLMs saw three examples. We therefore compare it with the best score that any LLM reached on the language, zero-shot or few-shot.
+A tuned question has thus used 750 labelled train texts and the validation set, while the LLMs saw three examples. We therefore compare it with the best score that any LLM reached on the language, zero-shot or few-shot, and on English, German and French also with fine-tuned transformers.
 
 \begin{figure}[t]
 \centering
