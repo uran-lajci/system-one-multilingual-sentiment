@@ -38,7 +38,7 @@ DATASETS = {
     'Bosnian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Bosnian.csv'),
     'Croatian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Croatian.csv'),
     'Serbian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Serbian.csv'),
-    'Swedish': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Swedish.csv'),
+    'Swedish': ('Berggren~\\cite{berggren2023swedish}', 'tweets', 'data/lmr-sms/{split}/Swedish.csv'),
 }
 
 SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef'}
@@ -90,8 +90,10 @@ def datasets_table() -> str:
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{The eight datasets. The Albanian texts are Facebook comments. Test is the sample that the LLMs '
-            'were scored on; train and validation exclude every test item.}',
+            '\\caption{The eight datasets. The Albanian texts are Facebook comments. Source is where the test set '
+            'comes from. Test is the sample that the LLMs were scored on; train and validation exclude every test '
+            'item. The Swedish train and validation data come from '
+            'Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
             '\\begin{tabular}{llrrrr}',
@@ -184,7 +186,9 @@ def tuned_table() -> str:
             '\\caption{Macro-F1 (\\%) of Jev zero-shot (ZS), few-shot (FS) and with the tuned question, against the '
             'highest score any of the five LLMs reached on that language, zero-shot or few-shot. Bold marks a tuned '
             'score above the best LLM score. Fine-tuned is the best score that a fine-tuned XLM-T or XLM-R model '
-            'reached on the same test set~\\cite{barbieri2022xlmt}; no such score exists for the other languages.}',
+            'reached on the same test set~\\cite{barbieri2022xlmt}; no such score exists for the other languages: '
+            'Kastrati et al.~\\cite{kastrati2026language} report task-specific scores for them, but on different '
+            'test splits.}',
             '\\label{tab:tuned}',
             '\\setlength{\\tabcolsep}{3pt}',
             '\\begin{tabular}{lrrrrlrr}',
