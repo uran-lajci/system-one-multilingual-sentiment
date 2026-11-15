@@ -8,7 +8,7 @@
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning}
+\usetikzlibrary{arrows.meta, positioning, fit}
 \usepackage{url}
 
 \begin{document}
@@ -30,7 +30,7 @@ Kadri Sylejmani\IEEEauthorrefmark{1}\IEEEauthorrefmark{4}}
 \maketitle
 
 \begin{abstract}
-Large language models (LLMs) classify sentiment well without training, but they are costly to run at scale and weaker on low-resource languages. System One models do not generate text: they answer typed questions with a probability for each option. We compare two System One models, Jev and Clef, with five LLMs from a recent benchmark of 36 sentiment datasets, on three-class sentiment analysis in eight languages and the same 12,970 test items. Zero-shot, Jev reaches a mean macro-F1 of 61.7 and ranks third of the seven models, behind Claude 3.7 Sonnet and GPT-4o. The LLMs' few-shot examples help every LLM but neither System One model. We then let Claude Opus 5.5 write Jev's question from labelled train data and tune it on Jev's errors, and we select the final question on validation data that Opus never sees. With the tuned question, Jev's mean rises to 67.4, and it reaches the best score of all models on German, Albanian, Bosnian and Croatian. Zero-shot, Jev costs US\$0.02 per 1,000 texts. The tuned question costs US\$0.14 per 1,000 texts, after a one-time tuning of US\$2 to US\$17 per language.
+Large language models (LLMs) classify sentiment well without training, but they are costly to run at scale and weaker on low-resource languages. System One models do not generate text: they answer typed questions with a probability for each option. We compare two System One models, Jev and Clef, with five LLMs from a recent benchmark of 36 sentiment datasets, on three-class sentiment analysis in eight European languages and the same 12,970 test items. Zero-shot, Jev reaches a mean macro-F1 of 61.7 and ranks third of the seven models, behind Claude 3.7 Sonnet and GPT-4o. The LLMs' few-shot examples help every LLM but neither System One model. We then let Claude Opus 5.5 write Jev's question from labelled train data and tune it on Jev's errors, and we select the final question on validation data that Opus never sees. With the tuned question, Jev's mean rises to 67.4, and it reaches the best score of all models on German, Albanian, Bosnian and Croatian. Zero-shot, Jev costs US\$0.02 per 1,000 texts. The tuned question costs US\$0.14 per 1,000 texts, after a one-time tuning of US\$2 to US\$17 per language.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -38,11 +38,11 @@ decision models, large language models, low-resource languages, sentiment analys
 \end{IEEEkeywords}
 
 \section{Introduction}
-Sentiment analysis of social media posts helps to follow public opinion on health, politics and products. Large language models (LLMs) now classify sentiment well without task-specific training, but their quality is uneven across languages. Kastrati et al.~\cite{kastrati2026language} evaluated five LLMs on 36 sentiment datasets and found them clearly weaker on low-resource languages. LLMs are also costly to run over millions of posts, because each text needs a full generation call.
+Sentiment analysis of social media posts helps journalists, researchers and companies follow public opinion on health, politics and other topics. Large language models (LLMs) now classify sentiment well without task-specific training, but their quality is uneven across languages. Kastrati et al.~\cite{kastrati2026language} evaluated five LLMs on 36 sentiment datasets and found them clearly weaker on low-resource languages. LLMs are also costly to run over millions of posts, because each text needs a full generation call.
 
 System One models offer another interface. They do not generate text: they answer typed questions about an input, such as a choice among fixed options, and return a probability for each option~\cite{typesafe2026jev}. They are therefore also called decision models: each answer is a decision among fixed options, returned with its probability~\cite{deusser2026jev,zhang2026decide}. Jev, the first such model, answered 346,009 benchmark requests for under US\$10~\cite{deusser2026jev}. On sentiment and emotion tasks, however, plain Jev still trails the strongest LLMs~\cite{zhang2026emojev}. Two questions remain open. How do System One models compare with LLMs on multilingual three-class sentiment analysis, on the same test items? And can a better question close the gap, since a System One model is adapted only through its question?
 
-This paper answers both questions on eight languages and 12,970 test items, against the five LLMs of Kastrati et al. Our contributions are:
+This paper answers both questions on 12,970 test items in eight European languages, against the five LLMs of Kastrati et al. In their classification, the eight languages range from high- to low-resource~\cite{kastrati2026language}. Our contributions are:
 \begin{itemize}
 \item a zero-shot and few-shot evaluation of two System One models, Jev and Clef, on the test items that Kastrati et al. scored;
 \item a method in which an LLM, Claude Opus 5.5, writes Jev's question from labelled train data and tunes it on Jev's errors, with the final question selected on validation data that the LLM never sees;
@@ -66,14 +66,42 @@ For the three Tweet Sentiment Multilingual languages, we use the collection's ow
 \input{tables/datasets}
 
 \subsection{Models}
-System One models do not generate text. They answer typed questions about an input, which TypeSafe calls the state~\cite{typesafe2026jev,deusser2026jev}. A Choice question has instructions and one criterion per option, and the model returns a probability for each option. We test two such models. Jev (\texttt{jev-1.14.0}) is a commercial model from TypeSafe AI~\cite{typesafe2026jev}. Clef is an open-weight model from Cloudflare, fine-tuned from Qwen3.8-27B, which we call through Cloudflare Workers AI~\cite{cloudflare2026clef} at Hugging Face revision \texttt{cfddda0}. We pin every version so that the results can be reproduced.
+System One models do not generate text. They answer typed questions about an input, which TypeSafe calls the state~\cite{typesafe2026jev,deusser2026jev}. A Choice question has instructions and one criterion per option, and the model returns a probability for each option (Fig.~\ref{fig:choice}). System One models also answer yes/no questions, called Noul, and place a text on an ordered scale, called Score~\cite{typesafe2026jev}. We use only Choice, because it fits the three labels. We test two such models. Jev (\texttt{jev-1.14.0}) is a commercial model from TypeSafe AI~\cite{typesafe2026jev}. Clef is an open-weight model from Cloudflare, fine-tuned from Qwen3.8-27B, which we call through Cloudflare Workers AI~\cite{cloudflare2026clef} at Hugging Face revision \texttt{cfddda0}. We pin every version so that the results can be reproduced.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=3mm,
+  box/.style={draw, rounded corners, align=left, font=\footnotesize, inner sep=4pt, text width=7.4cm},
+  arrow/.style={-{Stealth[length=1.8mm]}}
+]
+\node[box, fill=gray!12] (state) {\textbf{State:} WestWorld is even more meta than Community.};
+\node[box, below=of state] (question) {\textbf{Choice question}\\[1pt]
+\textit{Instructions:} What is the overall sentiment expressed by the author of the text?\\
+\textit{positive:} The text expresses a positive opinion, emotion or attitude.\\
+\textit{neutral:} The text is factual or expresses neither a clearly positive nor a clearly negative sentiment.\\
+\textit{negative:} The text expresses a negative opinion, emotion or attitude.};
+\node[draw, dashed, rounded corners, inner sep=3pt, fit=(state)(question)] (request) {};
+\node[draw, rounded corners, font=\footnotesize, inner sep=3pt, below=4mm of request] (jev) {Jev (\texttt{jev-1.14.0})};
+\node[box, below=4mm of jev] (answer) {\textbf{Answer}\\[1pt]
+\begin{tabular}{@{}l@{\hspace{4pt}}l@{\hspace{4pt}}r@{}}
+positive & \rule{2.61cm}{1.6mm} & 0.87 \\
+neutral & \rule{0.36cm}{1.6mm} & 0.12 \\
+negative & \rule{0.03cm}{1.6mm} & 0.01 \\
+\end{tabular}};
+\draw[arrow] (request) -- (jev);
+\draw[arrow] (jev) -- (answer);
+\end{tikzpicture}
+\caption{The zero-shot Choice question for one English test tweet, and Jev's answer. Jev returns a probability for each label, and the most probable label is the prediction. The question is the same for every language.}
+\label{fig:choice}
+\end{figure}
 
 The LLM baselines are the five models that Kastrati et al.~\cite{kastrati2026language} evaluated with one shared prompt: GPT-4o (\texttt{gpt-4o-2024-08-06}), Gemini 2.0 Flash, DeepSeek-V3, Mistral Large (\texttt{mistral-large-2411}) and Claude 3.7 Sonnet. We take their zero-shot and few-shot scores from that paper; we did not run the LLMs ourselves.
 
 \section{Method}
 
 \subsection{Zero-shot question}
-All three models get one Choice question, written in English and the same for every language. Its instructions ask for the overall sentiment that the author of the text expresses. Each label has a one-sentence criterion, such as ``The text expresses a positive opinion, emotion or attitude'' for positive.
+Both models get one Choice question, written in English and the same for every language. Its instructions ask for the overall sentiment that the author of the text expresses. Each label has a one-sentence criterion, such as ``The text expresses a positive opinion, emotion or attitude'' for positive.
 
 \subsection{Few-shot question}
 The few-shot question adds the three English examples that Kastrati et al.~\cite{kastrati2026language} gave the LLMs, one per label. Each criterion becomes an object that holds the zero-shot description and the example for that label. The input therefore differs in one way from the LLMs': they saw the examples before the text, while our models see them inside the criteria.
@@ -122,7 +150,7 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 \input{tables/zero_few_shot}
 
 \subsection{Zero-shot}
-Zero-shot Jev reaches a mean macro-F1 of 61.7 (Table~\ref{tab:zero-few-shot}). It ranks third of the seven models, behind Claude (64.1) and GPT-4o (64.0) and ahead of DeepSeek (60.4), Gemini (59.7) and Mistral (52.4). Jev is the best model on Croatian and ties Claude on Bosnian. Its largest gaps are on Swedish (61.4 against 78.7 for GPT-4o) and Albanian (58.2 against 69.8). Clef (54.1) scores lower, mainly because it labels 65\% of the texts neutral, while only 34\% are neutral; Jev labels 27\% neutral.
+Zero-shot Jev reaches a mean macro-F1 of 61.7 (Table~\ref{tab:zero-few-shot}). It ranks third of the seven models, behind Claude (64.1) and GPT-4o (64.0) and ahead of DeepSeek (60.4), Gemini (59.7) and Mistral (52.4). Jev is the best model on Croatian and ties Claude on Bosnian. On English, Jev scores 68.0. Zhang and Yu~\cite{zhang2026emojev} report 68.5 for the earlier \texttt{jev-1.13.0} on the full SemEval-2017 test set of 12,284 tweets, from which our 870 English tweets are drawn. Jev's largest gaps are on Swedish (61.4 against 78.7 for GPT-4o) and Albanian (58.2 against 69.8). Clef (54.1) scores lower, mainly because it labels 65\% of the texts neutral, while only 34\% are neutral; Jev labels 27\% neutral.
 
 \subsection{Few-shot}
 The three examples raise the mean of every LLM, by 2.7 points for Claude up to 12.6 for Mistral. They do not help the System One models: Jev gains 0.3 points, while Clef loses 7.7. Clef labels even more texts neutral than in zero-shot (75\%). With few-shot, Jev (62.0) falls below all five LLMs, which range from 64.0 to 67.2.
