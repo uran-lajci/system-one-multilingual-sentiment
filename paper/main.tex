@@ -44,7 +44,7 @@ System One models offer another interface. They do not generate text: they answe
 
 This paper answers both questions on 12,970 test items in eight European languages, against the five LLMs of Kastrati et al. In their classification, the eight languages range from high- to low-resource~\cite{kastrati2026language}. Our contributions are:
 \begin{itemize}
-\item a zero-shot and few-shot evaluation of two System One models, Jev and Clef, on the test items that Kastrati et al. scored;
+\item a zero-shot and few-shot evaluation of two System One models, Jev and Clef, on the same test items as the LLMs;
 \item a method in which an LLM, Claude Opus 5.5, writes Jev's question from labelled train data and tunes it on Jev's errors, with the final question selected on validation data that the LLM never sees;
 \item results showing that zero-shot Jev ranks third of seven models, that the LLMs' few-shot examples do not help System One models, and that tuned Jev reaches the best score of all models on four of the eight languages, after a one-time tuning that cost US\$2 to US\$17 per language.
 \end{itemize}
@@ -59,14 +59,14 @@ This paper answers both questions on 12,970 test items in eight European languag
 \section{Data and Models}
 
 \subsection{Datasets}
-We use eight of the test sets of Kastrati et al.~\cite{kastrati2026language}, with exactly the items they scored (Table~\ref{tab:datasets}). English, German and French come from the Tweet Sentiment Multilingual collection~\cite{barbieri2022xlmt}, which draws 870 test tweets per language from SemEval-2017~\cite{rosenthal2017semeval}, SB-10K~\cite{cieliebak2017sb10k} and DEFT 2017~\cite{benamara2017deft}. The Albanian set is AlbAna, Facebook comments under posts of the National Institute of Public Health of Kosovo during the COVID-19 pandemic~\cite{kastrati2021albana}. The Bosnian, Croatian, Serbian and Swedish sets are tweets labelled by native speakers~\cite{mozetic2016multilingual,mozetic2018evaluate}; for the first three, the test sets are the 20\% samples of Kastrati et al. We chose these eight languages because each has train and validation data, which the tuned questions need. Together, the test sets hold 12,970 items.
+We use eight of the test sets of Kastrati et al.~\cite{kastrati2026language}, with exactly the items they scored (Table~\ref{tab:datasets}). English, German and French come from the Tweet Sentiment Multilingual collection~\cite{barbieri2022xlmt}, which draws 870 test tweets per language from SemEval-2017~\cite{rosenthal2017semeval}, SB-10K~\cite{cieliebak2017sb10k} and DEFT 2017~\cite{benamara2017deft}. The Albanian set is AlbAna, Facebook comments under posts of the National Institute of Public Health of Kosovo during the COVID-19 pandemic~\cite{kastrati2021albana}. The Bosnian, Croatian, Serbian and Swedish sets are tweets labelled by native speakers~\cite{mozetic2016multilingual,mozetic2018evaluate}; for the first three, the test sets are the 20\% samples that the LLMs were scored on. We chose these eight languages because each has train and validation data, which the tuned questions need. Together, the test sets hold 12,970 items.
 
-For the three Tweet Sentiment Multilingual languages, we use the collection's own train and validation splits. For the other five, we split the items outside the test sample into 80\% train and 20\% validation, stratified by label. In all eight, we removed every train and validation text that also occurs in the test set. Every item has one of three labels: positive, neutral or negative. We report macro-F1 over the three labels, as Kastrati et al. do.
+For the three Tweet Sentiment Multilingual languages, we use the collection's own train and validation splits. For the other five, we split the items outside the test sample into 80\% train and 20\% validation, stratified by label. In all eight, we removed every train and validation text that also occurs in the test set. Every item has one of three labels: positive, neutral or negative. We report macro-F1 over the three labels.
 
 \input{tables/datasets}
 
 \subsection{Models}
-System One models do not generate text. They answer typed questions about an input, which TypeSafe calls the state~\cite{typesafe2026jev,deusser2026jev}. A Choice question has instructions and one criterion per option, and the model returns a probability for each option (Fig.~\ref{fig:choice}). System One models also answer yes/no questions, called Noul, and place a text on an ordered scale, called Score~\cite{typesafe2026jev}. We use only Choice, because it fits the three labels. We test two such models. Jev (\texttt{jev-1.14.0}) is a commercial model from TypeSafe AI~\cite{typesafe2026jev}. Clef is an open-weight model from Cloudflare, fine-tuned from Qwen3.8-27B, which we call through Cloudflare Workers AI~\cite{cloudflare2026clef} at Hugging Face revision \texttt{cfddda0}. We pin every version so that the results can be reproduced.
+System One models do not generate text. They answer typed questions about an input, which TypeSafe calls the state~\cite{typesafe2026jev,deusser2026jev}. A Choice question has instructions and one criterion per option, and the model returns a probability for each option (Fig.~\ref{fig:choice}). System One models also answer yes/no questions, called Noul, and place a text on an ordered scale, called Score~\cite{typesafe2026jev}. We use only Choice, because it fits this task more naturally than Noul or Score. We test two such models. Jev (\texttt{jev-1.14.0}) is a commercial model from TypeSafe AI~\cite{typesafe2026jev}. Clef is an open-weight model from Cloudflare, fine-tuned from Qwen3.8-27B, which we call through Cloudflare Workers AI~\cite{cloudflare2026clef} at Hugging Face revision \texttt{cfddda0}. We pin every version so that the results can be reproduced.
 
 \begin{figure}[t]
 \centering
@@ -104,12 +104,12 @@ The LLM baselines are the five models that Kastrati et al.~\cite{kastrati2026lan
 Both models get one Choice question, written in English and the same for every language. Its instructions ask for the overall sentiment that the author of the text expresses. Each label has a one-sentence criterion, such as ``The text expresses a positive opinion, emotion or attitude'' for positive.
 
 \subsection{Few-shot question}
-The few-shot question adds the three English examples that Kastrati et al.~\cite{kastrati2026language} gave the LLMs, one per label. Each criterion becomes an object that holds the zero-shot description and the example for that label. The input therefore differs in one way from the LLMs': they saw the examples before the text, while our models see them inside the criteria.
+The few-shot question adds the three English examples that the LLMs saw, one per label. Each criterion becomes an object that holds the zero-shot description and the example for that label. The input therefore differs in one way from the LLMs': they saw the examples before the text, while our models see them inside the criteria.
 
 \subsection{Tuned question}
 For Jev, we also let an LLM write and tune the question from labelled train data (Fig.~\ref{fig:tuning}). The method combines instruction induction~\cite{honovich2023instruction}, in which an LLM writes a task description from labelled examples, with prompt optimization from error feedback~\cite{pryzant2023protegi}. Claude Opus 5.5 (\texttt{claude-opus-5-5}, effort \texttt{medium}) performs both steps.
 
-\textit{Input.} The state holds the text and a context of one to three sentences that we wrote from each dataset's paper: its source, time and language. For Albanian, for example, it begins ``A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020.'' The instructions hold a question and a rule that says where the annotators draw the line between the labels. Each criterion holds a description of the label, one to four train texts as examples with their English meaning, cue words, and the texts that look like the label but get another one. Jev gets this question three times in one request, with the labels in three rotated orders, and we average the three probabilities, because Jev leans toward the first option.
+\textit{Input.} The state holds the text and a context of one to three sentences that we wrote from each dataset's paper: its source, time and language. For Albanian, for example, it begins ``A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020.'' The instructions hold a question and a rule that says where the annotators draw the line between the labels. Each criterion holds a description of the label, one to four train texts as examples with their English meaning, cue words, and the texts that look like the label but get another one. Fig.~\ref{fig:tuned-question} shows part of the English question. Jev gets this question three times in one request, with the labels in three rotated orders, and we average the three probabilities, because Jev leans toward the first option.
 
 \textit{Start question.} Opus reads the context and 150 train texts, 50 per label, and writes the question in this format, in at most 400 words.
 
@@ -145,6 +145,28 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 \label{fig:tuning}
 \end{figure}
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=2mm,
+  box/.style={draw, rounded corners, align=left, font=\footnotesize, inner sep=4pt, text width=7.6cm}
+]
+\node[box, fill=gray!12] (state) {\textbf{State}\\[1pt]
+\textit{Context:} An English tweet from the SemEval-2017 sentiment analysis dataset. \dots\\
+\textit{Text:} WestWorld is even more meta than Community.};
+\node[box, below=of state] (instructions) {\textbf{Instructions}\\[1pt]
+\textit{Question:} What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?\\
+\textit{Rule:} Use positive or negative when the author's own feeling is plain, even if mild. \dots{} Plain ticket sales, listings, logistics and `are you going?' are neutral. Wry jokes about one's own situation, teasing of celebrities, corrections, and opinions or arguments about politics, religion or sport without insults or clear distress are neutral. \dots};
+\node[box, below=of instructions] (neutral) {\textbf{Criterion: neutral}\\[1pt]
+\textit{What:} Facts, questions, listings, ticket sales, logistics, sports commentary, debating replies, corrections, wry or joking remarks without real complaint.\\
+\textit{Examples:} ``One spare Runrig ticket for next Friday night at the barrowlands! Pm me for details @user''; ``Imma need Brook Lopez to get more aggressive on the boards. 7 feet tall, c'mon son''\\
+\textit{Cues:} pm me, tickets, are you going, I guess, still waiting, right?, may, should, heads up\\
+\textit{Not for:} Open gushing is positive; insults, sadness, :( or \#fml are negative.};
+\end{tikzpicture}
+\caption{Excerpt of the tuned English question that the validation set selected. Opus wrote it from train data. The positive and negative criteria have the same four parts, and Jev gets the question in three label orders.}
+\label{fig:tuned-question}
+\end{figure}
+
 \section{Results}
 
 \input{tables/zero_few_shot}
@@ -173,18 +195,18 @@ Tuning is a one-time cost of US\$2.2 to US\$3.3 per language for English, German
 \section{Discussion and Limitations}
 Our results suggest that a System One model is limited less by what it can judge than by how the question describes the labels. Zero-shot, Jev already competes with most LLMs, and a question that states each dataset's own conventions lifts it above all of them on four languages. The LLMs' few-shot examples do not have this effect: three English examples say little about where the annotators of a Bosnian or Albanian dataset draw the line between neutral and negative.
 
-Swedish is the exception. Tuning barely changed the validation score (65.1 to 65.7), and the kept question scored 59.7 on test, below zero-shot Jev. The gap between validation and test is the largest of all languages, which suggests that the test sample differs from the rest of the dataset; we did not study why.
+Swedish is the exception. Tuning barely changed the validation score (65.1 to 65.7), and the kept question scored 59.7 on test, below zero-shot Jev. The gap between validation and test is the largest of all languages, which suggests that the test sample differs from the rest of the dataset.
 
-The study has four main limitations. First, we made one tuning run per language, so we do not know how much the tuned scores vary between runs; the differences of about one point between tuned Jev and the best LLM are within that unknown range. Second, the tuned questions use 750 labelled train texts and the validation set, while the LLMs saw three examples; LLMs given the same data and tuning might also improve. Third, we took the LLM scores from Kastrati et al.~\cite{kastrati2026language} rather than running the LLMs ourselves, so prompts, input formats and dates differ. Fourth, the models may have seen these public datasets during training, which we cannot check.
+The study has four main limitations. First, we made one tuning run per language, so we do not know how much the tuned scores vary between runs; the differences of about one point between tuned Jev and the best LLM are within that unknown range. Second, the tuned questions use 750 labelled train texts and the validation set, while the LLMs saw three examples; LLMs given the same data and tuning might also improve. Third, we did not run the LLMs ourselves, so their prompts and inputs differ from ours. Fourth, the models may have seen these public datasets during training.
 
 \section{Conclusion}
-We compared two System One models with five LLMs on three-class sentiment analysis in eight languages, on the same 12,970 test items. Zero-shot, Jev ranks third of the seven models, while Clef labels too many texts neutral. The LLMs' few-shot examples help the LLMs but not the System One models. When Claude Opus 5.5 writes Jev's question from labelled train data and tunes it on Jev's errors, Jev's mean rises from 61.7 to 67.4, and it reaches the best score of all models on German, Albanian, Bosnian and Croatian. Future work will repeat the tuning with several runs, extend the study to all 35 languages of Kastrati et al., and tune the questions of other System One models.
+We compared two System One models with five LLMs on three-class sentiment analysis in eight languages, on the same 12,970 test items. Zero-shot, Jev ranks third of the seven models, while Clef labels too many texts neutral. The LLMs' few-shot examples help the LLMs but not the System One models. When Claude Opus 5.5 writes Jev's question from labelled train data and tunes it on Jev's errors, Jev's mean rises from 61.7 to 67.4, and it reaches the best score of all models on German, Albanian, Bosnian and Croatian. Future work will repeat the tuning with several runs, extend the study to all 35 languages of the benchmark, and tune the questions of other System One models.
 
 \section*{Acknowledgment}
 We thank Igor Mozeti\v{c} for sharing the tweet texts of the Bosnian, Croatian, Serbian and Swedish datasets. We used Claude (Anthropic) to help draft and edit this paper, and the authors checked all of its content.
 
 \section*{Code and Data Availability}
-The code, the prompts, the question files, the tuning logs and the per-item predictions are available at \url{https://github.com/uran-lajci/system-one-multilingual-sentiment}. The prediction files hold row numbers, labels and probabilities, but no text. The question files and tuning logs of Bosnian, Croatian, Serbian and Swedish are not included, because they quote tweets that may not be redistributed. The datasets are available from their authors~\cite{barbieri2022xlmt,kastrati2021albana,mozetic2016multilingual}.
+The code, the prompts, the question files, the tuning logs and the per-item predictions are available at \url{https://github.com/uran-lajci/system-one-multilingual-sentiment}. The prediction files hold row numbers, labels and probabilities, but no text. The question files and tuning logs of Bosnian, Croatian, Serbian and Swedish are not included, because they quote tweets that we are not allowed to redistribute. The datasets are available from their authors~\cite{barbieri2022xlmt,kastrati2021albana,mozetic2016multilingual}.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

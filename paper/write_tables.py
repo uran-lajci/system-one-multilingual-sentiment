@@ -90,8 +90,8 @@ def datasets_table() -> str:
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{The eight datasets. The Albanian texts are Facebook comments. Test is the sample that Kastrati '
-            'et al.~\\cite{kastrati2026language} scored; train and validation exclude every test item.}',
+            '\\caption{The eight datasets. The Albanian texts are Facebook comments. Test is the sample that the LLMs '
+            'were scored on; train and validation exclude every test item.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
             '\\begin{tabular}{llrrrr}',
