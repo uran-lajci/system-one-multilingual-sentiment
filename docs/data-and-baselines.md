@@ -15,7 +15,7 @@ We also leave out Swedish. Its test set is not from Mozetič et al. (2016) like 
 
 The authors' files hold the whole Bosnian, Croatian and Serbian datasets, but the paper scored 20% samples. Zenun Kastrati later sent these samples, and our test files hold exactly them (782, 2,790 and 2,272 items).
 
-In the Azerbaijani and Czech test files, many letters appear as `?`, for example `mahn?s?` for *mahnısı* and `n?kdo` for *někdo*. The authors' own files have the same text, so the LLMs most likely saw it too. We keep the text as it is, so all models get the same input, and our paper should mention it.
+In the Azerbaijani and Czech test files we received, many letters appear as `?`, for example `mahn?s?` for *mahnısı* and `n?kdo` for *někdo*. The LLMs were scored on the undamaged text. For Czech, `data_prep/restore_czech_test_text.py` restores every text from the original corpus, whose line numbers the test ids are. The Azerbaijani file still has the damage.
 
 Every item has one of three labels: positive, neutral or negative. The metric is macro-F1, the unweighted mean of the per-class F1 scores. The five LLMs are gpt-4o-2024-08-06, gemini-2.0-flash, deepseek-chat (DeepSeek-V3), mistral-large-2411 and claude-3-7-sonnet-20250219, all prompted with one shared template.
 

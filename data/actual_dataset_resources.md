@@ -10,7 +10,7 @@ Kastrati et al. (2026) test sets
 - The 20% Bosnian, Croatian and Serbian samples the paper scored: sent by Zenun Kastrati as .xlsx files, kept in raw/lmr-sms/paper_samples/.
 
 - Czech (Facebook CZ Corpus, Habernal et al. 2013)
-https://corpora.kiv.zcu.cz/sentiment/facebook.zip (also on LINDAT, handle 11858/00-097C-0000-0022-FE82-7; MD5 336dced2ca9e77b1c57a29dee08a7b05), CC BY-NC-SA 4.0. Unpacked in raw/lmr-sms/habernal/facebook/. The paper's test file ids are 0-based line numbers of gold-posts.txt; all 1,950 match text and label. Labels: p, n, 0 and b (bipolar); the paper dropped the 248 bipolar posts.
+https://corpora.kiv.zcu.cz/sentiment/facebook.zip (also on LINDAT, handle 11858/00-097C-0000-0022-FE82-7; MD5 336dced2ca9e77b1c57a29dee08a7b05), CC BY-NC-SA 4.0. Unpacked in raw/lmr-sms/habernal/facebook/. The paper's test file ids are 0-based line numbers of gold-posts.txt; all 1,950 match text and label. The test file we received had lost the Czech letters (cp1252, `?` for the rest); data_prep/restore_czech_test_text.py restores them from the corpus and keeps the damaged copy as raw/lmr-sms/habernal/Czech_ts1950_as_sent.csv. Labels: p, n, 0 and b (bipolar); the paper dropped the 248 bipolar posts.
 
 - Macedonian
 https://huggingface.co/datasets/isaacchung/macedonian-tweet-sentiment-classification

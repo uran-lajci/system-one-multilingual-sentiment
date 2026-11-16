@@ -8,6 +8,7 @@ uv sync
 cp .env.example .env    # then fill in the API keys
 uv run python -m data_prep.select_paper_test_sets    # after the datasets are in data/
 uv run python -m data_prep.import_mozetic
+uv run python -m data_prep.restore_czech_test_text
 uv run python -m data_prep.import_habernal
 uv run python -m data_prep.split_train_validation
 uv run python -m data_prep.remove_test_leaks
