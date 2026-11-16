@@ -60,8 +60,7 @@ This paper answers both questions on 12,552 test items in eight European languag
 
 \subsection{Datasets}
 \label{sec:datasets}
-We use eight of the test sets of Kastrati et al.~\cite{kastrati2026language}, with exactly the items they scored (Table~\ref{tab:datasets}). English, German and French come from the Tweet Sentiment Multilingual collection~\cite{barbieri2022xlmt}, which draws 870 test tweets per language from SemEval-2017~\cite{rosenthal2017semeval}, SB-10K~\cite{cieliebak2017sb10k} and DEFT 2017~\cite{benamara2017deft}. The Albanian set is AlbAna, Facebook comments under posts of the National Institute of Public Health of Kosovo during the COVID-19 pandemic~\cite{kastrati2021albana}. The Bosnian, Croatian and Serbian sets are tweets labelled by native speakers~\cite{mozetic2016multilingual,mozetic2018evaluate}; their test sets are the samples that the LLMs were scored on, 20\% of the 3,909, 13,952 and 11,358 tweets that Kastrati et al. used. Our train and validation data come from the rest of the full corpus, which holds many more tweets. The Czech set is Facebook posts from the pages of nine Czech brands, labelled by two annotators, with a third and a fourth settling their disagreements~\cite{habernal2013czech}; its test set is also a 20\% sample. The Czech test file we received had lost every letter outside the cp1252 code page, while the LLMs were scored on the intact text, so we restored each text from the original corpus, whose line numbers the file's ids are. We chose these eight languages because each has train and validation data from the same source as its test set, which the tuned questions need. Together, the test sets hold 12,552 items.
-
+We use eight of the test sets of Kastrati et al.~\cite{kastrati2026language}, with exactly the items they scored (Table~\ref{tab:datasets}). English, German and French come from the Tweet Sentiment Multilingual collection~\cite{barbieri2022xlmt}, which draws 870 test tweets per language from SemEval-2017~\cite{rosenthal2017semeval}, SB-10K~\cite{cieliebak2017sb10k} and DEFT 2017~\cite{benamara2017deft}. The Albanian set is AlbAna, Facebook comments under posts of the National Institute of Public Health of Kosovo during the COVID-19 pandemic~\cite{kastrati2021albana}. The Bosnian, Croatian and Serbian sets are tweets that native speakers labelled~\cite{mozetic2016multilingual,mozetic2018evaluate}. Kastrati et al. used 3,909 Bosnian, 13,952 Croatian and 11,358 Serbian tweets of this corpus. They scored the LLMs on a 20\% sample of each, and these samples are our test sets. The full corpus is much larger, and we take our train and validation data from its other tweets. The Czech set is Facebook posts from the pages of nine Czech brands, labelled by two annotators, with a third and a fourth settling their disagreements~\cite{habernal2013czech}; its test set is also a 20\% sample. We chose these eight languages because each has train and validation data from the same source as its test set, which the tuned questions need.
 For the three Tweet Sentiment Multilingual languages, we use the collection's own train and validation splits. For the other five, we split the items outside the test sample into 80\% train and 20\% validation, stratified by label. In all eight, we removed every train and validation text that is identical to a test text. Every item has one of three labels: positive, neutral or negative. We report macro-F1 over the three labels.
 
 \input{tables/datasets}
@@ -76,7 +75,7 @@ System One models do not generate text. They answer typed questions about an inp
   box/.style={draw, rounded corners, align=left, font=\footnotesize, inner sep=4pt, text width=7.4cm},
   arrow/.style={-{Stealth[length=1.8mm]}}
 ]
-\node[box, fill=gray!12] (state) {\textbf{State:} WestWorld is even more meta than Community.};
+\node[box, fill=gray!12] (state) {\textbf{State:} I discovered who David Blaine is yesterday and my life has changed forever};
 \node[box, below=of state] (question) {\textbf{Choice question}\\[1pt]
 \textit{Instructions:} What is the overall sentiment expressed by the author of text ?\\
 \textit{positive:} The text expresses a positive opinion, emotion or attitude.\\
@@ -86,9 +85,9 @@ System One models do not generate text. They answer typed questions about an inp
 \node[draw, rounded corners, font=\footnotesize, inner sep=3pt, below=4mm of request] (jev) {Jev (\texttt{jev-1.14.0})};
 \node[box, below=4mm of jev] (answer) {\textbf{Answer}\\[1pt]
 \begin{tabular}{@{}l@{\hspace{4pt}}l@{\hspace{4pt}}r@{}}
-positive & \rule{2.61cm}{1.6mm} & 0.87 \\
-neutral & \rule{0.36cm}{1.6mm} & 0.12 \\
-negative & \rule{0.03cm}{1.6mm} & 0.01 \\
+positive & \rule{2.91cm}{1.6mm} & 0.97 \\
+neutral & \rule{0.09cm}{1.6mm} & 0.03 \\
+negative & \rule{0cm}{1.6mm} & 0.00 \\
 \end{tabular}};
 \draw[arrow] (request) -- (jev);
 \draw[arrow] (jev) -- (answer);
@@ -154,7 +153,7 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 ]
 \node[box, fill=gray!12] (state) {\textbf{State}\\[1pt]
 \textit{Context:} An English tweet from the SemEval-2017 sentiment analysis dataset. \dots\\
-\textit{Text:} WestWorld is even more meta than Community.};
+\textit{Text:} I discovered who David Blaine is yesterday and my life has changed forever};
 \node[box, below=of state] (instructions) {\textbf{Instructions}\\[1pt]
 \textit{Question:} What overall sentiment does the tweet's author express, judging by a clear attitude, mood or evaluation rather than the topic alone?\\
 \textit{Rule:} Use positive or negative when the author's own feeling is plain, even if mild. \dots{} Plain ticket sales, listings, logistics and `are you going?' are neutral. Wry jokes about one's own situation, teasing of celebrities, corrections, and opinions or arguments about politics, religion or sport without insults or clear distress are neutral. \dots};

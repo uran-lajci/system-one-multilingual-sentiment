@@ -1,20 +1,20 @@
 \begin{table}[t]
 \centering
-\caption{The eight datasets. The Albanian and Czech texts are Facebook comments and posts. Test is the sample that the LLMs were scored on; train and validation exclude every test item.}
+\caption{The eight datasets, with the resource level that Kastrati et al.~\cite{kastrati2026language} give each language.}
 \label{tab:datasets}
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{llrrrr}
+\begin{tabular}{lllrrr}
 \toprule
-Language & Source & Text & Test & Train & Valid. \\
+Language & Resource & Source & Test & Train & Valid. \\
 \midrule
-English & SemEval-2017~\cite{rosenthal2017semeval,barbieri2022xlmt} & tweets & 870 & 1,839 & 324 \\
-German & SB-10K~\cite{cieliebak2017sb10k,barbieri2022xlmt} & tweets & 870 & 1,839 & 324 \\
-French & DEFT 2017~\cite{benamara2017deft,barbieri2022xlmt} & tweets & 870 & 1,837 & 323 \\
-Albanian & AlbAna~\cite{kastrati2021albana} & comments & 2,148 & 6,819 & 1,705 \\
-Bosnian & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & tweets & 782 & 27,949 & 6,988 \\
-Croatian & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & tweets & 2,790 & 57,624 & 14,406 \\
-Serbian & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & tweets & 2,272 & 52,263 & 13,066 \\
-Czech & Habernal et al.~\cite{habernal2013czech} & posts & 1,950 & 6,241 & 1,561 \\
+English & high & SemEval-2017~\cite{rosenthal2017semeval,barbieri2022xlmt} & 870 & 1,839 & 324 \\
+German & high & SB-10K~\cite{cieliebak2017sb10k,barbieri2022xlmt} & 870 & 1,839 & 324 \\
+French & high & DEFT 2017~\cite{benamara2017deft,barbieri2022xlmt} & 870 & 1,837 & 323 \\
+Albanian & low & AlbAna~\cite{kastrati2021albana} & 2,148 & 6,819 & 1,705 \\
+Bosnian & low & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & 782 & 27,949 & 6,988 \\
+Croatian & low & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & 2,790 & 57,624 & 14,406 \\
+Serbian & low & Mozeti\v{c} et al.~\cite{mozetic2016multilingual} & 2,272 & 52,263 & 13,066 \\
+Czech & medium & Habernal et al.~\cite{habernal2013czech} & 1,950 & 6,241 & 1,561 \\
 \bottomrule
 \end{tabular}
 \end{table}

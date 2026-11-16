@@ -31,15 +31,16 @@ LANGUAGE_CODES = {
     'Czech': 'CS',
 }
 
+# The resource level is the one that Kastrati et al. (2026) give the language in their Section 3.2.1
 DATASETS = {
-    'English': ('SemEval-2017~\\cite{rosenthal2017semeval,barbieri2022xlmt}', 'tweets', 'data/tsm/{split}/english.csv'),
-    'German': ('SB-10K~\\cite{cieliebak2017sb10k,barbieri2022xlmt}', 'tweets', 'data/tsm/{split}/german.csv'),
-    'French': ('DEFT 2017~\\cite{benamara2017deft,barbieri2022xlmt}', 'tweets', 'data/tsm/{split}/french.csv'),
-    'Albanian': ('AlbAna~\\cite{kastrati2021albana}', 'comments', 'data/lmr-sms/{split}/Albanian.csv'),
-    'Bosnian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Bosnian.csv'),
-    'Croatian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Croatian.csv'),
-    'Serbian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Serbian.csv'),
-    'Czech': ('Habernal et al.~\\cite{habernal2013czech}', 'posts', 'data/lmr-sms/{split}/Czech.csv'),
+    'English': ('SemEval-2017~\\cite{rosenthal2017semeval,barbieri2022xlmt}', 'high', 'data/tsm/{split}/english.csv'),
+    'German': ('SB-10K~\\cite{cieliebak2017sb10k,barbieri2022xlmt}', 'high', 'data/tsm/{split}/german.csv'),
+    'French': ('DEFT 2017~\\cite{benamara2017deft,barbieri2022xlmt}', 'high', 'data/tsm/{split}/french.csv'),
+    'Albanian': ('AlbAna~\\cite{kastrati2021albana}', 'low', 'data/lmr-sms/{split}/Albanian.csv'),
+    'Bosnian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'low', 'data/lmr-sms/{split}/Bosnian.csv'),
+    'Croatian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'low', 'data/lmr-sms/{split}/Croatian.csv'),
+    'Serbian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'low', 'data/lmr-sms/{split}/Serbian.csv'),
+    'Czech': ('Habernal et al.~\\cite{habernal2013czech}', 'medium', 'data/lmr-sms/{split}/Czech.csv'),
 }
 
 SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef'}
@@ -83,21 +84,21 @@ def tuned_scores() -> dict[str, float]:
 
 def datasets_table() -> str:
     rows = []
-    for language, (source, kind, pattern) in DATASETS.items():
+    for language, (source, resource, pattern) in DATASETS.items():
         sizes = [len(read_csv_any_encoding(pattern.format(split=split))) for split in ('train', 'validation')]
         test = len(read_csv_any_encoding(CONFERENCE_TEST_FILES[language]))
-        rows.append(f'{language} & {source} & {kind} & {test:,} & {sizes[0]:,} & {sizes[1]:,} \\\\')
+        rows.append(f'{language} & {resource} & {source} & {test:,} & {sizes[0]:,} & {sizes[1]:,} \\\\')
     return '\n'.join(
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{The eight datasets. The Albanian and Czech texts are Facebook comments and posts. Test is the '
-            'sample that the LLMs were scored on; train and validation exclude every test item.}',
+            '\\caption{The eight datasets, with the resource level that Kastrati et al.~\\cite{kastrati2026language} '
+            'give each language.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
-            '\\begin{tabular}{llrrrr}',
+            '\\begin{tabular}{lllrrr}',
             '\\toprule',
-            'Language & Source & Text & Test & Train & Valid. \\\\',
+            'Language & Resource & Source & Test & Train & Valid. \\\\',
             '\\midrule',
             *rows,
             '\\bottomrule',
