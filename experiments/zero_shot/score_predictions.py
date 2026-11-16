@@ -41,7 +41,7 @@ def score_question(question_dir: str, paper: pd.DataFrame) -> pd.DataFrame:
             )
             items[language] = max(items[language], len(predictions))
 
-    table = pd.concat([items, scores, paper], axis=1)
+    table = pd.concat([items, scores, paper.reindex(scores.index)], axis=1)
     table.loc['Mean'] = table.drop(columns='items').mean(skipna=False)
     table['items'] = items.reindex(table.index).fillna(items.sum()).astype(int)
     table.round(1).to_csv(os.path.join(question_dir, 'scores.csv'))

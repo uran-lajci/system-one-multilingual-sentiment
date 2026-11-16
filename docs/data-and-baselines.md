@@ -11,6 +11,8 @@ We use 35 of the 36 test sets from [Kastrati et al. (2026)](https://doi.org/10.3
 
 We leave out Malaysian. Our file holds 626 items, but the paper's Table 1 says it scored about 1.4k, so we cannot score the same items.
 
+The Swedish test set is not from Mozetič et al. (2016) like the Bosnian, Croatian and Serbian ones. It is the dataset of Berggren (2023), 2,368 Twitter posts and YouTube comments with emojis, all used as test data by the paper. Our Swedish train and validation data are Mozetič's Swedish tweets, a different dataset, which is why Swedish is not in the conference paper ([next-steps.md](next-steps.md#why-swedish-is-out)).
+
 The authors' files hold the whole Bosnian, Croatian and Serbian datasets, but the paper scored 20% samples. Zenun Kastrati later sent these samples, and our test files hold exactly them (782, 2,790 and 2,272 items).
 
 In the Azerbaijani and Czech test files, many letters appear as `?`, for example `mahn?s?` for *mahnısı* and `n?kdo` for *někdo*. The authors' own files have the same text, so the LLMs most likely saw it too. We keep the text as it is, so all models get the same input, and our paper should mention it.
@@ -25,7 +27,7 @@ Table 1 also lists one item more than the source for each AfriSenti test file wi
 
 ## Scores from Kastrati et al. (2026)
 
-Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 35 languages, which differ from means over the paper's 36, and over the 8 languages of the conference paper.
+Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 35 languages, which differ from means over the paper's 36, and over the 7 languages of the conference paper.
 
 | Family | Language | GPT-4o ZS | Gemini ZS | DeepSeek ZS | Mistral ZS | Claude ZS | GPT-4o FS | Gemini FS | DeepSeek FS | Mistral FS | Claude FS | Best few-shot | SOTA |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -65,6 +67,6 @@ Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero
 | Creole | Nigerian Pidgin | 63.4 | 67.2 | 63.5 | 50.6 | 67.2 | 69.7 | 73.9 | 69.7 | 69.5 | 74.4 | 74.4 | 76.0 |
 | Turkic | Azerbaijani | 41.1 | 37.5 | 37.1 | 32.7 | 38.3 | 42.0 | 39.0 | 37.3 | 37.6 | 43.3 | 43.3 | – |
 | **All 35** | **Mean** | **64.8** | **60.2** | **57.7** | **48.8** | **62.2** | **67.6** | **66.8** | **63.5** | **62.2** | **66.6** |  |  |
-| **Conference 10** | **Mean** | **65.8** | **60.5** | **61.0** | **54.3** | **65.7** | **68.3** | **65.3** | **65.4** | **66.0** | **67.7** |  |  |
+| **Conference 7** | **Mean** | **61.9** | **57.8** | **59.2** | **50.4** | **62.3** | **65.5** | **62.7** | **62.2** | **63.0** | **65.5** | **67.6** | **66.4** |
 
 \*Named by ISO 639-3, not by the paper. See the note on swapped names above.

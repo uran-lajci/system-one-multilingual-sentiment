@@ -27,7 +27,6 @@ LANGUAGE_CODES = {
     'Bosnian': 'BS',
     'Croatian': 'HR',
     'Serbian': 'SR',
-    'Swedish': 'SV',
 }
 
 DATASETS = {
@@ -38,7 +37,6 @@ DATASETS = {
     'Bosnian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Bosnian.csv'),
     'Croatian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Croatian.csv'),
     'Serbian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Serbian.csv'),
-    'Swedish': ('Berggren~\\cite{berggren2023swedish}', 'tweets', 'data/lmr-sms/{split}/Swedish.csv'),
 }
 
 SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef'}
@@ -90,10 +88,8 @@ def datasets_table() -> str:
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{The eight datasets. The Albanian texts are Facebook comments. Source is where the test set '
-            'comes from. Test is the sample that the LLMs were scored on; train and validation exclude every test '
-            'item. The Swedish train and validation data come from '
-            'Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}.}',
+            '\\caption{The seven datasets. The Albanian texts are Facebook comments. Test is the sample that the LLMs '
+            'were scored on; train and validation exclude every test item.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
             '\\begin{tabular}{llrrrr}',
@@ -113,7 +109,7 @@ def scores_block(scores: dict[str, dict[str, float]], setting: str) -> list[str]
     columns = [*CONFERENCE_TEST_FILES, 'Mean']
     names = {**SYSTEM_ONE, **LLMS}
     best = {column: max(scores[model][column] for model in names) for column in columns}
-    lines = [f'\\multicolumn{{10}}{{l}}{{\\textit{{{setting}}}}} \\\\']
+    lines = [f'\\multicolumn{{{len(columns) + 1}}}{{l}}{{\\textit{{{setting}}}}} \\\\']
     for model, name in names.items():
         cells = [
             f'\\textbf{{{scores[model][column]:.1f}}}'
@@ -123,7 +119,7 @@ def scores_block(scores: dict[str, dict[str, float]], setting: str) -> list[str]
         ]
         lines.append(f'{name} & {" & ".join(cells)} \\\\')
         if model == list(SYSTEM_ONE)[-1]:
-            lines.append('\\cmidrule(lr){1-10}')
+            lines.append(f'\\cmidrule(lr){{1-{len(columns) + 1}}}')
     return lines
 
 
@@ -137,9 +133,9 @@ def zero_few_shot_table() -> str:
             '\\centering',
             '\\caption{Macro-F1 (\\%) of the System One models Jev and Clef and of the five LLMs reported by Kastrati '
             'et al.~\\cite{kastrati2026language}, zero-shot and few-shot with the same three English examples. Bold '
-            'marks the best score in each column of a block. The mean is unweighted over the eight languages.}',
+            'marks the best score in each column of a block. The mean is unweighted over the seven languages.}',
             '\\label{tab:zero-few-shot}',
-            '\\begin{tabular}{lrrrrrrrrr}',
+            f'\\begin{{tabular}}{{l{"r" * (len(CONFERENCE_TEST_FILES) + 1)}}}',
             '\\toprule',
             f'Model & {header} & Mean \\\\',
             '\\midrule',
@@ -250,8 +246,8 @@ def costs_table() -> str:
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{Cost of our runs on the 12,970 test texts, and the one-time cost of tuning the questions of all '
-            'eight languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042 and Clef '
+            f'\\caption{{Cost of our runs on the {items:,} test texts, and the one-time cost of tuning the questions '
+            'of all seven languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042 and Clef '
             'US\\$0.24 for input, with output free; Claude Opus 5.5 US\\$4 for input and US\\$20 for output.}',
             '\\label{tab:costs}',
             '\\setlength{\\tabcolsep}{4pt}',
