@@ -27,6 +27,7 @@ LANGUAGE_CODES = {
     'Bosnian': 'BS',
     'Croatian': 'HR',
     'Serbian': 'SR',
+    'Czech': 'CS',
 }
 
 DATASETS = {
@@ -37,6 +38,7 @@ DATASETS = {
     'Bosnian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Bosnian.csv'),
     'Croatian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Croatian.csv'),
     'Serbian': ('Mozeti\\v{c} et al.~\\cite{mozetic2016multilingual}', 'tweets', 'data/lmr-sms/{split}/Serbian.csv'),
+    'Czech': ('Habernal et al.~\\cite{habernal2013czech}', 'posts', 'data/lmr-sms/{split}/Czech.csv'),
 }
 
 SYSTEM_ONE = {'jev-1.14.0': 'Jev', 'clef': 'Clef'}
@@ -88,8 +90,8 @@ def datasets_table() -> str:
         [
             '\\begin{table}[t]',
             '\\centering',
-            '\\caption{The seven datasets. The Albanian texts are Facebook comments. Test is the sample that the LLMs '
-            'were scored on; train and validation exclude every test item.}',
+            '\\caption{The eight datasets. The Albanian and Czech texts are Facebook comments and posts. Test is the '
+            'sample that the LLMs were scored on; train and validation exclude every test item.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
             '\\begin{tabular}{llrrrr}',
@@ -133,7 +135,7 @@ def zero_few_shot_table() -> str:
             '\\centering',
             '\\caption{Macro-F1 (\\%) of the System One models Jev and Clef and of the five LLMs reported by Kastrati '
             'et al.~\\cite{kastrati2026language}, zero-shot and few-shot with the same three English examples. Bold '
-            'marks the best score in each column of a block. The mean is unweighted over the seven languages.}',
+            'marks the best score in each column of a block. The mean is unweighted over the eight languages.}',
             '\\label{tab:zero-few-shot}',
             f'\\begin{{tabular}}{{l{"r" * (len(CONFERENCE_TEST_FILES) + 1)}}}',
             '\\toprule',
@@ -247,7 +249,7 @@ def costs_table() -> str:
             '\\begin{table}[t]',
             '\\centering',
             f'\\caption{{Cost of our runs on the {items:,} test texts, and the one-time cost of tuning the questions '
-            'of all seven languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042 and Clef '
+            'of all eight languages. Input tokens are in millions. Prices per million tokens: Jev US\\$0.042 and Clef '
             'US\\$0.24 for input, with output free; Claude Opus 5.5 US\\$4 for input and US\\$20 for output.}',
             '\\label{tab:costs}',
             '\\setlength{\\tabcolsep}{4pt}',

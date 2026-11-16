@@ -8,15 +8,15 @@ Before we fixed the conference scope, we tried more methods on English and Alban
 
 ## After the conference
 
-The conference paper covers 7 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
+The conference paper covers 8 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
 
 ### Zero-shot run on all 34 languages
 
-The same three models and the same question run on the other 27 test sets, so the study covers all 34 languages and 50,491 items.
+The same three models and the same question run on the other 26 test sets, so the study covers all 34 languages and 50,491 items.
 
 ### More few-shot runs
 
-The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 7 languages. These runs extend it:
+The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 8 languages. These runs extend it:
 
 - **All 34 languages:** the same question with the paper's three examples on all 50,491 test items.
 - **Five train tweets per label:** we draw them at random, with a fixed seed, from `data/tsm/train/english.csv`. The examples stay English and the same for all 35 languages, because some test languages have no training data. Our paper must say that the LLMs saw one example per label and our models see five.

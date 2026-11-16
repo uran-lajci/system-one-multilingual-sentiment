@@ -27,7 +27,7 @@ Table 1 also lists one item more than the source for each AfriSenti test file wi
 
 ## Scores from Kastrati et al. (2026)
 
-Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 34 languages, which differ from means over the paper's 36, and over the 7 languages of the conference paper.
+Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 34 languages, which differ from means over the paper's 36, and over the 8 languages of the conference paper.
 
 | Family | Language | GPT-4o ZS | Gemini ZS | DeepSeek ZS | Mistral ZS | Claude ZS | GPT-4o FS | Gemini FS | DeepSeek FS | Mistral FS | Claude FS | Best few-shot | SOTA |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -66,6 +66,6 @@ Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero
 | Creole | Nigerian Pidgin | 63.4 | 67.2 | 63.5 | 50.6 | 67.2 | 69.7 | 73.9 | 69.7 | 69.5 | 74.4 | 74.4 | 76.0 |
 | Turkic | Azerbaijani | 41.1 | 37.5 | 37.1 | 32.7 | 38.3 | 42.0 | 39.0 | 37.3 | 37.6 | 43.3 | 43.3 | – |
 | **All 34** | **Mean** | **64.3** | **59.8** | **57.4** | **48.3** | **61.7** | **67.3** | **66.5** | **63.1** | **61.7** | **66.4** |  |  |
-| **Conference 7** | **Mean** | **61.9** | **57.8** | **59.2** | **50.4** | **62.3** | **65.5** | **62.7** | **62.2** | **63.0** | **65.5** | **67.6** | **66.4** |
+| **Conference 8** | **Mean** | **64.2** | **59.0** | **58.7** | **52.1** | **63.2** | **66.8** | **64.3** | **62.7** | **63.1** | **65.8** | **68.7** | **66.8** |
 
 \*Named by ISO 639-3, not by the paper. See the note on swapped names above.

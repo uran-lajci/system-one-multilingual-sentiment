@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs three System One models on 7 languages, zero-shot and few-shot with the paper's three examples. All 7 have train and validation data from the same source as their test set, and the paper also tunes Jev's question for each of them. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper runs three System One models on 8 languages, zero-shot and few-shot with the paper's three examples. All 8 have train and validation data from the same source as their test set, and the paper also tunes Jev's question for each of them. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -13,7 +13,8 @@ The conference paper runs three System One models on 7 languages, zero-shot and 
 | Bosnian | `lmr-sms/test/Bosnian_ts782.csv` | 782 |
 | Croatian | `lmr-sms/test/Croatian_ts2790.csv` | 2,790 |
 | Serbian | `lmr-sms/test/Serbian_ts2272.csv` | 2,272 |
-| **Total** | | **10,602** |
+| Czech | `lmr-sms/test/Czech_ts1950.csv` | 1,950 |
+| **Total** | | **12,552** |
 
 The models are Jev, Clef and Clef-flash. [background.md](background.md) gives the version of each.
 
@@ -21,9 +22,13 @@ The models are Jev, Clef and Clef-flash. [background.md](background.md) gives th
 
 Swedish was in the study until 16 November 2026. We dropped it, from the conference paper and from the 34-language work, because its test set and its train and validation data come from different datasets. Kastrati et al. took the Swedish test set from Berggren (2023): 2,368 Twitter posts and YouTube comments that all contain emojis, labelled by two to five annotators with the majority label kept. They used every item as test data, so it has no train split. Our Swedish train and validation data came from the Swedish tweets of Mozetič et al. (2016). Only 980 of the 2,368 test texts occur in Mozetič's data, and on those the two label sets agree 63% of the time. The label mix differs too: 64% positive, 22% neutral and 14% negative in the test set, against 27%, 30% and 44% in Mozetič's tweets. The question tuned on Mozetič's data scored 65.7 on validation but 59.7 on test, below zero-shot Jev (61.4). The other seven languages have train, validation and test data from one source. The Swedish test, train and validation files are in `data/raw/lmr-sms/excluded/`, next to Malaysian, and Mozetič's raw file stays in `data/raw/lmr-sms/mozetic/`. The Swedish zero-shot, few-shot and tuning results left main in the commit that dropped Swedish; git history keeps them.
 
+### Why Czech is in
+
+Czech joined the conference scope on 16 November 2026, the day Swedish left. Its test set is a 20% sample of the Facebook CZ Corpus of Habernal et al. (2013), and the other 80% of that corpus, minus the bipolar posts, gives the train and validation data, so all three splits share one source and one set of annotators. The test file we received had lost its Czech letters; `data_prep/restore_czech_test_text.py` restores them from the corpus by line number. Czech is also the one medium-resource language in the paper, in the classification of Kastrati et al.
+
 ## Zero-shot run
 
-We run all three models on these 10,602 test items with one Choice question, the same for every language, with no examples and no tuning. We compare the scores with the zero-shot scores of the five LLMs in [data-and-baselines.md](data-and-baselines.md).
+We run all three models on these 12,552 test items with one Choice question, the same for every language, with no examples and no tuning. We compare the scores with the zero-shot scores of the five LLMs in [data-and-baselines.md](data-and-baselines.md).
 
 ```json
 {
@@ -39,7 +44,7 @@ We run all three models on these 10,602 test items with one Choice question, the
 }
 ```
 
-A pilot run of Jev on 75,080 items, before we used the paper's exact samples, needed about 30.3 million input tokens, or about 404 per item. One run over the 10,602 items therefore needs about 4.3 million input tokens. That costs about USD 0.18 with Jev, USD 1.03 with Clef and USD 0.17 with Clef-flash.
+A pilot run of Jev on 75,080 items, before we used the paper's exact samples, needed about 30.3 million input tokens, or about 404 per item. One run over the 12,552 items therefore needs about 5.1 million input tokens. That costs about USD 0.21 with Jev, USD 1.22 with Clef and USD 0.20 with Clef-flash.
 
 We ran the models on 6 November 2026, together with Laya and Laya-multilingual and on Norwegian and Danish, none of which the paper reports. [results-zero-shot.md](results-zero-shot.md) gives the scores, the comparison and the commands to reproduce them.
 
@@ -74,7 +79,7 @@ The three examples add about 100 input tokens to each item. Zero-shot used 388 p
 
 Opus writes a structured question for each dataset from its train data, and then tunes it on Jev's errors on other train data. We pick the version on validation data, which Opus never sees, and score the test set once.
 
-This covers all 7 languages.
+This covers all 8 languages.
 
 Only Jev is tuned. Clef may not accept JSON instructions, JSON criteria or three questions in one request. A tuned Jev has seen labelled data, so we compare it with zero-shot Jev and with the few-shot LLMs, not with the zero-shot LLMs. Our paper must say that Jev used 750 labelled train texts and the validation set, while the LLMs saw 3 examples.
 
