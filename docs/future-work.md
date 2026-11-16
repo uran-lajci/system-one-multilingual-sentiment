@@ -29,13 +29,13 @@ The question shape stays as in the conference run: `description` holds the zero-
 
 Each SOTA score comes from the dataset's own paper, often on a different split or with a different metric. To get baselines on the same test items, we fine-tune transformer models on our train and validation data. Their scores then replace the SOTA column.
 
-1. Download the missing training data for Azerbaijani, Czech, Danish, Latvian and Roman Urdu.
+1. Download the missing training data for Azerbaijani, Danish, Latvian and Roman Urdu.
 2. Remove every test item from the new training data.
 3. Fine-tune one model per language on its train data.
 4. Choose the number of epochs and the learning rate on validation data only.
 5. Score each model once on its test set, with macro-F1 on the three labels.
 
-Training data is on disk for 25 languages: the 8 TSM languages, 12 AfriSenti languages, Albanian, Bosnian, Croatian, Macedonian and Serbian. No training data exists for Oromo and Tigrinya, because AfriSenti released only validation data for them. None exists for Greek and Norwegian either, because the paper used every item of these datasets as test data.
+Training data is on disk for 26 languages: the 8 TSM languages, 12 AfriSenti languages, Albanian, Bosnian, Croatian, Czech, Macedonian and Serbian. No training data exists for Oromo and Tigrinya, because AfriSenti released only validation data for them. None exists for Greek and Norwegian either, because the paper used every item of these datasets as test data.
 
 Open questions for this step:
 
@@ -58,7 +58,7 @@ The conference paper includes a version for Jev, with Opus as the tuner; see the
 
 We build a protocol in which Claude Code tunes the instructions and criteria by itself. It reads the model's errors on validation data, rewrites the question, scores it again and keeps the changes that help, which is what I did by hand for AlbAna. We develop the protocol in English, Albanian and Swedish, which we can judge as human readers, and then apply it unchanged to the other languages.
 
-Only train and validation data are used, and each test set is scored once at the end. Train or validation data are on disk for 27 languages, with test items removed. These are the 8 TSM languages, the 14 AfriSenti languages and five LMR-SMS languages: Albanian, Bosnian, Croatian, Macedonian and Serbian. Oromo and Tigrinya have validation data only. Azerbaijani, Czech, Danish, Latvian and Roman Urdu still need downloading, and Greek and Norwegian have none.
+Only train and validation data are used, and each test set is scored once at the end. Train or validation data are on disk for 28 languages, with test items removed. These are the 8 TSM languages, the 14 AfriSenti languages and six LMR-SMS languages: Albanian, Bosnian, Croatian, Czech, Macedonian and Serbian. Oromo and Tigrinya have validation data only. Azerbaijani, Danish, Latvian and Roman Urdu still need downloading, and Greek and Norwegian have none.
 
 A tuned Jev has seen labelled data, so it should be compared with zero-shot Jev and with the few-shot LLMs, not with the zero-shot LLMs.
 

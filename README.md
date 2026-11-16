@@ -8,6 +8,7 @@ uv sync
 cp .env.example .env    # then fill in the API keys
 uv run python -m data_prep.select_paper_test_sets    # after the datasets are in data/
 uv run python -m data_prep.import_mozetic
+uv run python -m data_prep.import_habernal
 uv run python -m data_prep.split_train_validation
 uv run python -m data_prep.remove_test_leaks
 ```
@@ -32,6 +33,6 @@ The 34 test sets hold 50,491 items: every file in `data/tsm/test/` (6,960) and `
 
 For Hausa, Igbo, Nigerian Pidgin, Mozambican Portuguese and Yoruba, the test file is the paper's stratified 50% subsample of the Hugging Face test set, named with its size, such as `hau_ts2652.csv`. For Bosnian, Croatian and Serbian, it is the paper's 20% sample, picked from the whole dataset in `data/raw/lmr-sms/full/`.
 
-Train and validation data are on disk for 25 languages, with test items removed: the 8 TSM languages, 12 AfriSenti languages, and Albanian, Bosnian, Croatian, Macedonian and Serbian. Oromo and Tigrinya have validation data only. We do not have train and validation data for Azerbaijani, Czech, Danish, Latvian and Roman Urdu; they can be downloaded after the conference. Greek and Norwegian have none, because the paper used every item as test data.
+Train and validation data are on disk for 26 languages, with test items removed: the 8 TSM languages, 12 AfriSenti languages, and Albanian, Bosnian, Croatian, Czech, Macedonian and Serbian. Oromo and Tigrinya have validation data only. We do not have train and validation data for Azerbaijani, Danish, Latvian and Roman Urdu; they can be downloaded after the conference. Greek and Norwegian have none, because the paper used every item as test data.
 
 Column names and label formats differ between files. In `data_prep/files.py`, `text_column` finds each file's text, and `sentiment_labels` maps its labels to positive, neutral and negative.
