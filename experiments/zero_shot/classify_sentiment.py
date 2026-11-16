@@ -35,6 +35,7 @@ CONFERENCE_TEST_FILES = {
     'Bosnian': 'data/lmr-sms/test/Bosnian_ts782.csv',
     'Croatian': 'data/lmr-sms/test/Croatian_ts2790.csv',
     'Serbian': 'data/lmr-sms/test/Serbian_ts2272.csv',
+    'Czech': 'data/lmr-sms/test/Czech_ts1950.csv',
 }
 
 JEV_MODELS = ('jev-1.14.0',)

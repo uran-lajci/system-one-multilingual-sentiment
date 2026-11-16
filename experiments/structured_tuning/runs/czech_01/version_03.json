@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving the product), negative (complaint, frustration, sadness, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or chatty with no clear feeling)?",
+      "rule": "Positive needs feeling as the main message: standalone thanks, congratulations, good wishes, praise or craving the product. Thanks closing a question, request or explanation, prize or contest requests, agreement with users, and smiley-decorated statements of fact are neutral. Negative needs real frustration, a complaint, an insult, crying emoticons, or sarcasm against the brand. 'bohužel', 'škoda' or one :( in a factual note, flat fault reports, questions with ??? and arguing with users without name-calling are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Questions, requests, contest entries, information, plain fault reports, user banter or arguing, jokes, hopes, and factual notes with mild regret.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "takže si to bohužel kontrolovat nemůžeme... (so unfortunately we can't check it...)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), snad (hopefully), doufám (I hope), bohužel (unfortunately) in plain reports, :D in banter",
+        "not_for": "Fed-up complaints, crying ':(((' outbursts, and name-calling are negative."
+      },
+      "positive": {
+        "what": "Standalone thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and craving the product.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky as the whole message (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), jůů (yay)",
+        "not_for": "'Chtěl bych se Vás zeptat, jak se dovíme, jestli jsme vyhráli přívěšek nebo ne? Děkuji za info.' (I'd like to ask how we find out whether we won the pendant or not? Thanks for the info.) and 'mě by se hodily tři' (I could use three) are neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery of the brand, insults, and sad or frustrated outbursts.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), už mě to nebaví (I'm fed up), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :(((",
+        "not_for": "Factual problem reports, mild 'bohužel', and ironic but polite replies to other users are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving the product), negative (complaint, frustration, sadness, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or chatty with no clear feeling)?",
+      "rule": "Positive needs feeling as the main message: standalone thanks, congratulations, good wishes, praise or craving the product. Thanks closing a question, request or explanation, prize or contest requests, agreement with users, and smiley-decorated statements of fact are neutral. Negative needs real frustration, a complaint, an insult, crying emoticons, or sarcasm against the brand. 'bohužel', 'škoda' or one :( in a factual note, flat fault reports, questions with ??? and arguing with users without name-calling are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Standalone thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and craving the product.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky as the whole message (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), jůů (yay)",
+        "not_for": "'Chtěl bych se Vás zeptat, jak se dovíme, jestli jsme vyhráli přívěšek nebo ne? Děkuji za info.' (I'd like to ask how we find out whether we won the pendant or not? Thanks for the info.) and 'mě by se hodily tři' (I could use three) are neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery of the brand, insults, and sad or frustrated outbursts.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), už mě to nebaví (I'm fed up), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :(((",
+        "not_for": "Factual problem reports, mild 'bohužel', and ironic but polite replies to other users are neutral."
+      },
+      "neutral": {
+        "what": "Questions, requests, contest entries, information, plain fault reports, user banter or arguing, jokes, hopes, and factual notes with mild regret.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "takže si to bohužel kontrolovat nemůžeme... (so unfortunately we can't check it...)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), snad (hopefully), doufám (I hope), bohužel (unfortunately) in plain reports, :D in banter",
+        "not_for": "Fed-up complaints, crying ':(((' outbursts, and name-calling are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving the product), negative (complaint, frustration, sadness, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or chatty with no clear feeling)?",
+      "rule": "Positive needs feeling as the main message: standalone thanks, congratulations, good wishes, praise or craving the product. Thanks closing a question, request or explanation, prize or contest requests, agreement with users, and smiley-decorated statements of fact are neutral. Negative needs real frustration, a complaint, an insult, crying emoticons, or sarcasm against the brand. 'bohužel', 'škoda' or one :( in a factual note, flat fault reports, questions with ??? and arguing with users without name-calling are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery of the brand, insults, and sad or frustrated outbursts.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), už mě to nebaví (I'm fed up), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :(((",
+        "not_for": "Factual problem reports, mild 'bohužel', and ironic but polite replies to other users are neutral."
+      },
+      "neutral": {
+        "what": "Questions, requests, contest entries, information, plain fault reports, user banter or arguing, jokes, hopes, and factual notes with mild regret.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "takže si to bohužel kontrolovat nemůžeme... (so unfortunately we can't check it...)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), snad (hopefully), doufám (I hope), bohužel (unfortunately) in plain reports, :D in banter",
+        "not_for": "Fed-up complaints, crying ':(((' outbursts, and name-calling are negative."
+      },
+      "positive": {
+        "what": "Standalone thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and craving the product.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky as the whole message (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), jůů (yay)",
+        "not_for": "'Chtěl bych se Vás zeptat, jak se dovíme, jestli jsme vyhráli přívěšek nebo ne? Děkuji za info.' (I'd like to ask how we find out whether we won the pendant or not? Thanks for the info.) and 'mě by se hodily tři' (I could use three) are neutral."
+      }
+    }
+  }
+}

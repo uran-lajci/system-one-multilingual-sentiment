@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, wanting the product), negative (complaint, sadness, frustration, insult, sarcastic attack), or neutral (factual, questioning, joking or chatty with no clear feeling)?",
+      "rule": "Annotators label the expressed feeling even when the brand is not the target: thanks, congratulations, good wishes, delight and craving a product are positive, while sadness, frustration, complaints and insults to other users are negative. A smiley or :D alone does not make a text positive or negative; it needs a feeling word, thanks, wish, sad emoticon like :( or :(((, or a clear complaint. Questions, requests, suggestions, wished-for tariffs, flat fault reports, banter, teasing jokes, mild irony, hopes ('snad', 'doufám') and promo-style statements are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Questions, information, requests, suggestions, plain problem reports, user banter, jokes, mild irony and hopes without a clear feeling word.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)",
+          "Už mám objednáno =) (I've already ordered)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)"
+        ],
+        "cues": "jak (how), proč (why) in plain questions, prosím (please), snad (hopefully), doufám (I hope), kdyby (if), :D in banter",
+        "not_for": "Questions loaded with sad or angry markers ('já mám vynulované skore :((((( nevíte proč???' (my score has been reset, does anyone know why???)) are negative."
+      },
+      "positive": {
+        "what": "Thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and wanting or buying the product with enthusiasm.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), chci taky (I want one too), jůů (yay)",
+        "not_for": "Factual or chatty lines with only a smiley ('Už je hotový :D' (it's done now :D)), hopes ('snad se v Opavě dočkáme :)' (hopefully we'll get it in Opava)), and promo text are neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery, insults to other users, and sad or frustrated remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), nefunguje (doesn't work), už nikdy (never again), škoda (pity), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :( , :(((, :-/",
+        "not_for": "Flat fault reports or questions without frustration markers, and light teasing between users, are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, wanting the product), negative (complaint, sadness, frustration, insult, sarcastic attack), or neutral (factual, questioning, joking or chatty with no clear feeling)?",
+      "rule": "Annotators label the expressed feeling even when the brand is not the target: thanks, congratulations, good wishes, delight and craving a product are positive, while sadness, frustration, complaints and insults to other users are negative. A smiley or :D alone does not make a text positive or negative; it needs a feeling word, thanks, wish, sad emoticon like :( or :(((, or a clear complaint. Questions, requests, suggestions, wished-for tariffs, flat fault reports, banter, teasing jokes, mild irony, hopes ('snad', 'doufám') and promo-style statements are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and wanting or buying the product with enthusiasm.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), chci taky (I want one too), jůů (yay)",
+        "not_for": "Factual or chatty lines with only a smiley ('Už je hotový :D' (it's done now :D)), hopes ('snad se v Opavě dočkáme :)' (hopefully we'll get it in Opava)), and promo text are neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery, insults to other users, and sad or frustrated remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), nefunguje (doesn't work), už nikdy (never again), škoda (pity), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :( , :(((, :-/",
+        "not_for": "Flat fault reports or questions without frustration markers, and light teasing between users, are neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, requests, suggestions, plain problem reports, user banter, jokes, mild irony and hopes without a clear feeling word.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)",
+          "Už mám objednáno =) (I've already ordered)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)"
+        ],
+        "cues": "jak (how), proč (why) in plain questions, prosím (please), snad (hopefully), doufám (I hope), kdyby (if), :D in banter",
+        "not_for": "Questions loaded with sad or angry markers ('já mám vynulované skore :((((( nevíte proč???' (my score has been reset, does anyone know why???)) are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, wanting the product), negative (complaint, sadness, frustration, insult, sarcastic attack), or neutral (factual, questioning, joking or chatty with no clear feeling)?",
+      "rule": "Annotators label the expressed feeling even when the brand is not the target: thanks, congratulations, good wishes, delight and craving a product are positive, while sadness, frustration, complaints and insults to other users are negative. A smiley or :D alone does not make a text positive or negative; it needs a feeling word, thanks, wish, sad emoticon like :( or :(((, or a clear complaint. Questions, requests, suggestions, wished-for tariffs, flat fault reports, banter, teasing jokes, mild irony, hopes ('snad', 'doufám') and promo-style statements are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints about price, service or product, threats to leave, sarcasm or mockery, insults to other users, and sad or frustrated remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "zase jsem to nestih, poslední dobou mi skoro pokaždý tyhle bomba akce utečou přímo před očima :-( (I missed it again; lately these great deals nearly always slip away right in front of me)",
+          "Chudák kočka,....:-/ (Poor cat)"
+        ],
+        "cues": "předražený (overpriced), nefunguje (doesn't work), už nikdy (never again), škoda (pity), chudák (poor thing), ty vole (dude, as a swear), osel (donkey, as an insult), :( , :(((, :-/",
+        "not_for": "Flat fault reports or questions without frustration markers, and light teasing between users, are neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, requests, suggestions, plain problem reports, user banter, jokes, mild irony and hopes without a clear feeling word.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Chci levnější volání, 3G pokrytí, Internet bez cenzury a bez FUP. (I want cheaper calls, 3G coverage, internet without censorship and without FUP.)",
+          "Už mám objednáno =) (I've already ordered)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)"
+        ],
+        "cues": "jak (how), proč (why) in plain questions, prosím (please), snad (hopefully), doufám (I hope), kdyby (if), :D in banter",
+        "not_for": "Questions loaded with sad or angry markers ('já mám vynulované skore :((((( nevíte proč???' (my score has been reset, does anyone know why???)) are negative."
+      },
+      "positive": {
+        "what": "Thanks, congratulations, good wishes, praise of products, ads, animals or photos, delight, loyalty, and wanting or buying the product with enthusiasm.",
+        "examples": [
+          "Díky za odpověď :-) (Thanks for the answer)",
+          "Držím pěsti!!! (Fingers crossed!!!)",
+          "Dal bych si :P (I'd have some)",
+          "Jejda mane,to je micánek :) :) (Oh man, what a kitty)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), super, krásné (beautiful), dal bych si (I'd have some), chci taky (I want one too), jůů (yay)",
+        "not_for": "Factual or chatty lines with only a smiley ('Už je hotový :D' (it's done now :D)), hopes ('snad se v Opavě dočkáme :)' (hopefully we'll get it in Opava)), and promo text are neutral."
+      }
+    }
+  }
+}

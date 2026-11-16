@@ -30,5 +30,9 @@
   "Swedish": {
     "context": "A tweet in Swedish, posted between April 2013 and February 2015 and collected through the Twitter Search API near the largest cities where the language is spoken. A native speaker labelled each tweet by the emotional attitude of the person who posted it.",
     "sources": "Mozetič, Grčar and Smailović (2016), PLoS ONE 11(5): e0155036, sections on data collection and annotation"
+  },
+  "Czech": {
+    "context": "A Czech post from the Facebook page of one of nine popular Czech brands, collected in 2013 and kept as text only. Two annotators labelled the sentiment towards the brand, product or service of the page, and a third and a fourth annotator settled their disagreements. Complaints are negative, joy or praise about the brand is positive, and a post whose opinion does not concern the page is neutral. Posts that were both positive and negative were removed.",
+    "sources": "Habernal, Ptáček and Steinberger (2013), WASSA 2013, Section 3.1"
   }
 }

@@ -1,0 +1,125 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving or happily buying the product), negative (complaint, disappointment, frustration, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or bantering with no clear feeling)?",
+      "rule": "Thanks is positive unless it only closes a question or request ('...? Děkuji za info'). Cheerful updates with a smiley, mild praise and good wishes are positive too. Disappointment with :( or :/ about missing out, unavailability, waiting or price, and questions objecting to a brand decision are negative. Information questions, requests, contest entries, flat fault reports, teasing or ironic banter between users without name-calling, promo text and jokes are neutral."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Information questions, requests, contest entries, facts, flat fault reports, user banter and teasing, jokes, and hopes.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)",
+          "Tak nakonec je to 25 kč samozřejmně s Vaším DPH.. (So in the end it's 25 CZK, of course with your VAT..)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), ID, :D in banter",
+        "not_for": "Disappointment with :( or :/, objecting 'why' questions, and fed-up complaints are negative."
+      },
+      "positive": {
+        "what": "Thanks, congratulations, wishes, praise (even mild), delight, loyalty, craving the product, and cheerful updates about buying, having or visiting.",
+        "examples": [
+          "už mi mail dorazil, děkuji :-) (the email has arrived, thank you)",
+          "Nakoupeno :) (Bought)",
+          "mě chutnalo ;) (I liked the taste)",
+          "Dal bych si :P (I'd have some)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), chutnalo (tasted good), dobrej (good), super, krásné (beautiful), jůů (yay)",
+        "not_for": "Thanks closing a question ('Chtěl bych se Vás zeptat, jak se dovíme... Děkuji za info.' (I'd like to ask how we find out... Thanks for the info.)), contest requests ('mě by se hodily tři' (I could use three)), and promo text are neutral."
+      },
+      "negative": {
+        "what": "Complaints, disappointment about missing out or unavailability, objections to brand decisions, threats to leave, sarcasm, and insults.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "Taky jsme sháněli pěnoknír ale nikde v okolí Moravské Třebové snad není :( (We were looking for the foam moustache too but there isn't any around Moravská Třebová :()",
+          "Zajímalo by mě¨z jakých důvodů se už nenabízí Chciken burgery.. (I wonder why Chicken burgers are no longer offered..)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), škoda (pity), nestih (missed it), už neni ono (it's not the same), proč už ne (why not anymore), osel (donkey, as an insult), :( , :/",
+        "not_for": "Flat fault reports, price facts, and joking or ironic replies to other users are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving or happily buying the product), negative (complaint, disappointment, frustration, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or bantering with no clear feeling)?",
+      "rule": "Thanks is positive unless it only closes a question or request ('...? Děkuji za info'). Cheerful updates with a smiley, mild praise and good wishes are positive too. Disappointment with :( or :/ about missing out, unavailability, waiting or price, and questions objecting to a brand decision are negative. Information questions, requests, contest entries, flat fault reports, teasing or ironic banter between users without name-calling, promo text and jokes are neutral."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Thanks, congratulations, wishes, praise (even mild), delight, loyalty, craving the product, and cheerful updates about buying, having or visiting.",
+        "examples": [
+          "už mi mail dorazil, děkuji :-) (the email has arrived, thank you)",
+          "Nakoupeno :) (Bought)",
+          "mě chutnalo ;) (I liked the taste)",
+          "Dal bych si :P (I'd have some)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), chutnalo (tasted good), dobrej (good), super, krásné (beautiful), jůů (yay)",
+        "not_for": "Thanks closing a question ('Chtěl bych se Vás zeptat, jak se dovíme... Děkuji za info.' (I'd like to ask how we find out... Thanks for the info.)), contest requests ('mě by se hodily tři' (I could use three)), and promo text are neutral."
+      },
+      "negative": {
+        "what": "Complaints, disappointment about missing out or unavailability, objections to brand decisions, threats to leave, sarcasm, and insults.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "Taky jsme sháněli pěnoknír ale nikde v okolí Moravské Třebové snad není :( (We were looking for the foam moustache too but there isn't any around Moravská Třebová :()",
+          "Zajímalo by mě¨z jakých důvodů se už nenabízí Chciken burgery.. (I wonder why Chicken burgers are no longer offered..)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), škoda (pity), nestih (missed it), už neni ono (it's not the same), proč už ne (why not anymore), osel (donkey, as an insult), :( , :/",
+        "not_for": "Flat fault reports, price facts, and joking or ironic replies to other users are neutral."
+      },
+      "neutral": {
+        "what": "Information questions, requests, contest entries, facts, flat fault reports, user banter and teasing, jokes, and hopes.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)",
+          "Tak nakonec je to 25 kč samozřejmně s Vaším DPH.. (So in the end it's 25 CZK, of course with your VAT..)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), ID, :D in banter",
+        "not_for": "Disappointment with :( or :/, objecting 'why' questions, and fed-up complaints are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What feeling does this Czech Facebook comment express: positive (thanks, wishes, praise, delight, craving or happily buying the product), negative (complaint, disappointment, frustration, insult, sarcastic attack), or neutral (factual, asking, requesting, joking or bantering with no clear feeling)?",
+      "rule": "Thanks is positive unless it only closes a question or request ('...? Děkuji za info'). Cheerful updates with a smiley, mild praise and good wishes are positive too. Disappointment with :( or :/ about missing out, unavailability, waiting or price, and questions objecting to a brand decision are negative. Information questions, requests, contest entries, flat fault reports, teasing or ironic banter between users without name-calling, promo text and jokes are neutral."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints, disappointment about missing out or unavailability, objections to brand decisions, threats to leave, sarcasm, and insults.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "Taky jsme sháněli pěnoknír ale nikde v okolí Moravské Třebové snad není :( (We were looking for the foam moustache too but there isn't any around Moravská Třebová :()",
+          "Zajímalo by mě¨z jakých důvodů se už nenabízí Chciken burgery.. (I wonder why Chicken burgers are no longer offered..)"
+        ],
+        "cues": "předražený (overpriced), už nikdy (never again), škoda (pity), nestih (missed it), už neni ono (it's not the same), proč už ne (why not anymore), osel (donkey, as an insult), :( , :/",
+        "not_for": "Flat fault reports, price facts, and joking or ironic replies to other users are neutral."
+      },
+      "neutral": {
+        "what": "Information questions, requests, contest entries, facts, flat fault reports, user banter and teasing, jokes, and hopes.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Taky potřebuji.. ID: 1677222513 (I need it too.. ID: 1677222513)",
+          "jen jestli ondra není netbot, na určitý typ otázky vždy stejná odpověď :-D (I wonder if Ondra isn't a netbot, always the same answer to a certain type of question)",
+          "Tak nakonec je to 25 kč samozřejmně s Vaším DPH.. (So in the end it's 25 CZK, of course with your VAT..)"
+        ],
+        "cues": "jak (how), kde (where), prosím (please), předem díky (thanks in advance), ID, :D in banter",
+        "not_for": "Disappointment with :( or :/, objecting 'why' questions, and fed-up complaints are negative."
+      },
+      "positive": {
+        "what": "Thanks, congratulations, wishes, praise (even mild), delight, loyalty, craving the product, and cheerful updates about buying, having or visiting.",
+        "examples": [
+          "už mi mail dorazil, děkuji :-) (the email has arrived, thank you)",
+          "Nakoupeno :) (Bought)",
+          "mě chutnalo ;) (I liked the taste)",
+          "Dal bych si :P (I'd have some)"
+        ],
+        "cues": "děkuji, díky (thank you), všechno nejlepší (all the best), držím pěsti (fingers crossed), chutnalo (tasted good), dobrej (good), super, krásné (beautiful), jůů (yay)",
+        "not_for": "Thanks closing a question ('Chtěl bych se Vás zeptat, jak se dovíme... Děkuji za info.' (I'd like to ask how we find out... Thanks for the info.)), contest requests ('mě by se hodily tři' (I could use three)), and promo text are neutral."
+      }
+    }
+  }
+}

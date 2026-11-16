@@ -41,6 +41,8 @@ from experiments.structured_tuning.induce_questions import (
 from experiments.zero_shot.classify_sentiment import LABELS
 
 MAX_ATTEMPTS = 3
+MAX_REFUSALS = 8
+WITHHELD = '[text withheld, because the API refused to process it]'
 
 TUNING_SCHEMA: dict[str, object] = {
     'type': 'object',
@@ -60,13 +62,24 @@ TUNING_SCHEMA: dict[str, object] = {
 }
 
 
-def render_feedback(template: str, version: int, table: pd.DataFrame, texts: list[str], macro_f1: float) -> str:
-    """Fill the feedback template with the macro-F1, the confusion matrix and one line per misclassified text."""
+def render_feedback(
+    template: str,
+    version: int,
+    table: pd.DataFrame,
+    texts: list[str],
+    macro_f1: float,
+    withhold_rows: list[int],
+) -> str:
+    """Fill the feedback template with the macro-F1, the confusion matrix and one line per misclassified text.
+
+    The text of a row in withhold_rows is replaced by a placeholder, for texts that the API refuses to process.
+    """
     confusion = pd.crosstab(table['gold'], table['prediction']).reindex(index=LABELS, columns=LABELS, fill_value=0)
     errors = table[table['gold'] != table['prediction']]
     error_lines = [
         f'<text label="{error["gold"]}" predicted="{error["prediction"]}" p_positive="{error["p_positive"]:.2f}" '
-        f'p_neutral="{error["p_neutral"]:.2f}" p_negative="{error["p_negative"]:.2f}">{texts[error["row"]]}</text>'
+        f'p_neutral="{error["p_neutral"]:.2f}" p_negative="{error["p_negative"]:.2f}">'
+        f'{WITHHELD if error["row"] in withhold_rows else texts[error["row"]]}</text>'
         for error in errors.to_dict('records')
     ]
     return (
@@ -112,18 +125,28 @@ async def ask_for_version(
 
     Appends every reply and retry message to messages, and returns the question, Opus's answer and the usage per call.
     """
-    usage: list[dict[str, object]] = []
-    for _ in range(MAX_ATTEMPTS):
-        response = await client.messages.create(
+
+    async def request() -> anthropic.types.Message:
+        return await client.messages.create(
             model=model,
             max_tokens=16000,
             output_config={'effort': EFFORT, 'format': {'type': 'json_schema', 'schema': TUNING_SCHEMA}},
             cache_control={'type': 'ephemeral'},
             messages=messages,
         )
-        # No refusal fallback: another model's answer would break the pinned model ID
-        if response.stop_reason == 'refusal':
-            raise RuntimeError(f'Opus refused, request {response._request_id}')
+
+    usage: list[dict[str, object]] = []
+    refusals = 0
+    for _ in range(MAX_ATTEMPTS):
+        response = await request()
+        # The API sometimes refuses a request that it accepts when sent again, so the same model gets it again;
+        # another model's answer would break the pinned model ID
+        while response.stop_reason == 'refusal':
+            usage.append({'request_id': response._request_id, 'stop_reason': 'refusal'})
+            refusals += 1
+            if refusals == MAX_REFUSALS:
+                raise RuntimeError(f'Opus refused {refusals} times, last request {response._request_id}')
+            response = await request()
         messages.append({'role': 'assistant', 'content': response.content})
         usage.append(
             {
@@ -164,6 +187,7 @@ async def main(
     concurrency: int,
     out_dir: str,
     results_dir: str,
+    withhold_rows: list[int],
 ) -> None:
     kept_path = os.path.join(out_dir, 'questions', f'{name}.json')
     if os.path.exists(kept_path):
@@ -211,6 +235,7 @@ async def main(
         'effort': EFFORT,
         'tuned_model': tuned_model,
         'tuning_question_ids': [QUESTION_IDS[0]],
+        'withheld_dev_rows': withhold_rows,
         'date': datetime.date.today().isoformat(),
     }
     messages: list[anthropic.types.MessageParam] = []
@@ -253,7 +278,7 @@ async def main(
 
         if version == iterations:
             break
-        feedback = render_feedback(feedback_template, version, tables['dev'], dev_texts, scores['dev'])
+        feedback = render_feedback(feedback_template, version, tables['dev'], dev_texts, scores['dev'], withhold_rows)
         if version == 0:
             feedback = (
                 first_template.replace('{context}', context)
@@ -295,6 +320,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--concurrency', type=int, default=16)
     parser.add_argument('-o', '--out-dir', default='experiments/structured_tuning')
     parser.add_argument('-r', '--results-dir', default='results/structured_tuning')
+    parser.add_argument('-w', '--withhold-rows', type=int, nargs='*', default=[])
 
     args = parser.parse_args()
     asyncio.run(
@@ -312,5 +338,6 @@ if __name__ == '__main__':
             args.concurrency,
             args.out_dir,
             args.results_dir,
+            args.withhold_rows,
         )
     )

@@ -1,0 +1,122 @@
+{
+  "sentiment_neutral_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Czech Facebook comment express overall: positive (joy, praise, thanks, excitement), negative (complaint, sarcasm, disappointment, insult), or neutral (no clear feeling)?",
+      "rule": "Annotators label the overall emotional tone of the comment, mostly not just whether the brand is named: thanks, wishes, cuteness, excitement and praise are positive even when the brand is not named. Complaints, sarcasm, insults to other users and sad or disappointed remarks are negative. Questions, tech-problem reports stated flatly, chit-chat, jokes without clear evaluation, and mixed or wry remarks ('stylish watch for a rubber-boot price :/') are neutral. Sarcastic praise ('Jupí, radujte se...') is negative."
+    },
+    "criteria": {
+      "neutral": {
+        "what": "Questions, information, plain reports of a problem, chat between users, jokes, and remarks with no clear positive or negative feeling.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Stylové hodinky, za cenu holínky :/ (Stylish watch, for a rubber-boot price :/)",
+          "ani mě to nejde nejsme jediní (it doesn't work for me either, we're not the only ones)"
+        ],
+        "cues": "otázky (questions) jak (how), kde (where), zajímalo by mě (I wonder); :D in banter",
+        "not_for": "Problem reports with frustration ('Mě to právě nechce pustit... :-/', 'my stále čekáme :-/') are negative."
+      },
+      "positive": {
+        "what": "Praise of products, ads or animals, thanks, congratulations, good wishes, eagerness to buy, try or visit, and loyalty statements.",
+        "examples": [
+          "já mám o2 13 let a neměnila bych (I've had O2 for 13 years and wouldn't switch)",
+          "Děkuji, hezký večer (Thanks, nice evening)",
+          "Jaký je ňuňatýý! :)) (How cute it is!)",
+          "utíkám si je koupit (I'm running to buy them)"
+        ],
+        "cues": "skvělé (great), úžasné (amazing), děkuji (thank you), těším se (looking forward), doporučuju (I recommend), nejlepší (best), krásná (beautiful), miluju (I love)",
+        "not_for": "Sarcastic praise such as 'Máte skvělou reklamu... v NAŠEM GANGU' is negative. Thanks after a routine action ('odesláno, děkuji') is neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service, speed or taste, threats to leave, sarcasm, mockery, insults, and sad or disappointed remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "FUP 2 GB za 333,-Kč :-))))) už dlouho mě tak nikdo nepobavil (FUP 2 GB for 333 CZK, nobody has amused me this much in ages)",
+          "Je to smutný:-( (It's sad :-()"
+        ],
+        "cues": "předražený (overpriced), drahý (expensive), nefunguje (doesn't work), odejdu (I'll leave), fuj (yuck), hnusné (disgusting), zklamal (disappointed), :( , :-/",
+        "not_for": "Neutral questions about faults with no emotion, and playful teasing between users, are neutral."
+      }
+    }
+  },
+  "sentiment_positive_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Czech Facebook comment express overall: positive (joy, praise, thanks, excitement), negative (complaint, sarcasm, disappointment, insult), or neutral (no clear feeling)?",
+      "rule": "Annotators label the overall emotional tone of the comment, mostly not just whether the brand is named: thanks, wishes, cuteness, excitement and praise are positive even when the brand is not named. Complaints, sarcasm, insults to other users and sad or disappointed remarks are negative. Questions, tech-problem reports stated flatly, chit-chat, jokes without clear evaluation, and mixed or wry remarks ('stylish watch for a rubber-boot price :/') are neutral. Sarcastic praise ('Jupí, radujte se...') is negative."
+    },
+    "criteria": {
+      "positive": {
+        "what": "Praise of products, ads or animals, thanks, congratulations, good wishes, eagerness to buy, try or visit, and loyalty statements.",
+        "examples": [
+          "já mám o2 13 let a neměnila bych (I've had O2 for 13 years and wouldn't switch)",
+          "Děkuji, hezký večer (Thanks, nice evening)",
+          "Jaký je ňuňatýý! :)) (How cute it is!)",
+          "utíkám si je koupit (I'm running to buy them)"
+        ],
+        "cues": "skvělé (great), úžasné (amazing), děkuji (thank you), těším se (looking forward), doporučuju (I recommend), nejlepší (best), krásná (beautiful), miluju (I love)",
+        "not_for": "Sarcastic praise such as 'Máte skvělou reklamu... v NAŠEM GANGU' is negative. Thanks after a routine action ('odesláno, děkuji') is neutral."
+      },
+      "negative": {
+        "what": "Complaints about price, service, speed or taste, threats to leave, sarcasm, mockery, insults, and sad or disappointed remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "FUP 2 GB za 333,-Kč :-))))) už dlouho mě tak nikdo nepobavil (FUP 2 GB for 333 CZK, nobody has amused me this much in ages)",
+          "Je to smutný:-( (It's sad :-()"
+        ],
+        "cues": "předražený (overpriced), drahý (expensive), nefunguje (doesn't work), odejdu (I'll leave), fuj (yuck), hnusné (disgusting), zklamal (disappointed), :( , :-/",
+        "not_for": "Neutral questions about faults with no emotion, and playful teasing between users, are neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, plain reports of a problem, chat between users, jokes, and remarks with no clear positive or negative feeling.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Stylové hodinky, za cenu holínky :/ (Stylish watch, for a rubber-boot price :/)",
+          "ani mě to nejde nejsme jediní (it doesn't work for me either, we're not the only ones)"
+        ],
+        "cues": "otázky (questions) jak (how), kde (where), zajímalo by mě (I wonder); :D in banter",
+        "not_for": "Problem reports with frustration ('Mě to právě nechce pustit... :-/', 'my stále čekáme :-/') are negative."
+      }
+    }
+  },
+  "sentiment_negative_first": {
+    "type": "choice",
+    "instructions": {
+      "question": "What sentiment does this Czech Facebook comment express overall: positive (joy, praise, thanks, excitement), negative (complaint, sarcasm, disappointment, insult), or neutral (no clear feeling)?",
+      "rule": "Annotators label the overall emotional tone of the comment, mostly not just whether the brand is named: thanks, wishes, cuteness, excitement and praise are positive even when the brand is not named. Complaints, sarcasm, insults to other users and sad or disappointed remarks are negative. Questions, tech-problem reports stated flatly, chit-chat, jokes without clear evaluation, and mixed or wry remarks ('stylish watch for a rubber-boot price :/') are neutral. Sarcastic praise ('Jupí, radujte se...') is negative."
+    },
+    "criteria": {
+      "negative": {
+        "what": "Complaints about price, service, speed or taste, threats to leave, sarcasm, mockery, insults, and sad or disappointed remarks.",
+        "examples": [
+          "Jdu si do trafiky pro simku konkurence, už mě to přestává bavit. (I'm going to get a competitor's SIM, I'm getting fed up.)",
+          "FUP 2 GB za 333,-Kč :-))))) už dlouho mě tak nikdo nepobavil (FUP 2 GB for 333 CZK, nobody has amused me this much in ages)",
+          "Je to smutný:-( (It's sad :-()"
+        ],
+        "cues": "předražený (overpriced), drahý (expensive), nefunguje (doesn't work), odejdu (I'll leave), fuj (yuck), hnusné (disgusting), zklamal (disappointed), :( , :-/",
+        "not_for": "Neutral questions about faults with no emotion, and playful teasing between users, are neutral."
+      },
+      "neutral": {
+        "what": "Questions, information, plain reports of a problem, chat between users, jokes, and remarks with no clear positive or negative feeling.",
+        "examples": [
+          "jak deaktivuji službu Útrata?? (how do I deactivate the Útrata service??)",
+          "Stylové hodinky, za cenu holínky :/ (Stylish watch, for a rubber-boot price :/)",
+          "ani mě to nejde nejsme jediní (it doesn't work for me either, we're not the only ones)"
+        ],
+        "cues": "otázky (questions) jak (how), kde (where), zajímalo by mě (I wonder); :D in banter",
+        "not_for": "Problem reports with frustration ('Mě to právě nechce pustit... :-/', 'my stále čekáme :-/') are negative."
+      },
+      "positive": {
+        "what": "Praise of products, ads or animals, thanks, congratulations, good wishes, eagerness to buy, try or visit, and loyalty statements.",
+        "examples": [
+          "já mám o2 13 let a neměnila bych (I've had O2 for 13 years and wouldn't switch)",
+          "Děkuji, hezký večer (Thanks, nice evening)",
+          "Jaký je ňuňatýý! :)) (How cute it is!)",
+          "utíkám si je koupit (I'm running to buy them)"
+        ],
+        "cues": "skvělé (great), úžasné (amazing), děkuji (thank you), těším se (looking forward), doporučuju (I recommend), nejlepší (best), krásná (beautiful), miluju (I love)",
+        "not_for": "Sarcastic praise such as 'Máte skvělou reklamu... v NAŠEM GANGU' is negative. Thanks after a routine action ('odesláno, děkuji') is neutral."
+      }
+    }
+  }
+}
