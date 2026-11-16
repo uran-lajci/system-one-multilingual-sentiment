@@ -30,7 +30,7 @@ A Choice question has two parts we can change: the **instructions**, which ask t
 
 ## Models
 
-The conference paper uses three System One models. [Jev](https://typesafe.ai/) was the first to be published. [Clef](https://huggingface.co/Cloudflare/clef) and [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) are open-weight models from Cloudflare, a large one and a smaller, faster one.
+We ran three System One models, and the conference paper reports two of them, Jev and Clef. [Jev](https://typesafe.ai/) was the first to be published. [Clef](https://huggingface.co/Cloudflare/clef) and [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) are open-weight models from Cloudflare, a large one and a smaller, faster one.
 
 | Model | Maker | Access | Version | Question types |
 |---|---|---|---|---|

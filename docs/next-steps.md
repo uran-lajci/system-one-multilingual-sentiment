@@ -1,6 +1,6 @@
 # Next steps
 
-The conference paper runs three System One models on 8 languages, zero-shot and few-shot with the paper's three examples. All 8 have train and validation data from the same source as their test set, and the paper also tunes Jev's question for each of them. Everything else waits until after the conference, in [future-work.md](future-work.md).
+The conference paper reports two System One models, Jev and Clef, on 8 languages, zero-shot and few-shot with the paper's three examples. All 8 have train and validation data from the same source as their test set, and the paper also tunes Jev's question for each of them. Everything else waits until after the conference, in [future-work.md](future-work.md).
 
 ## Conference scope
 
@@ -16,7 +16,7 @@ The conference paper runs three System One models on 8 languages, zero-shot and 
 | Czech | `lmr-sms/test/Czech_ts1950.csv` | 1,950 |
 | **Total** | | **12,552** |
 
-The models are Jev, Clef and Clef-flash. [background.md](background.md) gives the version of each.
+We ran Jev, Clef and Clef-flash, and the paper reports Jev and Clef. [background.md](background.md) gives the version of each.
 
 ### Why Swedish is out
 

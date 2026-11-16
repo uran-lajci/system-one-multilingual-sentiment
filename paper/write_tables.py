@@ -12,6 +12,7 @@ import argparse
 import glob
 import json
 import os
+from decimal import ROUND_HALF_UP, Decimal
 
 import pandas as pd
 from sklearn.metrics import f1_score
@@ -171,11 +172,13 @@ def tuned_table() -> str:
             f'& {tuned_cell} & {best:.1f} & {name} {setting} & ${jev - best:+.1f}$ & {fine_tuned} \\\\'
         )
     best_mean = sum(best_scores) / len(best_scores)
-    tuned_mean = round(sum(tuned.values()) / len(tuned), 1)
+    # Python's format rounds an exact half such as 69.25 to the even digit, 69.2; readers expect 69.3
+    best_mean_shown = Decimal(str(best_mean)).quantize(Decimal('0.1'), ROUND_HALF_UP)
+    tuned_mean = sum(tuned.values()) / len(tuned)
     rows.append('\\midrule')
     rows.append(
         f'Mean & {zero_shot["jev-1.14.0"]["Mean"]:.1f} & {few_shot["jev-1.14.0"]["Mean"]:.1f} '
-        f'& {tuned_mean:.1f} & {best_mean:.1f} & & ${tuned_mean - best_mean:+.1f}$ & \\\\'
+        f'& {tuned_mean:.1f} & {best_mean_shown} & & ${tuned_mean - best_mean:+.1f}$ & \\\\'
     )
     return '\n'.join(
         [

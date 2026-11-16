@@ -1,5 +1,5 @@
 # system-one-multilingual-sentiment
-Benchmark of three System One (decision) models: Jev, Clef and Clef-flash, on three-class sentiment analysis, compared with five LLMs from Kastrati et al. (2026). The conference paper runs them zero-shot and few-shot on 8 European languages. After the conference, the study extends to all 34 languages; the data for that is already prepared.
+Benchmark of three System One (decision) models: Jev, Clef and Clef-flash, on three-class sentiment analysis, compared with five LLMs from Kastrati et al. (2026). The conference paper reports two of them, Jev and Clef, zero-shot and few-shot on 8 European languages. After the conference, the study extends to all 34 languages; the data for that is already prepared.
 
 ## Setup
 

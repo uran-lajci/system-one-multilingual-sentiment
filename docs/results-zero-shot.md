@@ -1,6 +1,6 @@
 # Zero-shot results for the conference paper
 
-On 6 November 2026 we ran five System One models zero-shot on 10 languages. This file reports the three models of the conference paper, Jev, Clef and Clef-flash, on the 8 conference languages, 12,970 test items in total. It leaves out Laya and Laya-multilingual, and Norwegian and Danish, which have no train or validation data. Every model got the same Choice question for every language, with no examples and no tuning. [next-steps.md](next-steps.md) gives the question.
+On 6 November 2026 we ran five System One models zero-shot on 10 languages. This file reports three of them, Jev, Clef and Clef-flash, on the 8 conference languages, 12,970 test items in total. It leaves out Laya and Laya-multilingual, and Norwegian and Danish, which have no train or validation data. Every model got the same Choice question for every language, with no examples and no tuning. [next-steps.md](next-steps.md) gives the question.
 
 ## What we compare against
 
