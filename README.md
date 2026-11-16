@@ -1,5 +1,5 @@
 # system-one-multilingual-sentiment
-Benchmark of three System One (decision) models: Jev, Clef and Clef-flash, on three-class sentiment analysis, compared with five LLMs from Kastrati et al. (2026). The conference paper runs them zero-shot and few-shot on 7 European languages. After the conference, the study extends to all 35 languages; the data for that is already prepared.
+Benchmark of three System One (decision) models: Jev, Clef and Clef-flash, on three-class sentiment analysis, compared with five LLMs from Kastrati et al. (2026). The conference paper runs them zero-shot and few-shot on 7 European languages. After the conference, the study extends to all 34 languages; the data for that is already prepared.
 
 ## Setup
 
@@ -28,10 +28,10 @@ papers/                         Kastrati et al. (2026)
 
 ## Data
 
-The 35 test sets hold 52,859 items: every file in `data/tsm/test/` (6,960) and `data/lmr-sms/test/` (22,246), plus every file in `data/afrisenti/test/` (23,653). Malaysian is left out of the study; its file is in `data/raw/lmr-sms/excluded/`. The conference paper uses 7 of the 35 test sets (10,602 items), listed in `docs/next-steps.md`, which also says why Swedish is not among them.
+The 34 test sets hold 50,491 items: every file in `data/tsm/test/` (6,960) and `data/lmr-sms/test/` (19,878), plus every file in `data/afrisenti/test/` (23,653). Malaysian and Swedish are left out of the study; their files are in `data/raw/lmr-sms/excluded/`, and `docs/next-steps.md` says why. The conference paper uses 7 of the 34 test sets (10,602 items), listed in `docs/next-steps.md`.
 
 For Hausa, Igbo, Nigerian Pidgin, Mozambican Portuguese and Yoruba, the test file is the paper's stratified 50% subsample of the Hugging Face test set, named with its size, such as `hau_ts2652.csv`. For Bosnian, Croatian and Serbian, it is the paper's 20% sample, picked from the whole dataset in `data/raw/lmr-sms/full/`.
 
-Train and validation data are on disk for 26 languages, with test items removed: the 8 TSM languages, 12 AfriSenti languages, and Albanian, Bosnian, Croatian, Macedonian, Serbian and Swedish. Oromo and Tigrinya have validation data only. We do not have train and validation data for Azerbaijani, Czech, Danish, Latvian and Roman Urdu; they can be downloaded after the conference. Greek and Norwegian have none, because the paper used every item as test data.
+Train and validation data are on disk for 25 languages, with test items removed: the 8 TSM languages, 12 AfriSenti languages, and Albanian, Bosnian, Croatian, Macedonian and Serbian. Oromo and Tigrinya have validation data only. We do not have train and validation data for Azerbaijani, Czech, Danish, Latvian and Roman Urdu; they can be downloaded after the conference. Greek and Norwegian have none, because the paper used every item as test data.
 
 Column names and label formats differ between files. In `data_prep/files.py`, `text_column` finds each file's text, and `sentiment_labels` maps its labels to positive, neutral and negative.

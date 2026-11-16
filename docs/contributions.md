@@ -5,5 +5,5 @@ Conference paper:
 
 After the conference:
 
-- Evaluation across all 35 languages, including high-, medium- and low-resource languages across diverse linguistic and cultural contexts.
+- Evaluation across all 34 languages, including high-, medium- and low-resource languages across diverse linguistic and cultural contexts.
 - Assessment of System One models under zero-shot and few-shot settings to measure generalization across languages.

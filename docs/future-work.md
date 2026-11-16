@@ -10,15 +10,15 @@ Before we fixed the conference scope, we tried more methods on English and Alban
 
 The conference paper covers 7 languages, with zero-shot, few-shot with the paper's three examples, and structured iterative tuning for Jev. These steps extend the study to all 35 languages and to more few-shot examples. The data for them is ready, except the training data still to download.
 
-### Zero-shot run on all 35 languages
+### Zero-shot run on all 34 languages
 
-The same three models and the same question run on the other 27 test sets, so the study covers all 35 languages and 52,859 items.
+The same three models and the same question run on the other 27 test sets, so the study covers all 34 languages and 50,491 items.
 
 ### More few-shot runs
 
 The conference few-shot run ([next-steps.md](next-steps.md#few-shot-run)) uses the paper's three examples on 7 languages. These runs extend it:
 
-- **All 35 languages:** the same question with the paper's three examples on all 52,859 test items.
+- **All 34 languages:** the same question with the paper's three examples on all 50,491 test items.
 - **Five train tweets per label:** we draw them at random, with a fixed seed, from `data/tsm/train/english.csv`. The examples stay English and the same for all 35 languages, because some test languages have no training data. Our paper must say that the LLMs saw one example per label and our models see five.
 - **Several draws:** we repeat the five-tweet run with 3 to 5 seeds and report the mean, minimum and maximum. One draw alone does not show how much the score depends on which tweets we pick. We select no seed.
 - **Synthetic examples:** Claude writes five examples per label, so none comes from train data. Our paper must say they are synthetic.
@@ -35,7 +35,7 @@ Each SOTA score comes from the dataset's own paper, often on a different split o
 4. Choose the number of epochs and the learning rate on validation data only.
 5. Score each model once on its test set, with macro-F1 on the three labels.
 
-Training data is on disk for 26 languages: the 8 TSM languages, 12 AfriSenti languages, Albanian, Bosnian, Croatian, Macedonian, Serbian and Swedish. No training data exists for Oromo and Tigrinya, because AfriSenti released only validation data for them. None exists for Greek and Norwegian either, because the paper used every item of these datasets as test data.
+Training data is on disk for 25 languages: the 8 TSM languages, 12 AfriSenti languages, Albanian, Bosnian, Croatian, Macedonian and Serbian. No training data exists for Oromo and Tigrinya, because AfriSenti released only validation data for them. None exists for Greek and Norwegian either, because the paper used every item of these datasets as test data.
 
 Open questions for this step:
 
@@ -58,7 +58,7 @@ The conference paper includes a version for Jev, with Opus as the tuner; see the
 
 We build a protocol in which Claude Code tunes the instructions and criteria by itself. It reads the model's errors on validation data, rewrites the question, scores it again and keeps the changes that help, which is what I did by hand for AlbAna. We develop the protocol in English, Albanian and Swedish, which we can judge as human readers, and then apply it unchanged to the other languages.
 
-Only train and validation data are used, and each test set is scored once at the end. Train or validation data are on disk for 28 languages, with test items removed. These are the 8 TSM languages, the 14 AfriSenti languages and six LMR-SMS languages: Albanian, Bosnian, Croatian, Macedonian, Serbian and Swedish. Oromo and Tigrinya have validation data only. Azerbaijani, Czech, Danish, Latvian and Roman Urdu still need downloading, and Greek and Norwegian have none.
+Only train and validation data are used, and each test set is scored once at the end. Train or validation data are on disk for 27 languages, with test items removed. These are the 8 TSM languages, the 14 AfriSenti languages and five LMR-SMS languages: Albanian, Bosnian, Croatian, Macedonian and Serbian. Oromo and Tigrinya have validation data only. Azerbaijani, Czech, Danish, Latvian and Roman Urdu still need downloading, and Greek and Norwegian have none.
 
 A tuned Jev has seen labelled data, so it should be compared with zero-shot Jev and with the few-shot LLMs, not with the zero-shot LLMs.
 

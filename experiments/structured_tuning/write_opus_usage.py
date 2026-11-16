@@ -1,6 +1,6 @@
 """Write the Opus token counts of each tuning run to results/structured_tuning/<run>/opus_usage.json.
 
-The start-question logs and tuning conversations quote train texts, and for Bosnian, Croatian, Serbian and Swedish
+The start-question logs and tuning conversations quote train texts, and for Bosnian, Croatian and Serbian
 they stay out of git. The usage files hold only token counts, so they can be committed, and paper/write_tables.py
 computes the tuning cost from them on any clone.
 

@@ -15,7 +15,7 @@ import pandas as pd
 
 from data_prep.files import find_test_file, text_column
 
-LANGUAGES = ('Bosnian', 'Croatian', 'Serbian', 'Swedish')
+LANGUAGES = ('Bosnian', 'Croatian', 'Serbian')
 
 
 def letters_only(text: str) -> str:

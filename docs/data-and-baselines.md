@@ -1,17 +1,17 @@
 # Data and baselines
 
-We use 35 of the 36 test sets from [Kastrati et al. (2026)](https://doi.org/10.3389/frai.2026.1854873), "Do Language Families Matter? Evaluating LLMs for Sentiment Analysis through a Hierarchical Cross-Lingual Lens". That paper ran five LLMs on these sets, zero-shot and few-shot, and reports the best task-specific (SOTA) score for each language. Using the same test items lets us compare against all of these without re-running the LLMs.
+We use 34 of the 36 test sets from [Kastrati et al. (2026)](https://doi.org/10.3389/frai.2026.1854873), "Do Language Families Matter? Evaluating LLMs for Sentiment Analysis through a Hierarchical Cross-Lingual Lens". That paper ran five LLMs on these sets, zero-shot and few-shot, and reports the best task-specific (SOTA) score for each language. Using the same test items lets us compare against all of these without re-running the LLMs.
 
 | Collection | Languages | Test items | Source |
 |---|---:|---:|---|
 | TSM (Tweet Sentiment Multilingual) | 8 | 6,960 | Barbieri et al. (2022); 870 tweets per language |
-| LMR-SMS | 13 | 22,246 | 13 low- and medium-resource datasets; Albanian and Czech are Facebook comments, the rest are tweets |
+| LMR-SMS | 12 | 19,878 | 12 low- and medium-resource datasets; Albanian and Czech are Facebook comments, the rest are tweets |
 | AfriSenti | 14 | 23,653 | Muhammad et al. (2023), SemEval-2023 Task 12 |
-| **Total** | **35** | **52,859** | |
+| **Total** | **34** | **50,491** | |
 
 We leave out Malaysian. Our file holds 626 items, but the paper's Table 1 says it scored about 1.4k, so we cannot score the same items.
 
-The Swedish test set is not from Mozetič et al. (2016) like the Bosnian, Croatian and Serbian ones. It is the dataset of Berggren (2023), 2,368 Twitter posts and YouTube comments with emojis, all used as test data by the paper. Our Swedish train and validation data are Mozetič's Swedish tweets, a different dataset, which is why Swedish is not in the conference paper ([next-steps.md](next-steps.md#why-swedish-is-out)).
+We also leave out Swedish. Its test set is not from Mozetič et al. (2016) like the Bosnian, Croatian and Serbian ones but the dataset of Berggren (2023), 2,368 Twitter posts and YouTube comments with emojis, all used as test data by the paper. The only Swedish train and validation data we have are Mozetič's Swedish tweets, a different dataset, so a tuned question cannot be judged on this test set ([next-steps.md](next-steps.md#why-swedish-is-out)).
 
 The authors' files hold the whole Bosnian, Croatian and Serbian datasets, but the paper scored 20% samples. Zenun Kastrati later sent these samples, and our test files hold exactly them (782, 2,790 and 2,272 items).
 
@@ -27,7 +27,7 @@ Table 1 also lists one item more than the source for each AfriSenti test file wi
 
 ## Scores from Kastrati et al. (2026)
 
-Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 35 languages, which differ from means over the paper's 36, and over the 7 languages of the conference paper.
+Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero-shot and **FS** is few-shot. **Best few-shot** is the highest of the five FS scores. **SOTA** is the best task-specific model the paper reports; "–" means none, and for Roman Urdu the paper gives a range. The mean rows are unweighted means over our 34 languages, which differ from means over the paper's 36, and over the 7 languages of the conference paper.
 
 | Family | Language | GPT-4o ZS | Gemini ZS | DeepSeek ZS | Mistral ZS | Claude ZS | GPT-4o FS | Gemini FS | DeepSeek FS | Mistral FS | Claude FS | Best few-shot | SOTA |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -50,7 +50,6 @@ Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero
 | Indo-European | Roman Urdu | 64.9 | 61.4 | 54.4 | 48.2 | 59.6 | 65.7 | 63.3 | 61.8 | 58.5 | 62.7 | 65.7 | 68–80 |
 | Indo-European | Serbian | 58.1 | 50.1 | 47.6 | 45.9 | 57.1 | 59.1 | 56.3 | 56.5 | 51.8 | 54.5 | 59.1 | 60.6 |
 | Indo-European | Spanish | 73.7 | 61.1 | 70.3 | 63.8 | 68.0 | 71.9 | 70.5 | 66.8 | 64.2 | 65.2 | 71.9 | 68.5 |
-| Indo-European | Swedish | 78.7 | 72.9 | 69.1 | 66.4 | 76.7 | 79.6 | 76.1 | 76.6 | 78.5 | 75.5 | 79.6 | 47.0 |
 | Afro-Asiatic | Algerian Arabic* | 65.6 | 74.1 | 64.3 | 44.0 | 63.7 | 69.2 | 71.4 | 66.5 | 67.0 | 70.4 | 71.4 | 74.2 |
 | Afro-Asiatic | Amharic | 74.7 | 76.1 | 75.2 | 56.7 | 75.5 | 76.4 | 78.7 | 77.4 | 71.1 | 79.3 | 79.3 | 78.4 |
 | Afro-Asiatic | Arabic | 71.0 | 72.7 | 67.9 | 52.1 | 67.2 | 70.2 | 73.4 | 70.4 | 71.4 | 75.1 | 75.1 | 67.7 |
@@ -66,7 +65,7 @@ Macro-F1 (%) on the three labels, from the paper's Tables 4 to 6. **ZS** is zero
 | Niger-Congo | Yoruba | 60.4 | 61.2 | 53.4 | 27.9 | 50.4 | 73.1 | 74.7 | 60.9 | 60.5 | 78.6 | 78.6 | 80.2 |
 | Creole | Nigerian Pidgin | 63.4 | 67.2 | 63.5 | 50.6 | 67.2 | 69.7 | 73.9 | 69.7 | 69.5 | 74.4 | 74.4 | 76.0 |
 | Turkic | Azerbaijani | 41.1 | 37.5 | 37.1 | 32.7 | 38.3 | 42.0 | 39.0 | 37.3 | 37.6 | 43.3 | 43.3 | – |
-| **All 35** | **Mean** | **64.8** | **60.2** | **57.7** | **48.8** | **62.2** | **67.6** | **66.8** | **63.5** | **62.2** | **66.6** |  |  |
+| **All 34** | **Mean** | **64.3** | **59.8** | **57.4** | **48.3** | **61.7** | **67.3** | **66.5** | **63.1** | **61.7** | **66.4** |  |  |
 | **Conference 7** | **Mean** | **61.9** | **57.8** | **59.2** | **50.4** | **62.3** | **65.5** | **62.7** | **62.2** | **63.0** | **65.5** | **67.6** | **66.4** |
 
 \*Named by ISO 639-3, not by the paper. See the note on swapped names above.
