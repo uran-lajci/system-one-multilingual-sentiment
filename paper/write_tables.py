@@ -96,7 +96,7 @@ def datasets_table() -> str:
             'give each language.}',
             '\\label{tab:datasets}',
             '\\setlength{\\tabcolsep}{3pt}',
-            '\\begin{tabular}{lllrrr}',
+            '\\begin{tabular}{@{}lllrrr@{}}',
             '\\toprule',
             'Language & Resource & Source & Test & Train & Valid. \\\\',
             '\\midrule',
@@ -144,7 +144,7 @@ def zero_few_shot_table() -> str:
             f'Model & {header} & Mean \\\\',
             '\\midrule',
             *scores_block(zero_shot, 'Zero-shot'),
-            '\\midrule',
+            '\\addlinespace',
             *scores_block(few_shot, 'Few-shot'),
             '\\bottomrule',
             '\\end{tabular}',
@@ -176,7 +176,7 @@ def tuned_table() -> str:
     # Python's format rounds an exact half such as 69.25 to the even digit, 69.2; readers expect 69.3
     best_mean_shown = Decimal(str(best_mean)).quantize(Decimal('0.1'), ROUND_HALF_UP)
     tuned_mean = sum(tuned.values()) / len(tuned)
-    rows.append('\\midrule')
+    rows.append('\\cmidrule{1-8}')
     rows.append(
         f'Mean & {zero_shot["jev-1.14.0"]["Mean"]:.1f} & {few_shot["jev-1.14.0"]["Mean"]:.1f} '
         f'& {tuned_mean:.1f} & {best_mean_shown} & & ${tuned_mean - best_mean:+.1f}$ & \\\\'
@@ -192,8 +192,8 @@ def tuned_table() -> str:
             'Kastrati et al.~\\cite{kastrati2026language} report task-specific scores for them, but on different '
             'test splits.}',
             '\\label{tab:tuned}',
-            '\\setlength{\\tabcolsep}{3pt}',
-            '\\begin{tabular}{lrrrrlrr}',
+            '\\setlength{\\tabcolsep}{2.5pt}',
+            '\\begin{tabular}{@{}lrrrrlrr@{}}',
             '\\toprule',
             ' & \\multicolumn{3}{c}{Jev} & \\multicolumn{2}{c}{Best LLM} & & Fine-tuned \\\\',
             '\\cmidrule(lr){2-4}\\cmidrule(lr){5-6}\\cmidrule(lr){8-8}',
@@ -233,7 +233,7 @@ def costs_table() -> str:
             cost = tokens * INPUT_PRICES[model]
             label = setting if model == 'jev-1.14.0' else ''
             rows.append(f'{label} & {name} & {tokens / 1e6:.1f} & {cost:.2f} & {1000 * cost / items:.3f} \\\\')
-        rows.append('\\midrule')
+        rows.append('\\addlinespace')
     test_tokens = sum(
         int(
             pd.read_csv(f'results/structured_tuning/{language.lower()}_01/jev-1.14.0/{language}.csv')[
@@ -244,7 +244,7 @@ def costs_table() -> str:
     )
     test_cost = test_tokens * INPUT_PRICES['jev-1.14.0']
     rows.append(f'Tuned & Jev & {test_tokens / 1e6:.1f} & {test_cost:.2f} & {1000 * test_cost / items:.3f} \\\\')
-    rows.append('\\midrule')
+    rows.append('\\addlinespace')
     opus, jev, jev_tokens = tuning_costs()
     rows.append(f'Tuning & Opus & & {opus:.2f} & \\\\')
     rows.append(f' & Jev & {jev_tokens / 1e6:.1f} & {jev:.2f} & \\\\')

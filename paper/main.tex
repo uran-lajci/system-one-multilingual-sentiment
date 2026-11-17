@@ -1,41 +1,101 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[sigconf]{acmart}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{cite}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, fit}
-\usepackage{url}
+
+%% Rights management information. These are the template's sample values;
+%% replace them with the commands from the rights form.
+\setcopyright{acmcopyright}
+\copyrightyear{2018}
+\acmYear{2018}
+\acmDOI{XXXXXXX.XXXXXXX}
+\acmConference[Conference acronym 'XX]{Make sure to enter the correct
+  conference title from your rights confirmation emai}{June 03--05,
+  2018}{Woodstock, NY}
+\acmISBN{978-1-4503-XXXX-X/18/06}
 
 \begin{document}
 
 \title{Multilingual Sentiment Analysis with System One Models}
 
-\author{
-\IEEEauthorblockN{Uran Laj\c{c}i\IEEEauthorrefmark{1}\IEEEauthorrefmark{2},
-Zenun Kastrati\IEEEauthorrefmark{3},
-Lule Ahmedi\IEEEauthorrefmark{1} and
-Kadri Sylejmani\IEEEauthorrefmark{1}\IEEEauthorrefmark{4}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}Faculty of Electrical and Computer Engineering, University of Prishtina, Bregu i Diellit p.n., Prishtinë, 10000, Kosovë}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}Care Software, Prishtinë, 10000, Kosovë}
-\IEEEauthorblockA{\IEEEauthorrefmark{3}Department of Informatics, Linnaeus University, Växjö, Sweden}
-\IEEEauthorblockA{\IEEEauthorrefmark{4}Center for Artificial Intelligence, University of Prishtina, Prishtinë, 10000, Kosovë}
-\IEEEauthorblockA{uran.lajqi@uni-pr.edu, zenun.kastrati@lnu.se (corresponding author), lule.ahmedi@uni-pr.edu, kadri.sylejmani@uni-pr.edu}
-}
+\author{Uran Laj\c{c}i}
+\affiliation{%
+  \department{Faculty of Electrical and Computer Engineering}
+  \institution{University of Prishtina}
+  \streetaddress{Bregu i Diellit p.n.}
+  \city{Prishtinë}
+  \postcode{10000}
+  \country{Kosovë}}
+\affiliation{%
+  \institution{Care Software}
+  \city{Prishtinë}
+  \postcode{10000}
+  \country{Kosovë}}
+\email{uran.lajqi@uni-pr.edu}
 
-\maketitle
+\author{Zenun Kastrati}
+\authornote{Corresponding author.}
+\affiliation{%
+  \department{Department of Informatics}
+  \institution{Linnaeus University}
+  \city{Växjö}
+  \country{Sweden}}
+\email{zenun.kastrati@lnu.se}
+
+\author{Lule Ahmedi}
+\affiliation{%
+  \department{Faculty of Electrical and Computer Engineering}
+  \institution{University of Prishtina}
+  \streetaddress{Bregu i Diellit p.n.}
+  \city{Prishtinë}
+  \postcode{10000}
+  \country{Kosovë}}
+\email{lule.ahmedi@uni-pr.edu}
+
+\author{Kadri Sylejmani}
+\affiliation{%
+  \department{Faculty of Electrical and Computer Engineering}
+  \institution{University of Prishtina}
+  \streetaddress{Bregu i Diellit p.n.}
+  \city{Prishtinë}
+  \postcode{10000}
+  \country{Kosovë}}
+\affiliation{%
+  \department{Center for Artificial Intelligence}
+  \institution{University of Prishtina}
+  \city{Prishtinë}
+  \postcode{10000}
+  \country{Kosovë}}
+\email{kadri.sylejmani@uni-pr.edu}
+
+\renewcommand{\shortauthors}{Laj\c{c}i et al.}
 
 \begin{abstract}
 Large language models (LLMs) classify sentiment well without training, but they are costly to run at scale and weaker on low-resource languages. System One models do not generate text: they answer typed questions with a probability for each option. We compare two System One models, Jev and Clef, with five LLMs from a recent benchmark of 36 sentiment datasets, on three-class sentiment analysis in eight European languages and the same 12,552 test items. Zero-shot, Jev reaches a mean macro-F1 of 62.1 and ranks third of the seven models, behind GPT-4o and Claude 3.7 Sonnet. The LLMs' few-shot examples help every LLM but neither System One model. We then let Claude Opus 5.5 write Jev's question from labelled train data and tune it on Jev's errors, and we select the final question on validation data that Opus never sees. With the tuned question, Jev's mean rises to 70.2, and it reaches the best score of all models on German, Czech, Albanian, Bosnian and Croatian. Zero-shot, Jev costs US\$0.02 per 1,000 texts. The tuned question costs US\$0.14 per 1,000 texts, after a one-time tuning of US\$2 to US\$17 per language.
 \end{abstract}
 
-\begin{IEEEkeywords}
-decision models, large language models, low-resource languages, sentiment analysis, System One models
-\end{IEEEkeywords}
+%% Check these against https://dl.acm.org/ccs before submission.
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10010147.10010178.10010179</concept_id>
+  <concept_desc>Computing methodologies~Natural language processing</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10002951.10003317.10003347.10003353</concept_id>
+  <concept_desc>Information systems~Sentiment analysis</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Natural language processing}
+\ccsdesc[500]{Information systems~Sentiment analysis}
+
+\keywords{decision models, large language models, low-resource languages, sentiment analysis, System One models}
+
+\maketitle
 
 \section{Introduction}
 Sentiment analysis of social media posts helps journalists, researchers and companies follow public opinion on health, politics and other topics. Large language models (LLMs) now classify sentiment well without task-specific training, but their quality is uneven across languages. Kastrati et al.~\cite{kastrati2026language} evaluated five LLMs on 36 sentiment datasets and found them clearly weaker on low-resource languages. LLMs are also costly to run over millions of posts, because each text needs a full generation call.
@@ -50,11 +110,14 @@ This paper answers both questions on 12,552 test items in eight European languag
 \end{itemize}
 
 \section{Related Work}
-\textit{Multilingual sentiment analysis.} Fine-tuned multilingual encoders such as XLM-T~\cite{barbieri2022xlmt} set strong baselines on tweets in many languages, and dedicated models exist for low-resource languages such as Albanian~\cite{kastrati2021albana}. Kastrati et al.~\cite{kastrati2026language} instead prompted five LLMs, zero-shot and few-shot, on 36 datasets from several language families. Few-shot examples helped most languages, but low-resource languages stayed clearly behind. We reuse their test items and LLM scores, so our models are compared on exactly the same data.
+\paragraph{Multilingual sentiment analysis}
+Fine-tuned multilingual encoders such as XLM-T~\cite{barbieri2022xlmt} set strong baselines on tweets in many languages, and dedicated models exist for low-resource languages such as Albanian~\cite{kastrati2021albana}. Kastrati et al.~\cite{kastrati2026language} instead prompted five LLMs, zero-shot and few-shot, on 36 datasets from several language families. Few-shot examples helped most languages, but low-resource languages stayed clearly behind. We reuse their test items and LLM scores, so our models are compared on exactly the same data.
 
-\textit{System One models.} Deußer et al.~\cite{deusser2026jev} evaluated Jev zero-shot on 37 datasets. It beat Qwen3.8-27B on 27 of them and reached 86.7\% accuracy on Belebele across 122 languages, but it lost quality on low-resource languages and noisy labels. Zhang and Yu~\cite{zhang2026emojev} reported 62.93\% average macro-F1 for plain Jev on eight sentiment, emotion, sarcasm and humor datasets, against 67.28\% for the strongest LLM. They also split the task into smaller judgments and combined several judgment paths. Neither variant raised the average: they scored 62.00\% and 61.61\%. Zhang et al.~\cite{zhang2026decide} decomposed aspect-based sentiment analysis into Jev decisions and reached the lowest valence-arousal error in SemEval-2026 Task~III, without generating text. None of these studies tests System One models on multilingual three-class sentiment against LLMs on the same items, and none lets an LLM write the questions.
+\paragraph{System One models}
+Deußer et al.~\cite{deusser2026jev} evaluated Jev zero-shot on 37 datasets. It beat Qwen3.8-27B on 27 of them and reached 86.7\% accuracy on Belebele across 122 languages, but it lost quality on low-resource languages and noisy labels. Zhang and Yu~\cite{zhang2026emojev} reported 62.93\% average macro-F1 for plain Jev on eight sentiment, emotion, sarcasm and humor datasets, against 67.28\% for the strongest LLM. They also split the task into smaller judgments and combined several judgment paths. Neither variant raised the average: they scored 62.00\% and 61.61\%. Zhang et al.~\cite{zhang2026decide} decomposed aspect-based sentiment analysis into Jev decisions and reached the lowest valence-arousal error in SemEval-2026 Task~III, without generating text. None of these studies tests System One models on multilingual three-class sentiment against LLMs on the same items, and none lets an LLM write the questions.
 
-\textit{Writing and tuning prompts with LLMs.} In instruction induction, an LLM writes a task description from a few labelled examples~\cite{honovich2023instruction}. Automatic Prompt Engineer~\cite{zhou2023ape} generates many candidate instructions and keeps the one with the best score. ProTeGi~\cite{pryzant2023protegi} improves a prompt step by step from the errors it causes. Our method follows the last two ideas for a model that does not generate text: the LLM rewrites a typed question from Jev's errors on train data, and the version is chosen on validation data that the LLM never sees.
+\paragraph{Writing and tuning prompts with LLMs}
+In instruction induction, an LLM writes a task description from a few labelled examples~\cite{honovich2023instruction}. Automatic Prompt Engineer~\cite{zhou2023ape} generates many candidate instructions and keeps the one with the best score. ProTeGi~\cite{pryzant2023protegi} improves a prompt step by step from the errors it causes. Our method follows the last two ideas for a model that does not generate text: the LLM rewrites a typed question from Jev's errors on train data, and the version is chosen on validation data that the LLM never sees.
 
 \section{Data and Models}
 
@@ -92,6 +155,7 @@ negative & \rule{0cm}{1.6mm} & 0.00 \\
 \draw[arrow] (request) -- (jev);
 \draw[arrow] (jev) -- (answer);
 \end{tikzpicture}
+\Description{A request box, drawn dashed, holds two boxes: the state, which is the tweet text, and the Choice question with its instructions and one criterion each for positive, neutral and negative. An arrow leads from the request to Jev, and a second arrow to the answer, which shows a bar and a probability for each label: positive 0.97, neutral 0.03 and negative 0.00.}
 \caption{The zero-shot Choice question for one English test tweet, and Jev's answer. Jev returns a probability for each label, and the most probable label is the prediction. The question is the same for every language.}
 \label{fig:choice}
 \end{figure}
@@ -109,11 +173,14 @@ The few-shot question adds the three English examples that the LLMs saw, one per
 \subsection{Tuned question}
 For Jev, we also let an LLM write and tune the question from labelled train data (Fig.~\ref{fig:tuning}). The method combines instruction induction~\cite{honovich2023instruction}, in which an LLM writes a task description from labelled examples, with prompt optimization from error feedback~\cite{pryzant2023protegi}. Claude Opus 5.5 (\texttt{claude-opus-5-5}, effort \texttt{medium}) performs both steps.
 
-\textit{Input.} The state holds the text and a context of two to four sentences that we wrote from each dataset's paper. It gives the source, the time, the language and, for most datasets, how the annotators labelled the texts. The Czech context also states that corpus's label rules, for example that complaints are negative. For Albanian, for example, it begins ``A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020.'' The instructions hold a question and a rule that says where the annotators draw the line between the labels. Each criterion holds a description of the label, one to four train texts as examples with their English meaning, cue words, and the texts that look like the label but get another one. Fig.~\ref{fig:tuned-question} shows part of the English question. Jev gets this question three times in one request, with the labels in three rotated orders, and we average the three probabilities, so that the prediction does not depend on the label order.
+\paragraph{Input}
+The state holds the text and a context of two to four sentences that we wrote from each dataset's paper. It gives the source, the time, the language and, for most datasets, how the annotators labelled the texts. The Czech context also states that corpus's label rules, for example that complaints are negative. For Albanian, for example, it begins ``A Facebook comment under a post by the National Institute of Public Health of Kosovo during the COVID-19 pandemic in 2020.'' The instructions hold a question and a rule that says where the annotators draw the line between the labels. Each criterion holds a description of the label, one to four train texts as examples with their English meaning, cue words, and the texts that look like the label but get another one. Fig.~\ref{fig:tuned-question} shows part of the English question. Jev gets this question three times in one request, with the labels in three rotated orders, and we average the three probabilities, so that the prediction does not depend on the label order.
 
-\textit{Start question.} Opus reads the context and 150 train texts, 50 per label, and writes the question in this format, in at most 400 words.
+\paragraph{Start question}
+Opus reads the context and 150 train texts, 50 per label, and writes the question in this format, in at most 400 words.
 
-\textit{Tuning loop.} We draw a development set of 600 other train texts, which keep the train label proportions. Jev scores the current version on the development and validation sets, with one label order to save cost. Opus receives the development macro-F1, the confusion matrix and every misclassified text with its gold label, Jev's label and Jev's probabilities. It writes an error analysis and then the next version. After ten rewrites, we keep the version with the highest validation macro-F1. Opus never sees validation data, so it cannot fit the selection set. Jev then scores the kept version once on the test set, with the three label orders averaged. We report one run per language, with seed 1.
+\paragraph{Tuning loop}
+We draw a development set of 600 other train texts, which keep the train label proportions. Jev scores the current version on the development and validation sets, with one label order to save cost. Opus receives the development macro-F1, the confusion matrix and every misclassified text with its gold label, Jev's label and Jev's probabilities. It writes an error analysis and then the next version. After ten rewrites, we keep the version with the highest validation macro-F1. Opus never sees validation data, so it cannot fit the selection set. Jev then scores the kept version once on the test set, with the three label orders averaged. We report one run per language, with seed 1.
 
 A tuned question has thus used 750 labelled train texts and the validation set, while the LLMs saw three examples. We therefore compare it with the best score that any LLM reached on the language, zero-shot or few-shot, and on English, German and French also with fine-tuned transformers.
 
@@ -122,7 +189,7 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 \begin{tikzpicture}[
   node distance=4mm and 5mm,
   action/.style={draw, rounded corners, align=center, font=\footnotesize, inner sep=3pt, text width=3.5cm},
-  data/.style={draw, align=center, font=\footnotesize, inner sep=3pt, fill=gray!12, text width=3.2cm},
+  data/.style={draw, align=center, font=\footnotesize, inner sep=3pt, fill=gray!12, text width=3.0cm},
   arrow/.style={-{Stealth[length=1.8mm]}},
   tag/.style={font=\scriptsize, align=center}
 ]
@@ -137,10 +204,11 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 \draw[arrow] (start) -- (score);
 \draw[arrow] (sets) -- (score);
 \draw[arrow] (score) -- node[tag, left] {development\\results only} (rewrite);
-\draw[arrow] (rewrite.east) -- ++(4mm,0) |- node[tag, right, pos=0.25] {10\\times} (score.east);
+\draw[arrow] (rewrite.east) -- ++(3mm,0) |- node[tag, right, pos=0.25] {10\\times} (score.east);
 \draw[arrow] (rewrite) -- node[tag, left] {after 10 rewrites} (keep);
 \draw[arrow] (keep) -- (test);
 \end{tikzpicture}
+\Description{A flowchart. The context and 150 train texts, 50 per label, go to Opus, which writes the start question. Jev scores each version on 600 development texts and on the validation set, with one label order. Only the development results go back to Opus, which analyses the errors and writes the next version, and this loop runs ten times. After ten rewrites, the version with the best validation macro-F1 is kept and scored once on the test set with three label orders.}
 \caption{Writing and tuning Jev's question for one language. Opus sees train data only; the validation set selects the version, and the test set is scored once.}
 \label{fig:tuning}
 \end{figure}
@@ -163,6 +231,7 @@ A tuned question has thus used 750 labelled train texts and the validation set, 
 \textit{Cues:} pm me, tickets, are you going, I guess, still waiting, right?, may, should, heads up\\
 \textit{Not for:} Open gushing is positive; insults, sadness, :( or \#fml are negative.};
 \end{tikzpicture}
+\Description{Three stacked boxes. The first holds the state: a context sentence about the SemEval-2017 dataset and the tweet text. The second holds the instructions: the question, and a rule that lists which tweets count as neutral, such as ticket sales, logistics, wry jokes and opinions on politics, religion or sport without insults. The third holds the neutral criterion in four parts: what the label covers, two example tweets, cue words, and the cases that belong to positive or negative instead.}
 \caption{Excerpt of the tuned English question that the validation set selected. Opus wrote it from train data. The positive and negative criteria have the same four parts, and Jev gets the question in three label orders.}
 \label{fig:tuned-question}
 \end{figure}
@@ -200,13 +269,14 @@ The study has three main limitations. First, we made one tuning run per language
 \section{Conclusion}
 We compared two System One models with five LLMs on three-class sentiment analysis in eight languages, on the same 12,552 test items. Zero-shot, Jev ranks third of the seven models, while Clef labels too many texts neutral. The LLMs' few-shot examples help the LLMs but not the System One models. When Claude Opus 5.5 writes Jev's question from labelled train data and tunes it on Jev's errors, Jev's mean rises from 62.1 to 70.2, and it reaches the best score of all models on German, Czech, Albanian, Bosnian and Croatian. Future work will repeat the tuning with several runs, extend the study to the other 26 languages of the benchmark with usable data, and tune the questions of other System One models.
 
-\section*{Acknowledgment}
-We thank Igor Mozeti\v{c} for sharing the tweet texts of the Bosnian, Croatian and Serbian datasets. We used Claude (Anthropic) to help draft and edit this paper, and the authors checked all of its content.
-
-\section*{Code and Data Availability}
+\section{Code and Data Availability}
 The code, the prompts, the question files, the tuning logs and the per-item predictions are available at \url{https://github.com/uran-lajci/system-one-multilingual-sentiment}. The prediction files hold row numbers, labels and probabilities, but no text. The question files and tuning logs of Bosnian, Croatian and Serbian are not included, because they quote tweets that we are not allowed to redistribute. The datasets are available from their authors~\cite{barbieri2022xlmt,kastrati2021albana,mozetic2016multilingual,habernal2013czech}.
 
-\bibliographystyle{IEEEtran}
+\begin{acks}
+We thank Igor Mozeti\v{c} for sharing the tweet texts of the Bosnian, Croatian and Serbian datasets. We used Claude (Anthropic) to help draft and edit this paper, and the authors checked all of its content.
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
 
 \end{document}
