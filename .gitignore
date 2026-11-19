@@ -157,6 +157,9 @@ data/*
 !data/actual_dataset_resources.md
 papers/
 
+# The copy of the paper sent to the conference stays on disk only
+conference_paper/
+
 # Environments
 .env
 .envrc
