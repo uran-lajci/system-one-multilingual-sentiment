@@ -157,8 +157,7 @@ data/*
 !data/actual_dataset_resources.md
 papers/
 
-# The paper and the copy sent to the conference stay on disk only
-paper/
+# The conference paper stays on disk only
 conference_paper/
 
 # Environments
